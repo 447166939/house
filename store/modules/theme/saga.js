@@ -11,7 +11,7 @@ function* getTemp() {
 }
 
 function* watch() {
-    yield takeLatest(tempGetInfo, getTemp)
+    yield takeLatest('TEMP_GET_INFO', getTemp)
 }
 
 export default [fork(watch)]
