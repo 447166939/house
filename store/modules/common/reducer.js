@@ -1,6 +1,7 @@
-import { handleActions } from 'redux-actions'
+import { handleActions,combineActions } from 'redux-actions'
 import actions from './action'
 const {displaySetDialog,
+    tempSetInfo,
     setGithubInfo}=actions
 export const namespace = 'common'
 
@@ -25,6 +26,13 @@ export const commonReducer = handleActions(
         [setGithubInfo]: (state, action) => {
             const { githubData } = action.payload
             return { ...state, githubData }
+        },
+        [combineActions(tempSetInfo)]: (state,{payload})=>{
+            console.log('tempsetreducer',payload)
+            return {
+    ...state,
+                result:payload.result
+            }
         }
     },
     defaultState

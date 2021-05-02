@@ -32,9 +32,11 @@ const  Index=()=> {
 export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
     if (!store.getState().placeholderData) {
         console.log('ttt===',tempGetInfo())
-        store.dispatch(tempGetInfo())
+         store.dispatch(tempGetInfo())
     }
-    await store.sagaTask.toPromise()
+    return {
+
+    }
 })
 
 export default Index
