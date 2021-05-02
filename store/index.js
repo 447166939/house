@@ -6,7 +6,7 @@ import { commonReducer, namespace as commonNamespace} from './modules/common/red
 import { createWrapper } from 'next-redux-wrapper'
 export function* rootSaga() {
     yield all([
-        call(commonSaga)
+        ...commonSaga
     ])
 }
 const rootReducer = combineReducers({

@@ -8,16 +8,14 @@ const {
 } =actions
 
 function* getTemp() {
-    const result = 'temp'
-    console.log('tempsetinfo',tempSetInfo(result))
+    const result="temp"
     yield put(tempSetInfo(result))
 }
 
 
 
 function* watchCommon() {
-    console.log('watchcommon')
     yield takeEvery(tempGetInfo, getTemp)
 }
 
-export default watchCommon
+export default [fork(watchCommon)]
