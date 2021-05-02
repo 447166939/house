@@ -2,14 +2,12 @@ import { applyMiddleware, createStore,combineReducers} from 'redux'
 import createSagaMiddleware from 'redux-saga'
 import {all} from 'redux-saga/effects'
 import commonSaga from './modules/common/saga'
-import themeSaga from './modules/theme/saga'
 import { commonReducer, namespace as commonNamespace} from './modules/common/reducer'
 import {themeReducer, namespace as themeNameSpace} from './modules/theme/reducer'
 import { createWrapper } from 'next-redux-wrapper'
 export function* rootSaga() {
     yield all([
-        ...commonSaga,
-        ...themeSaga,
+        commonSaga
     ])
 }
 const rootReducer = combineReducers({

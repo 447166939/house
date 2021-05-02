@@ -1,11 +1,7 @@
 import { handleActions } from 'redux-actions'
-
-import {
-    displaySetDialog,
-    // 暂存github信息
-    setGithubInfo,
-} from './action'
-
+import actions from './action'
+const {displaySetDialog,
+    setGithubInfo}=actions
 export const namespace = 'common'
 
 export const defaultState = {

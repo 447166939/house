@@ -1,14 +1,14 @@
 import axios from 'axios'
 import { fork, put, takeEvery } from 'redux-saga/effects'
-
-import {
+import actions from './action'
+const {
     // 模板
     tempGetInfo,
     tempSetInfo,
     // github 个人信息
     fetchGitInfo,
     setGithubInfo,
-} from './action'
+} =actions
 
 function* getTemp() {
     const result = 'temp'
@@ -29,8 +29,6 @@ function* getGithubInfo(action) {
 
 function* watchCommon() {
     yield takeEvery(tempGetInfo, getTemp)
-    // 请求接口
-    yield takeEvery(fetchGitInfo, getGithubInfo)
 }
 
-export default [fork(watchCommon)]
+export default watchCommon

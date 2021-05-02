@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux'
 import { wrapper } from '../store'
 import Layout from '../components/Layout';
 import { END } from 'redux-saga'
+import actions from '../store/modules/common/action'
+const {tempGetInfo}=actions
 
 const  Index=()=> {
   const dispatch = useDispatch()
@@ -29,9 +31,9 @@ const  Index=()=> {
 
 export const getStaticProps = wrapper.getStaticProps(async ({ store }) => {
     if (!store.getState().placeholderData) {
-        store.dispatch(END)
+        console.log('ttt===',tempGetInfo())
+        store.dispatch(tempGetInfo())
     }
-
     await store.sagaTask.toPromise()
 })
 
