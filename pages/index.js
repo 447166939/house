@@ -7,7 +7,6 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { wrapper } from '../store'
 import Layout from '../components/Layout';
-import { END } from 'redux-saga'
 import actions from '../store/modules/common/action'
 const {tempGetInfo}=actions
 
