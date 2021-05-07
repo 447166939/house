@@ -2,7 +2,6 @@ import axios from 'axios'
 import { fork, put, takeEvery } from 'redux-saga/effects'
 import actions from './action'
 const {
-    // 模板
     tempGetInfo,
     tempSetInfo,
 } =actions
