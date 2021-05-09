@@ -51,6 +51,11 @@
   resolved "https://registry.npm.taobao.org/@emotion/hash/download/@emotion/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
   integrity sha1-u7/2iXj+/b5ozLUzvIy+HRr7VBM=
 
+"@fontsource/nunito-sans@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.nlark.com/@fontsource/nunito-sans/download/@fontsource/nunito-sans-4.3.0.tgz#338b939085549cac6d5bfdca70a399ed60b252d1"
+  integrity sha1-M4uTkIVUnKxtW/3KcKOZ7WCyUtE=
+
 "@hapi/accept@5.0.1":
   version "5.0.1"
   resolved "https://registry.npm.taobao.org/@hapi/accept/download/@hapi/accept-5.0.1.tgz?cache=0&sync_timestamp=1612504742912&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40hapi%2Faccept%2Fdownload%2F%40hapi%2Faccept-5.0.1.tgz#068553e867f0f63225a506ed74e899441af53e10"
@@ -253,6 +258,11 @@
   version "0.16.1"
   resolved "https://registry.npm.taobao.org/@types/scheduler/download/@types/scheduler-0.16.1.tgz?cache=0&sync_timestamp=1613384878076&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fscheduler%2Fdownload%2F%40types%2Fscheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha1-GIRSBehv8AOFF6q3oYpiprn3EnU=
+
+animejs@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.npm.taobao.org/animejs/download/animejs-3.2.1.tgz#de9fe2e792f44a777a7fdf6ae160e26604b0cdda"
+  integrity sha1-3p/i55L0Snd6f99q4WDiZgSwzdo=
 
 anser@1.4.9:
   version "1.4.9"

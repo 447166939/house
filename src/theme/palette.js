@@ -1,14 +1,12 @@
 import { red, blue, lightBlue, yellow, green } from '@material-ui/core/colors';
-const white = '#FFF';
-const black = '#000';
-
 export default {
     type: 'dark',
     common: {
-        black,
-        white,
-        commonBackground: 'rgb(45, 45, 45)',
-        contrastText: white,
+        black:'#000',
+        white:'#fff',
+        dark:'#DFE4EA',
+        commonBackground: '#F7F8FA',
+        contrastText: '#fff',
         neutral: '#E4E7EB',
         muted: '#9EA0A4'
     },
@@ -18,42 +16,40 @@ export default {
         dark: 'rgb(0, 40, 73)',
         logoBg: 'rgb(51, 51, 51)',
         border: 'rgba(0, 40, 73, .1)',
-        contrastText: white
+        contrastText: '#fff',
     },
     primary: {
         light: lightBlue[300],
-        main: lightBlue[500],
+        main: '#f7f8fa',
         dark: lightBlue[700],
-        contrastText: white
+        contrastText: '#fff'
     },
     success: {
         light: green[300],
         main: green[500],
         dark: green[700],
-        contrastText: white
+        contrastText: '#fff'
     },
     info: {
         light: blue[300],
         main: blue[500],
         dark: blue[700],
-        contrastText: white
+        contrastText: '#fff'
     },
     warning: {
         light: yellow[300],
         main: yellow[500],
         dark: yellow[700],
-        contrastText: white
+        contrastText: '#fff'
     },
     danger: {
         light: red[300],
         main: red[500],
         dark: red[700],
-        contrastText: white
+        contrastText: '#fff'
     },
     background: {
-        paper: 'rgb(45, 45, 45)',
-        default: 'rgb(26, 26, 26)',
-        dark: 'rgb(26, 26, 26)'
+        default: '#F7F8FA',
     },
     border: '#DFE3E8',
     divider: '#DFE3E8',

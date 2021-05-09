@@ -2,28 +2,28 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import { makeStyles } from '@material-ui/core';
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { wrapper } from '../store'
 import Layout from '../components/Layout';
 import actions from '../store/modules/common/action'
+import Button from '@/components/Button'
 const {tempGetInfo}=actions
-
+const useStyles = makeStyles(theme => ({
+    root: {
+        height:'100vh',
+        padding:theme.spacing(5)
+    }
+}));
 const  Index=()=> {
   const dispatch = useDispatch()
-
+    const classes = useStyles();
   useEffect(() => {
   }, [dispatch])
   return (
       <Layout>
-      <Container maxWidth="sm">
-        <Box my={4}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            Next.js example
-          </Typography>
-        </Box>
-      </Container>
+      <div className={classes.root}></div>
       </Layout>
   );
 }
