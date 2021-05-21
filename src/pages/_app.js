@@ -5,7 +5,11 @@ import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import "@fontsource/nunito-sans";
-import theme from '../src/theme';
+import theme from '../theme';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import 'swiper/components/scrollbar/scrollbar.scss';
 
  function MyApp(props) {
   const { Component, pageProps } = props;

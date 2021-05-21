@@ -1,4 +1,4 @@
-import React,{Fragment} from 'react'
+import React,{Fragment,useState,useCallback} from 'react'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import { makeStyles } from '@material-ui/core';
 import clsx from 'clsx'
@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         textTransform: 'uppercase',
         height: '40px',
         padding: theme.spacing(2),
-        '&:active': {
+        '&:active,&:focus': {
             color:'#CBD5E5',
             "&:after": {
                 content: "''",
@@ -31,10 +31,14 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 const Button=props=>{
-    const {children,className}=props
+    const {children,className,onClick=function(){}}=props
     const classes=useStyles();
+    const handleClick=useCallback(()=>{
+        console.log('I am clicked')
+        onClick()
+    },[])
     return (
-        <ButtonBase className={clsx(classes.btn,className)} disableRipple>{children}</ButtonBase>
+        <ButtonBase onClick={handleClick} className={clsx(classes.btn,className)} disableRipple>{children}</ButtonBase>
     )
 }
 export default Button

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="177.918" height="173.039" viewBox="0 0 177.918 173.039">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d500f9"/>
+      <stop offset="0.99" stop-color="#2979ff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ea80fc"/>
+      <stop offset="0.99" stop-color="#40c4ff"/>
+    </linearGradient>
+  </defs>
+  <g id="组_2534" data-name="组 2534" transform="translate(-7.559 498.775) rotate(-178)">
+    <g id="组_2360" data-name="组 2360" transform="translate(-168.167 331.806)">
+      <g id="组_2359" data-name="组 2359" style="isolation: isolate">
+        <g id="组_2355" data-name="组 2355" transform="translate(94.861 49.073)">
+          <path id="路径_1541" data-name="路径 1541" d="M-28.321,461.075l-29.025.243L-74.894,380.3l29.025-.243Z" transform="translate(74.894 -380.057)" fill="url(#linear-gradient)"/>
+        </g>
+        <g id="组_2356" data-name="组 2356" transform="translate(0 0)">
+          <path id="路径_1542" data-name="路径 1542" d="M-139.142,451.043l-29.025.243L-61.139,332.049l29.025-.243Z" transform="translate(168.167 -331.806)" fill="url(#linear-gradient)"/>
+        </g>
+        <g id="组_2357" data-name="组 2357" transform="translate(0 119.237)">
+          <path id="路径_1543" data-name="路径 1543" d="M4.023,496.7-25,496.941-168.167,449.29l29.025-.243Z" transform="translate(168.167 -449.047)" fill="url(#linear-gradient)"/>
+        </g>
+        <g id="组_2358" data-name="组 2358" transform="translate(29.025)">
+          <path id="路径_1544" data-name="路径 1544" d="M-32.6,331.806,3.537,498.695l-143.166-47.651ZM-96.716,438.761l69.5,23.135-17.548-81.018-51.95,57.882" transform="translate(139.628 -331.806)" fill="url(#linear-gradient-4)"/>
+        </g>
+      </g>
+    </g>
+    <g id="组_2361" data-name="组 2361" transform="translate(-168.167 451.043)" opacity="0.74" style="mix-blend-mode: multiply;isolation: isolate">
+      <path id="路径_1545" data-name="路径 1545" d="M4.023,496.7-25,496.941-168.167,449.29l29.025-.243Z" transform="translate(168.167 -449.047)" fill="url(#linear-gradient)"/>
+    </g>
+  </g>
+</svg>
