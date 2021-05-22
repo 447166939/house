@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => ({
         color:theme.palette.common.black,
         display: 'flex',
         flexDirection:'column',
-        minheight:'100vh',
-        paddingBottom:'267px',
+        minHeight:'100vh',
+        paddingBottom:'1px',
         zIndex: 1000,
     },
     appBar:{
@@ -57,6 +57,7 @@ const useStyles = makeStyles(theme => ({
         alignItems:'center',
         position:'relative',
         overflow:'hidden',
+        paddingBottom: '500px',
     },
     bg:{
         position:'absolute',
