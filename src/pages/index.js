@@ -5,10 +5,38 @@ import Layout from '../components/Layout';
 import Card from '@/components/Card'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import anime from 'animejs'
+import Link from '@material-ui/core/Link';
 import SwiperCore, {Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
+import MuiCard from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import { SvgIcon } from '@material-ui/core';
+import IconButton from '@material-ui/core/IconButton';
+import LikeSvg from '../assets/likes.svg'
+import CommentSvg from '../assets/comment.svg'
+import PhoneSvg from '../assets/phone.svg'
+import EmailSvg from '../assets/email.svg'
+import InputBase from '@material-ui/core/InputBase';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
+
+const links=[{text:'Development Services We Provide',url:""},{text:'Software We Develop',url:''},
+    {text:'Why moduleX',url:''},{text:'What Defines Modern Software',url:''},{text:'Technologies We Use',url:''},{text:'Software Types We develop',url:''}]
+const blogs=[
+    {img:'/card1.svg',title:'Excepteur sint occaecat.',text:'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',likeNum:609,commentNum:120},
+    {img:'/card2.svg',title:'Excepteur sint occaecat.',text:'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',likeNum:609,commentNum:120},
+    {img:'/card3.svg',title:'Excepteur sint occaecat.',text:'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',likeNum:609,commentNum:120},
+    {img:'/card4.svg',title:'Excepteur sint occaecat.',text:'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',likeNum:609,commentNum:120},
+]
 SwiperCore.use([Pagination]);
+const LikeIcon=props=>(<SvgIcon component={LikeSvg} viewBox="0 0 16 14" />)
+const CommentIcon=props=>(<SvgIcon component={CommentSvg} viewBox="0 0 16 16" />)
+const PhoneIcon=props=>(<SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />)
+const EmailIcon=props=>(<SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />)
 const useStyles = makeStyles(theme => ({
     card: {
         width: '1220px',
@@ -16,8 +44,9 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         alignItems: 'center',
         padding: '129px 117px 67px 117px',
-        marginTop: '34px',
+        marginTop: '123px',
         marginBottom: '137px',
+        borderRadius:'10px',
     },
     cardTitle: {
         fontSize: '48px',
@@ -36,12 +65,12 @@ const useStyles = makeStyles(theme => ({
         color: '#40C4FF',
         fontSize: '12px',
         lineHeight: '30px',
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(247, 248, 250, .5)',
         borderRadius: '3px',
     },
     circle: {
         position: 'absolute',
-        top: '500px',
+        top: '800px',
         left: '-1400px',
         width: '253px',
         height: 'auto',
@@ -50,16 +79,16 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         width: '92px',
         height: 'auto',
-        left: '-1000px',
-        top: '601px',
+        left: '-3000px',
+        top: '1800px',
         zIndex: 1,
     },
     rect: {
         position: 'absolute',
         width: '185px',
         height: 'auto',
-        left: '-500px',
-        top: '605px',
+        left: '-2000px',
+        top: '1610px',
     },
     triangle: {
         position: 'absolute',
@@ -80,8 +109,8 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         width: '82px',
         height: 'auto',
-        left: '-600px',
-        top: '1000px',
+        left: '-700px',
+        top: '1200px',
     },
     test: {
         position: 'absolute',
@@ -91,7 +120,7 @@ const useStyles = makeStyles(theme => ({
         top: '1000px',
     },
     aboutSection: {
-        margin: '137px 50px 40px 50px',
+        margin: '137px 50px 20px 50px',
         borderRadius: '10px',
         display: 'flex',
         alignItems: 'center',
@@ -128,7 +157,7 @@ const useStyles = makeStyles(theme => ({
     },
     wwdSection: {
         borderRadius: '10px',
-        margin: '137px 50px 40px 50px',
+        margin: '20px 50px 30px 50px',
         alignSelf: 'stretch',
         backgroundColor: '#f7f8fa',
         padding: '60px 0',
@@ -215,6 +244,298 @@ const useStyles = makeStyles(theme => ({
     },
     wwdBody:{
         display:'flex'
+    },
+    wwdLinks:{
+        display:'flex',
+        flexWrap:'wrap',
+        marginTop:'100px'
+    },
+    wwdLinkItem:{
+        width:'31%',
+        fontSize:'20px',
+        lineHeight:'50px',
+        color:'#000',
+        display:'flex',
+        alignItems:'center',
+        marginRight:'2%',
+        marginBottom:'70px'
+    },
+    wwdDot:{
+        width:'9px',
+        height:'9px',
+        backgroundColor:'#2699FB',
+        marginRight:'13px'
+    },
+    wwdLink:{
+        overflow:'hidden',
+        textOverflow:'ellipsis',
+        whiteSpace:'nowrap'
+    },
+    partnerCard:{
+        display:'flex',
+
+        marginLeft:'273px',
+        marginRight:'273px',
+        borderRadius:'10px',
+    },
+    partnerLeft:{
+        width:'40%',
+        margin:'60px 50px'
+    },
+    partnerRight:{
+        width:'60%',
+        margin:'30px 0px'
+    },
+    partnerTitle:{
+        position:'relative',
+        fontSize:'40px',
+        lineHeight:'50px',
+        fontWeight:'bold',
+        color:'#000',
+        marginBottom:theme.spacing(2),
+        '&:after': {
+            content: "''",
+            position: 'absolute',
+            width: '60px',
+            height: '4px',
+            bottom: 0,
+            left: 0,
+            backgroundColor: '#2699FB',
+        }
+    },
+    partnerText:{
+        fontSize:'16px',
+        lineHeight:'24px',
+        color:'#000',
+        marginBottom:'20px'
+    },
+    partnerBtn:{
+        width: '148px',
+        height: '48px',
+        color: '#40C4FF',
+        fontSize: '12px',
+        lineHeight: '30px',
+        backgroundColor: 'rgba(247, 248, 250, .5)',
+        borderRadius: '3px',
+    },
+    sectionThreeCard:{
+        marginLeft: '273px',
+        marginRight:'273px',
+        display:'flex',
+        justifyContent:'space-between',
+        alignSelf:'stretch',
+        marginTop:'30px'
+    },
+    threeCardWrapper:{
+       display:'flex',
+       flexDirection:'column',
+        alignItems:'center',
+        width:'30%',
+        borderRadius:'10px',
+        padding:'40px',
+        justifyContent: 'space-between'
+    },
+    threeCardImgWrapper:{
+     marginBottom:'50px',
+    },
+    threeCardImg:{
+       width:'148px',
+        height:'auto',
+        borderRadius:'74px',
+    },
+    threeCardTitle:{
+        position:'relative',
+        fontSize:'20px',
+        lineHeight:'50px',
+        color:'#000',
+        fontWeight:'bold',
+        marginBottom:'32px',
+        '&:after': {
+            content: "''",
+            position: 'absolute',
+            width: '60px',
+            height: '4px',
+            bottom: 0,
+            left: 0,
+            backgroundColor: '#2699FB',
+        }
+    },
+    threeCardText:{
+        fontSize:'16px',
+        lineHeight:'24px',
+        color:'#000',
+        textAlign:'center'
+    },
+    threeCardBtn:{
+        borderRadius:'8px',
+        fontSize:'14px',
+        lineHeight:'30px',
+        color:'#2699FB',
+        width:'189px',
+        height:'52px',
+        backgroundColor:'#fff',
+        marginTop:'22px',
+        opacity:0.5,
+    },
+    sectionBlogs:{
+        backgroundColor:'#f7f8fa',
+        borderRadius:'8px',
+        marginLeft:'50px',
+        marginRight:'50px',
+        alignSelf:'stretch',
+        padding:'60px 277px',
+        marginTop:'58px'
+    },
+    sectionBlogsTitle:{
+        fontSize:'40px',
+        lineHeight:'50px',
+        color:'#000',
+        fontWeight:'bold',
+        position:'relative',
+        '&:after': {
+            content: "''",
+            position: 'absolute',
+            width: '60px',
+            height: '4px',
+            bottom: 0,
+            left: 0,
+            backgroundColor: '#2699FB',
+        }
+    },
+    blogsBox:{
+        display:'flex',
+        justifyContent:'space-between',
+        marginTop:'50px',
+        padding:'10px 0',
+    },
+    blogsCard:{
+     width:'23%',
+        backgroundColor:'#f7f8fa'
+    },
+    blogsCardImg:{
+  height:0,
+        paddingTop:'45%',
+    },
+    blogsCardTitle:{
+        color:'#000'
+    },
+    blogCardText:{
+        color:'#808080'
+    },
+    likesText:{
+        fontSize:'14px',
+        fontWeight:'bold',
+        color:'#c3cfde',
+        lineHeight:'24px',
+        marginLeft:theme.spacing(1)
+    },
+    commentText:{
+        fontSize:'14px',
+        fontWeight:'bold',
+        color:'#c3cfde',
+        lineHeight:'24px',
+        marginLeft:theme.spacing(1)
+    },
+    contactSection:{
+        alignSelf:'stretch',
+        marginLeft:'252px',
+        marginRight:'252px',
+        padding:'60px',
+        marginTop:'50px',
+        borderRadius:'10px',
+    },
+    contactTitle:{
+        fontSize:'38px',
+        lineHeight:'50px',
+        color:'#000',
+        fontWeight:'bold',
+        position:'relative',
+        marginBottom:theme.spacing(2),
+        '&:after': {
+            content: "''",
+            position: 'absolute',
+            width: '60px',
+            height: '4px',
+            bottom: 0,
+            left: 0,
+            backgroundColor: '#2699FB',
+        },
+    },
+    contactLeft:{
+     display:'inline-block',
+        width:'65%',
+    },
+    contactRight:{
+     display:'inline-block',
+        width:'35%',
+        paddingLeft:'100px',
+        verticalAlign:'bottom',
+    },
+    contactFormLabel:{
+     fontSize:'16px',
+        lineHeight:'24px',
+        color:'#000'
+    },
+    inputGroup:{
+        display:'flex',
+        justifyContent:'space-between',
+        marginTop:'30px'
+    },
+    contactInputWrapper:{
+        width:'23%',
+        boxShadow: 'inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)',
+        borderRadius: '8px',
+        paddingLeft:theme.spacing(2),
+        backgroundColor:'#fff',
+        opacity:0.6,
+    },
+    contactInput:{
+
+    },
+    contactTextAreaWrapper:{
+        width:'100%',
+        boxShadow: 'inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)',
+        borderRadius: '8px',
+        backgroundColor:'#fff',
+        opacity:0.6,
+        marginTop:'60px',
+    },
+    contactTextArea:{
+     width:'100%',
+        border:'none',
+        outline:'none',
+        padding:theme.spacing(2),
+        borderRadius:'8px',
+    },
+    contactRightTitle:{
+        fontSize:'20px',
+        color:'#000',
+        lineHeight:'24px',
+        marginBottom:theme.spacing(1.5),
+    },
+    contactRightText:{
+        fontSize:'16px',
+        lineHeight:'18px',
+        color:'#2699FB',
+        marginLeft:theme.spacing(1),
+    },
+    contactRightBtn:{
+        width:'189px',
+        height:'52px',
+        backgroundColor:'#fff',
+        borderRadius:'8px',
+        opacity:0.5,
+        marginTop:theme.spacing(1.5)
+    },
+    phoneWrapper:{
+        marginBottom:theme.spacing(1.5),
+        display:'flex',
+        alignItems:'center',
+    },
+    emailWrapper:{
+        marginBottom:theme.spacing(1.5),
+        display:'flex',
+        alignItems:'center',
     }
 }));
 const Index = () => {
@@ -257,55 +578,52 @@ const Index = () => {
         });
         t1.add({
             targets: ['#circle'],
-            top: '400px',
+            top: '0px',
             left: '2500px',
             rotate: '30deg',
-            duration: 10000,
+            duration: 30000,
         })
         t2.add({
             targets: ['#ball'],
             top: 200,
-            delay: 1000,
             left: '2500px',
             rotate: '60deg',
-            duration: 10000,
+            duration: 30000,
         })
         t3.add({
             targets: ['#rect'],
-            top: 0,
-            delay: 2000,
+            top: -300,
             left: '2500px',
             rotate: '90deg',
-            duration: 10000,
+            duration: 30000,
         })
         t4.add({
             targets: ['#triangle'],
             left: '2500px',
             top: -200,
             rotate: '40deg',
-            duration: 10000,
+            duration: 30000,
         })
         t5.add({
             targets: ['#egg'],
             left: '2500px',
             top: -400,
             rotate: '80deg',
-            duration: 10000,
+            duration: 30000,
         })
         t6.add({
             targets: ['#triangle1'],
             left: '2500px',
-            delay: 5000,
             top: -600,
             rotate: '100deg',
-            duration: 10000,
+            duration: 30000,
         })
         test.add({
             targets: ['#test'],
             left: '2500px',
             top: '-600px',
             rotate: '360deg',
-            duration: 10000,
+            duration: 30000,
         })
     }, [])
     return (
@@ -368,10 +686,118 @@ const Index = () => {
                 <div className={classes.wwdContent}>
                     <div className={classes.wwdContentTitle}>Software Development</div>
                     <div className={classes.wwdContentText}>The development of reliable and scalable software solutions for any OS, browser and device. We bring together deep industry expertise and the latest IT advancements to deliver custom solutions and products that perfectly fit the needs and behavior of their users.</div>
+                    <div className={classes.wwdLinks} >
+                        {
+                            links.map((item,index)=>{
+                                return (
+                                    <div key={index} className={classes.wwdLinkItem}>
+                                        <span className={classes.wwdDot}></span>
+                                        <Link href={item.url}  color="inherit" className={classes.wwdLink}>{item.text}</Link>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
                 </div>
             </div>
+            <Card className={classes.partnerCard}>
+               <div className={classes.partnerLeft}>
+                <div className={classes.partnerTitle}>Partners</div>
+                   <div className={classes.partnerText}>Over years of business development, ModuleX has won lots of long-term trusted relationship with companies across the continent. Our business partners include AWS, IBM, Carvana, Hulu and many others. We providing services across Web, Mobile and Cloud, we deliver cloud-based projects, digital marketing solutions, IoT infrastructures, big data processing and analytics solutions. We care about your business like you do, we built the project like it is our project.</div>
+                  <div><ButtonBase className={classes.partnerBtn}>MORE</ButtonBase></div>
+               </div>
+                <div className={classes.partnerRight}>
+                 <img src={'/map.svg'} />
+                </div>
+            </Card>
+            <div className={classes.sectionThreeCard}>
+                <Card className={classes.threeCardWrapper}>
+                  <div className={classes.threeCardImgWrapper}><img className={classes.threeCardImg} src={'/service.svg'} /></div>
+                    <div className={classes.threeCardTitle}>Services We Provide</div>
+                    <div className={classes.threeCardText}>Comprehensive care of your cloud or on-premises infrastructure and applications with our diverse services.</div>
+                    <div><ButtonBase className={classes.threeCardBtn}>MORE</ButtonBase></div>
+                </Card>
+                <Card className={classes.threeCardWrapper}>
+                    <div className={classes.threeCardImgWrapper}><img className={classes.threeCardImg} src={'/techonologies.svg'} /></div>
+                    <div className={classes.threeCardTitle}>We evolve with Technologies</div>
+                    <div className={classes.threeCardText}>Distilling deep tech experience, our experts can help you with platform-specific consulting, solution design and support for your business evolution.</div>
+                    <div><ButtonBase className={classes.threeCardBtn}>MORE</ButtonBase></div>
+                </Card>
+                <Card className={classes.threeCardWrapper}>
+                    <div className={classes.threeCardImgWrapper}><img className={classes.threeCardImg} src={'/solution.svg'} /></div>
+                    <div className={classes.threeCardTitle}>Solutions We Deliver</div>
+                    <div className={classes.threeCardText}>We IT-enable all kinds of B2B, B2C interactions and internal operations.</div>
+                    <div><ButtonBase className={classes.threeCardBtn}>MORE</ButtonBase></div>
+                </Card>
+            </div>
+            <div className={classes.sectionBlogs}>
+                <div className={classes.sectionBlogsTitle}>
+                    Blogs
+                </div>
+                <div>
+                    <Swiper
+                        slidesPerView={1}
+                        pagination={{clickable: true}}
+                    >
+                        <SwiperSlide>
+                            <div className={classes.blogsBox}>
+                                {blogs.map((item,index)=>{
+                                    return (<MuiCard key={index} className={classes.blogsCard} elevation={2}>
+                                    <CardMedia
+                                        className={classes.blogsCardImg}
+                                        image={item.img}
+                                    />
+                                    <CardContent>
+                                        <Typography className={classes.blogsCardTitle} variant="h6" component="h6">
+                                            {item.title}
+                                        </Typography>
+                                        <Typography className={classes.blogCardText} variant="body2" component="p">
+                                            {item.text}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                     <IconButton>
+                                         <LikeIcon/>
+                                          <span className={classes.likesText}>{item.likeNum}</span>
+                                     </IconButton>
+                                        <IconButton>
+                                            <CommentIcon/>
+                                            <span className={classes.commentText}>{item.commentNum}</span>
+                                        </IconButton>
+                                    </CardActions>
+                                </MuiCard>)})}
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+
+            </div>
+            <Card className={classes.contactSection}>
+              <div className={classes.contactTitle}>Contact Us</div>
+                <div className={classes.contactLeft}>
+                    <div className={classes.contactFormLabel}>Drop us a line! We are here to answer your questions 24/7.</div>
+                    <div className={classes.inputGroup}>
+                        <div className={classes.contactInputWrapper}> <InputBase className={classes.contactInput} /></div>
+                        <div className={classes.contactInputWrapper}> <InputBase className={classes.contactInput} /></div>
+                        <div className={classes.contactInputWrapper}> <InputBase className={classes.contactInput} /></div>
+                        <div className={classes.contactInputWrapper}> <InputBase className={classes.contactInput} /></div>
+                    </div>
+                    <div className={classes.contactTextAreaWrapper}>
+                        <TextareaAutosize className={classes.contactTextArea} rowsMin={4} placeholder="How can we help you?" />
+                    </div>
+                </div>
+                <div className={classes.contactRight}>
+                    <div className={classes.contactRightTitle}>Our contact details</div>
+                    <div className={classes.phoneWrapper}><PhoneIcon/><span className={classes.contactRightText}>+ 1 626-265-5257</span></div>
+                    <div className={classes.emailWrapper}><EmailIcon/><span className={classes.contactRightText}>zion@galaxycgi.com</span></div>
+                    <div className={classes.contactRightTitle}>Press inquires</div>
+                    <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
+                    <div className={classes.contactBtnWrapper}><ButtonBase className={classes.contactRightBtn}>MORE</ButtonBase></div>
+                </div>
+            </Card>
         </Layout>
     );
 }
 export default Index
+
