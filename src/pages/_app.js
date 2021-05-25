@@ -10,6 +10,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/scrollbar/scrollbar.scss';
+import './global.css'
  function MyApp(props) {
   const { Component, pageProps } = props;
   React.useEffect(() => {

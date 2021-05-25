@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         textTransform: 'uppercase',
         height: '40px',
         padding: theme.spacing(2),
-        marginRight:'48px',
+        marginRight:'32px',
       /* '&:hover:after': {
             opacity: 1,
             top: 0,
@@ -53,11 +53,12 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 const Tabs=props=>{
-    const {menus=[]}=props
+    const {menus=[],onChange=function (){}}=props
     const classes=useStyles();
     const [idx,setIdx]=useState()
     const handleClick=useCallback((index)=>{
         setIdx(index)
+        onChange(index)
     },[idx])
     return  (
         menus.map((item,index)=>{

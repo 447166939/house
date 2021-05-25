@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useCallback} from 'react';
 import {makeStyles} from '@material-ui/core';
 import {useEffect} from 'react'
 import Layout from '../components/Layout';
@@ -9,7 +9,6 @@ import Link from '@material-ui/core/Link';
 import SwiperCore, {Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import MuiCard from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -22,6 +21,7 @@ import PhoneSvg from '../assets/phone.svg'
 import EmailSvg from '../assets/email.svg'
 import InputBase from '@material-ui/core/InputBase';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import clsx from 'clsx'
 
 
 const links=[{text:'Development Services We Provide',url:""},{text:'Software We Develop',url:''},
@@ -112,12 +112,21 @@ const useStyles = makeStyles(theme => ({
         left: '-700px',
         top: '1200px',
     },
-    test: {
+    cube: {
         position: 'absolute',
         width: '82px',
         height: 'auto',
         left: '-600px',
         top: '1000px',
+        zIndex: -100,
+    },
+    cube1:{
+        position: 'absolute',
+        width: '156px',
+        height: 'auto',
+        left: '-800px',
+        top: '900px',
+        zIndex:-50,
     },
     aboutSection: {
         margin: '137px 50px 20px 50px',
@@ -197,6 +206,19 @@ const useStyles = makeStyles(theme => ({
         cursor: 'pointer',
         textTransform: 'uppercase',
         marginRight:'15px'
+    },
+    wwdTabActive: {
+        color:'#CBD5E5',
+        "&:after": {
+            content: "''",
+            position: 'absolute',
+            left: 0,
+            top: 0,
+            right: 0,
+            bottom: 0,
+            boxShadow: '2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset',
+            borderRadius: '8px',
+        }
     },
     wwdSider: {
         width:'331px',
@@ -540,6 +562,10 @@ const useStyles = makeStyles(theme => ({
 }));
 const Index = () => {
     const classes = useStyles();
+    const [tab,setTab]=useState()
+    const handleClickWwdTab=useCallback((tab)=>{
+        setTab(tab)
+    },[])
     useEffect(() => {
         var t1 = anime.timeline({
             easing: 'linear',
@@ -571,7 +597,12 @@ const Index = () => {
             duration: 3000,
             loop: true,
         });
-        var test = anime.timeline({
+        var cubeTimeLine = anime.timeline({
+            easing: 'linear',
+            duration: 3000,
+            loop: true,
+        });
+        var cubeTimeLine1= anime.timeline({
             easing: 'linear',
             duration: 3000,
             loop: true,
@@ -618,8 +649,15 @@ const Index = () => {
             rotate: '100deg',
             duration: 30000,
         })
-        test.add({
-            targets: ['#test'],
+        cubeTimeLine.add({
+            targets: ['#cube'],
+            left: '2500px',
+            top: '-600px',
+            rotate: '360deg',
+            duration: 30000,
+        })
+        cubeTimeLine1.add({
+            targets: ['#cube1'],
             left: '2500px',
             top: '-600px',
             rotate: '360deg',
@@ -634,7 +672,8 @@ const Index = () => {
             <img id={'triangle'} className={classes.triangle} src={'/triangle.svg'}/>
             <img id={'egg'} className={classes.egg} src={'/egg.svg'}/>
             <img id={'triangle1'} className={classes.triangle1} src={'/triangle1.svg'}/>
-            <img id={'test'} className={classes.test} src={'/test.svg'}/>
+            <img id={'cube'} className={classes.cube} src={'/cube.svg'}/>
+            <img id="cube1" className={classes.cube1} src={'/cube1.svg'} />
             <Card className={classes.card}>
                 <h1 className={classes.cardTitle}>SOFTWARE CONSULTING AND DEVELOPMENT FOR YOUR DIGITAL SUCCESS</h1>
                 <p className={classes.cardText}>We Transform business with powerful and adaptable digital solutions that
@@ -667,10 +706,10 @@ const Index = () => {
             <div className={classes.wwdSection}>
                 <div className={classes.wwdTitle}>What We Do</div>
                 <div className={classes.wwdTab}>
-                    <ButtonBase className={classes.wwdTabItem}>Technologies</ButtonBase>
-                    <ButtonBase className={classes.wwdTabItem}>Services</ButtonBase>
-                    <ButtonBase className={classes.wwdTabItem}>Solutions</ButtonBase>
-                    <ButtonBase className={classes.wwdTabItem}>Blog & News</ButtonBase>
+                    <ButtonBase disableRipple onClick={handleClickWwdTab.bind(null,0)} style={{flexShrink:0}} className={clsx(classes.wwdTabItem,{[classes.wwdTabActive]:tab==0})}>Technologies</ButtonBase>
+                    <ButtonBase disableRipple onClick={handleClickWwdTab.bind(null,1)} className={clsx(classes.wwdTabItem,{[classes.wwdTabActive]:tab==1})}>Services</ButtonBase>
+                    <ButtonBase disableRipple onClick={handleClickWwdTab.bind(null,2)} className={clsx(classes.wwdTabItem,{[classes.wwdTabActive]:tab==2})}>Solutions</ButtonBase>
+                    <ButtonBase disableRipple onClick={handleClickWwdTab.bind(null,3)} className={clsx(classes.wwdTabItem,{[classes.wwdTabActive]:tab==3})}>Blog & News</ButtonBase>
                 </div>
                 <div className={classes.wwdBody}>
                 <div className={classes.wwdSider}>

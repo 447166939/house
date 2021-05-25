@@ -9,10 +9,10 @@ beforeAll(() => {
 test('test button', () => {
     // 渲染组件
     const button = shallow(<Button>test</Button>);
-    expect(button.text()).toEqual('test');
+    expect(button.text()).toEqual('cube.svg');
     expect(button.find(ButtonBase)).toHaveLength(1)
     // 触发事件
     button.find(ButtonBase).simulate('click');
-    expect(button.text()).toEqual('test');
+    expect(button.text()).toEqual('cube.svg');
 });
 
