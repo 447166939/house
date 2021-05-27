@@ -512,7 +512,7 @@ const useStyles = makeStyles(theme => ({
         opacity:0.6,
     },
     contactInput:{
-
+     color:'#000'
     },
     contactTextAreaWrapper:{
         width:'100%',

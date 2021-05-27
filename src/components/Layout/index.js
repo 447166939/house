@@ -12,6 +12,19 @@ import Drawer from '@/components/Drawer'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Link from '@material-ui/core/Link';
 import anime from 'animejs'
+import { IconButton } from '@material-ui/core';
+ import upSvg from '@/assets/up.svg'
+import chatSvg from '@/assets/chat.svg'
+const UPIcon=props=>{
+     return (
+         <SvgIcon component={upSvg} viewBox={'0 0 21 26'}/>
+     )
+}
+const ChatIcon=props=>{
+     return (
+         <SvgIcon component={chatSvg} viewBox={'0 0 26.6 22.3'}/>
+     )
+}
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -181,6 +194,18 @@ const useStyles = makeStyles(theme => ({
         fontSize:'16px',
         color:'#2A2D31',
         lineHeight:'50px',
+    },
+    upAnchor:{
+        position:'fixed',
+        bottom:'397px',
+        right:'50px',
+        backgroundColor:'#fff',
+    },
+    chatBtn:{
+        position:'fixed',
+        bottom:'317px',
+        right:'50px',
+        backgroundColor:'#fff',
     }
 }));
 function LogoIcon(props) {
@@ -266,6 +291,8 @@ const Layout=({children})=>{
             <div className={classes.bg}></div>
             {children}
         </div>
+        <IconButton className={classes.upAnchor}><UPIcon/></IconButton>
+        <IconButton className={classes.chatBtn}><ChatIcon/></IconButton>
             <Footer />
            </div>
 }
