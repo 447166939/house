@@ -75,6 +75,13 @@ const useStyles = makeStyles(theme => ({
         width: '253px',
         height: 'auto',
     },
+    circle2: {
+        position: 'absolute',
+        bottom: '-100px',
+        left: '0px',
+        width: '253px',
+        height: 'auto',
+    },
     ball: {
         position: 'absolute',
         width: '92px',
@@ -95,15 +102,24 @@ const useStyles = makeStyles(theme => ({
         width: '148px',
         height: 'auto',
         left: '-800px',
-        top: '650px',
+        top: '1650px',
+        filter:'blur(10px)',
     },
     egg: {
         position: 'absolute',
         width: '700px',
-        height: 'auto',
+        height:'aoto',
         left: '-400px',
         transform: 'scale(0.1)',
         top: '550px',
+    },
+    egg2: {
+        position: 'absolute',
+        width: '700px',
+        height:'aoto',
+        left: '200px',
+        transform: 'scale(0.1)',
+        bottom: '-100px',
     },
     triangle1: {
         position: 'absolute',
@@ -116,8 +132,8 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         width: '82px',
         height: 'auto',
-        left: '-600px',
-        top: '1000px',
+        left: '-300px',
+        top: '2000px',
         zIndex: -100,
     },
     cube1:{
@@ -126,6 +142,22 @@ const useStyles = makeStyles(theme => ({
         height: 'auto',
         left: '-800px',
         top: '900px',
+        zIndex:-50,
+    },
+        tetrahedron:{
+            position: 'absolute',
+            width: '156px',
+            height: 'auto',
+            left: '100px',
+            top: '1000px',
+            zIndex:-50,
+        },
+    circle1:{
+        position: 'absolute',
+        width: '156px',
+        height: 'auto',
+        left: '-500px',
+        top: '8000px',
         zIndex:-50,
     },
     aboutSection: {
@@ -406,7 +438,8 @@ const useStyles = makeStyles(theme => ({
         marginRight:'50px',
         alignSelf:'stretch',
         padding:'60px 277px',
-        marginTop:'58px'
+        marginTop:'58px',
+        zIndex:100,
     },
     sectionBlogsTitle:{
         fontSize:'40px',
@@ -607,46 +640,66 @@ const Index = () => {
             duration: 3000,
             loop: true,
         });
+        var tetrahedronTimeLine=anime.timeline({
+            easing: 'linear',
+            duration: 3000,
+            loop: true,
+        });
+        var circle1TimeLine=anime.timeline({
+            easing: 'linear',
+            duration: 3000,
+            loop: true,
+        });
+        var circle2TimeLine=anime.timeline({
+            easing: 'linear',
+            duration: 3000,
+            loop: true,
+        });
+        var egg2TimeLine = anime.timeline({
+            easing: 'linear',
+            duration: 3000,
+            loop: true,
+        });
         t1.add({
             targets: ['#circle'],
             top: '0px',
             left: '2500px',
-            rotate: '30deg',
+            rotate: '360deg',
             duration: 30000,
         })
         t2.add({
             targets: ['#ball'],
             top: 200,
             left: '2500px',
-            rotate: '60deg',
+            rotate: '360deg',
             duration: 30000,
         })
         t3.add({
             targets: ['#rect'],
-            top: -300,
+            top: 100,
             left: '2500px',
-            rotate: '90deg',
+            rotate: '360deg',
             duration: 30000,
         })
         t4.add({
             targets: ['#triangle'],
             left: '2500px',
-            top: -200,
-            rotate: '40deg',
+            top: 300,
+            rotate: '360deg',
             duration: 30000,
         })
         t5.add({
             targets: ['#egg'],
             left: '2500px',
             top: -400,
-            rotate: '80deg',
+            rotate: '360deg',
             duration: 30000,
         })
         t6.add({
             targets: ['#triangle1'],
             left: '2500px',
             top: -600,
-            rotate: '100deg',
+            rotate: '360deg',
             duration: 30000,
         })
         cubeTimeLine.add({
@@ -654,12 +707,40 @@ const Index = () => {
             left: '2500px',
             top: '-600px',
             rotate: '360deg',
-            duration: 30000,
+            duration: 50000,
         })
         cubeTimeLine1.add({
             targets: ['#cube1'],
             left: '2500px',
             top: '-600px',
+            rotate: '360deg',
+            duration: 30000,
+        })
+        tetrahedronTimeLine.add({
+            targets: ['#tetrahedron'],
+            left: '1000px',
+            top: '-600px',
+            rotate: '360deg',
+            duration: 30000,
+        })
+        circle1TimeLine.add({
+            targets: ['#circle1'],
+            left: '800px',
+            top: '300px',
+            rotate: '360deg',
+            duration: 60000,
+        })
+        circle2TimeLine.add({
+            targets: ['#circle2'],
+            left: '1500px',
+            bottom: '3000px',
+            rotate: '360deg',
+            duration: 60000,
+        })
+        egg2TimeLine.add({
+            targets: ['#egg2'],
+            left: '800px',
+            bottom: '2000px',
             rotate: '360deg',
             duration: 30000,
         })
@@ -670,10 +751,14 @@ const Index = () => {
             <img id={'ball'} className={classes.ball} src={'/ball.svg'}/>
             <img id={'rect'} className={classes.rect} src={'/rect.svg'}/>
             <img id={'triangle'} className={classes.triangle} src={'/triangle.svg'}/>
-            <img id={'egg'} className={classes.egg} src={'/egg.svg'}/>
+            <img className={classes.egg} id={'egg'} src={'/egg.svg'}/>
             <img id={'triangle1'} className={classes.triangle1} src={'/triangle1.svg'}/>
-            <img id={'cube'} className={classes.cube} src={'/cube.svg'}/>
-            <img id="cube1" className={classes.cube1} src={'/cube1.svg'} />
+            <img id={'cube'} className={classes.cube} src={'/cube.png'}/>
+            <img id="cube1" className={classes.cube1} src={'/cube1.png'} />
+            <img id="tetrahedron" className={classes.tetrahedron} src={'/tetrahedron.png'} />
+            <img id="circle1" className={classes.circle1} src={'/circle1.png'} />
+            <img id={'circle2'} className={classes.circle2} src={'/circle.svg'}/>
+            <img className={classes.egg2} id={'egg2'} src={'/egg.svg'}/>
             <Card className={classes.card}>
                 <h1 className={classes.cardTitle}>SOFTWARE CONSULTING AND DEVELOPMENT FOR YOUR DIGITAL SUCCESS</h1>
                 <p className={classes.cardText}>We Transform business with powerful and adaptable digital solutions that

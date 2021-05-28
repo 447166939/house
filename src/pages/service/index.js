@@ -229,6 +229,126 @@ const useStyles=makeStyles(theme=>({
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
+        filter:'opacity(0.8)'
+    },
+    wcsContext:{
+    marginTop:'44px',
+        backgroundColor:'#fff',
+        opacity:0.3,
+        padding:'50px',
+    },
+    wcsTextWrapper:{
+       display:'flex',
+        alignItems:'center',
+        fontSize:'16px',
+        lineHeight:'18px'
+    },
+    wcsDot:{
+        width:'9px',
+        height:'9px',
+        borderRadius:'50%',
+        backgroundColor:'#2699FB',
+        marginRight:theme.spacing(1),
+        flexShrink:0,
+    },
+    wepCard:{
+        borderRadius:'8px',
+        marginTop:'20px',
+        padding:'40px'
+    },
+    wepTitle:{
+        fontSize:'30px',
+        lineHeight:'50px',
+        fontWeight:'bold',
+        position:'relative',
+        marginBottom:theme.spacing(4),
+        '&:after': {
+            content: "''",
+            position: 'absolute',
+            width: '60px',
+            height: '4px',
+            backgroundColor: '#2699FB',
+            bottom: 0,
+            left: 0,
+        }
+    },
+    wepBox:{
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center',
+        flexWrap:'wrap'
+    },
+    wepItem:{
+        width:'23%',
+        backgroundColor:'#f1f4f9',
+        filter:'opacity(0.3)',
+        height:'102px',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        fontSize:'16px',
+        lineHeight:'18px',
+        fontWeight:'bold',
+        color:'#373737',
+        marginBottom:'20px'
+    },
+    stwCard:{
+        borderRadius:'8px',
+        marginTop:'20px',
+        padding:'40px'
+    },
+    stwTitle:{
+        fontSize:'30px',
+        lineHeight:'50px',
+        fontWeight:'bold',
+        position:'relative',
+        marginBottom:theme.spacing(4),
+        '&:after': {
+            content: "''",
+            position: 'absolute',
+            width: '60px',
+            height: '4px',
+            backgroundColor: '#2699FB',
+            bottom: 0,
+            left: 0,
+        }
+    },
+    stwBox:{
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center',
+        flexWrap:'wrap'
+    },
+    stwItem:{
+        width:'31%',
+        padding:'20px',
+        backgroundColor:'#f1f4f9',
+        filter:'opacity(0.3)',
+    },
+    stwCardTitle:{
+     fontSize:'20px',
+        lineHeight:'23px',
+        fontWeight:'bold',
+        color:'#000',
+        marginBottom:theme.spacing(1)
+    },
+    stwTextWrapper:{
+    display:'flex',
+        alignItems:'center',
+        marginBottom:theme.spacing(1)
+    },
+    stwDot:{
+     width:'9px',
+        height:'9px',
+        borderRadius:'50%',
+        flexShrink: 0,
+        backgroundColor:'#2699FB',
+        marginRight:theme.spacing(1)
+    },
+    stwText:{
+    fontSize:'16px',
+        lineHeight:'18px',
+        color:'#000'
     }
 }))
 const ServicePage=props=>{
@@ -363,6 +483,72 @@ const ServicePage=props=>{
                              <WcsLeftIcon/>
                              <img src={'/wcsStep.png'} />
                              <WcsRightIcon/>
+                            </div>
+                            <div className={classes.wcsContext}>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span className={classes.wcsDot}></span><span>31 years in IT.</span>
+                                </div>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span className={classes.wcsDot}></span><span>One-stop shop for end-to-end software development.</span>
+
+
+                                </div>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span className={classes.wcsDot}></span><span>Over 450 developers on board, and the partner network of 5 companies with 700 employees.</span>
+                                </div>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span className={classes.wcsDot}></span><span>More than 50% of the developers are of senior level.</span>
+                                </div>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span className={classes.wcsDot}></span><span>25+ business analysts with 5-9 years of experience in the relevant fields.</span>
+                                </div>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span style={{alignSelf:'flex-start',marginTop:'5px'}} className={classes.wcsDot}></span><span>Mature DevOps culture, deep background in containerized environments, cloud computing, continuous integration (CI) and continuous delivery (CD).</span>
+                                </div>
+                                <div className={classes.wcsTextWrapper}>
+                                    <span className={classes.wcsDot}></span><span>31 years in IT.</span>
+                                </div>
+                            </div>
+                        </Card>
+                        <Card className={classes.wepCard}>
+                            <div className={classes.wepTitle}>
+                                WE EAGERLY PUT IN USE IT INNOVATIONS
+                            </div>
+                            <div className={classes.wepBox}>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                                <div className={classes.wepItem}>Manufacturing</div>
+                            </div>
+                        </Card>
+                        <Card className={classes.stwCard}>
+                            <div className={classes.stwTitle}>
+                                SOFTWARE TYPES WE DEVELOP
+                            </div>
+                            <div className={classes.stwBox}>
+                             <div className={classes.stwItem}>
+                                 <div className={classes.stwCardTitle}>Enterprise resource and process management</div>
+                                 <div className={classes.stwTextWrapper}>
+                                     <span className={classes.stwDot}></span>
+                                     <span className={classes.stwText}>ERP</span>
+                                 </div>
+                                 <div className={classes.stwTextWrapper}>
+                                     <span className={classes.stwDot}></span>
+                                     <span className={classes.stwText}>Finance, accounting, invoicing and billing Budgeting</span>
+                                 </div>
+                                 <div className={classes.stwTextWrapper}>
+                                     <span className={classes.stwDot}></span>
+                                     <span className={classes.stwText}>Document management, contract management, record management</span>
+                                 </div>
+                                 <div className={classes.stwTextWrapper}>
+                                     <span className={classes.stwDot}></span>
+                                     <span className={classes.stwText}> SCM (Supply Chain Management)</span>
+                                 </div>
+                             </div>
                             </div>
 
                         </Card>
