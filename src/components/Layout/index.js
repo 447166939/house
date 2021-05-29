@@ -243,10 +243,10 @@ const Layout=({children})=>{
     return <div className={classes.root}>
         <AppBar className={classes.appBar}  position={'fixed'}>
             <Toolbar className={classes.toolbar}>
-                <div className={classes.toolbarGrp1}>
+                <Link href={'/'} className={classes.toolbarGrp1}>
                 <LogoIcon/>
                 <span className={classes.nameText}>Module X</span>
-                </div>
+                </Link>
                 <div className={classes.toolbarGrp2}>
                 <Tabs onChange={handleChange} menus={['services','technologies','solutions','blog&news']}>
                 </Tabs>

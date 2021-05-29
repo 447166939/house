@@ -103,7 +103,6 @@ const useStyles = makeStyles(theme => ({
         height: 'auto',
         left: '-800px',
         top: '1650px',
-        filter:'blur(10px)',
     },
     egg: {
         position: 'absolute',
@@ -167,7 +166,8 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
         backgroundColor: '#f7f8fa',
         alignSelf: 'stretch',
-        padding: '200px'
+        padding: '200px',
+        zIndex:10000,
     },
     aboutLeft: {
         width: '50%',
@@ -206,6 +206,7 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         paddingLeft:'221px',
         paddingRight:'221px',
+        zIndex:10000,
     },
     wwdTitle: {
         fontSize: '40px',
@@ -740,7 +741,7 @@ const Index = () => {
         egg2TimeLine.add({
             targets: ['#egg2'],
             left: '800px',
-            bottom: '2000px',
+            bottom: '6000px',
             rotate: '360deg',
             duration: 30000,
         })
