@@ -30,7 +30,12 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-const Button = (props) => {
+export interface IButtonProps {
+  children: JSX.Element | JSX.Element[];
+  className: string;
+  onClick?: () => void;
+}
+const Button: React.FC<IButtonProps> = (props: IButtonProps) => {
   const { children, className, onClick = function () {} } = props;
   const classes = useStyles();
   const handleClick = useCallback(() => {

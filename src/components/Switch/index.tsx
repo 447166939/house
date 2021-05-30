@@ -48,7 +48,8 @@ const useStyles = makeStyles((theme) => ({
     right: 0
   }
 }));
-const MySwitch = (props) => {
+export interface IMySwitchProps {}
+const MySwitch: React.FC<IMySwitchProps> = (props) => {
   const classes = useStyles();
   const [on, setOn] = useState(false);
   const handleClick = useCallback(() => {

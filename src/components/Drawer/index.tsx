@@ -13,7 +13,12 @@ const useStyles = makeStyles((themme) => ({
     zIndex: 10000
   }
 }));
-const Drawer = (props) => {
+export interface IDrawerProps {
+  children: JSX.Element | JSX.Element[];
+  visible: boolean;
+  cb: () => void;
+}
+const Drawer: React.FC<IDrawerProps> = (props: IDrawerProps) => {
   const { children, visible, cb = function () {} } = props;
   const classes = useStyles();
   useEffect(() => {

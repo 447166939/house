@@ -6,7 +6,7 @@ import Tabs from "@/components/Tabs";
 import Button from "@/components/Button";
 import Switch from "@/components/Switch";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles,createStyles } from "@material-ui/core";
 import Footer from "@/components/Footer";
 import Drawer from "@/components/Drawer";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -15,14 +15,17 @@ import anime from "animejs";
 import { IconButton } from "@material-ui/core";
 import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
-const UPIcon = (props) => {
+import logoSvg from '@/assets/logo.svg';
+export interface IUPIconProps {}
+const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
 };
-const ChatIcon = (props) => {
+export interface IChatIconProps {}
+const ChatIcon: React.FC<IChatIconProps> = (props: IChatIconProps) => {
   return <SvgIcon component={chatSvg} viewBox={"0 0 26.6 22.3"} />;
 };
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => createStyles({
   root: {
     position: "relative",
     color: theme.palette.common.black,
@@ -201,55 +204,29 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff"
   }
 }));
-function LogoIcon(props) {
-  return (
-    <SvgIcon viewBox="0 0 53 53">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="53.193"
-        height="53.193"
-        viewBox="0 0 53.193 53.193">
-        <g id="组_2569" data-name="组 2569" transform="translate(0 0)">
-          <g id="组_2568" data-name="组 2568" transform="translate(0 0)">
-            <path
-              id="路径_1646"
-              data-name="路径 1646"
-              d="M322.634,257.3a10.591,10.591,0,0,1-8.121,3.1h-10.35a7.091,7.091,0,0,0-7.092,7.092v10.35a7.091,7.091,0,0,0,7.09,7.09h10.352a7.091,7.091,0,0,0,7.09-7.092V267.49a10.641,10.641,0,0,1,11.221-11.222h10.35a7.087,7.087,0,0,0,7.09-7.09v-10.35a7.089,7.089,0,0,0-7.09-7.09h-10.35a7.092,7.092,0,0,0-7.092,7.09v10.35A10.588,10.588,0,0,1,322.634,257.3Z"
-              transform="translate(-297.071 -231.737)"
-              fill="#349ffb"
-            />
-            <path
-              id="路径_1648"
-              data-name="路径 1648"
-              d="M12.374,0h0a12.374,12.374,0,1,1,0,24.748h0A12.374,12.374,0,0,1,12.374,0Z"
-              transform="translate(0 0)"
-              fill="#349ffb"
-            />
-            <path
-              id="路径_1647"
-              data-name="路径 1647"
-              d="M10.545,3.963a3.814,3.814,0,0,1,6.627,0l8.6,15.082a3.814,3.814,0,0,1-3.313,5.7H5.259a3.814,3.814,0,0,1-3.313-5.7Z"
-              transform="translate(26.915 28.445)"
-              fill="#349ffb"
-            />
-          </g>
-        </g>
-      </svg>
+export interface ILogoIconProps {}
+const LogoIcon:React.FC<ILogoIconProps>=(props:ILogoIconProps)=>(
+    <SvgIcon component={logoSvg} viewBox="0 0 53 53">
     </SvgIcon>
-  );
+)
+export interface ILayoutProps {
+  children: JSX.Element | JSX.Element[];
 }
-const Layout = ({ children }) => {
+const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
   const [idx, setIdx] = useState();
   const handleChange = useCallback((index) => {
     setIdx(index);
   }, []);
   const cb = useCallback(() => {
-    var textWrapper = document.querySelector("#serviceCol1Text");
-    textWrapper.innerHTML = textWrapper.textContent.replace(
-      /\S/g,
-      "<span class='letter'>$&</span>"
-    );
+    var textWrapper:HTMLElement|null= document.querySelector("#serviceCol1Text");
+    if(textWrapper!==null&&textWrapper.textContent){
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+          /\S/g,
+          "<span class='letter'>$&</span>"
+      );
+    }
+
     anime.timeline({ loop: false }).add({
       targets: "#serviceCol1Text .letter",
       translateY: ["1em", 0],
@@ -271,7 +248,9 @@ const Layout = ({ children }) => {
           <div className={classes.toolbarGrp2}>
             <Tabs
               onChange={handleChange}
-              menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+              menus={["services", "technologies", "solutions", "blog&news"]}>
+
+            </Tabs>
           </div>
           <div className={classes.toolbarGrp3}>
             <Button className={classes.searchBtn}>

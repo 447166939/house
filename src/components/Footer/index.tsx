@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     zIndex: 30000
   },
+  footerText: {},
   linksBox: {
     borderRadius: "8px",
     boxShadow: "-4px -4px 10px #64B8FF99,4px 4px 5px rgba(0,0,0,.3)",
@@ -62,7 +63,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "220px"
   }
 }));
-function LogoIcon(props) {
+export interface ILogoIconProps {}
+function LogoIcon(props: ILogoIconProps) {
   return (
     <SvgIcon viewBox="0 0 20 20">
       <svg
@@ -97,7 +99,8 @@ function LogoIcon(props) {
     </SvgIcon>
   );
 }
-const Footer = (props) => {
+export interface IFooterProps {}
+const Footer: React.FC<IFooterProps> = (props: IFooterProps) => {
   const classes = useStyles();
   return (
     <div className={classes.footer}>

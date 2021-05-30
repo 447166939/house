@@ -39,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     color: "#000"
   }
 }));
-const PageHeader = (props) => {
+export interface IPageHeaderProps {}
+const PageHeader: React.FC<IPageHeaderProps> = (props) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>

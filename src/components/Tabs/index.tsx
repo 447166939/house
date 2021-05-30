@@ -52,7 +52,11 @@ const useStyles = makeStyles((theme) => ({
     }
   }
 }));
-const Tabs = (props) => {
+export interface ITabsProps {
+  menus: string[];
+  onChange: (index: number) => void;
+}
+const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
   const { menus = [], onChange = function () {} } = props;
   const classes = useStyles();
   const [idx, setIdx] = useState();
@@ -63,7 +67,8 @@ const Tabs = (props) => {
     },
     [idx]
   );
-  return menus.map((item, index) => {
+  return <>
+    {menus.map((item, index) => {
     return (
       <ButtonBase
         key={index}
@@ -73,6 +78,6 @@ const Tabs = (props) => {
         {item}
       </ButtonBase>
     );
-  });
+  })}</>;
 };
 export default Tabs;

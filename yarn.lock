@@ -1529,6 +1529,11 @@
     lodash "^4.17.21"
     qs "^6.10.1"
 
+"@types/animejs@^3.1.3":
+  version "3.1.3"
+  resolved "https://registry.nlark.com/@types/animejs/download/@types/animejs-3.1.3.tgz#da720ea98272b3e29f595bb15efccadb9dc04dd4"
+  integrity sha1-2nIOqYJys+KfWVuxXvzK253ATdQ=
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.14"
   resolved "https://registry.npm.taobao.org/@types/babel__core/download/@types/babel__core-7.1.14.tgz?cache=0&sync_timestamp=1616202313350&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fbabel__core%2Fdownload%2F%40types%2Fbabel__core-7.1.14.tgz#faaeefc4185ec71c389f4501ee5ec84b170cc402"
@@ -1676,6 +1681,11 @@
     "@types/prop-types" "*"
     "@types/scheduler" "*"
     csstype "^3.0.2"
+
+"@types/redux-actions@^2.6.1":
+  version "2.6.1"
+  resolved "https://registry.nlark.com/@types/redux-actions/download/@types/redux-actions-2.6.1.tgz#0940e97fa35ad3004316bddb391d8e01d2efa605"
+  integrity sha1-CUDpf6Na0wBDFr3bOR2OAdLvpgU=
 
 "@types/scheduler@*":
   version "0.16.1"

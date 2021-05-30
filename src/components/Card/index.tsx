@@ -10,7 +10,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "3px"
   }
 }));
-const Card = (props) => {
+export interface ICardProps {
+  className: string;
+  children: JSX.Element | JSX.Element[];
+}
+const Card: React.FC<ICardProps> = (props: ICardProps) => {
   const { className, children } = props;
   const classes = useStyles();
   return <div className={clsx(classes.root, className)}>{children}</div>;

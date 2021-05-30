@@ -4,7 +4,7 @@ const path = require("path");
 const resolveFrom = require("resolve-from");
 const Dotenv = require("dotenv-webpack");
 const node_modules = path.resolve(__dirname, "node_modules");
-
+const originalRequire = Module.prototype.require;
 Module.prototype.require = function (modulePath) {
   // Only redirect resolutions to non-relative and non-absolute modules
   if (
@@ -36,7 +36,8 @@ loadEnvVariables();
 const isLocalDevEnvironment = !process.env.DEPLOY_ENV;
 console.log("process_env.TEST", process.env.TEST);
 
-module.exports = {
+module.exports =withReactSvg(  {
+  include: path.resolve(__dirname, 'src/assets'),
   webpack: (config, { webpack }) => {
     config.plugins = config.plugins || [];
     config.plugins = [
@@ -57,7 +58,7 @@ module.exports = {
     };
     return config;
   }
-};
+});
 
 function loadEnvVariables() {
   // eslint-disable-next-line global-require

@@ -62,10 +62,22 @@ const blogs = [
   }
 ];
 SwiperCore.use([Pagination]);
-const LikeIcon = (props) => <SvgIcon component={LikeSvg} viewBox="0 0 16 14" />;
-const CommentIcon = (props) => <SvgIcon component={CommentSvg} viewBox="0 0 16 16" />;
-const PhoneIcon = (props) => <SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />;
-const EmailIcon = (props) => <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />;
+export interface ILikeIconProps{
+
+}
+export interface ICommentIconProps {
+
+}
+export interface IPhoneIconProps {
+
+}
+export interface IEmailIconProps {
+
+}
+const LikeIcon = (props:ILikeIconProps) => <SvgIcon component={LikeSvg} viewBox="0 0 16 14" />;
+const CommentIcon = (props:ICommentIconProps) => <SvgIcon component={CommentSvg} viewBox="0 0 16 16" />;
+const PhoneIcon = (props:IPhoneIconProps) => <SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />;
+const EmailIcon = (props:IEmailIconProps) => <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />;
 const useStyles = makeStyles((theme) => ({
   card: {
     width: "1220px",
@@ -528,6 +540,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "50px",
     borderRadius: "10px"
   },
+  contactBtnWrapper:{},
   contactTitle: {
     fontSize: "38px",
     lineHeight: "50px",

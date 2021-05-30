@@ -1,15 +1,3 @@
-import axios from "axios";
-import { fork, put, takeEvery } from "redux-saga/effects";
-import actions from "./action";
-const { tempGetInfo, tempSetInfo } = actions;
-
-function* getTemp() {
-  const result = "temp";
-  yield put(tempSetInfo(result));
-}
-
-function* watchCommon() {
-  yield takeEvery(tempGetInfo, getTemp);
-}
-
+import { fork } from "redux-saga/effects";
+function* watchCommon() {}
 export default [fork(watchCommon)];

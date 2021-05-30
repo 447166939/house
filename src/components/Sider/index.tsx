@@ -1,9 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { makeStyles } from "@material-ui/core";
-import ButtonBase from "@material-ui/core/ButtonBase";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -48,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(8)
   }
 }));
-const Sider = (props) => {
+export interface ISiderProps {}
+const Sider: React.FC<ISiderProps> = (props) => {
   const classes = useStyles();
   const [idx, setIdx] = useState();
   const [plOpen, setPlOpen] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/components/Layout";
 import Sider from "@/components/Sider";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles,createStyles } from "@material-ui/core";
 import PageHeader from "@/components/PageHeader";
 import Card from "@/components/Card";
 import MuiCard from "@material-ui/core/Card";
@@ -21,38 +21,63 @@ import sf5Svg from "@/assets/sf5.svg";
 import sf6Svg from "@/assets/sf6.svg";
 import wcsLeftSvg from "@/assets/wcsLeft.svg";
 import wcsRightSvg from "@/assets/wcsRight.svg";
-
-const Card1Icon = (props) => (
+export interface ICard1IconProps {}
+export interface ICard2IconProps {}
+export interface ICard3IconProps {}
+export interface ICard4IconProps {}
+export interface ICard5IconProps {}
+export interface ICard6IconProps {}
+const Card1Icon: React.FC<ICard1IconProps> = (props: ICard1IconProps) => (
   <SvgIcon fontSize={"large"} component={card1Svg} viewBox="0 0 44 44" />
 );
-const Card2Icon = (props) => (
+const Card2Icon: React.FC<ICard2IconProps> = (props: ICard2IconProps) => (
   <SvgIcon fontSize={"large"} component={card2Svg} viewBox="0 0 50 50" />
 );
-const Card3Icon = (props) => (
+const Card3Icon: React.FC<ICard3IconProps> = (props: ICard3IconProps) => (
   <SvgIcon fontSize={"large"} component={card3Svg} viewBox="0 0 50 50" />
 );
-const Card4Icon = (props) => (
+const Card4Icon: React.FC<ICard4IconProps> = (props: ICard4IconProps) => (
   <SvgIcon fontSize={"large"} component={card4Svg} viewBox="0 0 50 50" />
 );
-const Card5Icon = (props) => (
+const Card5Icon: React.FC<ICard5IconProps> = (props: ICard5IconProps) => (
   <SvgIcon fontSize={"large"} component={card5Svg} viewBox="0 0 50 50" />
 );
-const Card6Icon = (props) => (
+const Card6Icon: React.FC<ICard6IconProps> = (props: ICard6IconProps) => (
   <SvgIcon fontSize={"large"} component={card6Svg} viewBox="0 0 50 50" />
 );
-const Sf1Icon = (props) => <SvgIcon fontSize={"large"} component={sf1Svg} viewBox="0 0 46 46" />;
-const Sf2Icon = (props) => <SvgIcon fontSize={"large"} component={sf2Svg} viewBox="0 0 48 48" />;
-const Sf3Icon = (props) => <SvgIcon fontSize={"large"} component={sf3Svg} viewBox="0 0 46 46" />;
-const Sf4Icon = (props) => <SvgIcon fontSize={"large"} component={sf4Svg} viewBox="0 0 40 40" />;
-const Sf5Icon = (props) => <SvgIcon fontSize={"large"} component={sf5Svg} viewBox="0 0 40 40" />;
-const Sf6Icon = (props) => <SvgIcon fontSize={"large"} component={sf6Svg} viewBox="0 0 44 44" />;
-const WcsLeftIcon = (props) => (
+export interface ISf1IconProps {}
+export interface ISf2IconProps {}
+export interface ISf3IconProps {}
+export interface ISf4IconProps {}
+export interface ISf5IconProps {}
+export interface ISf6IconProps {}
+const Sf1Icon: React.FC<ISf1IconProps> = (props: ISf1IconProps) => (
+  <SvgIcon fontSize={"large"} component={sf1Svg} viewBox="0 0 46 46" />
+);
+const Sf2Icon: React.FC<ISf2IconProps> = (props: ISf2IconProps) => (
+  <SvgIcon fontSize={"large"} component={sf2Svg} viewBox="0 0 48 48" />
+);
+const Sf3Icon: React.FC<ISf3IconProps> = (props: ISf3IconProps) => (
+  <SvgIcon fontSize={"large"} component={sf3Svg} viewBox="0 0 46 46" />
+);
+const Sf4Icon: React.FC<ISf4IconProps> = (props: ISf4IconProps) => (
+  <SvgIcon fontSize={"large"} component={sf4Svg} viewBox="0 0 40 40" />
+);
+const Sf5Icon: React.FC<ISf5IconProps> = (props: ISf5IconProps) => (
+  <SvgIcon fontSize={"large"} component={sf5Svg} viewBox="0 0 40 40" />
+);
+const Sf6Icon: React.FC<ISf6IconProps> = (props: ISf6IconProps) => (
+  <SvgIcon fontSize={"large"} component={sf6Svg} viewBox="0 0 44 44" />
+);
+export interface IWcsLeftIconProps {}
+const WcsLeftIcon: React.FC<IWcsLeftIconProps> = (props: IWcsLeftIconProps) => (
   <SvgIcon fontSize={"large"} component={wcsLeftSvg} viewBox="0 0 50 50" />
 );
-const WcsRightIcon = (props) => (
+export interface IWcsRightIconProps {}
+const WcsRightIcon: React.FC<IWcsRightIconProps> = (props: IWcsRightIconProps) => (
   <SvgIcon fontSize={"large"} component={wcsRightSvg} viewBox="0 0 50 50" />
 );
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => createStyles({
   root: {
     paddingLeft: "276px",
     paddingRight: "276px",
@@ -154,7 +179,7 @@ const useStyles = makeStyles((theme) => ({
   },
   wsaCardText: {
     fontSize: "14px",
-    fontWeight: "24px",
+    lineHeight: "24px",
     color: "#000",
     textAlign: "center"
   },
@@ -367,7 +392,8 @@ const useStyles = makeStyles((theme) => ({
     color: "#000"
   }
 }));
-const ServicePage = (props) => {
+export interface IServicePageProps {}
+const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
   const classes = useStyles();
   return (
     <Layout>
