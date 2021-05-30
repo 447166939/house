@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d65447c7-9287-4938-950f-bb1c699dbfa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.MODULEX.development" beforeDir="false" afterPath="$PROJECT_DIR$/.env.MODULEX.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,12 +58,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
   </component>
   <component name="ProjectId" id="1tE5hEAgAU9sBtxBWsALzXE0Ves" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -219,7 +214,8 @@
       <workItem from="1622119331162" duration="284000" />
       <workItem from="1622126240932" duration="17354000" />
       <workItem from="1622310363931" duration="2747000" />
-      <workItem from="1622321526048" duration="6486000" />
+      <workItem from="1622321526048" duration="6597000" />
+      <workItem from="1622334571334" duration="41000" />
     </task>
     <servers />
   </component>
@@ -250,28 +246,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="509" y="306" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1622333354187">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
     <state x="509" y="306" key="#com.intellij.fileTypes.FileTypeChooser/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622333354187" />
-    <state width="1659" height="342" key="GridCell.Tab.0.bottom" timestamp="1622329674874">
+    <state width="1659" height="342" key="GridCell.Tab.0.bottom" timestamp="1622334542773">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="1659" height="342" key="GridCell.Tab.0.bottom/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622329674874" />
-    <state width="1659" height="342" key="GridCell.Tab.0.center" timestamp="1622329674873">
+    <state width="1659" height="342" key="GridCell.Tab.0.bottom/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622334542773" />
+    <state width="1659" height="342" key="GridCell.Tab.0.center" timestamp="1622334542772">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="1659" height="342" key="GridCell.Tab.0.center/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622329674873" />
-    <state width="1659" height="342" key="GridCell.Tab.0.left" timestamp="1622329674872">
+    <state width="1659" height="342" key="GridCell.Tab.0.center/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622334542772" />
+    <state width="1659" height="342" key="GridCell.Tab.0.left" timestamp="1622334542771">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="1659" height="342" key="GridCell.Tab.0.left/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622329674872" />
-    <state width="1659" height="342" key="GridCell.Tab.0.right" timestamp="1622329674874">
+    <state width="1659" height="342" key="GridCell.Tab.0.left/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622334542771" />
+    <state width="1659" height="342" key="GridCell.Tab.0.right" timestamp="1622334542772">
       <screen x="0" y="23" width="1680" height="949" />
     </state>
-    <state width="1659" height="342" key="GridCell.Tab.0.right/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622329674874" />
+    <state width="1659" height="342" key="GridCell.Tab.0.right/-1201.-929.1080.1920/1799.-892.1080.1920/0.23.1680.949/-121.-1080.1920.1080@0.23.1680.949" timestamp="1622334542772" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
