@@ -21,8 +21,7 @@ import PhoneSvg from '../assets/phone.svg'
 import EmailSvg from '../assets/email.svg'
 import InputBase from '@material-ui/core/InputBase';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import clsx from 'clsx'
-
+import clsx from 'clsx';
 
 const links=[{text:'Development Services We Provide',url:""},{text:'Software We Develop',url:''},
     {text:'Why moduleX',url:''},{text:'What Defines Modern Software',url:''},{text:'Technologies We Use',url:''},{text:'Software Types We develop',url:''}]
