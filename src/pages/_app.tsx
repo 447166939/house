@@ -1,5 +1,5 @@
 import { wrapper } from "../store";
-import React,{useEffect,Fragment} from "react";
+import React, { useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
@@ -11,29 +11,28 @@ import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 import "./global.css";
-import { AppProps} from 'next/app'
+import { AppProps } from "next/app";
 function MyApp(props: AppProps) {
-    const {Component,pageProps} = props;
-    useEffect(()=>{
-        const jssStyles=document.querySelector("#jss-server-side")
-        if(jssStyles){
-            jssStyles.parentElement?.removeChild(jssStyles)
-        }
-    },[])
-    return (
-        <>
-            <Head>
-                <title>My page</title>
-                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-            </Head>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Component {...pageProps} />
-            </ThemeProvider>
-        </>
-    )
+  const { Component, pageProps } = props;
+  useEffect(() => {
+    const jssStyles = document.querySelector("#jss-server-side");
+    if (jssStyles) {
+      jssStyles.parentElement?.removeChild(jssStyles);
+    }
+  }, []);
+  return (
+    <>
+      <Head>
+        <title>My page</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
+  );
 }
-
 
 /*function App(props:AppProps) {
   const { Component,pageProps } = props;

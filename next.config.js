@@ -36,8 +36,8 @@ loadEnvVariables();
 const isLocalDevEnvironment = !process.env.DEPLOY_ENV;
 console.log("process_env.TEST", process.env.TEST);
 
-module.exports =withReactSvg(  {
-  include: path.resolve(__dirname, 'src/assets'),
+module.exports = withReactSvg({
+  include: path.resolve(__dirname, "src/assets"),
   webpack: (config, { webpack }) => {
     config.plugins = config.plugins || [];
     config.plugins = [

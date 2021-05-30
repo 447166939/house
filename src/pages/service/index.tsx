@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/components/Layout";
 import Sider from "@/components/Sider";
-import { makeStyles,createStyles } from "@material-ui/core";
+import { makeStyles, createStyles } from "@material-ui/core";
 import PageHeader from "@/components/PageHeader";
 import Card from "@/components/Card";
 import MuiCard from "@material-ui/core/Card";
@@ -77,321 +77,323 @@ export interface IWcsRightIconProps {}
 const WcsRightIcon: React.FC<IWcsRightIconProps> = (props: IWcsRightIconProps) => (
   <SvgIcon fontSize={"large"} component={wcsRightSvg} viewBox="0 0 50 50" />
 );
-const useStyles = makeStyles((theme) => createStyles({
-  root: {
-    paddingLeft: "276px",
-    paddingRight: "276px",
-    alignSelf: "stretch"
-  },
-  sectionService: {
-    display: "flex",
-    marginTop: "20px"
-  },
-  serviceLeft: {
-    width: "320px",
-    marginRight: "20px"
-  },
-  serviceRight: {
-    flex: 1
-  },
-  sdsCard: {
-    padding: "40px",
-    borderRadius: "10px"
-  },
-  sdsTitle: {
-    fontSize: "30px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(4),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: {
+      paddingLeft: "276px",
+      paddingRight: "276px",
+      alignSelf: "stretch"
+    },
+    sectionService: {
+      display: "flex",
+      marginTop: "20px"
+    },
+    serviceLeft: {
+      width: "320px",
+      marginRight: "20px"
+    },
+    serviceRight: {
+      flex: 1
+    },
+    sdsCard: {
+      padding: "40px",
+      borderRadius: "10px"
+    },
+    sdsTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
+      }
+    },
+    sdsImg: {
+      height: "300px",
+      background: "url(/sds.png) no-repeat center",
+      backgroundSize: "cover"
+    },
+    sdsText: {
+      fontSize: "16px",
+      lineHeight: "24px",
+      color: "#000"
+    },
+    wsaCard: {
+      borderRadius: "10px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    wsaTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
+      }
+    },
+    wsaBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      flexWrap: "wrap"
+    },
+    wsaCardItem: {
+      width: "30%",
+      backgroundColor: "rgba(255,255,255,0.3)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "32px 25px",
+      marginBottom: "20px"
+    },
+    wsaCardImg: {
+      width: "91px",
+      height: "91px",
+      borderRadius: "50%",
+      backgroundColor: "#fff",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: "26px"
+    },
+    wsaCardTitle: {
+      fontSize: "16px",
+      lineHeight: "18px",
+      fontWeight: "bold",
+      color: "#000",
+      textAlign: "center",
+      marginBottom: "21px"
+    },
+    wsaCardText: {
+      fontSize: "14px",
+      lineHeight: "24px",
+      color: "#000",
+      textAlign: "center"
+    },
+    wsaCardBtn: {
+      color: "#2699FB",
+      height: "54px",
+      backgroundColor: "rgba(255,255,255,0.5)",
+      borderRadius: "8px",
+      marginTop: "27px",
+      textAlign: "center",
+      padding: "0 35px"
+    },
+    sfCard: {
+      borderRadius: "8px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    sfTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
+      }
+    },
+    sfCardBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      flexWrap: "wrap"
+    },
+    sfCardItem: {
+      width: "30%",
+      backgroundColor: "rgba(255,255,255,0.3)",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      padding: "32px 25px",
+      marginBottom: "20px"
+    },
+    sfCardImg: {
+      width: "79px",
+      height: "79px",
+      borderRadius: "50%",
+      backgroundColor: "#fff",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: "26px"
+    },
+    sfCardTitle: {
+      fontSize: "16px",
+      lineHeight: "18px",
+      fontWeight: "bold",
+      color: "#000",
+      textAlign: "center",
+      marginBottom: "21px"
+    },
+    wcsCard: {
+      borderRadius: "8px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    wcsTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
+      }
+    },
+    wcsStepBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      filter: "opacity(0.8)"
+    },
+    wcsContext: {
+      marginTop: "44px",
+      backgroundColor: "#fff",
+      opacity: 0.3,
+      padding: "50px"
+    },
+    wcsTextWrapper: {
+      display: "flex",
+      alignItems: "center",
+      fontSize: "16px",
+      lineHeight: "18px"
+    },
+    wcsDot: {
+      width: "9px",
+      height: "9px",
+      borderRadius: "50%",
       backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
-    }
-  },
-  sdsImg: {
-    height: "300px",
-    background: "url(/sds.png) no-repeat center",
-    backgroundSize: "cover"
-  },
-  sdsText: {
-    fontSize: "16px",
-    lineHeight: "24px",
-    color: "#000"
-  },
-  wsaCard: {
-    borderRadius: "10px",
-    marginTop: "20px",
-    padding: "40px"
-  },
-  wsaTitle: {
-    fontSize: "30px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(4),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
+      marginRight: theme.spacing(1),
+      flexShrink: 0
+    },
+    wepCard: {
+      borderRadius: "8px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    wepTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
+      }
+    },
+    wepBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexWrap: "wrap"
+    },
+    wepItem: {
+      width: "23%",
+      backgroundColor: "#f1f4f9",
+      filter: "opacity(0.3)",
+      height: "102px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: "16px",
+      lineHeight: "18px",
+      fontWeight: "bold",
+      color: "#373737",
+      marginBottom: "20px"
+    },
+    stwCard: {
+      borderRadius: "8px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    stwTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
+      }
+    },
+    stwBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexWrap: "wrap"
+    },
+    stwItem: {
+      width: "31%",
+      padding: "20px",
+      backgroundColor: "#f1f4f9",
+      filter: "opacity(0.3)"
+    },
+    stwCardTitle: {
+      fontSize: "20px",
+      lineHeight: "23px",
+      fontWeight: "bold",
+      color: "#000",
+      marginBottom: theme.spacing(1)
+    },
+    stwTextWrapper: {
+      display: "flex",
+      alignItems: "center",
+      marginBottom: theme.spacing(1)
+    },
+    stwDot: {
+      width: "9px",
+      height: "9px",
+      borderRadius: "50%",
+      flexShrink: 0,
       backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
+      marginRight: theme.spacing(1)
+    },
+    stwText: {
+      fontSize: "16px",
+      lineHeight: "18px",
+      color: "#000"
     }
-  },
-  wsaBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap"
-  },
-  wsaCardItem: {
-    width: "30%",
-    backgroundColor: "rgba(255,255,255,0.3)",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "32px 25px",
-    marginBottom: "20px"
-  },
-  wsaCardImg: {
-    width: "91px",
-    height: "91px",
-    borderRadius: "50%",
-    backgroundColor: "#fff",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: "26px"
-  },
-  wsaCardTitle: {
-    fontSize: "16px",
-    lineHeight: "18px",
-    fontWeight: "bold",
-    color: "#000",
-    textAlign: "center",
-    marginBottom: "21px"
-  },
-  wsaCardText: {
-    fontSize: "14px",
-    lineHeight: "24px",
-    color: "#000",
-    textAlign: "center"
-  },
-  wsaCardBtn: {
-    color: "#2699FB",
-    height: "54px",
-    backgroundColor: "rgba(255,255,255,0.5)",
-    borderRadius: "8px",
-    marginTop: "27px",
-    textAlign: "center",
-    padding: "0 35px"
-  },
-  sfCard: {
-    borderRadius: "8px",
-    marginTop: "20px",
-    padding: "40px"
-  },
-  sfTitle: {
-    fontSize: "30px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(4),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
-      backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
-    }
-  },
-  sfCardBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    flexWrap: "wrap"
-  },
-  sfCardItem: {
-    width: "30%",
-    backgroundColor: "rgba(255,255,255,0.3)",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    padding: "32px 25px",
-    marginBottom: "20px"
-  },
-  sfCardImg: {
-    width: "79px",
-    height: "79px",
-    borderRadius: "50%",
-    backgroundColor: "#fff",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: "26px"
-  },
-  sfCardTitle: {
-    fontSize: "16px",
-    lineHeight: "18px",
-    fontWeight: "bold",
-    color: "#000",
-    textAlign: "center",
-    marginBottom: "21px"
-  },
-  wcsCard: {
-    borderRadius: "8px",
-    marginTop: "20px",
-    padding: "40px"
-  },
-  wcsTitle: {
-    fontSize: "30px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(4),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
-      backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
-    }
-  },
-  wcsStepBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    filter: "opacity(0.8)"
-  },
-  wcsContext: {
-    marginTop: "44px",
-    backgroundColor: "#fff",
-    opacity: 0.3,
-    padding: "50px"
-  },
-  wcsTextWrapper: {
-    display: "flex",
-    alignItems: "center",
-    fontSize: "16px",
-    lineHeight: "18px"
-  },
-  wcsDot: {
-    width: "9px",
-    height: "9px",
-    borderRadius: "50%",
-    backgroundColor: "#2699FB",
-    marginRight: theme.spacing(1),
-    flexShrink: 0
-  },
-  wepCard: {
-    borderRadius: "8px",
-    marginTop: "20px",
-    padding: "40px"
-  },
-  wepTitle: {
-    fontSize: "30px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(4),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
-      backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
-    }
-  },
-  wepBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap"
-  },
-  wepItem: {
-    width: "23%",
-    backgroundColor: "#f1f4f9",
-    filter: "opacity(0.3)",
-    height: "102px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    fontSize: "16px",
-    lineHeight: "18px",
-    fontWeight: "bold",
-    color: "#373737",
-    marginBottom: "20px"
-  },
-  stwCard: {
-    borderRadius: "8px",
-    marginTop: "20px",
-    padding: "40px"
-  },
-  stwTitle: {
-    fontSize: "30px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(4),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
-      backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
-    }
-  },
-  stwBox: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flexWrap: "wrap"
-  },
-  stwItem: {
-    width: "31%",
-    padding: "20px",
-    backgroundColor: "#f1f4f9",
-    filter: "opacity(0.3)"
-  },
-  stwCardTitle: {
-    fontSize: "20px",
-    lineHeight: "23px",
-    fontWeight: "bold",
-    color: "#000",
-    marginBottom: theme.spacing(1)
-  },
-  stwTextWrapper: {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: theme.spacing(1)
-  },
-  stwDot: {
-    width: "9px",
-    height: "9px",
-    borderRadius: "50%",
-    flexShrink: 0,
-    backgroundColor: "#2699FB",
-    marginRight: theme.spacing(1)
-  },
-  stwText: {
-    fontSize: "16px",
-    lineHeight: "18px",
-    color: "#000"
-  }
-}));
+  })
+);
 export interface IServicePageProps {}
 const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
   const classes = useStyles();

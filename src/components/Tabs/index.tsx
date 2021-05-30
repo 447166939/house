@@ -67,17 +67,20 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
     },
     [idx]
   );
-  return <>
-    {menus.map((item, index) => {
-    return (
-      <ButtonBase
-        key={index}
-        onClick={handleClick.bind(null, index)}
-        className={clsx(classes.btn, { [classes.active]: idx === index })}
-        disableRipple>
-        {item}
-      </ButtonBase>
-    );
-  })}</>;
+  return (
+    <>
+      {menus.map((item, index) => {
+        return (
+          <ButtonBase
+            key={index}
+            onClick={handleClick.bind(null, index)}
+            className={clsx(classes.btn, { [classes.active]: idx === index })}
+            disableRipple>
+            {item}
+          </ButtonBase>
+        );
+      })}
+    </>
+  );
 };
 export default Tabs;
