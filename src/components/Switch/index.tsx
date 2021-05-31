@@ -64,7 +64,7 @@ const MySwitch: React.FC<IMySwitchProps> = (props) => {
           { [classes.on]: on !== false },
           { [classes.off]: on === false }
         )}>
-        {on ? "" : "中"}
+        {on ? "EN" : "中"}
       </div>
     </div>
   );

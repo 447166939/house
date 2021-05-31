@@ -13,9 +13,11 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import Link from "@material-ui/core/Link";
 import anime from "animejs";
 import { IconButton } from "@material-ui/core";
+import {useSelector} from "react-redux";
 import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
+import {RootState} from "@/store/index";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -39,7 +41,8 @@ const useStyles = makeStyles((theme) =>
     appBar: {
       display: "flex",
       justifyContent: "center",
-      alignItems: "center"
+      alignItems: "center",
+        zIndex:40000,
     },
     toolbar: {
       display: "flex",
@@ -96,7 +99,7 @@ const useStyles = makeStyles((theme) =>
       alignItems: "center",
       position: "relative",
       overflow: "hidden",
-      paddingBottom: "500px"
+      paddingBottom: "97px",
     },
     bg: {
       position: "absolute",
@@ -196,13 +199,15 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       bottom: "397px",
       right: "50px",
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
+        zIndex:30000,
     },
     chatBtn: {
       position: "fixed",
       bottom: "317px",
       right: "50px",
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
+        zIndex:30000,
     }
   })
 );
@@ -216,7 +221,8 @@ export interface ILayoutProps {
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
   const [idx, setIdx] = useState();
-  const handleChange = useCallback((index) => {
+  const {serviceMenuVisible,technologiesMenuVisible,solutionsMenuVisible,blogAndNewsMenuVisible}=useSelector((state:RootState)=>state.global)
+    const handleChange = useCallback((index) => {
     setIdx(index);
   }, []);
   const cb = useCallback(() => {
@@ -260,7 +266,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
-      <Drawer cb={cb} visible={idx == 0}>
+      <Drawer cb={cb} visible={idx == 0&&serviceMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Services</div>

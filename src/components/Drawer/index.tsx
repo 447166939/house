@@ -1,6 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useCallback } from "react";
 import { makeStyles } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
+import {useDispatch} from "react-redux";
+import actions from '@/store/modules/global/action'
+const {closeAllMenu}=actions
 const useStyles = makeStyles((themme) => ({
   root: {
     position: "relative",
@@ -10,7 +13,16 @@ const useStyles = makeStyles((themme) => ({
     position: "fixed",
     left: 0,
     right: 0,
-    zIndex: 10000
+    zIndex: 40000
+  },
+  mask:{
+    position:"fixed",
+    left:0,
+    top:0,
+    width:'100vw',
+    height:'100vh',
+    opacity:0,
+    zIndex: 39000,
   }
 }));
 export interface IDrawerProps {
@@ -21,15 +33,20 @@ export interface IDrawerProps {
 const Drawer: React.FC<IDrawerProps> = (props: IDrawerProps) => {
   const { children, visible, cb = function () {} } = props;
   const classes = useStyles();
+  const dispatch=useDispatch()
   useEffect(() => {
-    console.log("aaaa");
     cb();
   }, [visible]);
+  const handleClick=useCallback(()=>{
+    console.log('abddd')
+    dispatch(closeAllMenu())
+  },[])
   return (
     <div className={classes.root}>
       <div className={classes.drawer}>
         <Collapse in={visible}>{children}</Collapse>
       </div>
+      {visible&&<div onClick={handleClick}  className={classes.mask}></div>}
     </div>
   );
 };
