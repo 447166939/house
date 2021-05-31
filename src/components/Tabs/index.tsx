@@ -1,11 +1,16 @@
 import React, { Fragment, useState, useCallback } from "react";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import { makeStyles } from "@material-ui/core";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
-import actions from '@/store/modules/global/action'
-import {RootState} from '@/store/index'
-const {setServiceMenuVisible,setTechnologiesMenuVisible,setSolutionsMenuVisible,setBlogAndNewsMenuVisible}=actions
+import actions from "@/store/modules/global/action";
+import { RootState } from "@/store/index";
+const {
+  setServiceMenuVisible,
+  setTechnologiesMenuVisible,
+  setSolutionsMenuVisible,
+  setBlogAndNewsMenuVisible
+} = actions;
 const useStyles = makeStyles((theme) => ({
   btn: {
     color: "#2699FB",
@@ -64,23 +69,28 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
   const { menus = [], onChange = function () {} } = props;
   const classes = useStyles();
   const [idx, setIdx] = useState();
-  const dispatch=useDispatch()
-  const {serviceMenuVisible,technologiesMenuVisible,solutionsMenuVisible,blogAndNewsMenuVisible}=useSelector((state:RootState)=>state.global)
+  const dispatch = useDispatch();
+  const {
+    serviceMenuVisible,
+    technologiesMenuVisible,
+    solutionsMenuVisible,
+    blogAndNewsMenuVisible
+  } = useSelector((state: RootState) => state.global);
   const handleClick = useCallback(
     (index) => {
       setIdx(index);
-      if(index==0){
-        dispatch(setServiceMenuVisible(!serviceMenuVisible))
-      }else if(index==1){
-        dispatch(setTechnologiesMenuVisible(!technologiesMenuVisible))
-      }else if(index==2){
-        dispatch(setSolutionsMenuVisible(!solutionsMenuVisible))
-      }else if(index==3){
-        dispatch(setBlogAndNewsMenuVisible(!blogAndNewsMenuVisible))
+      if (index == 0) {
+        dispatch(setServiceMenuVisible(!serviceMenuVisible));
+      } else if (index == 1) {
+        dispatch(setTechnologiesMenuVisible(!technologiesMenuVisible));
+      } else if (index == 2) {
+        dispatch(setSolutionsMenuVisible(!solutionsMenuVisible));
+      } else if (index == 3) {
+        dispatch(setBlogAndNewsMenuVisible(!blogAndNewsMenuVisible));
       }
       onChange(index);
     },
-    [idx,serviceMenuVisible,technologiesMenuVisible,solutionsMenuVisible,blogAndNewsMenuVisible]
+    [idx, serviceMenuVisible, technologiesMenuVisible, solutionsMenuVisible, blogAndNewsMenuVisible]
   );
 
   return (
@@ -90,7 +100,14 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
           <ButtonBase
             key={index}
             onClick={handleClick.bind(null, index)}
-            className={clsx(classes.btn, { [classes.active]: [serviceMenuVisible,technologiesMenuVisible,solutionsMenuVisible,blogAndNewsMenuVisible][index]})}
+            className={clsx(classes.btn, {
+              [classes.active]: [
+                serviceMenuVisible,
+                technologiesMenuVisible,
+                solutionsMenuVisible,
+                blogAndNewsMenuVisible
+              ][index]
+            })}
             disableRipple>
             {item}
           </ButtonBase>

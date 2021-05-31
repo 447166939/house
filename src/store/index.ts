@@ -10,7 +10,7 @@ export function* rootSaga() {
 const rootReducer = combineReducers({
   [globalNamespace]: globalReducer
 });
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof rootReducer>;
 const bindMiddleware = (middleware: any) => {
   if (process.env.NODE_ENV !== "production") {
     const { composeWithDevTools } = require("redux-devtools-extension");
@@ -19,7 +19,7 @@ const bindMiddleware = (middleware: any) => {
   return applyMiddleware(...middleware);
 };
 export interface DefaultRootState {
-  global:{}
+  global: {};
 }
 export const makeStore = (context: any) => {
   const sagaMiddleware = createSagaMiddleware();

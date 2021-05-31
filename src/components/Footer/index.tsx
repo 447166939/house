@@ -6,7 +6,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import InputBase from "@material-ui/core/InputBase";
-import logoSvg from '@/assets/footerLogo.svg'
+import logoSvg from "@/assets/footerLogo.svg";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "-4px -2px 4px #47AAFF,1px 1px 10px rgba(0,0,0,0.3)",
     width: "82px",
     height: "42px",
-    marginLeft: '24px'
+    marginLeft: "24px"
   },
   inputWrapper: {
     boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
@@ -59,18 +59,15 @@ const useStyles = makeStyles((theme) => ({
   },
   inputStyle: {
     height: "41px",
-    minWidth: "220px",
+    minWidth: "220px"
   },
-  row:{
-    display:'flex'
+  row: {
+    display: "flex"
   }
 }));
 export interface ILogoIconProps {}
 function LogoIcon(props: ILogoIconProps) {
-  return (
-    <SvgIcon component={logoSvg} viewBox="0 0 20 20">
-    </SvgIcon>
-  );
+  return <SvgIcon component={logoSvg} viewBox="0 0 20 20"></SvgIcon>;
 }
 export interface IFooterProps {}
 const Footer: React.FC<IFooterProps> = (props: IFooterProps) => {
@@ -112,10 +109,10 @@ const Footer: React.FC<IFooterProps> = (props: IFooterProps) => {
         <div>
           <div className={classes.linkItem}>Subscribe to our newsletter</div>
           <div className={classes.row}>
-          <div className={classes.inputWrapper}>
-            <InputBase className={classes.inputStyle} />
-          </div>
-          <ButtonBase className={classes.okBtn}>OK</ButtonBase>
+            <div className={classes.inputWrapper}>
+              <InputBase className={classes.inputStyle} />
+            </div>
+            <ButtonBase className={classes.okBtn}>OK</ButtonBase>
           </div>
         </div>
       </div>
