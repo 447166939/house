@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) =>
       fontSize: "25px",
       fontWeight: "bold",
       marginRight: "10.5%",
-        flexShrink:0,
+      flexShrink: 0
     },
     content: {
       flex: 1,
@@ -232,20 +232,22 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setIdx(index);
   }, []);
   const cb = useCallback(() => {
-      var textWrapper = document.querySelector('.ml11 .letters');
-      if(textWrapper){
-          textWrapper.innerHTML = textWrapper.textContent?.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>") as string;
-      }
-      anime.timeline({loop:false})
-          .add({
-              targets: '.ml11 .letter',
-              opacity: [0,1],
-              easing: "easeOutCirc",
-              duration: 100,
-              offset: '-=775',
-              delay: (el, i) => 34 * (i)
-          })
-      textWrapper=null;
+    var textWrapper = document.querySelector(".ml11 .letters");
+    if (textWrapper) {
+      textWrapper.innerHTML = textWrapper.textContent?.replace(
+        /([^\x00-\x80]|\w)/g,
+        "<span class='letter'>$&</span>"
+      ) as string;
+    }
+    anime.timeline({ loop: false }).add({
+      targets: ".ml11 .letter",
+      opacity: [0, 1],
+      easing: "easeOutCirc",
+      duration: 100,
+      offset: "-=775",
+      delay: (el, i) => 34 * i
+    });
+    textWrapper = null;
   }, []);
   return (
     <div className={classes.root}>
@@ -274,12 +276,15 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Services</div>
 
-              <h1 className="ml11">
-  <span className="text-wrapper">
-    <span className="line line1"></span>
-    <span className="letters">Our service portfolio covers an entire software development life cycle and meets varied business needs.</span>
-  </span>
-              </h1>
+            <h1 className="ml11">
+              <span className="text-wrapper">
+                <span className="line line1"></span>
+                <span className="letters">
+                  Our service portfolio covers an entire software development life cycle and meets
+                  varied business needs.
+                </span>
+              </span>
+            </h1>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase className={classes.serviceContactBtn}>CONTACT</ButtonBase>
             </div>

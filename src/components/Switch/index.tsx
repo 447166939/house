@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     textAlign: "center",
     zIndex: 10000,
-    Left:0,
+    Left: 0
   },
   off: {
     left: 0
@@ -57,18 +57,18 @@ const MySwitch: React.FC<IMySwitchProps> = (props) => {
   const handleClick = useCallback(() => {
     let tl = anime.timeline({
       easing: "easeInOutCirc",
-      duration: 500,
+      duration: 500
     });
-    if(!on){
+    if (!on) {
       tl.add({
         targets: ["#switch"],
-        left:'50%',
+        left: "50%",
         duration: 300
       });
-    }else{
+    } else {
       tl.add({
         targets: ["#switch"],
-        left:'0',
+        left: "0",
         duration: 500
       });
     }
@@ -76,11 +76,7 @@ const MySwitch: React.FC<IMySwitchProps> = (props) => {
   }, [on]);
   return (
     <div onClick={handleClick} className={clsx(classes.swContainer)}>
-      <div
-          id={'switch'}
-        className={clsx(
-          classes.thumb
-        )}>
+      <div id={"switch"} className={clsx(classes.thumb)}>
         {on ? "EN" : "中"}
       </div>
     </div>
