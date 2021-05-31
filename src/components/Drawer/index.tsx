@@ -38,7 +38,6 @@ const Drawer: React.FC<IDrawerProps> = (props: IDrawerProps) => {
     cb();
   }, [visible]);
   const handleClick = useCallback(() => {
-    console.log("abddd");
     dispatch(closeAllMenu());
   }, []);
   return (

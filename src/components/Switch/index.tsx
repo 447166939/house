@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core";
+import anime from "animejs";
 
 const useStyles = makeStyles((theme) => ({
   swContainer: {
@@ -39,7 +40,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     cursor: "pointer",
     textAlign: "center",
-    zIndex: 10000
+    zIndex: 10000,
+    Left:0,
   },
   off: {
     left: 0
@@ -53,16 +55,31 @@ const MySwitch: React.FC<IMySwitchProps> = (props) => {
   const classes = useStyles();
   const [on, setOn] = useState(false);
   const handleClick = useCallback(() => {
-    console.log("hand");
+    let tl = anime.timeline({
+      easing: "easeInOutCirc",
+      duration: 500,
+    });
+    if(!on){
+      tl.add({
+        targets: ["#switch"],
+        left:'50%',
+        duration: 300
+      });
+    }else{
+      tl.add({
+        targets: ["#switch"],
+        left:'0',
+        duration: 500
+      });
+    }
     setOn(!on);
   }, [on]);
   return (
     <div onClick={handleClick} className={clsx(classes.swContainer)}>
       <div
+          id={'switch'}
         className={clsx(
-          classes.thumb,
-          { [classes.on]: on !== false },
-          { [classes.off]: on === false }
+          classes.thumb
         )}>
         {on ? "EN" : "中"}
       </div>
