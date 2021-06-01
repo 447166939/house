@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme) =>
     },
     searchCloseBtn:{
       width: "41px",
-      marginRight: "26px",
+      marginRight: "26px"
     },
     searchInputWrapper: {
       width: "764px",
@@ -546,7 +546,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         <Toolbar className={classes.toolbar}>
           <Link href={"/"} className={classes.toolbarGrp1}>
             <LogoIcon />
-            <span className={classes.nameText}>Module X</span>
+            <span className={classes.nameText}>ModuleX</span>
           </Link>
           {searchOpen ? null: (
             <div className={classes.toolbarGrp2}>

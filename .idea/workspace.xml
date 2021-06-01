@@ -2,18 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d70072-569a-41fc-bbca-760a52f171cf" name="Default Changelist" comment="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.tsx" afterDir="false" />
+=======
+=======
+>>>>>>> Stashed changes
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Switch/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Switch/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tabs/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tabs/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
     </list>
-    <ignored path="$PROJECT_DIR$/node_modules/" />
-    <ignored path="$PROJECT_DIR$/.tmp/" />
-    <ignored path="$PROJECT_DIR$/temp/" />
-    <ignored path="$PROJECT_DIR$/tmp/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
@@ -42,6 +55,10 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -49,6 +66,8 @@
       </list>
     </option>
   </component>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <component name="FindInProjectRecents">
     <findStrings>
       <find>origin</find>
@@ -59,55 +78,20 @@
       <find>search</find>
     </findStrings>
   </component>
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/components/Card/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/PageHeader/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/Sider/index.tsx" />
-        <option value="$PROJECT_DIR$/src/theme/palette.ts" />
-        <option value="$PROJECT_DIR$/src/store/modules/common/saga.ts" />
-        <option value="$PROJECT_DIR$/src/store/modules/common/action.ts" />
-        <option value="$PROJECT_DIR$/src/pages/service/index.tsx" />
-        <option value="$PROJECT_DIR$/typings.d.ts" />
-        <option value="$PROJECT_DIR$/src/assets/logo.svg" />
-        <option value="$PROJECT_DIR$/src/pages/_app.tsx" />
-        <option value="$PROJECT_DIR$/next.config.js" />
-        <option value="$PROJECT_DIR$/src/theme/styles/createMyTheme.ts" />
-        <option value="$PROJECT_DIR$/src/theme/index.ts" />
-        <option value="$PROJECT_DIR$/src/assets/footerLogo.svg" />
-        <option value="$PROJECT_DIR$/src/store/modules/common/reducer.ts" />
-        <option value="$PROJECT_DIR$/src/store/modules/global/saga.ts" />
-        <option value="$PROJECT_DIR$/tsconfig.json" />
-        <option value="$PROJECT_DIR$/src/store/index.ts" />
-        <option value="$PROJECT_DIR$/src/components/Tabs/index.tsx" />
-        <option value="$PROJECT_DIR$/src/store/modules/global/action.ts" />
-        <option value="$PROJECT_DIR$/src/store/modules/global/reducer.ts" />
-        <option value="$PROJECT_DIR$/src/components/Footer/index.tsx" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/components/Switch/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/Drawer/index.tsx" />
-        <option value="$PROJECT_DIR$/src/pages/global.css" />
-        <option value="$PROJECT_DIR$/src/pages/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/Button/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/Layout/index.tsx" />
-      </list>
-    </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
-  </component>
+  <component name="ProjectId" id="1tKAeett6QsvHbnTIqL4Ld3eBWd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -164,25 +148,31 @@
         </subPane>
       </pane>
     </panes>
+=======
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+>>>>>>> Stashed changes
+=======
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+>>>>>>> Stashed changes
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../新建文件夹" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="G:\webapp\node_modules\prettier" />
-    <property name="ts.external.directory.path" value="G:\webapp\node_modules\typescript\lib" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -197,9 +187,12 @@
       <workItem from="1622373132230" duration="4018000" />
       <workItem from="1622393782211" duration="30586000" />
       <workItem from="1622480716714" duration="390000" />
+      <workItem from="1622507504839" duration="6151000" />
     </task>
     <servers />
   </component>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="77303000" />
   </component>
@@ -227,13 +220,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
   </component>
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.prettierignore">
       <provider selected="true" editor-type-id="text-editor" />
@@ -529,4 +528,8 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 </project>

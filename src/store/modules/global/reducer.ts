@@ -54,7 +54,6 @@ export const globalReducer = handleActions(
       };
     },
     [closeAllMenu as unknown as string]: (state, action) => {
-      console.log("dddddd");
       return {
         ...state,
         serviceMenuVisible: false,

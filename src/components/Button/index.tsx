@@ -9,13 +9,13 @@ const useStyles = makeStyles((theme) => ({
     background: "inherit",
     outline: "none",
     border: "none",
-    boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
+    boxShadow: '-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA',
     borderRadius: "8px",
     cursor: "pointer",
     textTransform: "uppercase",
     height: "40px",
-    padding: theme.spacing(2)
-    /* "&:active,&:focus": {
+    padding: theme.spacing(2),
+    "&:active,&:focus": {
       color: "#CBD5E5",
       "&:after": {
         content: "''",
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
         borderRadius: "8px"
       }
-    }*/
+    }
   }
 }));
 export interface IButtonProps {

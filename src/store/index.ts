@@ -25,7 +25,6 @@ export const makeStore = (context: any) => {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(rootReducer, bindMiddleware([sagaMiddleware]));
   sagaMiddleware.run(rootSaga);
-
   return store;
 };
 
