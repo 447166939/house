@@ -6,7 +6,10 @@ const actions = createActions(
     SET_SOLUTIONS_MENU_VISIBLE: (solutionsMenuVisible) => ({ solutionsMenuVisible }),
     SET_BLOG_AND_NEWS_MENU_VISIBLE: (blogAndNewsMenuVisible) => ({ blogAndNewsMenuVisible })
   },
-  "CLOSE_ALL_MENU"
+  "CLOSE_ALL_MENU",
+    {
+        prefix:'GLOBAL'
+    }
 );
 
 export default actions;

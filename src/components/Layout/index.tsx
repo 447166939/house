@@ -91,9 +91,9 @@ const useStyles = makeStyles((theme) =>
       marginRight: "26px",
       marginLeft: "129px"
     },
-    searchCloseBtn:{
+    searchCloseBtn: {
       width: "41px",
-      marginRight: "26px",
+      marginRight: "26px"
     },
     searchInputWrapper: {
       width: "764px",
@@ -112,7 +112,7 @@ const useStyles = makeStyles((theme) =>
       fontWeight: "bold",
       paddingLeft: theme.spacing(1),
       paddingRight: theme.spacing(1),
-      marginRight:'41px',
+      marginRight: "41px",
       "&:after": {
         content: "''",
         position: "absolute",
@@ -149,7 +149,7 @@ const useStyles = makeStyles((theme) =>
       paddingBottom: "97px"
     },
     bg: {
-      position: "absolute",
+      position: "fixed",
       background: theme.custom.background,
       top: 0,
       bottom: 0,
@@ -264,14 +264,14 @@ const useStyles = makeStyles((theme) =>
       height: "auto"
     },
     circle2: {
-      position: "absolute",
+      position: "fixed",
       bottom: "-100px",
       left: "0px",
       width: "253px",
       height: "auto"
     },
     ball: {
-      position: "absolute",
+      position: "fixed",
       width: "92px",
       height: "auto",
       left: "-3000px",
@@ -279,44 +279,36 @@ const useStyles = makeStyles((theme) =>
       zIndex: 1
     },
     rect: {
-      position: "absolute",
+      position: "fixed",
       width: "185px",
       height: "auto",
       left: "-2000px",
       top: "1610px"
     },
     triangle: {
-      position: "absolute",
+      position: "fixed",
       width: "148px",
       height: "auto",
       left: "-800px",
       top: "1650px"
     },
     egg: {
-      position: "absolute",
+      position: "fixed",
       width: "700px",
       height: "aoto",
       left: "-400px",
       transform: "scale(0.1)",
       top: "550px"
     },
-    egg2: {
-      position: "absolute",
-      width: "700px",
-      height: "aoto",
-      left: "200px",
-      transform: "scale(0.1)",
-      bottom: "-100px"
-    },
     triangle1: {
-      position: "absolute",
+      position: "fixed",
       width: "82px",
       height: "auto",
       left: "-700px",
       top: "1200px"
     },
     cube: {
-      position: "absolute",
+      position: "fixed",
       width: "82px",
       height: "auto",
       left: "-300px",
@@ -324,7 +316,7 @@ const useStyles = makeStyles((theme) =>
       zIndex: -100
     },
     cube1: {
-      position: "absolute",
+      position: "fixed",
       width: "156px",
       height: "auto",
       left: "-800px",
@@ -332,7 +324,7 @@ const useStyles = makeStyles((theme) =>
       zIndex: -50
     },
     tetrahedron: {
-      position: "absolute",
+      position: "fixed",
       width: "156px",
       height: "auto",
       left: "100px",
@@ -340,7 +332,7 @@ const useStyles = makeStyles((theme) =>
       zIndex: -50
     },
     circle1: {
-      position: "absolute",
+      position: "fixed",
       width: "156px",
       height: "auto",
       left: "-500px",
@@ -422,11 +414,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       duration: 3000,
       loop: true
     });
-    var egg2TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
     t1.add({
       targets: ["#circle"],
       top: "0px",
@@ -504,13 +491,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       rotate: "360deg",
       duration: 60000
     });
-    egg2TimeLine.add({
-      targets: ["#egg2"],
-      left: "800px",
-      bottom: "6000px",
-      rotate: "360deg",
-      duration: 30000
-    });
   }, []);
   const handleChange = useCallback((index) => {
     setIdx(index);
@@ -548,21 +528,22 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <LogoIcon />
             <span className={classes.nameText}>Module X</span>
           </Link>
-          {searchOpen ? null: (
+          {searchOpen ? null : (
             <div className={classes.toolbarGrp2}>
               <Tabs
                 onChange={handleChange}
                 menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
             </div>
           )}
-          <div className={classes.toolbarGrp3}>{
-            searchOpen ? (<div className={classes.toolbarGrp4}>
-              <div className={classes.searchInputWrapper}>
-                <SearchIcon />
-                <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
+          <div className={classes.toolbarGrp3}>
+            {searchOpen ? (
+              <div className={classes.toolbarGrp4}>
+                <div className={classes.searchInputWrapper}>
+                  <SearchIcon />
+                  <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
+                </div>
               </div>
-            </div>):null
-          }
+            ) : null}
             {searchOpen ? (
               <Button key={"close"} onClick={closeSearch} className={classes.searchCloseBtn}>
                 <CloseIcon />
@@ -650,7 +631,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
         <img id="circle1" className={classes.circle1} src={"/circle1.png"} />
         <img id={"circle2"} className={classes.circle2} src={"/circle.svg"} />
-        <img className={classes.egg2} id={"egg2"} src={"/egg.svg"} />
         {children}
       </div>
       <IconButton className={classes.upAnchor}>

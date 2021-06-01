@@ -1,11 +1,11 @@
 import { applyMiddleware, createStore, combineReducers } from "redux";
 import createSagaMiddleware from "redux-saga";
 import { all } from "redux-saga/effects";
-import commonSaga from "./modules/global/saga";
+import globalSaga from "./modules/global/saga";
 import { globalReducer, namespace as globalNamespace } from "./modules/global/reducer";
 import { createWrapper } from "next-redux-wrapper";
 export function* rootSaga() {
-  yield all([...commonSaga]);
+  yield all([...globalSaga]);
 }
 const rootReducer = combineReducers({
   [globalNamespace]: globalReducer
