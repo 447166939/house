@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     textTransform: "uppercase",
     height: "40px",
-    padding: theme.spacing(2),
-   /* "&:active,&:focus": {
+    padding: theme.spacing(2)
+    /* "&:active,&:focus": {
       color: "#CBD5E5",
       "&:after": {
         content: "''",
