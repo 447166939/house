@@ -256,88 +256,110 @@ const useStyles = makeStyles((theme) =>
       backgroundColor: "#fff",
       zIndex: 30000
     },
-    circle: {
-      position: "absolute",
-      top: "800px",
-      left: "-1400px",
-      width: "253px",
-      height: "auto"
-    },
-    circle2: {
-      position: "fixed",
-      bottom: "-100px",
-      left: "0px",
-      width: "253px",
-      height: "auto"
-    },
     ball: {
       position: "fixed",
       width: "92px",
       height: "auto",
-      left: "-3000px",
-      top: "1800px",
+      left: "100px",
+      top: "900px",
       zIndex: 1
     },
-    rect: {
+    circle: {
       position: "fixed",
-      width: "185px",
+      top: "900px",
+      left: "-300px",
+      width: "253px",
       height: "auto",
-      left: "-2000px",
-      top: "1610px"
+      zIndex:-50,
     },
-    triangle: {
+    circleB: {
       position: "fixed",
-      width: "148px",
+      top: "1000px",
+      left: "600px",
+      width: "253px",
       height: "auto",
-      left: "-800px",
-      top: "1650px"
+      zIndex:-100,
     },
-    egg: {
+    circleSB: {
       position: "fixed",
-      width: "700px",
-      height: "aoto",
-      left: "-400px",
-      transform: "scale(0.1)",
-      top: "550px"
-    },
-    triangle1: {
-      position: "fixed",
-      width: "82px",
+      top: "900px",
+      left: "400px",
+      width: "100px",
       height: "auto",
-      left: "-700px",
-      top: "1200px"
+      zIndex:-200
     },
     cube: {
       position: "fixed",
       width: "82px",
       height: "auto",
-      left: "-300px",
-      top: "2000px",
-      zIndex: -100
+      left: "0px",
+      top: "1000px",
+      zIndex: -50
     },
-    cube1: {
+    cubeB: {
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: "-800px",
+      left: "400px",
+      top: "1050px",
+      zIndex: -100
+    },
+    egg: {
+      position: "fixed",
+      width: "700px",
+      height: "aoto",
+      left: -500,
+      transform: "scale(0.1)",
+      top: "1350px",
+      zIndex:-50
+    },
+    rect: {
+      position: "fixed",
+      width: "185px",
+      height: "auto",
+      left: "200px",
       top: "900px",
-      zIndex: -50
+      zIndex:-50,
+    },
+    rectB: {
+      position: "fixed",
+      width: "185px",
+      height: "auto",
+      left: "100px",
+      top: "1100px",
+      zIndex:-100,
     },
     tetrahedron: {
       position: "fixed",
       width: "156px",
       height: "auto",
       left: "100px",
-      top: "1000px",
+      top: "900px",
       zIndex: -50
     },
-    circle1: {
+    tetrahedronB: {
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: "-500px",
-      top: "8000px",
-      zIndex: -50
+      left: "300px",
+      top: "1150px",
+      zIndex: -100
+    },
+    triangle: {
+      position: "fixed",
+      width: "148px",
+      height: "auto",
+      left: "400px",
+      top: "1000px",
+      zIndex:-50,
+    },
+    triangleB: {
+      position: "fixed",
+      width: "82px",
+      height: "auto",
+      left: "300px",
+      top: "1200px",
+      zIndex:-100,
     }
   })
 );
@@ -359,137 +381,173 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     blogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
   useEffect(() => {
-    var t1 = anime.timeline({
+    var ballTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var t2 = anime.timeline({
+    var circleTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var t3 = anime.timeline({
+    var circleBTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var t4 = anime.timeline({
+    var circleSBTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var t5 = anime.timeline({
+    var cubeTl= anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var t6 = anime.timeline({
+    var cubeBTl= anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var cubeTimeLine = anime.timeline({
+    var eggTl= anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var cubeTimeLine1 = anime.timeline({
+    var rectTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var tetrahedronTimeLine = anime.timeline({
+    var rectBTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var circle1TimeLine = anime.timeline({
+    var tetrahedronTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    var circle2TimeLine = anime.timeline({
+    var tetrahedronBTl = anime.timeline({
       easing: "linear",
       duration: 3000,
       loop: true
     });
-    t1.add({
-      targets: ["#circle"],
-      top: "0px",
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
+    var triangleTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
     });
-    t2.add({
+    var triangleBTl= anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    ballTl.add({
       targets: ["#ball"],
-      top: 200,
-      left: "2500px",
+      top: "100px",
+      left: "1200px",
       rotate: "360deg",
       duration: 30000
     });
-    t3.add({
-      targets: ["#rect"],
-      top: 100,
-      left: "2500px",
+    circleTl.add({
+      targets: ["#circle"],
+      top: -100,
+      left: "500px",
       rotate: "360deg",
+      delay:0,
       duration: 30000
     });
-    t4.add({
-      targets: ["#triangle"],
-      left: "2500px",
-      top: 300,
+    circleBTl.add({
+      targets: ["#circleB"],
+      top: 800,
+      left: "2600px",
       rotate: "360deg",
-      duration: 30000
+      delay:1000,
+      duration: 50000
     });
-    t5.add({
-      targets: ["#egg"],
-      left: "2500px",
+    circleSBTl.add({
+      targets: ["#circleSB"],
+      left: "1900px",
+      top: 500,
+      rotate: "360deg",
+      delay:50000,
+      duration: 60000
+    });
+    cubeTl.add({
+      targets: ["#cube"],
+      left: "1500px",
       top: -400,
       rotate: "360deg",
+      delay:15000,
       duration: 30000
     });
-    t6.add({
-      targets: ["#triangle1"],
-      left: "2500px",
+    cubeBTl.add({
+      targets: ["#cubeB"],
+      left: "1400px",
       top: -600,
-      rotate: "360deg",
-      duration: 30000
-    });
-    cubeTimeLine.add({
-      targets: ["#cube"],
-      left: "2500px",
-      top: "-600px",
+      delay:18000,
       rotate: "360deg",
       duration: 50000
     });
-    cubeTimeLine1.add({
-      targets: ["#cube1"],
-      left: "2500px",
-      top: "-600px",
+    eggTl.add({
+      targets: ["#egg"],
+      left: "1100px",
+      top: -200,
+      delay:21000,
       rotate: "360deg",
       duration: 30000
     });
-    tetrahedronTimeLine.add({
+    rectTl.add({
+      targets: ["#rect"],
+      left: "1300px",
+      top: "200px",
+      delay:11000,
+      rotate: "360deg",
+      duration: 30000
+    });
+    rectBTl.add({
+      targets: ["#rectB"],
+      left: "1100px",
+      top: "-600px",
+      delay:30000,
+      rotate: "360deg",
+      duration: 50000
+    });
+    tetrahedronTl.add({
       targets: ["#tetrahedron"],
-      left: "1000px",
-      top: "-600px",
+      left: "900px",
+      top: "300px",
+      delay:28000,
       rotate: "360deg",
       duration: 30000
     });
-    circle1TimeLine.add({
-      targets: ["#circle1"],
+    tetrahedronBTl.add({
+      targets: ["#tetrahedronB"],
       left: "800px",
-      top: "300px",
+      bottom: "3000px",
+      delay:30000,
       rotate: "360deg",
-      duration: 60000
+      duration: 50000
     });
-    circle2TimeLine.add({
-      targets: ["#circle2"],
+    triangleTl.add({
+      targets: ["#triangle"],
       left: "1500px",
       bottom: "3000px",
       rotate: "360deg",
-      duration: 60000
+      delay:3000,
+      duration: 30000
+    });
+    triangleBTl.add({
+      targets: ["#triangleB"],
+      left: "1500px",
+      bottom: "3000px",
+      rotate: "360deg",
+      delay:6000,
+      duration: 50000
     });
   }, []);
   const handleChange = useCallback((index) => {
@@ -620,17 +678,21 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
       <div className={classes.content}>
         <div className={classes.bg}></div>
-        <img id={"circle"} className={classes.circle} src={"/circle.svg"} />
-        <img id={"ball"} className={classes.ball} src={"/ball.svg"} />
-        <img id={"rect"} className={classes.rect} src={"/rect.svg"} />
-        <img id={"triangle"} className={classes.triangle} src={"/triangle.svg"} />
-        <img className={classes.egg} id={"egg"} src={"/egg.svg"} />
-        <img id={"triangle1"} className={classes.triangle1} src={"/triangle1.svg"} />
+        <img id={"circle"} className={classes.circle} src={"/circle.png"} />
+        <img id={"ball"} className={classes.ball} src={"/ball.png"} />
+        <img id={"rect"} className={classes.rect} src={"/rect.png"} />
+        <img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />
         <img id={"cube"} className={classes.cube} src={"/cube.png"} />
-        <img id="cube1" className={classes.cube1} src={"/cube1.png"} />
+        <img className={classes.egg} id={"egg"} src={"/egg.png"} />
         <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
-        <img id="circle1" className={classes.circle1} src={"/circle1.png"} />
-        <img id={"circle2"} className={classes.circle2} src={"/circle.svg"} />
+
+        <img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />
+        <img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />
+        <img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />
+        <img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />
+        <img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />
+        <img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />
+
         {children}
       </div>
       <IconButton className={classes.upAnchor}>

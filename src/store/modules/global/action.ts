@@ -7,9 +7,9 @@ const actions = createActions(
     SET_BLOG_AND_NEWS_MENU_VISIBLE: (blogAndNewsMenuVisible) => ({ blogAndNewsMenuVisible })
   },
   "CLOSE_ALL_MENU",
-    {
-        prefix:'GLOBAL'
-    }
+  {
+    prefix: "GLOBAL"
+  }
 );
 
 export default actions;
