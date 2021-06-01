@@ -16,25 +16,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/Layout/index.tsx">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Switch/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+            <state relative-caret-position="-1397">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding>
-                <element signature="e#0#64#0" expanded="true" />
+                <element signature="e#0#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Switch/index.tsx">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Layout/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="27" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+            <state relative-caret-position="450">
+              <caret line="563" column="11" lean-forward="true" selection-start-line="563" selection-start-column="11" selection-end-line="563" selection-end-column="11" />
               <folding>
-                <element signature="e#0#53#0" expanded="true" />
+                <element signature="e#0#64#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -201,7 +201,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75702000" />
+    <option name="totallyTimeSpent" value="77303000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -510,8 +510,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Switch/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
+        <state relative-caret-position="-1397">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
           </folding>
@@ -520,8 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Layout/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="944">
-          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+        <state relative-caret-position="450">
+          <caret line="563" column="11" lean-forward="true" selection-start-line="563" selection-start-column="11" selection-end-line="563" selection-end-column="11" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>

@@ -10,7 +10,7 @@ import { makeStyles, createStyles } from "@material-ui/core";
 import Footer from "@/components/Footer";
 import Drawer from "@/components/Drawer";
 import ButtonBase from "@material-ui/core/ButtonBase";
-import InputBase from '@material-ui/core/InputBase';
+import InputBase from "@material-ui/core/InputBase";
 import Link from "@material-ui/core/Link";
 import anime from "animejs";
 import { IconButton } from "@material-ui/core";
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       alignItems: "center"
     },
-    toolbarGrp4:{
+    toolbarGrp4: {
       display: "flex",
       alignItems: "center"
     },
@@ -91,7 +91,11 @@ const useStyles = makeStyles((theme) =>
       marginRight: "26px",
       marginLeft: "129px"
     },
-    searchInputWrapper:{
+    searchCloseBtn:{
+      width: "41px",
+      marginRight: "26px",
+    },
+    searchInputWrapper: {
       width: "764px",
       height: "44px",
       position: "relative",
@@ -100,14 +104,15 @@ const useStyles = makeStyles((theme) =>
       border: "none",
       boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
       borderRadius: "22px",
-      display:'flex',
-      alignItems:'center',
-      color:'#CBD5E5',
-      fontSize:'14px',
-      lineHeight:'50px',
-      fontWeight:'bold',
-      paddingLeft:theme.spacing(1),
-      paddingRight:theme.spacing(1),
+      display: "flex",
+      alignItems: "center",
+      color: "#CBD5E5",
+      fontSize: "14px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      paddingLeft: theme.spacing(1),
+      paddingRight: theme.spacing(1),
+      marginRight:'41px',
       "&:after": {
         content: "''",
         position: "absolute",
@@ -119,12 +124,12 @@ const useStyles = makeStyles((theme) =>
         borderRadius: "22px"
       }
     },
-    searchInput:{
-      color:'#CBD5E5',
-      fontSize:'14px',
-      lineHeight:'50px',
-      fontWeight:'bold',
-      flex:1,
+    searchInput: {
+      color: "#CBD5E5",
+      fontSize: "14px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      flex: 1
     },
     nameText: {
       color: "#2699FB",
@@ -514,7 +519,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setSearchOpen(true);
   }, []);
   const closeSearch = useCallback(() => {
-    console.log('close')
+    console.log("close");
     setSearchOpen(false);
   }, []);
   const cb = useCallback(() => {
@@ -543,29 +548,27 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <LogoIcon />
             <span className={classes.nameText}>Module X</span>
           </Link>
-            {searchOpen ? (
-                <div className={classes.toolbarGrp4}>
-              <div className={classes.searchInputWrapper}>
-                <SearchIcon />
-                <InputBase className={classes.searchInput} placeholder={'SERVICES'} />
-              </div>
-                </div>
-            ) : (
-                <div className={classes.toolbarGrp2}>
+          {searchOpen ? null: (
+            <div className={classes.toolbarGrp2}>
               <Tabs
                 onChange={handleChange}
-                menus={["services", "technologies", "solutions", "blog&news"]}>
-
-              </Tabs>
-                </div>
-            )}
-          <div className={classes.toolbarGrp3}>
+                menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+            </div>
+          )}
+          <div className={classes.toolbarGrp3}>{
+            searchOpen ? (<div className={classes.toolbarGrp4}>
+              <div className={classes.searchInputWrapper}>
+                <SearchIcon />
+                <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
+              </div>
+            </div>):null
+          }
             {searchOpen ? (
-              <Button key={'close'} onClick={closeSearch} className={classes.searchBtn}>
+              <Button key={"close"} onClick={closeSearch} className={classes.searchCloseBtn}>
                 <CloseIcon />
               </Button>
             ) : (
-              <Button key={'open'} onClick={openSearch} className={classes.searchBtn}>
+              <Button key={"open"} onClick={openSearch} className={classes.searchBtn}>
                 <SearchIcon />
               </Button>
             )}
