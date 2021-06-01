@@ -20,6 +20,7 @@ import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
 import { RootState } from "@/store/index";
 import CloseIcon from "@material-ui/icons/Close";
+import clsx from "clsx";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -91,7 +92,7 @@ const useStyles = makeStyles((theme) =>
       marginRight: "26px",
       marginLeft: "129px"
     },
-    searchCloseBtn:{
+    searchCloseBtn: {
       width: "41px",
       marginRight: "26px"
     },
@@ -112,7 +113,7 @@ const useStyles = makeStyles((theme) =>
       fontWeight: "bold",
       paddingLeft: theme.spacing(1),
       paddingRight: theme.spacing(1),
-      marginRight:'41px',
+      marginRight: "41px",
       "&:after": {
         content: "''",
         position: "absolute",
@@ -210,7 +211,7 @@ const useStyles = makeStyles((theme) =>
       background: "inherit",
       outline: "none",
       border: "none",
-      boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
+      boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
       borderRadius: "8px",
       cursor: "pointer",
       textTransform: "uppercase",
@@ -224,7 +225,7 @@ const useStyles = makeStyles((theme) =>
       background: "inherit",
       outline: "none",
       border: "none",
-      boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
+      boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
       borderRadius: "8px",
       cursor: "pointer",
       textTransform: "uppercase",
@@ -346,6 +347,19 @@ const useStyles = makeStyles((theme) =>
       left: "-500px",
       top: "8000px",
       zIndex: -50
+    },
+    active: {
+      color: "#CBD5E5",
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+        boxShadow: "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
+        borderRadius: "8px"
+      }
     }
   })
 );
@@ -548,21 +562,22 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <LogoIcon />
             <span className={classes.nameText}>ModuleX</span>
           </Link>
-          {searchOpen ? null: (
+          {searchOpen ? null : (
             <div className={classes.toolbarGrp2}>
               <Tabs
                 onChange={handleChange}
                 menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
             </div>
           )}
-          <div className={classes.toolbarGrp3}>{
-            searchOpen ? (<div className={classes.toolbarGrp4}>
-              <div className={classes.searchInputWrapper}>
-                <SearchIcon />
-                <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
+          <div className={classes.toolbarGrp3}>
+            {searchOpen ? (
+              <div className={classes.toolbarGrp4}>
+                <div className={classes.searchInputWrapper}>
+                  <SearchIcon />
+                  <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
+                </div>
               </div>
-            </div>):null
-          }
+            ) : null}
             {searchOpen ? (
               <Button key={"close"} onClick={closeSearch} className={classes.searchCloseBtn}>
                 <CloseIcon />
@@ -592,18 +607,18 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </span>
             </h1>
             <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase className={classes.serviceContactBtn}>CONTACT</ButtonBase>
+              <ButtonBase className={clsx(classes.serviceContactBtn, {[classes.active]:false})} disableRipple>CONTACT</ButtonBase>
             </div>
           </div>
           <div className={classes.serviceCol2}>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn}>Programming Languages</ButtonBase>
+              <ButtonBase className={classes.serviceCol2Btn} disableRipple>Programming Languages</ButtonBase>
             </div>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn}>Advanced Technologies</ButtonBase>
+              <ButtonBase className={classes.serviceCol2Btn} disableRipple>Advanced Technologies</ButtonBase>
             </div>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn}>Cloud Technologies</ButtonBase>
+              <ButtonBase className={classes.serviceCol2Btn} disableRipple>Cloud Technologies</ButtonBase>
             </div>
           </div>
           <div className={classes.serviceCol3}>

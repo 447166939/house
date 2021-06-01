@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme) => ({
     background: "inherit",
     outline: "none",
     border: "none",
-    boxShadow: '-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA',
+    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
     borderRadius: "8px",
     cursor: "pointer",
     textTransform: "uppercase",
     height: "40px",
     padding: theme.spacing(2),
-    marginRight: "32px",
+    marginRight: "32px"
     // '&:after': {
     //   content: "''",
     //   position: 'absolute',
@@ -59,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       right: 0,
       bottom: 0,
-      // boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
       boxShadow: "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
       borderRadius: "8px"
     }
@@ -70,7 +69,7 @@ export interface ITabsProps {
   onChange: (index: number) => void;
 }
 const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
-  const { onChange = function () {}, menus = []} = props;
+  const { onChange = function () {}, menus = [] } = props;
   // const { onChange, menus } = props;
   const classes = useStyles();
   const [idx, setIdx] = useState();
@@ -97,7 +96,7 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
     },
     [idx, serviceMenuVisible, technologiesMenuVisible, solutionsMenuVisible, blogAndNewsMenuVisible]
   );
-  
+
   return (
     <>
       {menus.map((item, index) => {

@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     background: "inherit",
     outline: "none",
     border: "none",
-    boxShadow: '-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA',
+    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
     borderRadius: "8px",
     cursor: "pointer",
     textTransform: "uppercase",
