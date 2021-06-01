@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     height: "40px",
     padding: theme.spacing(2),
-    "&:active,&:focus": {
+   /* "&:active,&:focus": {
       color: "#CBD5E5",
       "&:after": {
         content: "''",
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
         boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
         borderRadius: "8px"
       }
-    }
+    }*/
   }
 }));
 export interface IButtonProps {
@@ -39,7 +39,6 @@ const Button: React.FC<IButtonProps> = (props: IButtonProps) => {
   const { children, className, onClick = function () {} } = props;
   const classes = useStyles();
   const handleClick = useCallback(() => {
-    console.log("I am clicked");
     onClick();
   }, []);
   return (

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback,useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import SvgIcon from "@material-ui/core/SvgIcon";
@@ -18,6 +18,7 @@ import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
 import { RootState } from "@/store/index";
+import CloseIcon from '@material-ui/icons/Close';
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -209,7 +210,98 @@ const useStyles = makeStyles((theme) =>
       right: "50px",
       backgroundColor: "#fff",
       zIndex: 30000
-    }
+    },
+      circle: {
+          position: "absolute",
+          top: "800px",
+          left: "-1400px",
+          width: "253px",
+          height: "auto"
+      },
+      circle2: {
+          position: "absolute",
+          bottom: "-100px",
+          left: "0px",
+          width: "253px",
+          height: "auto"
+      },
+      ball: {
+          position: "absolute",
+          width: "92px",
+          height: "auto",
+          left: "-3000px",
+          top: "1800px",
+          zIndex: 1
+      },
+      rect: {
+          position: "absolute",
+          width: "185px",
+          height: "auto",
+          left: "-2000px",
+          top: "1610px"
+      },
+      triangle: {
+          position: "absolute",
+          width: "148px",
+          height: "auto",
+          left: "-800px",
+          top: "1650px"
+      },
+      egg: {
+          position: "absolute",
+          width: "700px",
+          height: "aoto",
+          left: "-400px",
+          transform: "scale(0.1)",
+          top: "550px"
+      },
+      egg2: {
+          position: "absolute",
+          width: "700px",
+          height: "aoto",
+          left: "200px",
+          transform: "scale(0.1)",
+          bottom: "-100px"
+      },
+      triangle1: {
+          position: "absolute",
+          width: "82px",
+          height: "auto",
+          left: "-700px",
+          top: "1200px"
+      },
+      cube: {
+          position: "absolute",
+          width: "82px",
+          height: "auto",
+          left: "-300px",
+          top: "2000px",
+          zIndex: -100
+      },
+      cube1: {
+          position: "absolute",
+          width: "156px",
+          height: "auto",
+          left: "-800px",
+          top: "900px",
+          zIndex: -50
+      },
+      tetrahedron: {
+          position: "absolute",
+          width: "156px",
+          height: "auto",
+          left: "100px",
+          top: "1000px",
+          zIndex: -50
+      },
+      circle1: {
+          position: "absolute",
+          width: "156px",
+          height: "auto",
+          left: "-500px",
+          top: "8000px",
+          zIndex: -50
+      },
   })
 );
 export interface ILogoIconProps {}
@@ -222,15 +314,168 @@ export interface ILayoutProps {
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
   const [idx, setIdx] = useState();
+  const [searchOpen,setSearchOpen]=useState(false)
   const {
     serviceMenuVisible,
     technologiesMenuVisible,
     solutionsMenuVisible,
     blogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
+    useEffect(() => {
+        var t1 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var t2 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var t3 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var t4 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var t5 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var t6 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var cubeTimeLine = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var cubeTimeLine1 = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var tetrahedronTimeLine = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var circle1TimeLine = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var circle2TimeLine = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        var egg2TimeLine = anime.timeline({
+            easing: "linear",
+            duration: 3000,
+            loop: true
+        });
+        t1.add({
+            targets: ["#circle"],
+            top: "0px",
+            left: "2500px",
+            rotate: "360deg",
+            duration: 30000
+        });
+        t2.add({
+            targets: ["#ball"],
+            top: 200,
+            left: "2500px",
+            rotate: "360deg",
+            duration: 30000
+        });
+        t3.add({
+            targets: ["#rect"],
+            top: 100,
+            left: "2500px",
+            rotate: "360deg",
+            duration: 30000
+        });
+        t4.add({
+            targets: ["#triangle"],
+            left: "2500px",
+            top: 300,
+            rotate: "360deg",
+            duration: 30000
+        });
+        t5.add({
+            targets: ["#egg"],
+            left: "2500px",
+            top: -400,
+            rotate: "360deg",
+            duration: 30000
+        });
+        t6.add({
+            targets: ["#triangle1"],
+            left: "2500px",
+            top: -600,
+            rotate: "360deg",
+            duration: 30000
+        });
+        cubeTimeLine.add({
+            targets: ["#cube"],
+            left: "2500px",
+            top: "-600px",
+            rotate: "360deg",
+            duration: 50000
+        });
+        cubeTimeLine1.add({
+            targets: ["#cube1"],
+            left: "2500px",
+            top: "-600px",
+            rotate: "360deg",
+            duration: 30000
+        });
+        tetrahedronTimeLine.add({
+            targets: ["#tetrahedron"],
+            left: "1000px",
+            top: "-600px",
+            rotate: "360deg",
+            duration: 30000
+        });
+        circle1TimeLine.add({
+            targets: ["#circle1"],
+            left: "800px",
+            top: "300px",
+            rotate: "360deg",
+            duration: 60000
+        });
+        circle2TimeLine.add({
+            targets: ["#circle2"],
+            left: "1500px",
+            bottom: "3000px",
+            rotate: "360deg",
+            duration: 60000
+        });
+        egg2TimeLine.add({
+            targets: ["#egg2"],
+            left: "800px",
+            bottom: "6000px",
+            rotate: "360deg",
+            duration: 30000
+        });
+    }, []);
   const handleChange = useCallback((index) => {
     setIdx(index);
   }, []);
+  const openSearch=useCallback(()=>{
+      setSearchOpen(true)
+  },[])
+    const closeSearch=useCallback(()=>{
+        setSearchOpen(false)
+    },[])
   const cb = useCallback(() => {
     var textWrapper = document.querySelector(".ml11 .letters");
     if (textWrapper) {
@@ -258,14 +503,23 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <span className={classes.nameText}>Module X</span>
           </Link>
           <div className={classes.toolbarGrp2}>
-            <Tabs
+              {
+                  searchOpen ? <div></div> :<Tabs
               onChange={handleChange}
-              menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+              menus={["services", "technologies", "solutions", "blog&news"]}>
+
+            </Tabs>
+              }
           </div>
           <div className={classes.toolbarGrp3}>
-            <Button className={classes.searchBtn}>
-              <SearchIcon />
-            </Button>
+              {
+                  searchOpen ? (<Button onClick={closeSearch} className={classes.searchBtn}>
+                                <CloseIcon />
+                                 </Button>) :
+                      (<Button onClick={openSearch} className={classes.searchBtn}>
+                          <SearchIcon />
+                      </Button>)
+              }
             <Switch />
           </div>
         </Toolbar>
@@ -333,6 +587,18 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
       <div className={classes.content}>
         <div className={classes.bg}></div>
+          <img id={"circle"} className={classes.circle} src={"/circle.svg"} />
+          <img id={"ball"} className={classes.ball} src={"/ball.svg"} />
+          <img id={"rect"} className={classes.rect} src={"/rect.svg"} />
+          <img id={"triangle"} className={classes.triangle} src={"/triangle.svg"} />
+          <img className={classes.egg} id={"egg"} src={"/egg.svg"} />
+          <img id={"triangle1"} className={classes.triangle1} src={"/triangle1.svg"} />
+          <img id={"cube"} className={classes.cube} src={"/cube.png"} />
+          <img id="cube1" className={classes.cube1} src={"/cube1.png"} />
+          <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
+          <img id="circle1" className={classes.circle1} src={"/circle1.png"} />
+          <img id={"circle2"} className={classes.circle2} src={"/circle.svg"} />
+          <img className={classes.egg2} id={"egg2"} src={"/egg.svg"} />
         {children}
       </div>
       <IconButton className={classes.upAnchor}>
