@@ -60,9 +60,8 @@ const MySwitch: React.FC<IMySwitchProps> = (props) => {
   const [on, setOn] = useState(false);
   const handleClick = useCallback(() => {
     let tl = anime.timeline({
-      // easing: "easeInOutCirc",
       easing: "spring(1, 80, 9, 2)",
-      duration: 270
+      duration: 210
     });
     if (!on) {
       tl.add({

@@ -357,7 +357,8 @@ const useStyles = makeStyles((theme) =>
         top: 0,
         right: 0,
         bottom: 0,
-        boxShadow: "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
+        boxShadow:
+          "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
         borderRadius: "8px"
       }
     }
@@ -592,10 +593,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
-      <Drawer cb={cb} visible={idx == 0 && serviceMenuVisible}>
+      <Drawer cb={cb} visible={idx == 1 && technologiesMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Services</div>
+            <div className={classes.serviceTitle}>Technologies</div>
 
             <h1 className="ml11">
               <span className="text-wrapper">
@@ -607,18 +608,28 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </span>
             </h1>
             <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase className={clsx(classes.serviceContactBtn, {[classes.active]:false})} disableRipple>CONTACT</ButtonBase>
+              <ButtonBase
+                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                disableRipple>
+                CONTACT
+              </ButtonBase>
             </div>
           </div>
           <div className={classes.serviceCol2}>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>Programming Languages</ButtonBase>
+              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
+                Programming Languages
+              </ButtonBase>
             </div>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>Advanced Technologies</ButtonBase>
+              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
+                Advanced Technologies
+              </ButtonBase>
             </div>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>Cloud Technologies</ButtonBase>
+              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
+                Cloud Technologies
+              </ButtonBase>
             </div>
           </div>
           <div className={classes.serviceCol3}>
