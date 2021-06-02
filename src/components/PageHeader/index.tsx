@@ -5,6 +5,7 @@ import Breadcrumbs from "@material-ui/core/Breadcrumbs";
 import Link from "@material-ui/core/Link";
 import Typography from "@material-ui/core/Typography";
 import Card from "../Card";
+import { useRouter } from 'next/router'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -42,6 +43,17 @@ const useStyles = makeStyles((theme) => ({
 export interface IPageHeaderProps {}
 const PageHeader: React.FC<IPageHeaderProps> = (props) => {
   const classes = useStyles();
+  const {pathname}=useRouter();
+  console.log(pathname)
+  let pathArr=pathname.split('/')
+  let path2,path1;
+  if(pathArr[1]=='services'){
+    path2='Services'
+  }
+  if(pathArr[2]=='ITSupport'){
+    path1='IT Support Services'
+  }
+
   return (
     <div className={classes.root}>
       <ButtonBase className={classes.headerBtn}>SOFTWARE DEVELOPMENT</ButtonBase>
@@ -50,10 +62,10 @@ const PageHeader: React.FC<IPageHeaderProps> = (props) => {
           <Link color="inherit" href="/">
             Home
           </Link>
-          <Link color="inherit" href="/service">
-            Services
+          <Link color="inherit" href={'#'}>
+            {path2}
           </Link>
-          <Typography color="inherit">IT Support Services</Typography>
+          <Typography color="inherit">{path1}</Typography>
         </Breadcrumbs>
       </Card>
     </div>

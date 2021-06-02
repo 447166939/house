@@ -430,8 +430,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#c3cfde",
     lineHeight: "24px",
     marginLeft: theme.spacing(1)
-  },
-
+  }
 }));
 const Index = () => {
   const classes = useStyles();

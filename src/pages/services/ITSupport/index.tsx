@@ -78,9 +78,16 @@ export interface IWcsRightIconProps {}
 const WcsRightIcon: React.FC<IWcsRightIconProps> = (props: IWcsRightIconProps) => (
   <SvgIcon fontSize={"large"} component={wcsRightSvg} viewBox="0 0 50 50" />
 );
-export interface ISmileIconProps {className:string;}
+export interface ISmileIconProps {
+  className: string;
+}
 const SmileIcon: React.FC<ISmileIconProps> = (props: ISmileIconProps) => (
-    <SvgIcon className={props.className} fontSize={"large"} component={smileSvg} viewBox="0 0 40.858 40.858" />
+  <SvgIcon
+    className={props.className}
+    fontSize={"large"}
+    component={smileSvg}
+    viewBox="0 0 40.858 40.858"
+  />
 );
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -401,10 +408,10 @@ const useStyles = makeStyles((theme) =>
         content: "''"
       }
     },
-    whatCard:{
-        borderRadius: "10px",
-        marginTop: "20px",
-        padding: "40px"
+    whatCard: {
+      borderRadius: "10px",
+      marginTop: "20px",
+      padding: "40px"
     },
     whatTitle: {
       fontSize: "30px",
@@ -422,132 +429,132 @@ const useStyles = makeStyles((theme) =>
         left: 0
       }
     },
-    whatSubTitle:{
-      fontSize:'20px',
-        lineHeight:'23px',
-        fontWeight:'bold',
-        color:'#000',
-        marginBottom:'36px'
+    whatSubTitle: {
+      fontSize: "20px",
+      lineHeight: "23px",
+      fontWeight: "bold",
+      color: "#000",
+      marginBottom: "36px"
     },
-      whatBox: {
-          display: "flex",
-          justifyContent: "space-between",
-          flexWrap: "wrap"
-      },
-      whatItem: {
-          width: "23%",
-          backgroundColor: "#f1f4f9",
-          filter: "opacity(0.3)",
-          height: "102px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontSize: "16px",
-          lineHeight: "18px",
-          fontWeight: "bold",
-          color: "#373737",
-          marginBottom: "20px"
-      },
-      wdmsCard: {
-          borderRadius: "8px",
-          marginTop: "20px",
-          padding: "40px"
-      },
-      wdmsTitle: {
-          fontSize: "30px",
-          lineHeight: "50px",
-          fontWeight: "bold",
-          position: "relative",
-          marginBottom: theme.spacing(4),
-          "&:after": {
-              content: "''",
-              position: "absolute",
-              width: "60px",
-              height: "4px",
-              backgroundColor: "#2699FB",
-              bottom: 0,
-              left: 0
-          }
-      },
-      wdmsBox: {
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexWrap: "wrap"
-      },
-      wdmsItem: {
-          width: "31%",
-          padding: "20px",
-          backgroundColor: "#f1f4f9",
-          filter: "opacity(0.3)",
-          paddingLeft: "34px",
-          marginBottom: "23px"
-      },
-      wdmsCardTitle: {
-          fontSize: "20px",
-          lineHeight: "23px",
-          fontWeight: "bold",
-          color: "#000",
-          marginBottom: theme.spacing(1)
-      },
-      wdmsTextWrapper: {
-          display: "flex",
-          marginBottom: theme.spacing(1),
-          position: "relative",
-          fontSize: "16px",
-          lineHeight: "18px",
-          color: "#000",
-          "&:before": {
-              position: "absolute",
-              left: "-14px",
-              transform: "translateY(0.25em)",
-              width: "9px",
-              height: "9px",
-              borderRadius: "50%",
-              backgroundColor: "#2699FB",
-              content: "''"
-          }
-      },
-      sbysCard: {
-          borderRadius: "8px",
-          marginTop: "20px",
-          padding: "40px"
-      },
-      sbysBox:{
-        display:'flex',
-          height:'184px',
-          backgroundColor:'rgba(255,255,255,0.3)',
-          padding:'0 34px',
-      },
-      sbysSmileIcon:{
-        marginTop:'48px',
-      },
-      sbysTextWrapper:{
-      marginTop:'48px',
-          marginLeft:'26px',
-      },
-      sbysTitle:{
-       fontSize:'20px',
-          lineHeight:1,
-          fontWeight:'bold',
-          color:'#373737',
-      },
-      sbysText:{
-      fontSize:'16px',
-          lineHeight:'24px',
-          color:'#000',
-      },
-      sbysBtn:{
-       width:'274px',
-          height:'68px',
-          color: "#40C4FF",
-          fontSize: "16px",
-          lineHeight: "18px",
-          borderRadius: "8px",
-          alignSelf: 'center',
-          backgroundColor:'#fff',
-          filter:'opacity(0.5)',
+    whatBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      flexWrap: "wrap"
+    },
+    whatItem: {
+      width: "23%",
+      backgroundColor: "#f1f4f9",
+      filter: "opacity(0.3)",
+      height: "102px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      fontSize: "16px",
+      lineHeight: "18px",
+      fontWeight: "bold",
+      color: "#373737",
+      marginBottom: "20px"
+    },
+    wdmsCard: {
+      borderRadius: "8px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    wdmsTitle: {
+      fontSize: "30px",
+      lineHeight: "50px",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(4),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        backgroundColor: "#2699FB",
+        bottom: 0,
+        left: 0
       }
+    },
+    wdmsBox: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexWrap: "wrap"
+    },
+    wdmsItem: {
+      width: "31%",
+      padding: "20px",
+      backgroundColor: "#f1f4f9",
+      filter: "opacity(0.3)",
+      paddingLeft: "34px",
+      marginBottom: "23px"
+    },
+    wdmsCardTitle: {
+      fontSize: "20px",
+      lineHeight: "23px",
+      fontWeight: "bold",
+      color: "#000",
+      marginBottom: theme.spacing(1)
+    },
+    wdmsTextWrapper: {
+      display: "flex",
+      marginBottom: theme.spacing(1),
+      position: "relative",
+      fontSize: "16px",
+      lineHeight: "18px",
+      color: "#000",
+      "&:before": {
+        position: "absolute",
+        left: "-14px",
+        transform: "translateY(0.25em)",
+        width: "9px",
+        height: "9px",
+        borderRadius: "50%",
+        backgroundColor: "#2699FB",
+        content: "''"
+      }
+    },
+    sbysCard: {
+      borderRadius: "8px",
+      marginTop: "20px",
+      padding: "40px"
+    },
+    sbysBox: {
+      display: "flex",
+      height: "184px",
+      backgroundColor: "rgba(255,255,255,0.3)",
+      padding: "0 34px"
+    },
+    sbysSmileIcon: {
+      marginTop: "48px"
+    },
+    sbysTextWrapper: {
+      marginTop: "48px",
+      marginLeft: "26px"
+    },
+    sbysTitle: {
+      fontSize: "20px",
+      lineHeight: 1,
+      fontWeight: "bold",
+      color: "#373737"
+    },
+    sbysText: {
+      fontSize: "16px",
+      lineHeight: "24px",
+      color: "#000"
+    },
+    sbysBtn: {
+      width: "274px",
+      height: "68px",
+      color: "#40C4FF",
+      fontSize: "16px",
+      lineHeight: "18px",
+      borderRadius: "8px",
+      alignSelf: "center",
+      backgroundColor: "#fff",
+      filter: "opacity(0.5)"
+    }
   })
 );
 export interface IServicePageProps {}
@@ -844,66 +851,74 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
               <div className={classes.whatTitle}>
                 WE HAVE A TRACK OF SUCCESSFUL PROJECTS IN VARIOUS INDUSTRIES
               </div>
-                <div className={classes.whatSubTitle}>We developed integrated solutions and provided IT consulting services for leading enterprises and startups around the globe.</div>
-                 <div className={classes.whatBox}>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                     <div className={classes.whatItem}>Manufacturing</div>
-                 </div>
+              <div className={classes.whatSubTitle}>
+                We developed integrated solutions and provided IT consulting services for leading
+                enterprises and startups around the globe.
+              </div>
+              <div className={classes.whatBox}>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+                <div className={classes.whatItem}>Manufacturing</div>
+              </div>
             </Card>
-              <Card className={classes.wdmsCard}>
-                  <div className={classes.wdmsTitle}>WHAT DEFINES MODERN SOFTWARE DEVELOPMENT?</div>
-                  <div className={classes.wdmsBox}>
-                      <div className={classes.wdmsItem}>
-                          <div className={classes.wdmsCardTitle}>
-                              Enterprise resource and process management
-                          </div>
-                          <div className={classes.wdmsTextWrapper}>ERP</div>
-                          <div className={classes.wdmsTextWrapper}>
-                              Finance, accounting, invoicing and billing Budgeting
-                          </div>
-                          <div className={classes.wdmsTextWrapper}>
-                              Document management, contract management, record management
-                          </div>
-                          <div className={classes.wdmsTextWrapper}>SCM (Supply Chain Management)</div>
-                      </div>
-                      <div className={classes.wdmsItem}>
-                          <div className={classes.wdmsCardTitle}>Big data</div>
-                          <div className={classes.wdmsTextWrapper}>Ecommerce</div>
-                          <div className={classes.wdmsTextWrapper}>Customer portals</div>
-                          <div className={classes.wdmsTextWrapper}>Advertising</div>
-                          <div className={classes.wdmsTextWrapper}>Digital signage</div>
-                          <div className={classes.wdmsTextWrapper}>Content management, DAM</div>
-                          <div className={classes.wdmsTextWrapper}>Video streaming</div>
-                          <div className={classes.wdmsTextWrapper}>Customer analytics</div>
-                      </div>
-                      <div className={classes.wdmsItem}>
-                          <div className={classes.wdmsCardTitle}>Industrial solutions</div>
-                          <div className={classes.wdmsTextWrapper}>Smart factory</div>
-                          <div className={classes.wdmsTextWrapper}>MES</div>
-                          <div className={classes.wdmsTextWrapper}>Maintenance</div>
-                          <div className={classes.wdmsTextWrapper}>Equipment monitoring, OEE</div>
-                          <div className={classes.wdmsTextWrapper}>Quality management</div>
-                          <div className={classes.wdmsTextWrapper}>Field service</div>
-                          <div className={classes.wdmsTextWrapper}>Industrial analytics</div>
-                      </div>
+            <Card className={classes.wdmsCard}>
+              <div className={classes.wdmsTitle}>WHAT DEFINES MODERN SOFTWARE DEVELOPMENT?</div>
+              <div className={classes.wdmsBox}>
+                <div className={classes.wdmsItem}>
+                  <div className={classes.wdmsCardTitle}>
+                    Enterprise resource and process management
                   </div>
-              </Card>
-              <Card className={classes.sbysCard}>
-                  <div className={classes.sbysBox}>
-                      <SmileIcon className={classes.sbysSmileIcon} />
-                      <div className={classes.sbysTextWrapper}>
-                          <div className={classes.sbysTitle}>Start Building Your Software in a Couple of Weeks!</div>
-                          <div className={classes.sbysText}>We will develop a scalable solution with neat UX design that answers your business needs.</div>
-                      </div>
-                      <ButtonBase className={classes.sbysBtn}>GET A FREE CONSULTATION</ButtonBase>
+                  <div className={classes.wdmsTextWrapper}>ERP</div>
+                  <div className={classes.wdmsTextWrapper}>
+                    Finance, accounting, invoicing and billing Budgeting
                   </div>
-              </Card>
+                  <div className={classes.wdmsTextWrapper}>
+                    Document management, contract management, record management
+                  </div>
+                  <div className={classes.wdmsTextWrapper}>SCM (Supply Chain Management)</div>
+                </div>
+                <div className={classes.wdmsItem}>
+                  <div className={classes.wdmsCardTitle}>Big data</div>
+                  <div className={classes.wdmsTextWrapper}>Ecommerce</div>
+                  <div className={classes.wdmsTextWrapper}>Customer portals</div>
+                  <div className={classes.wdmsTextWrapper}>Advertising</div>
+                  <div className={classes.wdmsTextWrapper}>Digital signage</div>
+                  <div className={classes.wdmsTextWrapper}>Content management, DAM</div>
+                  <div className={classes.wdmsTextWrapper}>Video streaming</div>
+                  <div className={classes.wdmsTextWrapper}>Customer analytics</div>
+                </div>
+                <div className={classes.wdmsItem}>
+                  <div className={classes.wdmsCardTitle}>Industrial solutions</div>
+                  <div className={classes.wdmsTextWrapper}>Smart factory</div>
+                  <div className={classes.wdmsTextWrapper}>MES</div>
+                  <div className={classes.wdmsTextWrapper}>Maintenance</div>
+                  <div className={classes.wdmsTextWrapper}>Equipment monitoring, OEE</div>
+                  <div className={classes.wdmsTextWrapper}>Quality management</div>
+                  <div className={classes.wdmsTextWrapper}>Field service</div>
+                  <div className={classes.wdmsTextWrapper}>Industrial analytics</div>
+                </div>
+              </div>
+            </Card>
+            <Card className={classes.sbysCard}>
+              <div className={classes.sbysBox}>
+                <SmileIcon className={classes.sbysSmileIcon} />
+                <div className={classes.sbysTextWrapper}>
+                  <div className={classes.sbysTitle}>
+                    Start Building Your Software in a Couple of Weeks!
+                  </div>
+                  <div className={classes.sbysText}>
+                    We will develop a scalable solution with neat UX design that answers your
+                    business needs.
+                  </div>
+                </div>
+                <ButtonBase className={classes.sbysBtn}>GET A FREE CONSULTATION</ButtonBase>
+              </div>
+            </Card>
           </div>
         </div>
       </div>

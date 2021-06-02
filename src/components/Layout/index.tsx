@@ -24,7 +24,7 @@ import { RootState } from "@/store/index";
 import CloseIcon from "@material-ui/icons/Close";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize/TextareaAutosize";
 import Card from "@/components/Card";
-import {IEmailIconProps} from "../../pages";
+import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
@@ -39,11 +39,11 @@ const UserIcon: React.FC<IUserIconProps> = (props: IUserIconProps) => {
   return <SvgIcon component={userSvg} viewBox={"0 0 14.843 14.843"} />;
 };
 const EmailIcon = (props: IEmailIconProps) => (
-    <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />
+  <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />
 );
 export interface IPhoneIconProps {}
 const PhoneIcon = (props: IPhoneIconProps) => (
-    <SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />
+  <SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />
 );
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -381,108 +381,108 @@ const useStyles = makeStyles((theme) =>
       top: "1200px",
       zIndex: -100
     },
-      contactSection: {
-          alignSelf: "stretch",
-          marginLeft: "252px",
-          marginRight: "252px",
-          padding: "60px",
-          marginTop: "50px",
-          borderRadius: "10px"
-      },
-      contactBtnWrapper: {},
-      contactTitle: {
-          fontSize: "38px",
-          lineHeight: "50px",
-          color: "#000",
-          fontWeight: "bold",
-          position: "relative",
-          marginBottom: theme.spacing(2),
-          "&:after": {
-              content: "''",
-              position: "absolute",
-              width: "60px",
-              height: "4px",
-              bottom: 0,
-              left: 0,
-              backgroundColor: "#2699FB"
-          }
-      },
-      contactLeft: {
-          display: "inline-block",
-          width: "65%"
-      },
-      contactRight: {
-          display: "inline-block",
-          width: "35%",
-          paddingLeft: "100px",
-          verticalAlign: "bottom"
-      },
-      contactFormLabel: {
-          fontSize: "16px",
-          lineHeight: "24px",
-          color: "#000"
-      },
-      inputGroup: {
-          display: "flex",
-          justifyContent: "space-between",
-          marginTop: "30px"
-      },
-      contactInputWrapper: {
-          width: "23%",
-          boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
-          borderRadius: "8px",
-          paddingLeft: theme.spacing(2),
-          backgroundColor: "#fff",
-          opacity: 0.6
-      },
-      contactInput: {
-          color: "#000"
-      },
-      contactTextAreaWrapper: {
-          width: "100%",
-          boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
-          borderRadius: "8px",
-          backgroundColor: "#fff",
-          opacity: 0.6,
-          marginTop: "60px"
-      },
-      contactTextArea: {
-          width: "100%",
-          border: "none",
-          outline: "none",
-          padding: theme.spacing(2),
-          borderRadius: "8px"
-      },
-      contactRightTitle: {
-          fontSize: "20px",
-          color: "#000",
-          lineHeight: "24px",
-          marginBottom: theme.spacing(1.5)
-      },
-      contactRightText: {
-          fontSize: "16px",
-          lineHeight: "18px",
-          color: "#2699FB",
-          marginLeft: theme.spacing(1)
-      },
-      contactRightBtn: {
-          width: "189px",
-          height: "52px",
-          backgroundColor: "#fff",
-          borderRadius: "8px",
-          opacity: 0.5,
-          marginTop: theme.spacing(1.5)
-      },
-      phoneWrapper: {
-          marginBottom: theme.spacing(1.5),
-          display: "flex",
-          alignItems: "center"
-      },
-      emailWrapper: {
-          marginBottom: theme.spacing(1.5),
-          display: "flex",
-          alignItems: "center"
-      },
+    contactSection: {
+      alignSelf: "stretch",
+      marginLeft: "252px",
+      marginRight: "252px",
+      padding: "60px",
+      marginTop: "50px",
+      borderRadius: "10px"
+    },
+    contactBtnWrapper: {},
+    contactTitle: {
+      fontSize: "38px",
+      lineHeight: "50px",
+      color: "#000",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(2),
+      "&:after": {
+        content: "''",
+        position: "absolute",
+        width: "60px",
+        height: "4px",
+        bottom: 0,
+        left: 0,
+        backgroundColor: "#2699FB"
+      }
+    },
+    contactLeft: {
+      display: "inline-block",
+      width: "65%"
+    },
+    contactRight: {
+      display: "inline-block",
+      width: "35%",
+      paddingLeft: "100px",
+      verticalAlign: "bottom"
+    },
+    contactFormLabel: {
+      fontSize: "16px",
+      lineHeight: "24px",
+      color: "#000"
+    },
+    inputGroup: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: "30px"
+    },
+    contactInputWrapper: {
+      width: "23%",
+      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      borderRadius: "8px",
+      paddingLeft: theme.spacing(2),
+      backgroundColor: "#fff",
+      opacity: 0.6
+    },
+    contactInput: {
+      color: "#000"
+    },
+    contactTextAreaWrapper: {
+      width: "100%",
+      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      borderRadius: "8px",
+      backgroundColor: "#fff",
+      opacity: 0.6,
+      marginTop: "60px"
+    },
+    contactTextArea: {
+      width: "100%",
+      border: "none",
+      outline: "none",
+      padding: theme.spacing(2),
+      borderRadius: "8px"
+    },
+    contactRightTitle: {
+      fontSize: "20px",
+      color: "#000",
+      lineHeight: "24px",
+      marginBottom: theme.spacing(1.5)
+    },
+    contactRightText: {
+      fontSize: "16px",
+      lineHeight: "18px",
+      color: "#2699FB",
+      marginLeft: theme.spacing(1)
+    },
+    contactRightBtn: {
+      width: "189px",
+      height: "52px",
+      backgroundColor: "#fff",
+      borderRadius: "8px",
+      opacity: 0.5,
+      marginTop: theme.spacing(1.5)
+    },
+    phoneWrapper: {
+      marginBottom: theme.spacing(1.5),
+      display: "flex",
+      alignItems: "center"
+    },
+    emailWrapper: {
+      marginBottom: theme.spacing(1.5),
+      display: "flex",
+      alignItems: "center"
+    }
   })
 );
 export interface ILogoIconProps {}
@@ -819,55 +819,55 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         <img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />
 
         {children}
-          <Card className={classes.contactSection}>
-              <div className={classes.contactTitle}>Contact Us</div>
-              <div className={classes.contactLeft}>
-                  <div className={classes.contactFormLabel}>
-                      Drop us a line! We are here to answer your questions 24/7.
-                  </div>
-                  <div className={classes.inputGroup}>
-                      <div className={classes.contactInputWrapper}>
-                          {" "}
-                          <InputBase className={classes.contactInput} />
-                      </div>
-                      <div className={classes.contactInputWrapper}>
-                          {" "}
-                          <InputBase className={classes.contactInput} />
-                      </div>
-                      <div className={classes.contactInputWrapper}>
-                          {" "}
-                          <InputBase className={classes.contactInput} />
-                      </div>
-                      <div className={classes.contactInputWrapper}>
-                          {" "}
-                          <InputBase className={classes.contactInput} />
-                      </div>
-                  </div>
-                  <div className={classes.contactTextAreaWrapper}>
-                      <TextareaAutosize
-                          className={classes.contactTextArea}
-                          rowsMin={4}
-                          placeholder="How can we help you?"
-                      />
-                  </div>
+        <Card className={classes.contactSection}>
+          <div className={classes.contactTitle}>Contact Us</div>
+          <div className={classes.contactLeft}>
+            <div className={classes.contactFormLabel}>
+              Drop us a line! We are here to answer your questions 24/7.
+            </div>
+            <div className={classes.inputGroup}>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
               </div>
-              <div className={classes.contactRight}>
-                  <div className={classes.contactRightTitle}>Our contact details</div>
-                  <div className={classes.phoneWrapper}>
-                      <PhoneIcon />
-                      <span className={classes.contactRightText}>+ 1 626-265-5257</span>
-                  </div>
-                  <div className={classes.emailWrapper}>
-                      <EmailIcon />
-                      <span className={classes.contactRightText}>zion@galaxycgi.com</span>
-                  </div>
-                  <div className={classes.contactRightTitle}>Press inquires</div>
-                  <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
-                  <div className={classes.contactBtnWrapper}>
-                      <ButtonBase className={classes.contactRightBtn}>MORE</ButtonBase>
-                  </div>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
               </div>
-          </Card>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
+              </div>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
+              </div>
+            </div>
+            <div className={classes.contactTextAreaWrapper}>
+              <TextareaAutosize
+                className={classes.contactTextArea}
+                rowsMin={4}
+                placeholder="How can we help you?"
+              />
+            </div>
+          </div>
+          <div className={classes.contactRight}>
+            <div className={classes.contactRightTitle}>Our contact details</div>
+            <div className={classes.phoneWrapper}>
+              <PhoneIcon />
+              <span className={classes.contactRightText}>+ 1 626-265-5257</span>
+            </div>
+            <div className={classes.emailWrapper}>
+              <EmailIcon />
+              <span className={classes.contactRightText}>zion@galaxycgi.com</span>
+            </div>
+            <div className={classes.contactRightTitle}>Press inquires</div>
+            <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
+            <div className={classes.contactBtnWrapper}>
+              <ButtonBase className={classes.contactRightBtn}>MORE</ButtonBase>
+            </div>
+          </div>
+        </Card>
       </div>
       <IconButton className={classes.upAnchor}>
         <UPIcon />
