@@ -300,8 +300,8 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: "400px",
-      top: "1050px",
+      left: -100,
+      top: 900,
       zIndex: -100
     },
     egg: {
@@ -311,14 +311,14 @@ const useStyles = makeStyles((theme) =>
       left: -500,
       transform: "scale(0.1)",
       top: "1350px",
-      zIndex: -50
+      zIndex: -49
     },
     rect: {
       position: "fixed",
       width: "185px",
       height: "auto",
       left: "200px",
-      top: "900px",
+      top: "1000px",
       zIndex: -50
     },
     rectB: {
@@ -333,16 +333,16 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: "100px",
-      top: "900px",
+      left: -300,
+      top: "1000px",
       zIndex: -50
     },
     tetrahedronB: {
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: "300px",
-      top: "1150px",
+      left: -100,
+      top: 1000,
       zIndex: -100
     },
     triangle: {
@@ -389,7 +389,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     var circleTl = anime.timeline({
       easing: "linear",
       duration: 3000,
-      delay:2000,
+      delay: 2000,
       loop: true
     });
     var circleBTl = anime.timeline({
@@ -459,7 +459,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       top: -300,
       left: "700px",
       rotate: "360deg",
-      delay:500,
+      delay: 0,
       duration: 30000
     });
     circleBTl.add({
@@ -483,8 +483,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "1500px",
       top: -400,
       rotate: "360deg",
-      delay: 30000,
-      duration: 30000
+      delay: 33000,
+      duration: 40000
     });
     cubeBTl.add({
       targets: ["#cubeB"],
@@ -498,14 +498,14 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#egg"],
       left: "1100px",
       top: -400,
-      delay: 20000,
+      delay: 35000,
       rotate: "360deg",
       duration: 30000
     });
     rectTl.add({
       targets: ["#rect"],
-      left: "1300px",
-      top: 0,
+      left: "1500px",
+      top: -100,
       delay: 16000,
       rotate: "360deg",
       duration: 30000
@@ -514,7 +514,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#rectB"],
       left: "1100px",
       top: "-600px",
-      delay:30000,
+      delay: 33000,
       rotate: "360deg",
       duration: 50000
     });
@@ -530,14 +530,14 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#tetrahedronB"],
       left: "800px",
       top: 0,
-      delay: 2000,
+      delay: 1600,
       rotate: "360deg",
       duration: 50000
     });
     triangleTl.add({
       targets: ["#triangle"],
-      left: "1500px",
-      top:0,
+      left: "2000px",
+      top: 100,
       rotate: "360deg",
       delay: 9000,
       duration: 30000
@@ -558,7 +558,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setSearchOpen(true);
   }, []);
   const closeSearch = useCallback(() => {
-    console.log("close");
     setSearchOpen(false);
   }, []);
   const cb = useCallback(() => {

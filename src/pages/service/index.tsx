@@ -281,17 +281,19 @@ const useStyles = makeStyles((theme) =>
     },
     wcsTextWrapper: {
       display: "flex",
-      alignItems: "center",
       fontSize: "16px",
-      lineHeight: "18px"
-    },
-    wcsDot: {
-      width: "9px",
-      height: "9px",
-      borderRadius: "50%",
-      backgroundColor: "#2699FB",
-      marginRight: theme.spacing(1),
-      flexShrink: 0
+      lineHeight: "18px",
+      position: "relative",
+      "&:before": {
+        position: "absolute",
+        left: "-14px",
+        transform: "translateY(0.25em)",
+        width: "9px",
+        height: "9px",
+        borderRadius: "50%",
+        backgroundColor: "#2699FB",
+        content: "''"
+      }
     },
     wepCard: {
       borderRadius: "8px",
@@ -376,21 +378,21 @@ const useStyles = makeStyles((theme) =>
     },
     stwTextWrapper: {
       display: "flex",
-      alignItems: "center",
-      marginBottom: theme.spacing(1)
-    },
-    stwDot: {
-      width: "9px",
-      height: "9px",
-      borderRadius: "50%",
-      flexShrink: 0,
-      backgroundColor: "#2699FB",
-      marginRight: theme.spacing(1)
-    },
-    stwText: {
+      marginBottom: theme.spacing(1),
+      position: "relative",
       fontSize: "16px",
       lineHeight: "18px",
-      color: "#000"
+      color: "#000",
+      "&:before": {
+        position: "absolute",
+        left: "-14px",
+        transform: "translateY(0.25em)",
+        width: "9px",
+        height: "9px",
+        borderRadius: "50%",
+        backgroundColor: "#2699FB",
+        content: "''"
+      }
     }
   })
 );
@@ -548,46 +550,27 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 <img src={"/wcsStep.png"} />
                 <WcsRightIcon />
               </div>
-              <div className={classes.wcsContext}>
-                <div className={classes.wcsTextWrapper}>
-                  <span className={classes.wcsDot}></span>
-                  <span>31 years in IT.</span>
-                </div>
-                <div className={classes.wcsTextWrapper}>
-                  <span className={classes.wcsDot}></span>
-                  <span>One-stop shop for end-to-end software development.</span>
-                </div>
-                <div className={classes.wcsTextWrapper}>
-                  <span className={classes.wcsDot}></span>
-                  <span>
-                    Over 450 developers on board, and the partner network of 5 companies with 700
-                    employees.
-                  </span>
-                </div>
-                <div className={classes.wcsTextWrapper}>
-                  <span className={classes.wcsDot}></span>
-                  <span>More than 50% of the developers are of senior level.</span>
-                </div>
-                <div className={classes.wcsTextWrapper}>
-                  <span className={classes.wcsDot}></span>
-                  <span>
-                    25+ business analysts with 5-9 years of experience in the relevant fields.
-                  </span>
-                </div>
-                <div className={classes.wcsTextWrapper}>
-                  <span
-                    style={{ alignSelf: "flex-start", marginTop: "5px" }}
-                    className={classes.wcsDot}></span>
-                  <span>
-                    Mature DevOps culture, deep background in containerized environments, cloud
-                    computing, continuous integration (CI) and continuous delivery (CD).
-                  </span>
-                </div>
-                <div className={classes.wcsTextWrapper}>
-                  <span className={classes.wcsDot}></span>
-                  <span>31 years in IT.</span>
-                </div>
-              </div>
+              <ul className={classes.wcsContext}>
+                <li className={classes.wcsTextWrapper}>31 years in IT.</li>
+                <li className={classes.wcsTextWrapper}>
+                  One-stop shop for end-to-end software development.
+                </li>
+                <li className={classes.wcsTextWrapper}>
+                  Over 450 developers on board, and the partner network of 5 companies with 700
+                  employees.
+                </li>
+                <li className={classes.wcsTextWrapper}>
+                  More than 50% of the developers are of senior level.
+                </li>
+                <li className={classes.wcsTextWrapper}>
+                  25+ business analysts with 5-9 years of experience in the relevant fields.
+                </li>
+                <li className={classes.wcsTextWrapper}>
+                  Mature DevOps culture, deep background in containerized environments, cloud
+                  computing, continuous integration (CI) and continuous delivery (CD).
+                </li>
+                <li className={classes.wcsTextWrapper}>31 years in IT.</li>
+              </ul>
             </Card>
             <Card className={classes.wepCard}>
               <div className={classes.wepTitle}>WE EAGERLY PUT IN USE IT INNOVATIONS</div>
@@ -610,25 +593,15 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                     Enterprise resource and process management
                   </div>
                   <div className={classes.stwTextWrapper}>
-                    <span className={classes.stwDot}></span>
-                    <span className={classes.stwText}>ERP</span>
+                    ERP
                   </div>
                   <div className={classes.stwTextWrapper}>
-                    <span className={classes.stwDot}></span>
-                    <span className={classes.stwText}>
-                      Finance, accounting, invoicing and billing Budgeting
-                    </span>
+                    Finance, accounting, invoicing and billing Budgeting
                   </div>
                   <div className={classes.stwTextWrapper}>
-                    <span className={classes.stwDot}></span>
-                    <span className={classes.stwText}>
-                      Document management, contract management, record management
-                    </span>
+                    Document management, contract management, record management
                   </div>
-                  <div className={classes.stwTextWrapper}>
-                    <span className={classes.stwDot}></span>
-                    <span className={classes.stwText}> SCM (Supply Chain Management)</span>
-                  </div>
+                  <div className={classes.stwTextWrapper}>SCM (Supply Chain Management)</div>
                 </div>
               </div>
             </Card>
