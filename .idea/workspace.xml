@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d70072-569a-41fc-bbca-760a52f171cf" name="Default Changelist" comment="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/service/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/service/index.tsx" afterDir="false" />
     </list>
@@ -21,10 +20,16 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/service/index.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
+            <state relative-caret-position="538">
+              <caret line="371" column="26" selection-start-line="371" selection-start-column="26" selection-end-line="371" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#20332#21016#0" />
+                <element signature="e#21033#21717#0" />
+                <element signature="e#21734#22418#0" />
+                <element signature="e#22721#23530#0" />
+                <element signature="e#23547#24356#0" />
+                <element signature="e#24373#25190#0" />
               </folding>
             </state>
           </provider>
@@ -50,6 +55,9 @@
       <find>egg</find>
       <find>wcscontext</find>
       <find>stwCard</find>
+      <find>stwText</find>
+      <find>userBtn</find>
+      <find>stwT</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -117,18 +125,7 @@
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
@@ -152,7 +149,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="G:/新建文件夹" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../新建文件夹" />
     <property name="prettierjs.PrettierConfiguration.Package" value="G:\webapp\node_modules\prettier" />
     <property name="ts.external.directory.path" value="G:\webapp\node_modules\typescript\lib" />
   </component>
@@ -184,12 +181,12 @@
       <workItem from="1622537761976" duration="607000" />
       <workItem from="1622538930605" duration="2556000" />
       <workItem from="1622561941453" duration="23181000" />
-      <workItem from="1622645402077" duration="6501000" />
+      <workItem from="1622645402077" duration="10097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110925000" />
+    <option name="totallyTimeSpent" value="114521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -223,13 +220,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/Sider/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Card/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -476,10 +466,13 @@
     <entry file="file://$PROJECT_DIR$/public/circle.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/person.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Layout/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="486" column="18" selection-start-line="486" selection-start-column="18" selection-end-line="486" selection-end-column="18" />
+        <state relative-caret-position="259">
+          <caret line="99" column="26" selection-start-line="99" selection-start-column="26" selection-end-line="99" selection-end-column="26" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
             <element signature="e#1423#1626#0" />
@@ -493,7 +486,6 @@
             <element signature="e#2340#2395#0" />
             <element signature="e#2410#2465#0" />
             <element signature="e#2480#2535#0" />
-            <element signature="e#2552#2633#0" />
             <element signature="e#2655#2709#0" />
             <element signature="e#2735#3497#0" />
             <element signature="e#3516#3637#0" />
@@ -519,10 +511,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/service/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="395" column="5" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
+        <state relative-caret-position="538">
+          <caret line="371" column="26" selection-start-line="371" selection-start-column="26" selection-end-line="371" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#20332#21016#0" />
+            <element signature="e#21033#21717#0" />
+            <element signature="e#21734#22418#0" />
+            <element signature="e#22721#23530#0" />
+            <element signature="e#23547#24356#0" />
+            <element signature="e#24373#25190#0" />
           </folding>
         </state>
       </provider>

@@ -367,7 +367,9 @@ const useStyles = makeStyles((theme) =>
       width: "31%",
       padding: "20px",
       backgroundColor: "#f1f4f9",
-      filter: "opacity(0.3)"
+      filter: "opacity(0.3)",
+      paddingLeft:'34px',
+      marginBottom:'23px',
     },
     stwCardTitle: {
       fontSize: "20px",
@@ -592,9 +594,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                   <div className={classes.stwCardTitle}>
                     Enterprise resource and process management
                   </div>
-                  <div className={classes.stwTextWrapper}>
-                    ERP
-                  </div>
+                  <div className={classes.stwTextWrapper}>ERP</div>
                   <div className={classes.stwTextWrapper}>
                     Finance, accounting, invoicing and billing Budgeting
                   </div>
@@ -602,6 +602,131 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                     Document management, contract management, record management
                   </div>
                   <div className={classes.stwTextWrapper}>SCM (Supply Chain Management)</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Big data
+                  </div>
+                  <div className={classes.stwTextWrapper}>Ecommerce</div>
+                  <div className={classes.stwTextWrapper}>
+                    Customer portals
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Advertising
+                  </div>
+                  <div className={classes.stwTextWrapper}>Digital signage</div>
+                  <div className={classes.stwTextWrapper}>Content management, DAM</div>
+                  <div className={classes.stwTextWrapper}>Video streaming</div>
+                  <div className={classes.stwTextWrapper}>Customer analytics</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Industrial solutions
+                  </div>
+                  <div className={classes.stwTextWrapper}>Smart factory</div>
+                  <div className={classes.stwTextWrapper}>
+                    MES
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Maintenance
+                  </div>
+                  <div className={classes.stwTextWrapper}>Equipment monitoring, OEE</div>
+                  <div className={classes.stwTextWrapper}>Quality management</div>
+                  <div className={classes.stwTextWrapper}>Field service</div>
+                  <div className={classes.stwTextWrapper}>Industrial analytics</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Big data
+                  </div>
+                  <div className={classes.stwTextWrapper}>Ecommerce</div>
+                  <div className={classes.stwTextWrapper}>
+                    Customer portals
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Advertising
+                  </div>
+                  <div className={classes.stwTextWrapper}>Digital signage</div>
+                  <div className={classes.stwTextWrapper}>Content management, DAM</div>
+                  <div className={classes.stwTextWrapper}>Video streaming</div>
+                  <div className={classes.stwTextWrapper}>Customer analytics</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Big data
+                  </div>
+                  <div className={classes.stwTextWrapper}>Ecommerce</div>
+                  <div className={classes.stwTextWrapper}>
+                    Customer portals
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Advertising
+                  </div>
+                  <div className={classes.stwTextWrapper}>Digital signage</div>
+                  <div className={classes.stwTextWrapper}>Content management, DAM</div>
+                  <div className={classes.stwTextWrapper}>Video streaming</div>
+                  <div className={classes.stwTextWrapper}>Customer analytics</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Industrial solutions
+                  </div>
+                  <div className={classes.stwTextWrapper}>Smart factory</div>
+                  <div className={classes.stwTextWrapper}>
+                    MES
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Maintenance
+                  </div>
+                  <div className={classes.stwTextWrapper}>Equipment monitoring, OEE</div>
+                  <div className={classes.stwTextWrapper}>Quality management</div>
+                  <div className={classes.stwTextWrapper}>Field service</div>
+                  <div className={classes.stwTextWrapper}>Industrial analytics</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Enterprise resource and process management
+                  </div>
+                  <div className={classes.stwTextWrapper}>ERP</div>
+                  <div className={classes.stwTextWrapper}>
+                    Finance, accounting, invoicing and billing Budgeting
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Document management, contract management, record management
+                  </div>
+                  <div className={classes.stwTextWrapper}>SCM (Supply Chain Management)</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Big data
+                  </div>
+                  <div className={classes.stwTextWrapper}>Ecommerce</div>
+                  <div className={classes.stwTextWrapper}>
+                    Customer portals
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Advertising
+                  </div>
+                  <div className={classes.stwTextWrapper}>Digital signage</div>
+                  <div className={classes.stwTextWrapper}>Content management, DAM</div>
+                  <div className={classes.stwTextWrapper}>Video streaming</div>
+                  <div className={classes.stwTextWrapper}>Customer analytics</div>
+                </div>
+                <div className={classes.stwItem}>
+                  <div className={classes.stwCardTitle}>
+                    Industrial solutions
+                  </div>
+                  <div className={classes.stwTextWrapper}>Smart factory</div>
+                  <div className={classes.stwTextWrapper}>
+                    MES
+                  </div>
+                  <div className={classes.stwTextWrapper}>
+                    Maintenance
+                  </div>
+                  <div className={classes.stwTextWrapper}>Equipment monitoring, OEE</div>
+                  <div className={classes.stwTextWrapper}>Quality management</div>
+                  <div className={classes.stwTextWrapper}>Field service</div>
+                  <div className={classes.stwTextWrapper}>Industrial analytics</div>
                 </div>
               </div>
             </Card>

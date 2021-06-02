@@ -18,6 +18,7 @@ import { useSelector } from "react-redux";
 import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
+import userSvg from '@/assets/person.svg'
 import { RootState } from "@/store/index";
 import CloseIcon from "@material-ui/icons/Close";
 export interface IUPIconProps {}
@@ -28,7 +29,10 @@ export interface IChatIconProps {}
 const ChatIcon: React.FC<IChatIconProps> = (props: IChatIconProps) => {
   return <SvgIcon component={chatSvg} viewBox={"0 0 26.6 22.3"} />;
 };
-
+export interface IUserIconProps{}
+const UserIcon:React.FC<IUserIconProps>=(props:IUserIconProps)=>{
+  return <SvgIcon component={userSvg} viewBox={"0 0 14.843 14.843"} />;
+}
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
@@ -90,6 +94,10 @@ const useStyles = makeStyles((theme) =>
       width: "41px",
       marginRight: "26px",
       marginLeft: "129px"
+    },
+    userBtn: {
+      width: "41px",
+      marginRight: "26px",
     },
     searchCloseBtn: {
       width: "41px",
@@ -611,6 +619,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                 <SearchIcon />
               </Button>
             )}
+            <Button key={'user'} className={classes.userBtn}>
+              <UserIcon/>
+            </Button>
             <Switch />
           </div>
         </Toolbar>
