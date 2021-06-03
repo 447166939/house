@@ -745,7 +745,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Services</div>
-
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>

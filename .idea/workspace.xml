@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d70072-569a-41fc-bbca-760a52f171cf" name="Default Changelist" comment="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
-      <change afterPath="$PROJECT_DIR$/src/pages/services/ITSupport/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/PageHeader/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageHeader/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -19,7 +17,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Layout/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5249">
+              <caret line="701" column="6" selection-start-line="701" selection-start-column="6" selection-end-line="701" selection-end-column="6" />
+              <folding>
+                <element signature="e#0#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pages/index.tsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="8209">
+              <caret line="516" column="41" selection-start-line="516" selection-start-column="41" selection-end-line="516" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,6 +78,7 @@
       <find>phone</find>
       <find>contactSection</find>
       <find>contact</find>
+      <find>button</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,15 +115,15 @@
         <option value="$PROJECT_DIR$/src/store/index.ts" />
         <option value="$PROJECT_DIR$/src/pages/service/index.tsx" />
         <option value="$PROJECT_DIR$/src/pages/index.tsx" />
-        <option value="$PROJECT_DIR$/src/components/Layout/index.tsx" />
         <option value="$PROJECT_DIR$/src/components/PageHeader/index.tsx" />
+        <option value="$PROJECT_DIR$/src/components/Layout/index.tsx" />
       </list>
     </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -111,7 +135,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -135,33 +158,19 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="PageHeader" type="462c0819:PsiDirectoryNode" />
+              <item name="Layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webapp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-              <item name="ITSupport" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -204,17 +213,18 @@
       <workItem from="1622537761976" duration="607000" />
       <workItem from="1622538930605" duration="2556000" />
       <workItem from="1622561941453" duration="23181000" />
-      <workItem from="1622645402077" duration="23970000" />
+      <workItem from="1622645402077" duration="28007000" />
+      <workItem from="1622704138500" duration="240000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128394000" />
+    <option name="totallyTimeSpent" value="132671000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1332982" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13277134" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -243,16 +253,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/zionhjs/ModuleX-FrontEnd&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/theme/palette.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-450">
-          <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env.MODULEX.staging">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -325,13 +325,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/git" />
     <entry file="file://$PROJECT_DIR$/master)" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/global.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -408,13 +401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Drawer/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="39" column="41" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/egg.svg" />
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -477,10 +463,53 @@
     <entry file="file://$PROJECT_DIR$/src/assets/smile.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/services/ITSupport/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="548" column="21" selection-start-line="548" selection-start-column="21" selection-end-line="548" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PageHeader/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Sider/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1620">
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Drawer/index.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="34" column="15" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Layout/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="822" column="59" selection-start-line="822" selection-start-column="52" selection-end-line="822" selection-end-column="59" />
+        <state relative-caret-position="5249">
+          <caret line="701" column="6" selection-start-line="701" selection-start-column="6" selection-end-line="701" selection-end-column="6" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
@@ -489,30 +518,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/index.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="8209">
           <caret line="516" column="41" selection-start-line="516" selection-start-column="41" selection-end-line="516" selection-end-column="41" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PageHeader/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/services/ITSupport/index.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-180">
-          <caret line="548" column="21" selection-start-line="548" selection-start-column="21" selection-end-line="548" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
