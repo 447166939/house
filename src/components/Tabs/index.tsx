@@ -6,10 +6,74 @@ import clsx from "clsx";
 import actions from "@/store/modules/global/action";
 import { RootState } from "@/store/index";
 const {
+  // MAIN MENUS APP BAR
+  setAppBarServiceMenuVisible,
+  setAppBarTechnologiesMenuVisible,
+  setAppBarSolutionsMenuVisible,
+  setAppBarBlogAndNewsMenuVisible,
+
+  // TECHNOLOGIES SUB-MENUS APP_BAR
+  setAppBarTechnologiesProgrammingLanguagesSubMenuVisible,
+  setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+  setAppBarTechnologiesCloudTechnologiesSubMenuVisible,
+
+  // MAIN MENUS
   setServiceMenuVisible,
   setTechnologiesMenuVisible,
   setSolutionsMenuVisible,
-  setBlogAndNewsMenuVisible
+  setBlogAndNewsMenuVisible,
+
+  // SERVICES SUB-MENUS
+  setServiceSoftwareDevelopmentSubMenuVisible,
+  setServiceUiuxDesignSubMenuVisible,
+  setServiceTestQaSubMenuVisible,
+  setServiceInfrustructureServiceSubMenuVisible,
+  setServiceDataAnalyticsServiceSubMenuVisible,
+  setServiceItOutsourcingSubMenuVisible,
+  setServiceItConsultingSubMenuVisible,
+  setServiceItSupportSubMenuVisible,
+
+  // TECHNOLOGIES SUB-MENUS
+  setTechnologiesProgrammingLanguagesSubMenuVisible,
+  // SUB-SUB-DETAILS TECHNOLOGIES_PROGRAMMING_LANGUAGES
+  setTechnologiesProgrammingLanguagesJavaSubMenuVisible,
+  setTechnologiesProgrammingLanguagesPythonSubMenuVisible,
+  setTechnologiesProgrammingLanguagesGolangSubMenuVisible,
+  setTechnologiesProgrammingLanguagesCSubMenuVisible,
+  setTechnologiesProgrammingLanguagesJavaScriptSubMenuVisible,
+  setTechnologiesProgrammingLanguagesNodeJSSubMenuVisible,
+  setTechnologiesProgrammingLanguagesPHPSubMenuVisible,
+  setTechnologiesProgrammingLanguagesNETSubMenuVisible,
+
+  // SUB-SUB-DETAILS ADVANCED_TECHNOLOGIES
+  setTechnologiesAdvancedTechnologiesSubMenuVisible,
+  // SUB-SUB-DETAILS TECHNOLOGIES_ADVANCED_TECHNOLOGIES
+  setTechnologiesAdvancedTechnologiesDataScienceSubMenuVisible,
+  setTechnologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible,
+  setTechnologiesAdvancedTechnologiesVirtualRealitySubMenuVisible,
+  setTechnologiesAdvancedTechnologiesBigDataSubMenuVisible,
+  setTechnologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible,
+  setTechnologiesAdvancedTechnologiesCloudComputingSubMenuVisible,
+
+  // SUB-SUB-DETAILS TECHNOLOGIES_CLOUD_TECHNOLOGIES
+  setTechnologiesCloudTechnologiesSubMenuVisible,
+  // SUB-SUB-DETAILS TECHNOLOGIES_CLOUD_TECHNOLOGIES
+  setTechnologiesCloudTechnologiesAmazonWebServiceSubMenuVisible,
+  setTechnologiesCloudTechnologiesMicroSoftAzureSubMenuVisible,
+  setTechnologiesCloudTechnologiesSalesForceSubMenuVisible,
+  setTechnologiesCloudTechnologiesGoogleCloudPlatformSubMenuVisible,
+
+  // SOLUTION SUB-MENUS
+  setSolutionsCrmSubMenuVisible,
+  setSolutionsMarketingAdvertisingSubMenuVisible,
+  setSolutionsDataAnalyticsSubMenuVisible,
+  setSolutionsECommerceSubMenuVisible,
+  setSolutionsSupplyChainSubMenuVisible,
+  setSolutionsHumanResourcesSubMenuVisible,
+  setSolutionsELearningSubMenuVisible,
+
+  // LAST PART
+  closeAllMenu
 } = actions;
 const useStyles = makeStyles((theme) => ({
   btn: {
@@ -18,34 +82,13 @@ const useStyles = makeStyles((theme) => ({
     background: "inherit",
     outline: "none",
     border: "none",
-    boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
+    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
     borderRadius: "8px",
     cursor: "pointer",
     textTransform: "uppercase",
     height: "40px",
     padding: theme.spacing(2),
     marginRight: "32px"
-    /* '&:hover:after': {
-            opacity: 1,
-            top: 0,
-            left: 0,
-            transform: 'translateX(0)',
-            transitionProperty: 'transform, opacity',
-            transitionDuration: '0.7s, 0.15s',
-            transitionTimingFunction: 'ease'
-        },
-        '&:after': {
-            content: "''",
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '200%',
-            height: '100%',
-            opacity: 0,
-            transform: 'translateX(-100%)',
-            backgroundColor: 'rgba(255, 255, 255, 0.13)',
-            background: 'linear-gradient(to right,rgba(255, 255, 255, 0.13) 0%,rgba(255, 255, 255, 0.13) 77%,rgba(255, 255, 255, 0.5) 92%,rgba(255, 255, 255, 0.3) 100%)',
-        }*/
   },
   active: {
     color: "#CBD5E5",
@@ -56,7 +99,8 @@ const useStyles = makeStyles((theme) => ({
       top: 0,
       right: 0,
       bottom: 0,
-      boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
+      boxShadow:
+        "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
       borderRadius: "8px"
     }
   }
@@ -66,31 +110,95 @@ export interface ITabsProps {
   onChange: (index: number) => void;
 }
 const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
-  const { menus = [], onChange = function () {} } = props;
+  const { onChange = function () {}, menus = [] } = props;
+  // const { onChange, menus } = props;
   const classes = useStyles();
   const [idx, setIdx] = useState();
   const dispatch = useDispatch();
   const {
+    // MAIN MENUS APP BAR
+    appBarServiceMenuVisible,
+    appBarTechnologiesMenuVisible,
+    appBarSolutionsMenuVisible,
+    appBarBlogAndNewsMenuVisible,
+    // TECHNOLOGIES SUB-MENUS APP_BAR
+    appBarTechnologiesProgrammingLanguagesSubMenuVisible,
+    appBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+    appBarTechnologiesCloudTechnologiesSubMenuVisible,
+
+    // MAIN MENUS
     serviceMenuVisible,
     technologiesMenuVisible,
     solutionsMenuVisible,
-    blogAndNewsMenuVisible
+    blogAndNewsMenuVisible,
+
+    // SERVICES SUB-MENUS
+    serviceSoftwareDevelopmentSubMenuVisible,
+    serviceUiuxDesignSubMenuVisible,
+    serviceTestQaSubMenuVisible,
+    serviceInfrustructureServiceSubMenuVisible,
+    serviceDataAnalyticsServiceSubMenuVisible,
+    serviceItOutsourcingSubMenuVisible,
+    serviceItConsultingSubMenuVisible,
+    serviceItSupportSubMenuVisible,
+
+    // TECHNOLOGIES SUB-MENUS
+    technologiesProgrammingLanguagesSubMenuVisible,
+    // SUB-SUB-DETAILS TECHNOLOGIES_PROGRAMMING_LANGUAGES
+    technologiesProgrammingLanguagesJavaSubMenuVisible,
+    technologiesProgrammingLanguagesPythonSubMenuVisible,
+    technologiesProgrammingLanguagesGolangSubMenuVisible,
+    technologiesProgrammingLanguagesCSubMenuVisible,
+    technologiesProgrammingLanguagesJavaScriptSubMenuVisible,
+    technologiesProgrammingLanguagesNodeJSSubMenuVisible,
+    technologiesProgrammingLanguagesPHPSubMenuVisible,
+    technologiesProgrammingLanguagesNETSubMenuVisible,
+
+    // SUB-SUB-DETAILS ADVANCED_TECHNOLOGIES
+    technologiesAdvancedTechnologiesSubMenuVisible,
+    // SUB-SUB-DETAILS TECHNOLOGIES_ADVANCED_TECHNOLOGIES
+    technologiesAdvancedTechnologiesDataScienceSubMenuVisible,
+    technologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible,
+    technologiesAdvancedTechnologiesVirtualRealitySubMenuVisible,
+    technologiesAdvancedTechnologiesBigDataSubMenuVisible,
+    technologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible,
+    technologiesAdvancedTechnologiesCloudComputingSubMenuVisible,
+
+    // SUB-SUB-DETAILS TECHNOLOGIES_CLOUD_TECHNOLOGIES
+    technologiesCloudTechnologiesSubMenuVisible,
+    // SUB-SUB-DETAILS TECHNOLOGIES_CLOUD_TECHNOLOGIES
+    technologiesCloudTechnologiesAmazonWebServiceSubMenuVisible,
+    technologiesCloudTechnologiesMicroSoftAzureSubMenuVisible,
+    technologiesCloudTechnologiesSalesForceSubMenuVisible,
+    technologiesCloudTechnologiesGoogleCloudPlatformSubMenuVisible,
+
+    // SOLUTION SUB-MENUS
+    solutionsCrmSubMenuVisible,
+    solutionsMarketingAdvertisingSubMenuVisible,
+    solutionsDataAnalyticsSubMenuVisible,
+    solutionsECommerceSubMenuVisible,
+    solutionsSupplyChainSubMenuVisible,
+    solutionsHumanResourcesSubMenuVisible,
+    solutionsELearningSubMenuVisible,
+
+    // LAST PART
+    closeAllMenu
   } = useSelector((state: RootState) => state.global);
   const handleClick = useCallback(
     (index) => {
       setIdx(index);
       if (index == 0) {
-        dispatch(setServiceMenuVisible(!serviceMenuVisible));
+        dispatch(setAppBarServiceMenuVisible(!appBarServiceMenuVisible));
       } else if (index == 1) {
-        dispatch(setTechnologiesMenuVisible(!technologiesMenuVisible));
+        dispatch(setAppBarTechnologiesMenuVisible(!appBarTechnologiesMenuVisible));
       } else if (index == 2) {
-        dispatch(setSolutionsMenuVisible(!solutionsMenuVisible));
+        dispatch(setAppBarSolutionsMenuVisible(!appBarSolutionsMenuVisible));
       } else if (index == 3) {
-        dispatch(setBlogAndNewsMenuVisible(!blogAndNewsMenuVisible));
+        dispatch(setAppBarBlogAndNewsMenuVisible(!appBarBlogAndNewsMenuVisible));
       }
       onChange(index);
     },
-    [idx, serviceMenuVisible, technologiesMenuVisible, solutionsMenuVisible, blogAndNewsMenuVisible]
+    [idx, appBarServiceMenuVisible, appBarTechnologiesMenuVisible, appBarSolutionsMenuVisible, appBarBlogAndNewsMenuVisible]
   );
 
   return (
@@ -102,10 +210,10 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
             onClick={handleClick.bind(null, index)}
             className={clsx(classes.btn, {
               [classes.active]: [
-                serviceMenuVisible,
-                technologiesMenuVisible,
-                solutionsMenuVisible,
-                blogAndNewsMenuVisible
+                appBarServiceMenuVisible,
+                appBarTechnologiesMenuVisible,
+                appBarSolutionsMenuVisible,
+                appBarBlogAndNewsMenuVisible
               ][index]
             })}
             disableRipple>
