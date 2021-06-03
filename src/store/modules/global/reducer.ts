@@ -202,7 +202,10 @@ export const globalReducer = handleActions(
       action
     ) => {
       const visible: boolean = action.payload.appBarTechnologiesProgrammingLanguagesSubMenuVisible;
-      console.log(" setAppBarTechnologiesProgrammingLanguagesSubMenuVisible and current visible is: " + visible);
+      console.log(
+        " setAppBarTechnologiesProgrammingLanguagesSubMenuVisible and current visible is: " +
+          visible
+      );
       return {
         ...state,
         appBarTechnologiesProgrammingLanguagesSubMenuVisible: visible,
@@ -408,7 +411,8 @@ export const globalReducer = handleActions(
       action
     ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesProgrammingLanguagesJavaScriptSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesProgrammingLanguagesJavaScriptSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,

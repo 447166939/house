@@ -198,7 +198,13 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
       }
       onChange(index);
     },
-    [idx, appBarServiceMenuVisible, appBarTechnologiesMenuVisible, appBarSolutionsMenuVisible, appBarBlogAndNewsMenuVisible]
+    [
+      idx,
+      appBarServiceMenuVisible,
+      appBarTechnologiesMenuVisible,
+      appBarSolutionsMenuVisible,
+      appBarBlogAndNewsMenuVisible
+    ]
   );
 
   return (
