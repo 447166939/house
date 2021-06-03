@@ -61,19 +61,19 @@ const MySwitch: React.FC<IMySwitchProps> = (props) => {
   const handleClick = useCallback(() => {
     let tl = anime.timeline({
       easing: "spring(1, 80, 9, 2)",
-      duration: 210
+      duration: 180
     });
     if (!on) {
       tl.add({
         targets: ["#switch"],
         left: "50%",
-        duration: 270
+        duration: 180
       });
     } else {
       tl.add({
         targets: ["#switch"],
         left: "0%",
-        duration: 270
+        duration: 190
       });
     }
     setOn(!on);

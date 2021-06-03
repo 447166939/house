@@ -160,7 +160,10 @@ const actions = createActions(
       solutionsELearningSubMenuVisible
     })
   },
-  "CLOSE_ALL_MENU"
+  "CLOSE_ALL_MENU",
+  {
+    prefix: "GLOBAL"
+  }
 );
 
 export default actions;

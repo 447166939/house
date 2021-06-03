@@ -18,10 +18,16 @@ import {useDispatch, useSelector} from "react-redux";
 import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
+import userSvg from "@/assets/person.svg";
+import EmailSvg from "@/assets/email.svg";
 import { RootState } from "@/store/index";
 import CloseIcon from "@material-ui/icons/Close";
 import clsx from "clsx";
 import actions from "@/store/modules/global/action";
+import TextareaAutosize from "@material-ui/core/TextareaAutosize/TextareaAutosize";
+import Card from "@/components/Card";
+import { IEmailIconProps } from "../../pages";
+import PhoneSvg from "@/assets/phone.svg";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -41,9 +47,19 @@ const {
     setAppBarTechnologiesProgrammingLanguagesSubMenuVisible,
     setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible,
     setAppBarTechnologiesCloudTechnologiesSubMenuVisible,
-
 } = actions;
 
+export interface IUserIconProps {}
+const UserIcon: React.FC<IUserIconProps> = (props: IUserIconProps) => {
+  return <SvgIcon component={userSvg} viewBox={"0 0 14.843 14.843"} />;
+};
+const EmailIcon = (props: IEmailIconProps) => (
+  <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />
+);
+export interface IPhoneIconProps {}
+const PhoneIcon = (props: IPhoneIconProps) => (
+  <SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />
+);
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
@@ -106,12 +122,16 @@ const useStyles = makeStyles((theme) =>
       marginRight: "26px",
       marginLeft: "129px"
     },
+    userBtn: {
+      width: "41px",
+      marginRight: "26px"
+    },
     searchCloseBtn: {
       width: "41px",
       marginRight: "26px"
     },
     searchInputWrapper: {
-      width: "764px",
+      width: "870px",
       height: "44px",
       position: "relative",
       background: "inherit",
@@ -164,7 +184,7 @@ const useStyles = makeStyles((theme) =>
       paddingBottom: "97px"
     },
     bg: {
-      position: "absolute",
+      position: "fixed",
       background: theme.custom.background,
       top: 0,
       bottom: 0,
@@ -271,92 +291,106 @@ const useStyles = makeStyles((theme) =>
       backgroundColor: "#fff",
       zIndex: 30000
     },
-    circle: {
-      position: "absolute",
-      top: "800px",
-      left: "-1400px",
-      width: "253px",
-      height: "auto"
-    },
-    circle2: {
-      position: "absolute",
-      bottom: "-100px",
-      left: "0px",
-      width: "253px",
-      height: "auto"
-    },
     ball: {
-      position: "absolute",
+      position: "fixed",
       width: "92px",
       height: "auto",
-      left: "-3000px",
-      top: "1800px",
+      left: "100px",
+      top: "900px",
       zIndex: 1
     },
-    rect: {
-      position: "absolute",
-      width: "185px",
-      height: "auto",
-      left: "-2000px",
-      top: "1610px"
-    },
-    triangle: {
-      position: "absolute",
-      width: "148px",
-      height: "auto",
-      left: "-800px",
-      top: "1650px"
-    },
-    egg: {
-      position: "absolute",
-      width: "700px",
-      height: "aoto",
-      left: "-400px",
-      transform: "scale(0.1)",
-      top: "550px"
-    },
-    egg2: {
-      position: "absolute",
-      width: "700px",
-      height: "aoto",
-      left: "200px",
-      transform: "scale(0.1)",
-      bottom: "-100px"
-    },
-    triangle1: {
-      position: "absolute",
-      width: "82px",
-      height: "auto",
-      left: "-700px",
-      top: "1200px"
-    },
-    cube: {
-      position: "absolute",
-      width: "82px",
-      height: "auto",
+    circle: {
+      position: "fixed",
+      top: "600px",
       left: "-300px",
-      top: "2000px",
-      zIndex: -100
-    },
-    cube1: {
-      position: "absolute",
-      width: "156px",
+      width: "253px",
       height: "auto",
-      left: "-800px",
-      top: "900px",
       zIndex: -50
     },
-    tetrahedron: {
-      position: "absolute",
-      width: "156px",
+    circleB: {
+      position: "fixed",
+      top: "1000px",
+      left: "600px",
+      width: "253px",
       height: "auto",
-      left: "100px",
+      zIndex: -100
+    },
+    circleSB: {
+      position: "fixed",
+      top: "900px",
+      left: "400px",
+      width: "100px",
+      height: "auto",
+      zIndex: -200
+    },
+    cube: {
+      position: "fixed",
+      width: "82px",
+      height: "auto",
+      left: "0px",
       top: "1000px",
       zIndex: -50
     },
-    circle1: {
-      position: "absolute",
+    cubeB: {
+      position: "fixed",
       width: "156px",
+      height: "auto",
+      left: -100,
+      top: 900,
+      zIndex: -100
+    },
+    egg: {
+      position: "fixed",
+      width: "700px",
+      height: "aoto",
+      left: -500,
+      transform: "scale(0.1)",
+      top: "1350px",
+      zIndex: -49
+    },
+    rect: {
+      position: "fixed",
+      width: "185px",
+      height: "auto",
+      left: "200px",
+      top: "1000px",
+      zIndex: -50
+    },
+    rectB: {
+      position: "fixed",
+      width: "185px",
+      height: "auto",
+      left: "100px",
+      top: "1100px",
+      zIndex: -100
+    },
+    tetrahedron: {
+      position: "fixed",
+      width: "156px",
+      height: "auto",
+      left: -300,
+      top: "1000px",
+      zIndex: -50
+    },
+    tetrahedronB: {
+      position: "fixed",
+      width: "156px",
+      height: "auto",
+      left: -100,
+      top: 1000,
+      zIndex: -100
+    },
+    triangle: {
+      position: "fixed",
+      width: "148px",
+      height: "auto",
+      left: "400px",
+      top: "1000px",
+      zIndex: -50
+    },
+    triangleB: {
+      position: "fixed",
+      width: "82px",
       height: "auto",
       left: "-500px",
       top: "8000px",
@@ -365,16 +399,118 @@ const useStyles = makeStyles((theme) =>
     active: {
       color: "#CBD5E5",
       "&:after": {
+          content: "''",
+          position: "absolute",
+          left: 0,
+          top: 0,
+          right: 0,
+          bottom: 0,
+          boxShadow:
+              "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
+          borderRadius: "8px"
+      }
+    },
+    contactSection: {
+      alignSelf: "stretch",
+      marginLeft: "252px",
+      marginRight: "252px",
+      padding: "60px",
+      marginTop: "50px",
+      borderRadius: "10px"
+    },
+    contactBtnWrapper: {},
+    contactTitle: {
+      fontSize: "38px",
+      lineHeight: "50px",
+      color: "#000",
+      fontWeight: "bold",
+      position: "relative",
+      marginBottom: theme.spacing(2),
+      "&:after": {
         content: "''",
         position: "absolute",
-        left: 0,
-        top: 0,
-        right: 0,
+        width: "60px",
+        height: "4px",
         bottom: 0,
-        boxShadow:
-          "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
-        borderRadius: "8px"
+        left: 0,
+        backgroundColor: "#2699FB"
       }
+    },
+    contactLeft: {
+      display: "inline-block",
+      width: "65%"
+    },
+    contactRight: {
+      display: "inline-block",
+      width: "35%",
+      paddingLeft: "100px",
+      verticalAlign: "bottom"
+    },
+    contactFormLabel: {
+      fontSize: "16px",
+      lineHeight: "24px",
+      color: "#000"
+    },
+    inputGroup: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: "30px"
+    },
+    contactInputWrapper: {
+      width: "23%",
+      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      borderRadius: "8px",
+      paddingLeft: theme.spacing(2),
+      backgroundColor: "#fff",
+      opacity: 0.6
+    },
+    contactInput: {
+      color: "#000"
+    },
+    contactTextAreaWrapper: {
+      width: "100%",
+      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      borderRadius: "8px",
+      backgroundColor: "#fff",
+      opacity: 0.6,
+      marginTop: "60px"
+    },
+    contactTextArea: {
+      width: "100%",
+      border: "none",
+      outline: "none",
+      padding: theme.spacing(2),
+      borderRadius: "8px"
+    },
+    contactRightTitle: {
+      fontSize: "20px",
+      color: "#000",
+      lineHeight: "24px",
+      marginBottom: theme.spacing(1.5)
+    },
+    contactRightText: {
+      fontSize: "16px",
+      lineHeight: "18px",
+      color: "#2699FB",
+      marginLeft: theme.spacing(1)
+    },
+    contactRightBtn: {
+      width: "189px",
+      height: "52px",
+      backgroundColor: "#fff",
+      borderRadius: "8px",
+      opacity: 0.5,
+      marginTop: theme.spacing(1.5)
+    },
+    phoneWrapper: {
+      marginBottom: theme.spacing(1.5),
+      display: "flex",
+      alignItems: "center"
+    },
+    emailWrapper: {
+      marginBottom: theme.spacing(1.5),
+      display: "flex",
+      alignItems: "center"
     }
   })
 );
@@ -390,6 +526,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const dispatch = useDispatch();
   const [idx, setIdx] = useState();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [userOpen, setUserOpen] = useState(false);
   const {
     appBarServiceMenuVisible,
     appBarTechnologiesMenuVisible,
@@ -399,7 +536,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     appBarSolutionsMenuVisible,
     appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
-  // useEffect(() => {
+  useEffect(() => {
   //   var t1 = anime.timeline({
   //     easing: "linear",
   //     duration: 3000,
@@ -544,7 +681,179 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
   //     rotate: "360deg",
   //     duration: 30000
   //   });
-  // }, []);
+
+  }, []);
+  useEffect(() => {
+    var ballTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var circleTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      delay: 2000,
+      loop: true
+    });
+    var circleBTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var circleSBTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var cubeTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var cubeBTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var eggTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var rectTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var rectBTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var tetrahedronTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var tetrahedronBTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var triangleTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var triangleBTl = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    ballTl.add({
+      targets: ["#ball"],
+      top: -100,
+      left: "1200px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    circleTl.add({
+      targets: ["#circle"],
+      top: -300,
+      left: "700px",
+      rotate: "360deg",
+      delay: 0,
+      duration: 30000
+    });
+    circleBTl.add({
+      targets: ["#circleB"],
+      top: 800,
+      left: "2600px",
+      rotate: "360deg",
+      delay: 500,
+      duration: 50000
+    });
+    circleSBTl.add({
+      targets: ["#circleSB"],
+      left: "2000px",
+      top: -200,
+      rotate: "360deg",
+      delay: 50000,
+      duration: 60000
+    });
+    cubeTl.add({
+      targets: ["#cube"],
+      left: "1500px",
+      top: -400,
+      rotate: "360deg",
+      delay: 33000,
+      duration: 40000
+    });
+    cubeBTl.add({
+      targets: ["#cubeB"],
+      left: "1400px",
+      top: -600,
+      delay: 0,
+      rotate: "360deg",
+      duration: 50000
+    });
+    eggTl.add({
+      targets: ["#egg"],
+      left: "1100px",
+      top: -400,
+      delay: 35000,
+      rotate: "360deg",
+      duration: 30000
+    });
+    rectTl.add({
+      targets: ["#rect"],
+      left: "1500px",
+      top: -100,
+      delay: 16000,
+      rotate: "360deg",
+      duration: 30000
+    });
+    rectBTl.add({
+      targets: ["#rectB"],
+      left: "1100px",
+      top: "-600px",
+      delay: 33000,
+      rotate: "360deg",
+      duration: 50000
+    });
+    tetrahedronTl.add({
+      targets: ["#tetrahedron"],
+      left: "900px",
+      top: 100,
+      delay: 19000,
+      rotate: "360deg",
+      duration: 30000
+    });
+    tetrahedronBTl.add({
+      targets: ["#tetrahedronB"],
+      left: "800px",
+      top: 0,
+      delay: 1600,
+      rotate: "360deg",
+      duration: 50000
+    });
+    triangleTl.add({
+      targets: ["#triangle"],
+      left: "2000px",
+      top: 100,
+      rotate: "360deg",
+      delay: 9000,
+      duration: 30000
+    });
+    triangleBTl.add({
+      targets: ["#triangleB"],
+      left: "1500px",
+      top: 0,
+      rotate: "360deg",
+      delay: 14000,
+      duration: 50000
+    });
+  }, []);
   const handleChange = useCallback((index) => {
     setIdx(index);
   }, []);
@@ -561,13 +870,40 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           console.log("do nothing");
       }
   }, [appBarTechnologiesProgrammingLanguagesSubMenuVisible, appBarTechnologiesAdvancedTechnologiesSubMenuVisible, appBarTechnologiesCloudTechnologiesSubMenuVisible]);
-  const openSearch = useCallback(() => {
-    setSearchOpen(true);
-  }, []);
-  const closeSearch = useCallback(() => {
-    console.log("close");
-    setSearchOpen(false);
-  }, []);
+  // const openSearch = useCallback(() => {
+  //   setSearchOpen(true);
+  // }, []);
+  // const closeSearch = useCallback(() => {
+  //   setSearchOpen(false);
+  // }, []);
+  const toggleSearchOpen = useCallback(() => {
+    let searchInputVar = anime.timeline({
+      easing: "easeInOutQuad",
+      duration: 300,
+      loop:false
+    });
+    if(!searchOpen){
+        console.log(" is opening!");
+        searchInputVar.add({
+            targets: [`.${classes.searchInputWrapper}`],
+            width: "870px",
+            duration: 270
+        });
+    }else{
+        console.log(" is closing! ");
+        searchInputVar.add({
+            targets: [`.${classes.searchInputWrapper}`],
+            width: "10px",
+            duration: 270
+        });
+    }
+    setSearchOpen(!searchOpen);
+    console.log(" toggle UserOpen! Now SearchState: " + searchOpen);
+  }, [searchOpen]);
+  const toggleUserOpen = useCallback(() => {
+    console.log(" toggle UserOpen! Now UserState: " + userOpen + " and !userOpen: " + (!userOpen));
+    setUserOpen(!userOpen);
+  }, [userOpen]);
   const cb = useCallback(() => {
     console.log(" calling back!... ");
     var textWrapper = document.querySelector(".ml11 .letters");
@@ -612,20 +948,23 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </div>
             ) : null}
             {searchOpen ? (
-              <Button key={"close"} onClick={closeSearch} className={classes.searchCloseBtn}>
+              <Button key={"close"} onClick={toggleSearchOpen} className={classes.searchCloseBtn}>
                 <CloseIcon />
               </Button>
             ) : (
-              <Button key={"open"} onClick={openSearch} className={classes.searchBtn}>
+              <Button key={"open"} onClick={toggleSearchOpen} className={classes.searchBtn}>
                 <SearchIcon />
               </Button>
             )}
+            <Button key={"user"} onClick={toggleUserOpen} className={clsx(classes.userBtn, {[classes.active]: userOpen})}>
+              <UserIcon />
+            </Button>
             <Switch />
           </div>
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
-      <Drawer cb={cb} key={0} visible={idx == 0 && appBarServiceMenuVisible}>
+      <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Services</div>
@@ -678,7 +1017,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         </div>
       </Drawer>
 
-      <Drawer cb={cb} key={1} visible={idx == 1 && appBarTechnologiesMenuVisible}>
+      <Drawer cb={cb} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Technologies</div>
@@ -795,7 +1134,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             )}
         </div>
       </Drawer>
-      <Drawer cb={cb} key={2} visible={idx == 2 && appBarSolutionsMenuVisible}>
+      <Drawer cb={cb} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Solutions</div>
@@ -847,7 +1186,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </div>
         </div>
       </Drawer>
-      <Drawer cb={cb} key={3} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
+      <Drawer cb={cb} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Blogs & News</div>
@@ -880,19 +1219,71 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
       <div className={classes.content}>
         <div className={classes.bg}></div>
-        <img id={"circle"} className={classes.circle} src={"/circle.svg"} />
-        <img id={"ball"} className={classes.ball} src={"/ball.svg"} />
-        <img id={"rect"} className={classes.rect} src={"/rect.svg"} />
-        <img id={"triangle"} className={classes.triangle} src={"/triangle.svg"} />
-        <img className={classes.egg} id={"egg"} src={"/egg.svg"} />
-        <img id={"triangle1"} className={classes.triangle1} src={"/triangle1.svg"} />
+        <img id={"circle"} className={classes.circle} src={"/circle.png"} />
+        <img id={"ball"} className={classes.ball} src={"/ball.png"} />
+        <img id={"rect"} className={classes.rect} src={"/rect.png"} />
+        <img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />
         <img id={"cube"} className={classes.cube} src={"/cube.png"} />
-        <img id="cube1" className={classes.cube1} src={"/cube1.png"} />
+        <img className={classes.egg} id={"egg"} src={"/egg.png"} />
         <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
-        <img id="circle1" className={classes.circle1} src={"/circle1.png"} />
-        <img id={"circle2"} className={classes.circle2} src={"/circle.svg"} />
-        <img className={classes.egg2} id={"egg2"} src={"/egg.svg"} />
+
+        <img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />
+        <img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />
+        <img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />
+        <img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />
+        <img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />
+        <img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />
+
         {children}
+        <Card className={classes.contactSection}>
+          <div className={classes.contactTitle}>Contact Us</div>
+          <div className={classes.contactLeft}>
+            <div className={classes.contactFormLabel}>
+              Drop us a line! We are here to answer your questions 24/7.
+            </div>
+            <div className={classes.inputGroup}>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
+              </div>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
+              </div>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
+              </div>
+              <div className={classes.contactInputWrapper}>
+                {" "}
+                <InputBase className={classes.contactInput} />
+              </div>
+            </div>
+            <div className={classes.contactTextAreaWrapper}>
+              <TextareaAutosize
+                className={classes.contactTextArea}
+                rowsMin={4}
+                placeholder="How can we help you?"
+              />
+            </div>
+          </div>
+          <div className={classes.contactRight}>
+            <div className={classes.contactRightTitle}>Our contact details</div>
+            <div className={classes.phoneWrapper}>
+              <PhoneIcon />
+              <span className={classes.contactRightText}>+ 1 626-265-5257</span>
+            </div>
+            <div className={classes.emailWrapper}>
+              <EmailIcon />
+              <span className={classes.contactRightText}>zion@galaxycgi.com</span>
+            </div>
+            <div className={classes.contactRightTitle}>Press inquires</div>
+            <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
+            <div className={classes.contactBtnWrapper}>
+              <ButtonBase className={classes.contactRightBtn}>MORE</ButtonBase>
+            </div>
+          </div>
+        </Card>
       </div>
       <IconButton className={classes.upAnchor}>
         <UPIcon />
