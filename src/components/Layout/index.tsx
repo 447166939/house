@@ -905,24 +905,81 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setUserOpen(!userOpen);
   }, [userOpen]);
   const cb = useCallback(() => {
-    console.log(" calling back!... ");
-    var textWrapper = document.querySelector(".ml11 .letters");
+    var textWrapper = document.querySelector('#service');
+    console.log('service')
     if (textWrapper) {
       textWrapper.innerHTML = textWrapper.textContent?.replace(
         /([^\x00-\x80]|\w)/g,
         "<span class='letter'>$&</span>"
       ) as string;
     }
-    anime.timeline({ loop: false }).add({
-      targets: ".ml11 .letters",
-      opacity: [0, 1],
-      easing: "easeOutCirc",
-      duration: 100,
-      offset: "-=775",
-      delay: (el, i) => 34 * i
-    });
-    textWrapper = null;
-  }, [idx]);
+      anime.timeline({ loop: false }).add({
+        targets: `#service .letter`,
+        opacity: [0,1],
+        easing: "easeOutExpo",
+        duration: 600,
+        offset: '-=775',
+        delay: (el, i) => 34 * (i+1)
+    })
+   textWrapper = null;
+  }, []);
+    const cb1 = useCallback(() => {
+        var textWrapper = document.querySelector('#technologies');
+        console.log('technologies')
+        if (textWrapper) {
+            textWrapper.innerHTML = textWrapper.textContent?.replace(
+                /([^\x00-\x80]|\w)/g,
+                "<span class='letter'>$&</span>"
+            ) as string;
+        }
+        anime.timeline({ loop: false }).add({
+            targets: `#technologies .letter`,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 600,
+            offset: '-=775',
+            delay: (el, i) => 34 * (i+1)
+        })
+        textWrapper = null;
+    }, []);
+    const cb2 = useCallback(() => {
+        var textWrapper = document.querySelector('#solutions');
+        console.log('solutions')
+        if (textWrapper) {
+            textWrapper.innerHTML = textWrapper.textContent?.replace(
+                /([^\x00-\x80]|\w)/g,
+                "<span class='letter'>$&</span>"
+            ) as string;
+        }
+        anime.timeline({ loop: false }).add({
+            targets: `#solutions .letter`,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 600,
+            offset: '-=775',
+            delay: (el, i) => 34 * (i+1)
+        })
+         textWrapper = null;
+    }, []);
+    const cb3 = useCallback(() => {
+        var textWrapper = document.querySelector('#blogAndNews');
+        console.log('blogandnews')
+        if (textWrapper) {
+            textWrapper.innerHTML = textWrapper.textContent?.replace(
+                /([^\x00-\x80]|\w)/g,
+                "<span class='letter'>$&</span>"
+            ) as string;
+        }
+        anime.timeline({ loop: false }).add({
+            targets: `#blogAndNews .letter`,
+            opacity: [0,1],
+            easing: "easeOutExpo",
+            duration: 600,
+            offset: '-=775',
+            delay: (el, i) => 34 * (i+1)
+        })
+        textWrapper = null;
+    }, []);
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position={"fixed"}>
@@ -964,176 +1021,175 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
-      <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
-        <div className={classes.serviceContainer}>
-          <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Services</div>
-            <h1 className="ml11">
+        <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
+            <div className={classes.serviceContainer}>
+                <div className={classes.serviceCol1}>
+                    <div className={classes.serviceTitle}>Services</div>
+                    <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={'service'} className="letters">
                   Our service portfolio covers an entire software development life cycle and meets
                   varied business needs.
                 </span>
               </span>
-            </h1>
-            <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase
-                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                disableRipple>
-                CONTACT
-              </ButtonBase>
+                    </h1>
+                    <div className={classes.serviceContactBtnWrapper}>
+                        <ButtonBase
+                            className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                            disableRipple>
+                            CONTACT
+                        </ButtonBase>
+                    </div>
+                </div>
+                <div className={classes.serviceCol3}>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                        Software Development
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                        UI/UX Design
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                        Testing And QA
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                        Infrastructure Services
+                    </Link>
+                </div>
+                <div className={classes.serviceCol4}>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                        Data Analytics
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                        IT OutSourcing
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                        IT Consulting
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                        IT Support
+                    </Link>
+                </div>
             </div>
-          </div>
-          <div className={classes.serviceCol3}>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Software Development
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              UI/UX Design
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Testing And QA
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Infrastructure Services
-            </Link>
-          </div>
-          <div className={classes.serviceCol4}>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              Data Analytics
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              IT OutSourcing
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              IT Consulting
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              IT Support
-            </Link>
-          </div>
-        </div>
-      </Drawer>
+        </Drawer>
+        <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
+            <div className={classes.serviceContainer}>
+                <div className={classes.serviceCol1}>
+                    <div className={classes.serviceTitle}>Technologies</div>
 
-      <Drawer cb={cb} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
-        <div className={classes.serviceContainer}>
-          <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Technologies</div>
-
-            <h1 className="ml11">
+                    <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={'technologies'} className="letters">
                   Our expertise spans all major technologies and platforms, and advances to
                   innovative technology trends.
                 </span>
               </span>
-            </h1>
-            <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase
-                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                disableRipple>
-                CONTACT
-              </ButtonBase>
+                    </h1>
+                    <div className={classes.serviceContactBtnWrapper}>
+                        <ButtonBase
+                            className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                            disableRipple>
+                            CONTACT
+                        </ButtonBase>
+                    </div>
+                </div>
+                <div className={classes.serviceCol2}>
+                    <div>
+                        <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesProgrammingLanguagesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesProgrammingLanguagesSubMenuVisible")} disableRipple>
+                            Programming Languages
+                        </ButtonBase>
+                    </div>
+                    <div>
+                        <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesAdvancedTechnologiesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesAdvancedTechnologiesSubMenuVisible")} disableRipple>
+                            Advanced Technologies
+                        </ButtonBase>
+                    </div>
+                    <div>
+                        <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesCloudTechnologiesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesCloudTechnologiesSubMenuVisible")} disableRipple>
+                            Cloud Technologies
+                        </ButtonBase>
+                    </div>
+                </div>
+                {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
+                    <>
+                        <div className={classes.serviceCol3}>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Java
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Python
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Golang
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                C++
+                            </Link>
+                        </div>
+                        <div className={classes.serviceCol4}>
+                            <Link className={classes.serviceCol4Link} href={"#"}>
+                                JavaScript
+                            </Link>
+                            <Link className={classes.serviceCol4Link} href={"#"}>
+                                NodeJS
+                            </Link>
+                            <Link className={classes.serviceCol4Link} href={"#"}>
+                                PHP
+                            </Link>
+                            <Link className={classes.serviceCol4Link} href={"#"}>
+                                .Net
+                            </Link>
+                        </div>
+                    </>
+                )}
+                {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
+                    <>
+                        <div className={classes.serviceCol3}>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Data Science
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Artificial Intelligence
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Virtual Reality
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Big Data
+                            </Link>
+                        </div>
+                        <div className={classes.serviceCol4}>
+                            <Link className={classes.serviceCol4Link} href={"#"}>
+                                Internet Of Things
+                            </Link>
+                            <Link className={classes.serviceCol4Link} href={"#"}>
+                                Cloud Computing
+                            </Link>
+                        </div>
+                    </>
+                )}
+                {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
+                    <>
+                        <div className={classes.serviceCol3}>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Amazon Web Service
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                MicroSoft Azure
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Saleforce
+                            </Link>
+                            <Link className={classes.serviceCol3Link} href={"#"}>
+                                Google Cloud Platform
+                            </Link>
+                        </div>
+                    </>
+                )}
             </div>
-          </div>
-          <div className={classes.serviceCol2}>
-            <div>
-              <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesProgrammingLanguagesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesProgrammingLanguagesSubMenuVisible")} disableRipple>
-                Programming Languages
-              </ButtonBase>
-            </div>
-            <div>
-              <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesAdvancedTechnologiesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesAdvancedTechnologiesSubMenuVisible")} disableRipple>
-                Advanced Technologies
-              </ButtonBase>
-            </div>
-            <div>
-              <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesCloudTechnologiesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesCloudTechnologiesSubMenuVisible")} disableRipple>
-                Cloud Technologies
-              </ButtonBase>
-            </div>
-          </div>
-            {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
-                <>
-                    <div className={classes.serviceCol3}>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Java
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Python
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Golang
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            C++
-                        </Link>
-                    </div>
-                    <div className={classes.serviceCol4}>
-                        <Link className={classes.serviceCol4Link} href={"#"}>
-                        JavaScript
-                        </Link>
-                        <Link className={classes.serviceCol4Link} href={"#"}>
-                        NodeJS
-                        </Link>
-                        <Link className={classes.serviceCol4Link} href={"#"}>
-                        PHP
-                        </Link>
-                        <Link className={classes.serviceCol4Link} href={"#"}>
-                        .Net
-                        </Link>
-                    </div>
-                </>
-            )}
-            {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
-                <>
-                    <div className={classes.serviceCol3}>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Data Science
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Artificial Intelligence
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Virtual Reality
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Big Data
-                        </Link>
-                    </div>
-                    <div className={classes.serviceCol4}>
-                        <Link className={classes.serviceCol4Link} href={"#"}>
-                            Internet Of Things
-                        </Link>
-                        <Link className={classes.serviceCol4Link} href={"#"}>
-                            Cloud Computing
-                        </Link>
-                    </div>
-                </>
-            )}
-            {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
-                <>
-                    <div className={classes.serviceCol3}>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Amazon Web Service
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            MicroSoft Azure
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Saleforce
-                        </Link>
-                        <Link className={classes.serviceCol3Link} href={"#"}>
-                            Google Cloud Platform
-                        </Link>
-                    </div>
-                </>
-            )}
-        </div>
-      </Drawer>
-      <Drawer cb={cb} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
+        </Drawer>
+      <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Solutions</div>
@@ -1141,7 +1197,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={'solutions'} className="letters">
                   We build on the IT domain expertise and industry knowledge to design sustainable
                   technology solutions.
                 </span>
@@ -1185,7 +1241,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </div>
         </div>
       </Drawer>
-      <Drawer cb={cb} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
+      <Drawer cb={cb3} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Blogs & News</div>
@@ -1193,7 +1249,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={'blogAndNews'} className="letters">
                   Knowing everything about us and the IT industry...
                 </span>
               </span>
