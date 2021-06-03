@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import Collapse from "@material-ui/core/Collapse";
 import { useDispatch } from "react-redux";
 import actions from "@/store/modules/global/action";
-const { closeAllMenu } = actions;
+const { setCloseAllMenu } = actions;
 const useStyles = makeStyles((themme) => ({
   root: {
     position: "relative",
@@ -35,10 +35,10 @@ const Drawer: React.FC<IDrawerProps> = (props: IDrawerProps) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   useEffect(() => {
-    if(visible)cb();
+    if (visible) cb();
   }, [visible]);
   const handleClick = useCallback(() => {
-    dispatch(closeAllMenu());
+    dispatch(setCloseAllMenu());
   }, []);
   return (
     <div className={classes.root}>
