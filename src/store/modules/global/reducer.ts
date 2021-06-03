@@ -8,6 +8,10 @@ export const defaultState = {
   appBarTechnologiesMenuVisible: false,
   appBarSolutionsMenuVisible: false,
   appBarBlogAndNewsMenuVisible: false,
+  // TECHNOLOGIES SUB-MENUS APP_BAR
+  appBarTechnologiesProgrammingLanguagesSubMenuVisible: false,
+  appBarTechnologiesAdvancedTechnologiesSubMenuVisible: false,
+  appBarTechnologiesCloudTechnologiesSubMenuVisible: false,
   // MAIN MENUS
   serviceMenuVisible: false,
   technologiesMenuVisible: false,
@@ -66,13 +70,16 @@ const {
   setAppBarTechnologiesMenuVisible,
   setAppBarSolutionsMenuVisible,
   setAppBarBlogAndNewsMenuVisible,
+  // TECHNOLOGIES SUB-MENUS APP_BAR
+  setAppBarTechnologiesProgrammingLanguagesSubMenuVisible,
+  setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+  setAppBarTechnologiesCloudTechnologiesSubMenuVisible,
 
   // MAIN MENUS
   setServiceMenuVisible,
   setTechnologiesMenuVisible,
   setSolutionsMenuVisible,
   setBlogAndNewsMenuVisible,
-
   // SERVICES SUB-MENUS
   setServiceSoftwareDevelopmentSubMenuVisible,
   setServiceUiuxDesignSubMenuVisible,
@@ -125,47 +132,105 @@ const {
   // LAST PART
   setCloseAllMenu
 } = actions;
-const turnOffState = (state: {[key:string]: boolean}): void => {
+const turnOffState = (state: { [key: string]: boolean }): void => {
   Object.keys(state).forEach((key: string) => {
     state[key] = false;
   });
+};
+const turnOffAppBarState = (state: { [key: string]: boolean }): void => {
+  console.log("turnning off AppBar State!");
+  state = {
+    ...state,
+    appBarServiceMenuVisible: false,
+    appBarTechnologiesMenuVisible: false,
+    appBarSolutionsMenuVisible: false,
+    appBarBlogAndNewsMenuVisible: false,
+    appBarTechnologiesProgrammingLanguagesSubMenuVisible: false,
+    appBarTechnologiesAdvancedTechnologiesSubMenuVisible: false,
+    appBarTechnologiesCloudTechnologiesSubMenuVisible: false
+  };
 };
 export const globalReducer = handleActions(
   {
     // MAIN MENUS APP_BAR
     [setAppBarServiceMenuVisible as unknown as string]: (state, action) => {
-      turnOffState(state);
       const visible: boolean = action.payload.appBarServiceMenuVisible;
       return {
         ...state,
         appBarServiceMenuVisible: visible,
-        serviceSoftwareDevelopmentSubMenuVisible: visible
+        appBarTechnologiesMenuVisible: false,
+        appBarSolutionsMenuVisible: false,
+        appBarBlogAndNewsMenuVisible: false
       };
     },
     [setAppBarTechnologiesMenuVisible as unknown as string]: (state, action) => {
-      turnOffState(state);
       const visible: boolean = action.payload.appBarTechnologiesMenuVisible;
       return {
         ...state,
+        appBarServiceMenuVisible: false,
         appBarTechnologiesMenuVisible: visible,
-        technologiesProgrammingLanguagesJavaSubMenuVisible: visible
+        appBarSolutionsMenuVisible: false,
+        appBarBlogAndNewsMenuVisible: false,
+        appBarTechnologiesProgrammingLanguagesSubMenuVisible: visible,
+        appBarTechnologiesAdvancedTechnologiesSubMenuVisible: false,
+        appBarTechnologiesCloudTechnologiesSubMenuVisible: false
       };
     },
     [setAppBarSolutionsMenuVisible as unknown as string]: (state, action) => {
-      turnOffState(state);
       const visible: boolean = action.payload.appBarSolutionsMenuVisible;
       return {
         ...state,
+        appBarServiceMenuVisible: false,
+        appBarTechnologiesMenuVisible: false,
         appBarSolutionsMenuVisible: visible,
-        solutionsCrmSubMenuVisible: visible
+        appBarBlogAndNewsMenuVisible: false
       };
     },
     [setAppBarBlogAndNewsMenuVisible as unknown as string]: (state, action) => {
-      turnOffState(state);
       const visible: boolean = action.payload.appBarBlogAndNewsMenuVisible;
       return {
         ...state,
+        appBarServiceMenuVisible: false,
+        appBarTechnologiesMenuVisible: false,
+        appBarSolutionsMenuVisible: false,
         appBarBlogAndNewsMenuVisible: visible
+      };
+    },
+    // TECHNOLOGIES SUB-MENUS APP_BAR
+    [setAppBarTechnologiesProgrammingLanguagesSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
+      const visible: boolean = action.payload.appBarTechnologiesProgrammingLanguagesSubMenuVisible;
+      return {
+        ...state,
+        appBarTechnologiesProgrammingLanguagesSubMenuVisible: visible,
+        appBarTechnologiesAdvancedTechnologiesSubMenuVisible: false,
+        appBarTechnologiesCloudTechnologiesSubMenuVisible: false
+      };
+    },
+    [setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
+      const visible: boolean = action.payload.appBarTechnologiesAdvancedTechnologiesSubMenuVisible;
+      return {
+        ...state,
+        appBarTechnologiesProgrammingLanguagesSubMenuVisible: false,
+        appBarTechnologiesAdvancedTechnologiesSubMenuVisible: visible,
+        appBarTechnologiesCloudTechnologiesSubMenuVisible: false
+      };
+    },
+    [setAppBarTechnologiesCloudTechnologiesSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
+      const visible: boolean = action.payload.appBarTechnologiesCloudTechnologiesSubMenuVisible;
+      return {
+        ...state,
+        appBarTechnologiesProgrammingLanguagesSubMenuVisible: false,
+        appBarTechnologiesAdvancedTechnologiesSubMenuVisible: false,
+        appBarTechnologiesCloudTechnologiesSubMenuVisible: visible
       };
     },
     // MAIN MENUS
@@ -288,7 +353,10 @@ export const globalReducer = handleActions(
       };
     },
     // SUB-SUB-DETAILS TECHNOLOGIES_PROGRAMMING_LANGUAGES
-    [setTechnologiesProgrammingLanguagesJavaSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesJavaSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesProgrammingLanguagesJavaSubMenuVisible;
       return {
@@ -298,7 +366,10 @@ export const globalReducer = handleActions(
         technologiesProgrammingLanguagesJavaSubMenuVisible: visible
       };
     },
-    [setTechnologiesProgrammingLanguagesPythonSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesPythonSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesProgrammingLanguagesPythonSubMenuVisible;
       return {
@@ -308,7 +379,10 @@ export const globalReducer = handleActions(
         technologiesProgrammingLanguagesPythonSubMenuVisible: visible
       };
     },
-    [setTechnologiesProgrammingLanguagesGolangSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesGolangSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesProgrammingLanguagesGolangSubMenuVisible;
       return {
@@ -328,9 +402,13 @@ export const globalReducer = handleActions(
         technologiesProgrammingLanguagesCSubMenuVisible: visible
       };
     },
-    [setTechnologiesProgrammingLanguagesJavaScriptSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesJavaScriptSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesProgrammingLanguagesJavaScriptSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesProgrammingLanguagesJavaScriptSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -338,7 +416,10 @@ export const globalReducer = handleActions(
         technologiesProgrammingLanguagesJavaScriptSubMenuVisible: visible
       };
     },
-    [setTechnologiesProgrammingLanguagesNodeJSSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesNodeJSSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesProgrammingLanguagesNodeJSSubMenuVisible;
       return {
@@ -348,7 +429,10 @@ export const globalReducer = handleActions(
         technologiesProgrammingLanguagesNodeJSSubMenuVisible: visible
       };
     },
-    [setTechnologiesProgrammingLanguagesPHPSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesPHPSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesProgrammingLanguagesPHPSubMenuVisible;
       return {
@@ -358,7 +442,10 @@ export const globalReducer = handleActions(
         technologiesProgrammingLanguagesPHPSubMenuVisible: visible
       };
     },
-    [setTechnologiesProgrammingLanguagesNETSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesProgrammingLanguagesNETSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesProgrammingLanguagesNETSubMenuVisible;
       return {
@@ -379,9 +466,13 @@ export const globalReducer = handleActions(
       };
     },
     // SUB-SUB-DETAILS TECHNOLOGIES_ADVANCED_TECHNOLOGIES
-    [setTechnologiesAdvancedTechnologiesDataScienceSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesAdvancedTechnologiesDataScienceSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesAdvancedTechnologiesDataScienceSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesAdvancedTechnologiesDataScienceSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -389,19 +480,25 @@ export const globalReducer = handleActions(
         technologiesAdvancedTechnologiesDataScienceSubMenuVisible: visible
       };
     },
-    [setTechnologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible as unknown as string]:
+      (state, action) => {
+        turnOffState(state);
+        const visible: boolean =
+          action.payload.technologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible;
+        return {
+          ...state,
+          technologiesMenuVisible: visible,
+          technologiesAdvancedTechnologiesSubMenuVisible: visible,
+          technologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible: visible
+        };
+      },
+    [setTechnologiesAdvancedTechnologiesVirtualRealitySubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible;
-      return {
-        ...state,
-        technologiesMenuVisible: visible,
-        technologiesAdvancedTechnologiesSubMenuVisible: visible,
-        technologiesAdvancedTechnologiesArtificialIntelligenceSubMenuVisible: visible
-      };
-    },
-    [setTechnologiesAdvancedTechnologiesVirtualRealitySubMenuVisible as unknown as string]: (state, action) => {
-      turnOffState(state);
-      const visible: boolean = action.payload.technologiesAdvancedTechnologiesVirtualRealitySubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesAdvancedTechnologiesVirtualRealitySubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -409,7 +506,10 @@ export const globalReducer = handleActions(
         technologiesAdvancedTechnologiesVirtualRealitySubMenuVisible: visible
       };
     },
-    [setTechnologiesAdvancedTechnologiesBigDataSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesAdvancedTechnologiesBigDataSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesAdvancedTechnologiesBigDataSubMenuVisible;
       return {
@@ -419,9 +519,13 @@ export const globalReducer = handleActions(
         technologiesAdvancedTechnologiesBigDataSubMenuVisible: visible
       };
     },
-    [setTechnologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -429,9 +533,13 @@ export const globalReducer = handleActions(
         technologiesAdvancedTechnologiesInternetOfThingsSubMenuVisible: visible
       };
     },
-    [setTechnologiesAdvancedTechnologiesCloudComputingSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesAdvancedTechnologiesCloudComputingSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesAdvancedTechnologiesCloudComputingSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesAdvancedTechnologiesCloudComputingSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -451,9 +559,13 @@ export const globalReducer = handleActions(
       };
     },
     // SUB-SUB-DETAILS TECHNOLOGIES_CLOUD_TECHNOLOGIES
-    [setTechnologiesCloudTechnologiesAmazonWebServiceSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesCloudTechnologiesAmazonWebServiceSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesCloudTechnologiesAmazonWebServiceSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesCloudTechnologiesAmazonWebServiceSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -461,9 +573,13 @@ export const globalReducer = handleActions(
         technologiesCloudTechnologiesAmazonWebServiceSubMenuVisible: visible
       };
     },
-    [setTechnologiesCloudTechnologiesMicroSoftAzureSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesCloudTechnologiesMicroSoftAzureSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesCloudTechnologiesMicroSoftAzureSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesCloudTechnologiesMicroSoftAzureSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -471,7 +587,10 @@ export const globalReducer = handleActions(
         technologiesCloudTechnologiesMicroSoftAzureSubMenuVisible: visible
       };
     },
-    [setTechnologiesCloudTechnologiesSalesForceSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesCloudTechnologiesSalesForceSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
       const visible: boolean = action.payload.technologiesCloudTechnologiesSalesForceSubMenuVisible;
       return {
@@ -481,9 +600,13 @@ export const globalReducer = handleActions(
         technologiesCloudTechnologiesSalesForceSubMenuVisible: visible
       };
     },
-    [setTechnologiesCloudTechnologiesGoogleCloudPlatformSubMenuVisible as unknown as string]: (state, action) => {
+    [setTechnologiesCloudTechnologiesGoogleCloudPlatformSubMenuVisible as unknown as string]: (
+      state,
+      action
+    ) => {
       turnOffState(state);
-      const visible: boolean = action.payload.technologiesCloudTechnologiesGoogleCloudPlatformSubMenuVisible;
+      const visible: boolean =
+        action.payload.technologiesCloudTechnologiesGoogleCloudPlatformSubMenuVisible;
       return {
         ...state,
         technologiesMenuVisible: visible,
@@ -559,9 +682,9 @@ export const globalReducer = handleActions(
     [setCloseAllMenu as unknown as string]: (state, action) => {
       turnOffState(state);
       return {
-        ...state,
+        ...state
       };
-    },
+    }
   },
   defaultState
 );

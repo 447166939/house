@@ -12,6 +12,11 @@ const {
   setAppBarSolutionsMenuVisible,
   setAppBarBlogAndNewsMenuVisible,
 
+  // TECHNOLOGIES SUB-MENUS APP_BAR
+  setAppBarTechnologiesProgrammingLanguagesSubMenuVisible,
+  setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+  setAppBarTechnologiesCloudTechnologiesSubMenuVisible,
+
   // MAIN MENUS
   setServiceMenuVisible,
   setTechnologiesMenuVisible,
@@ -116,6 +121,10 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
     appBarTechnologiesMenuVisible,
     appBarSolutionsMenuVisible,
     appBarBlogAndNewsMenuVisible,
+    // TECHNOLOGIES SUB-MENUS APP_BAR
+    appBarTechnologiesProgrammingLanguagesSubMenuVisible,
+    appBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+    appBarTechnologiesCloudTechnologiesSubMenuVisible,
 
     // MAIN MENUS
     serviceMenuVisible,
@@ -179,17 +188,17 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
     (index) => {
       setIdx(index);
       if (index == 0) {
-        dispatch(setServiceMenuVisible(!serviceMenuVisible));
+        dispatch(setAppBarServiceMenuVisible(!appBarServiceMenuVisible));
       } else if (index == 1) {
-        dispatch(setTechnologiesMenuVisible(!technologiesMenuVisible));
+        dispatch(setAppBarTechnologiesMenuVisible(!appBarTechnologiesMenuVisible));
       } else if (index == 2) {
-        dispatch(setSolutionsMenuVisible(!solutionsMenuVisible));
+        dispatch(setAppBarSolutionsMenuVisible(!appBarSolutionsMenuVisible));
       } else if (index == 3) {
-        dispatch(setBlogAndNewsMenuVisible(!blogAndNewsMenuVisible));
+        dispatch(setAppBarBlogAndNewsMenuVisible(!appBarBlogAndNewsMenuVisible));
       }
       onChange(index);
     },
-    [idx, serviceMenuVisible, technologiesMenuVisible, solutionsMenuVisible, blogAndNewsMenuVisible]
+    [idx, appBarServiceMenuVisible, appBarTechnologiesMenuVisible, appBarSolutionsMenuVisible, appBarBlogAndNewsMenuVisible]
   );
 
   return (
@@ -201,10 +210,10 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
             onClick={handleClick.bind(null, index)}
             className={clsx(classes.btn, {
               [classes.active]: [
-                serviceMenuVisible,
-                technologiesMenuVisible,
-                solutionsMenuVisible,
-                blogAndNewsMenuVisible
+                appBarServiceMenuVisible,
+                appBarTechnologiesMenuVisible,
+                appBarSolutionsMenuVisible,
+                appBarBlogAndNewsMenuVisible
               ][index]
             })}
             disableRipple>

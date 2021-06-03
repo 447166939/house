@@ -14,13 +14,14 @@ import InputBase from "@material-ui/core/InputBase";
 import Link from "@material-ui/core/Link";
 import anime from "animejs";
 import { IconButton } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
 import { RootState } from "@/store/index";
 import CloseIcon from "@material-ui/icons/Close";
 import clsx from "clsx";
+import actions from "@/store/modules/global/action";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -29,6 +30,19 @@ export interface IChatIconProps {}
 const ChatIcon: React.FC<IChatIconProps> = (props: IChatIconProps) => {
   return <SvgIcon component={chatSvg} viewBox={"0 0 26.6 22.3"} />;
 };
+const {
+    // MAIN MENUS APP BAR
+    setAppBarServiceMenuVisible,
+    setAppBarTechnologiesMenuVisible,
+    setAppBarSolutionsMenuVisible,
+    setAppBarBlogAndNewsMenuVisible,
+
+    // TECHNOLOGIES SUB-MENUS APP_BAR
+    setAppBarTechnologiesProgrammingLanguagesSubMenuVisible,
+    setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+    setAppBarTechnologiesCloudTechnologiesSubMenuVisible,
+
+} = actions;
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -373,163 +387,180 @@ export interface ILayoutProps {
 }
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [idx, setIdx] = useState();
   const [searchOpen, setSearchOpen] = useState(false);
   const {
-    serviceMenuVisible,
-    technologiesMenuVisible,
-    solutionsMenuVisible,
-    blogAndNewsMenuVisible
+    appBarServiceMenuVisible,
+    appBarTechnologiesMenuVisible,
+    appBarTechnologiesProgrammingLanguagesSubMenuVisible,
+    appBarTechnologiesAdvancedTechnologiesSubMenuVisible,
+    appBarTechnologiesCloudTechnologiesSubMenuVisible,
+    appBarSolutionsMenuVisible,
+    appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
-  useEffect(() => {
-    var t1 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t2 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t3 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t4 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t5 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t6 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var cubeTimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var cubeTimeLine1 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var tetrahedronTimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var circle1TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var circle2TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var egg2TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    t1.add({
-      targets: ["#circle"],
-      top: "0px",
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    t2.add({
-      targets: ["#ball"],
-      top: 200,
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    t3.add({
-      targets: ["#rect"],
-      top: 100,
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    t4.add({
-      targets: ["#triangle"],
-      left: "2500px",
-      top: 300,
-      rotate: "360deg",
-      duration: 30000
-    });
-    t5.add({
-      targets: ["#egg"],
-      left: "2500px",
-      top: -400,
-      rotate: "360deg",
-      duration: 30000
-    });
-    t6.add({
-      targets: ["#triangle1"],
-      left: "2500px",
-      top: -600,
-      rotate: "360deg",
-      duration: 30000
-    });
-    cubeTimeLine.add({
-      targets: ["#cube"],
-      left: "2500px",
-      top: "-600px",
-      rotate: "360deg",
-      duration: 50000
-    });
-    cubeTimeLine1.add({
-      targets: ["#cube1"],
-      left: "2500px",
-      top: "-600px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    tetrahedronTimeLine.add({
-      targets: ["#tetrahedron"],
-      left: "1000px",
-      top: "-600px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    circle1TimeLine.add({
-      targets: ["#circle1"],
-      left: "800px",
-      top: "300px",
-      rotate: "360deg",
-      duration: 60000
-    });
-    circle2TimeLine.add({
-      targets: ["#circle2"],
-      left: "1500px",
-      bottom: "3000px",
-      rotate: "360deg",
-      duration: 60000
-    });
-    egg2TimeLine.add({
-      targets: ["#egg2"],
-      left: "800px",
-      bottom: "6000px",
-      rotate: "360deg",
-      duration: 30000
-    });
-  }, []);
+  // useEffect(() => {
+  //   var t1 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var t2 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var t3 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var t4 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var t5 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var t6 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var cubeTimeLine = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var cubeTimeLine1 = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var tetrahedronTimeLine = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var circle1TimeLine = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var circle2TimeLine = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   var egg2TimeLine = anime.timeline({
+  //     easing: "linear",
+  //     duration: 3000,
+  //     loop: true
+  //   });
+  //   t1.add({
+  //     targets: ["#circle"],
+  //     top: "0px",
+  //     left: "2500px",
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   t2.add({
+  //     targets: ["#ball"],
+  //     top: 200,
+  //     left: "2500px",
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   t3.add({
+  //     targets: ["#rect"],
+  //     top: 100,
+  //     left: "2500px",
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   t4.add({
+  //     targets: ["#triangle"],
+  //     left: "2500px",
+  //     top: 300,
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   t5.add({
+  //     targets: ["#egg"],
+  //     left: "2500px",
+  //     top: -400,
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   t6.add({
+  //     targets: ["#triangle1"],
+  //     left: "2500px",
+  //     top: -600,
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   cubeTimeLine.add({
+  //     targets: ["#cube"],
+  //     left: "2500px",
+  //     top: "-600px",
+  //     rotate: "360deg",
+  //     duration: 50000
+  //   });
+  //   cubeTimeLine1.add({
+  //     targets: ["#cube1"],
+  //     left: "2500px",
+  //     top: "-600px",
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   tetrahedronTimeLine.add({
+  //     targets: ["#tetrahedron"],
+  //     left: "1000px",
+  //     top: "-600px",
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  //   circle1TimeLine.add({
+  //     targets: ["#circle1"],
+  //     left: "800px",
+  //     top: "300px",
+  //     rotate: "360deg",
+  //     duration: 60000
+  //   });
+  //   circle2TimeLine.add({
+  //     targets: ["#circle2"],
+  //     left: "1500px",
+  //     bottom: "3000px",
+  //     rotate: "360deg",
+  //     duration: 60000
+  //   });
+  //   egg2TimeLine.add({
+  //     targets: ["#egg2"],
+  //     left: "800px",
+  //     bottom: "6000px",
+  //     rotate: "360deg",
+  //     duration: 30000
+  //   });
+  // }, []);
   const handleChange = useCallback((index) => {
     setIdx(index);
   }, []);
+  const handleSubClick = useCallback((subMenuState: string) => {
+      console.log(" handling sub-click!");
+      if(subMenuState === "appBarTechnologiesProgrammingLanguagesSubMenuVisible"){
+        // dispatch(setAppBarTechnologiesMenuVisible(!appBarTechnologiesMenuVisible));
+        dispatch(setAppBarTechnologiesProgrammingLanguagesSubMenuVisible(!appBarTechnologiesProgrammingLanguagesSubMenuVisible));
+      }else if(subMenuState === "appBarTechnologiesAdvancedTechnologiesSubMenuVisible"){
+        dispatch(setAppBarTechnologiesAdvancedTechnologiesSubMenuVisible(!appBarTechnologiesAdvancedTechnologiesSubMenuVisible));
+      }else if(subMenuState === "appBarTechnologiesCloudTechnologiesSubMenuVisible"){
+        dispatch(setAppBarTechnologiesCloudTechnologiesSubMenuVisible(!appBarTechnologiesCloudTechnologiesSubMenuVisible));
+      }else{
+          console.log("do nothing");
+      }
+  }, [appBarTechnologiesProgrammingLanguagesSubMenuVisible, appBarTechnologiesAdvancedTechnologiesSubMenuVisible, appBarTechnologiesCloudTechnologiesSubMenuVisible]);
   const openSearch = useCallback(() => {
     setSearchOpen(true);
   }, []);
@@ -538,6 +569,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setSearchOpen(false);
   }, []);
   const cb = useCallback(() => {
+    console.log(" calling back!... ");
     var textWrapper = document.querySelector(".ml11 .letters");
     if (textWrapper) {
       textWrapper.innerHTML = textWrapper.textContent?.replace(
@@ -546,7 +578,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       ) as string;
     }
     anime.timeline({ loop: false }).add({
-      targets: ".ml11 .letter",
+      targets: ".ml11 .letters",
       opacity: [0, 1],
       easing: "easeOutCirc",
       duration: 100,
@@ -554,7 +586,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       delay: (el, i) => 34 * i
     });
     textWrapper = null;
-  }, []);
+  }, [idx]);
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position={"fixed"}>
@@ -593,10 +625,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         </Toolbar>
       </AppBar>
       <div className={classes.offset}></div>
-      <Drawer cb={cb} visible={idx == 1 && technologiesMenuVisible}>
+      <Drawer cb={cb} key={0} visible={idx == 0 && appBarServiceMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Technologies</div>
+            <div className={classes.serviceTitle}>Services</div>
 
             <h1 className="ml11">
               <span className="text-wrapper">
@@ -615,29 +647,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </ButtonBase>
             </div>
           </div>
-          <div className={classes.serviceCol2}>
-            <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
-                Programming Languages
-              </ButtonBase>
-            </div>
-            <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
-                Advanced Technologies
-              </ButtonBase>
-            </div>
-            <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
-                Cloud Technologies
-              </ButtonBase>
-            </div>
-          </div>
           <div className={classes.serviceCol3}>
             <Link className={classes.serviceCol3Link} href={"#"}>
               Software Development
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Data Analytics
             </Link>
             <Link className={classes.serviceCol3Link} href={"#"}>
               UI/UX Design
@@ -645,10 +657,13 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <Link className={classes.serviceCol3Link} href={"#"}>
               Testing And QA
             </Link>
+            <Link className={classes.serviceCol3Link} href={"#"}>
+              Infrastructure Services
+            </Link>
           </div>
           <div className={classes.serviceCol4}>
             <Link className={classes.serviceCol4Link} href={"#"}>
-              Infrastructure Services
+              Data Analytics
             </Link>
             <Link className={classes.serviceCol4Link} href={"#"}>
               IT OutSourcing
@@ -660,6 +675,206 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               IT Support
             </Link>
           </div>
+        </div>
+      </Drawer>
+
+      <Drawer cb={cb} key={1} visible={idx == 1 && appBarTechnologiesMenuVisible}>
+        <div className={classes.serviceContainer}>
+          <div className={classes.serviceCol1}>
+            <div className={classes.serviceTitle}>Technologies</div>
+
+            <h1 className="ml11">
+              <span className="text-wrapper">
+                <span className="line line1"></span>
+                <span className="letters">
+                  Our expertise spans all major technologies and platforms, and advances to
+                  innovative technology trends.
+                </span>
+              </span>
+            </h1>
+            <div className={classes.serviceContactBtnWrapper}>
+              <ButtonBase
+                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                disableRipple>
+                CONTACT
+              </ButtonBase>
+            </div>
+          </div>
+          <div className={classes.serviceCol2}>
+            <div>
+              <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesProgrammingLanguagesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesProgrammingLanguagesSubMenuVisible")} disableRipple>
+                Programming Languages
+              </ButtonBase>
+            </div>
+            <div>
+              <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesAdvancedTechnologiesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesAdvancedTechnologiesSubMenuVisible")} disableRipple>
+                Advanced Technologies
+              </ButtonBase>
+            </div>
+            <div>
+              <ButtonBase className={clsx(classes.serviceCol2Btn, {[classes.active]: appBarTechnologiesCloudTechnologiesSubMenuVisible})} onClick={() => handleSubClick("appBarTechnologiesCloudTechnologiesSubMenuVisible")} disableRipple>
+                Cloud Technologies
+              </ButtonBase>
+            </div>
+          </div>
+            {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
+                <>
+                    <div className={classes.serviceCol3}>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Java
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Python
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Golang
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            C++
+                        </Link>
+                    </div>
+                    <div className={classes.serviceCol4}>
+                        <Link className={classes.serviceCol4Link} href={"#"}>
+                        JavaScript
+                        </Link>
+                        <Link className={classes.serviceCol4Link} href={"#"}>
+                        NodeJS
+                        </Link>
+                        <Link className={classes.serviceCol4Link} href={"#"}>
+                        PHP
+                        </Link>
+                        <Link className={classes.serviceCol4Link} href={"#"}>
+                        .Net
+                        </Link>
+                    </div>
+                </>
+            )}
+            {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
+                <>
+                    <div className={classes.serviceCol3}>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Data Science
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Artificial Intelligence
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Virtual Reality
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Big Data
+                        </Link>
+                    </div>
+                    <div className={classes.serviceCol4}>
+                        <Link className={classes.serviceCol4Link} href={"#"}>
+                            Internet Of Things
+                        </Link>
+                        <Link className={classes.serviceCol4Link} href={"#"}>
+                            Cloud Computing
+                        </Link>
+                    </div>
+                </>
+            )}
+            {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
+                <>
+                    <div className={classes.serviceCol3}>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Amazon Web Service
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            MicroSoft Azure
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Saleforce
+                        </Link>
+                        <Link className={classes.serviceCol3Link} href={"#"}>
+                            Google Cloud Platform
+                        </Link>
+                    </div>
+                </>
+            )}
+        </div>
+      </Drawer>
+      <Drawer cb={cb} key={2} visible={idx == 2 && appBarSolutionsMenuVisible}>
+        <div className={classes.serviceContainer}>
+          <div className={classes.serviceCol1}>
+            <div className={classes.serviceTitle}>Solutions</div>
+
+            <h1 className="ml11">
+              <span className="text-wrapper">
+                <span className="line line1"></span>
+                <span className="letters">
+                  We build on the IT domain expertise and industry knowledge to design sustainable
+                  technology solutions.
+                </span>
+              </span>
+            </h1>
+            <div className={classes.serviceContactBtnWrapper}>
+              <ButtonBase
+                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                disableRipple>
+                CONTACT
+              </ButtonBase>
+            </div>
+          </div>
+          <div className={classes.serviceCol3}>
+            <Link className={classes.serviceCol3Link} href={"#"}>
+              CRM
+            </Link>
+            <Link className={classes.serviceCol3Link} href={"#"}>
+              ERP
+            </Link>
+            <Link className={classes.serviceCol3Link} href={"#"}>
+              Marketing & Advertising
+            </Link>
+            <Link className={classes.serviceCol3Link} href={"#"}>
+              Data Anylytics
+            </Link>
+          </div>
+          <div className={classes.serviceCol4}>
+            <Link className={classes.serviceCol4Link} href={"#"}>
+              E-commerce
+            </Link>
+            <Link className={classes.serviceCol4Link} href={"#"}>
+              Supply Chain Management
+            </Link>
+            <Link className={classes.serviceCol4Link} href={"#"}>
+              Human Resources
+            </Link>
+            <Link className={classes.serviceCol4Link} href={"#"}>
+              E-Learning
+            </Link>
+          </div>
+        </div>
+      </Drawer>
+      <Drawer cb={cb} key={3} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
+        <div className={classes.serviceContainer}>
+          <div className={classes.serviceCol1}>
+            <div className={classes.serviceTitle}>Blogs & News</div>
+
+            <h1 className="ml11">
+              <span className="text-wrapper">
+                <span className="line line1"></span>
+                <span className="letters">
+                  Knowing everything about us and the IT industry...
+                </span>
+              </span>
+            </h1>
+            <div className={classes.serviceContactBtnWrapper}>
+              <ButtonBase
+                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                disableRipple>
+                CONTACT
+              </ButtonBase>
+            </div>
+          </div>
+            <div className={classes.serviceCol2}>
+                <div>
+                    <ButtonBase className={classes.serviceCol2Btn} disableRipple>
+                        Check out our updates
+                    </ButtonBase>
+                </div>
+            </div>
         </div>
       </Drawer>
 
