@@ -1067,7 +1067,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <Link className={classes.serviceCol3Link} href={"#"}>
               Software Development
             </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
+            <Link className={classes.serviceCol3Link} href={"/services/WebDesignService"}>
               UI/UX Design
             </Link>
             <Link className={classes.serviceCol3Link} href={"#"}>
@@ -1087,7 +1087,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <Link className={classes.serviceCol4Link} href={"#"}>
               IT Consulting
             </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
+            <Link className={classes.serviceCol4Link} href={"/services/ITSupport"}>
               IT Support
             </Link>
           </div>
