@@ -21,6 +21,7 @@ import CommentSvg from "../assets/comment.svg";
 import InputBase from "@material-ui/core/InputBase";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import clsx from "clsx";
+import useGlobalStyles from "../theme/globalStyles/globalStyles";
 
 const links = [
   { text: "Development Services We Provide", url: "" },
@@ -79,25 +80,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "137px",
     borderRadius: "10px"
   },
-  cardTitle: {
-    fontSize: "48px",
-    fontWeight: 900,
-    color: "#000",
-    textAlign: "center"
-  },
   cardText: {
     fontSize: "20px",
     color: "#000",
     textAlign: "center"
-  },
-  cardBtn: {
-    width: "148px",
-    height: "48px",
-    color: "#40C4FF",
-    fontSize: "12px",
-    lineHeight: "30px",
-    backgroundColor: "rgba(247, 248, 250, .5)",
-    borderRadius: "3px"
   },
   aboutSection: {
     margin: "137px 50px 20px 50px",
@@ -114,26 +100,6 @@ const useStyles = makeStyles((theme) => ({
   },
   aboutRight: {
     width: "50%"
-  },
-  aboutTitle: {
-    fontSize: "40px",
-    lineHeight: "50px",
-    fontWeight: "bold",
-    position: "relative",
-    marginBottom: theme.spacing(1),
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      width: "60px",
-      height: "4px",
-      backgroundColor: "#2699FB",
-      bottom: 0,
-      left: 0
-    }
-  },
-  aboutText: {
-    fontSize: "16px",
-    lineHeight: "24px"
   },
   wwdSection: {
     borderRadius: "10px",
@@ -166,31 +132,6 @@ const useStyles = makeStyles((theme) => ({
   wwdTab: {
     display: "flex",
     marginBottom: "30px"
-  },
-  wwdTabItem: {
-    width: "331px",
-    height: "69px",
-    color: "#2699FB",
-    outline: "none",
-    border: "none",
-    boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
-    borderRadius: "8px",
-    cursor: "pointer",
-    textTransform: "uppercase",
-    marginRight: "15px"
-  },
-  wwdTabActive: {
-    color: "#CBD5E5",
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0,
-      boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
-      borderRadius: "8px"
-    }
   },
   wwdSider: {
     width: "331px",
@@ -434,21 +375,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Index = () => {
   const classes = useStyles();
+  const globalClasses = useGlobalStyles();
   const [tab, setTab] = useState();
   const handleClickWwdTab = useCallback((tab) => {
     setTab(tab);
   }, []);
   return (
     <Layout>
-      <Card className={classes.card}>
-        <h1 className={classes.cardTitle}>
+      <Card customStyles={classes.card} blurActive={true}>
+        <h1 className={globalClasses.cardMediumTitle}>
           SOFTWARE CONSULTING AND DEVELOPMENT FOR YOUR DIGITAL SUCCESS
         </h1>
-        <p className={classes.cardText}>
+        <p className={globalClasses.cardMediumText}>
           We Transform business with powerful and adaptable digital solutions that satisfy the needs
           of today and unlock the opportunities of tomorrow.
         </p>
-        <ButtonBase className={classes.cardBtn}>NORMAL</ButtonBase>
+        <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+          KNOW MORE
+        </ButtonBase>
       </Card>
       <div className={classes.aboutSection}>
         <div className={classes.aboutLeft}>
@@ -459,52 +403,64 @@ const Index = () => {
           </Swiper>
         </div>
         <div className={classes.aboutRight}>
-          <div className={classes.aboutTitle}>About</div>
-          <div>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+            About us
+          </div>
+          <div className={globalClasses.cardMediumText}>
             ModuleX is a provider of IT consulting and Software development services. Having founded
-            at 2018 as a small Software company and ever since we have helped non-IT organizations
+            at 2016 as a small Software company and ever since we have helped non-IT organizations
             and software product companies to improve business performance and quickly win new
             customers. With over 10 years in Technology, we have built up expertise int CRM, ERP,
             Ecommerce, Data Analytics, Information Security, DMS, and other areas and conquered such
             innovative field as Artificial Intelligence and Machine Learning, Big Data, Internet of
             Things, Computer vision and Augmented & Virtual Reality. We headquarter in Los Angeles,
-            CA, US and have a China office at Shanghai, an India office at Mumbai, to provide the
-            best service across the Pacific Ocean between America and Asia.
+            CA, US and have a China office at Shanghai, an Ukraine office at Kyiv, to provide the
+            best service across the Pacific Ocean between America, Asia and Europe.
           </div>
         </div>
       </div>
       <div className={classes.wwdSection}>
-        <div className={classes.wwdTitle}>What We Do</div>
+        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          What We Do
+        </div>
         <div className={classes.wwdTab}>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 0)}
             style={{ flexShrink: 0 }}
-            className={clsx(classes.wwdTabItem, { [classes.wwdTabActive]: tab == 0 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 0
+            })}>
             Technologies
           </ButtonBase>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 1)}
-            className={clsx(classes.wwdTabItem, { [classes.wwdTabActive]: tab == 1 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 1
+            })}>
             Services
           </ButtonBase>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 2)}
-            className={clsx(classes.wwdTabItem, { [classes.wwdTabActive]: tab == 2 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 2
+            })}>
             Solutions
           </ButtonBase>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 3)}
-            className={clsx(classes.wwdTabItem, { [classes.wwdTabActive]: tab == 3 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 3
+            })}>
             Blog & News
           </ButtonBase>
         </div>
         <div className={classes.wwdBody}>
           <div className={classes.wwdSider}>
-            <div className={classes.wwdSideMenuItem}>Software Development</div>
+            <div className={globalClasses.cardSmallTitle}>Software Development</div>
             <div className={classes.wwdSideMenuItem}>Data Analytics</div>
             <div className={classes.wwdSideMenuItem}>UI/UX Design</div>
             <div className={classes.wwdSideMenuItem}>Testing And QA</div>
@@ -514,8 +470,8 @@ const Index = () => {
             <div className={classes.wwdSideMenuItem}>IT Support</div>
           </div>
           <div className={classes.wwdContent}>
-            <div className={classes.wwdContentTitle}>Software Development</div>
-            <div className={classes.wwdContentText}>
+            <div className={globalClasses.cardMediumTitle}>Software Development</div>
+            <div className={globalClasses.cardSmallText}>
               The development of reliable and scalable software solutions for any OS, browser and
               device. We bring together deep industry expertise and the latest IT advancements to
               deliver custom solutions and products that perfectly fit the needs and behavior of
@@ -536,10 +492,12 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <Card className={classes.partnerCard}>
+      <Card customStyles={classes.partnerCard} blurActive={true}>
         <div className={classes.partnerLeft}>
-          <div className={classes.partnerTitle}>Partners</div>
-          <div className={classes.partnerText}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+            Partners
+          </div>
+          <div className={globalClasses.cardMediumText}>
             Over years of business development, ModuleX has won lots of long-term trusted
             relationship with companies across the continent. Our business partners include AWS,
             IBM, Carvana, Hulu and many others. We providing services across Web, Mobile and Cloud,
@@ -548,7 +506,9 @@ const Index = () => {
             built the project like it is our project.
           </div>
           <div>
-            <ButtonBase className={classes.partnerBtn}>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </div>
         <div className={classes.partnerRight}>
@@ -556,47 +516,55 @@ const Index = () => {
         </div>
       </Card>
       <div className={classes.sectionThreeCard}>
-        <Card className={classes.threeCardWrapper}>
+        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/service.svg"} />
           </div>
-          <div className={classes.threeCardTitle}>Services We Provide</div>
-          <div className={classes.threeCardText}>
+          <div className={globalClasses.cardSmallTitle}>Services We Provide</div>
+          <div className={globalClasses.cardSmallText}>
             Comprehensive care of your cloud or on-premises infrastructure and applications with our
             diverse services.
           </div>
           <div>
-            <ButtonBase className={classes.threeCardBtn}>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </Card>
-        <Card className={classes.threeCardWrapper}>
+        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/techonologies.svg"} />
           </div>
-          <div className={classes.threeCardTitle}>We evolve with Technologies</div>
-          <div className={classes.threeCardText}>
+          <div className={globalClasses.cardSmallTitle}>We evolve with Technologies</div>
+          <div className={globalClasses.cardSmallText}>
             Distilling deep tech experience, our experts can help you with platform-specific
             consulting, solution design and support for your business evolution.
           </div>
           <div>
-            <ButtonBase className={classes.threeCardBtn}>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </Card>
-        <Card className={classes.threeCardWrapper}>
+        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/solution.svg"} />
           </div>
-          <div className={classes.threeCardTitle}>Solutions We Deliver</div>
-          <div className={classes.threeCardText}>
+          <div className={globalClasses.cardSmallTitle}>Solutions We Deliver</div>
+          <div className={globalClasses.cardSmallText}>
             We IT-enable all kinds of B2B, B2C interactions and internal operations.
           </div>
           <div>
-            <ButtonBase className={classes.threeCardBtn}>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </Card>
       </div>
       <div className={classes.sectionBlogs}>
-        <div className={classes.sectionBlogsTitle}>Blogs</div>
+        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          Blogs
+        </div>
         <div>
           <Swiper slidesPerView={1} pagination={{ clickable: true }}>
             <SwiperSlide>

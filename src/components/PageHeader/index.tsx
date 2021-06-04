@@ -57,7 +57,7 @@ const PageHeader: React.FC<IPageHeaderProps> = (props) => {
   return (
     <div className={classes.root}>
       <ButtonBase className={classes.headerBtn}>SOFTWARE DEVELOPMENT</ButtonBase>
-      <Card className={classes.breadCrumbWrapper}>
+      <Card customStyles={classes.breadCrumbWrapper} blurActive={false}>
         <Breadcrumbs className={classes.breadCrumb}>
           <Link color="inherit" href="/">
             Home

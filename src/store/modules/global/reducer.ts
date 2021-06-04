@@ -130,7 +130,7 @@ const {
   setSolutionsELearningSubMenuVisible,
 
   // LAST PART
-  setCloseAllMenu,
+  setCloseAllMenu
 } = actions;
 const turnOffState = (state: { [key: string]: boolean }): void => {
   Object.keys(state).forEach((key: string) => {

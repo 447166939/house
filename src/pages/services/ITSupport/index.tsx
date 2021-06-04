@@ -569,7 +569,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
             <Sider />
           </div>
           <div className={classes.serviceRight}>
-            <Card className={classes.sdsCard}>
+            <Card customStyles={classes.sdsCard} blurActive={false}>
               <div className={classes.sdsTitle}>Software Development Services</div>
               <div className={classes.sdsImg}></div>
               <div className={classes.sdsText}>
@@ -580,7 +580,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 startups across 23+ industries.
               </div>
             </Card>
-            <Card className={classes.wsaCard}>
+            <Card customStyles={classes.wsaCard} blurActive={false}>
               <div className={classes.wsaTitle}>WHAT SERVICE ARE YOU LOOKING FOR?</div>
               <div className={classes.wsaBox}>
                 <MuiCard className={classes.wsaCardItem}>
@@ -663,7 +663,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 </MuiCard>
               </div>
             </Card>
-            <Card className={classes.sfCard}>
+            <Card customStyles={classes.sfCard} blurActive={false}>
               <div className={classes.sfTitle}>SCIENCESOFT’S FACTS</div>
               <div className={classes.sfCardBox}>
                 <MuiCard className={classes.sfCardItem}>
@@ -704,7 +704,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 </MuiCard>
               </div>
             </Card>
-            <Card className={classes.wcsCard}>
+            <Card customStyles={classes.wcsCard} blurActive={false}>
               <div className={classes.wcsTitle}>WHY CHOOSE SCIENCESOFT</div>
               <div className={classes.wcsStepBox}>
                 <WcsLeftIcon />
@@ -733,7 +733,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 <li className={classes.wcsTextWrapper}>31 years in IT.</li>
               </ul>
             </Card>
-            <Card className={classes.wepCard}>
+            <Card customStyles={classes.wepCard} blurActive={false}>
               <div className={classes.wepTitle}>WE EAGERLY PUT IN USE IT INNOVATIONS</div>
               <div className={classes.wepBox}>
                 <div className={classes.wepItem}>Manufacturing</div>
@@ -746,7 +746,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 <div className={classes.wepItem}>Manufacturing</div>
               </div>
             </Card>
-            <Card className={classes.stwCard}>
+            <Card customStyles={classes.stwCard} blurActive={false}>
               <div className={classes.stwTitle}>SOFTWARE TYPES WE DEVELOP</div>
               <div className={classes.stwBox}>
                 <div className={classes.stwItem}>
@@ -847,7 +847,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 </div>
               </div>
             </Card>
-            <Card className={classes.whatCard}>
+            <Card customStyles={classes.whatCard} blurActive={false}>
               <div className={classes.whatTitle}>
                 WE HAVE A TRACK OF SUCCESSFUL PROJECTS IN VARIOUS INDUSTRIES
               </div>
@@ -866,7 +866,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 <div className={classes.whatItem}>Manufacturing</div>
               </div>
             </Card>
-            <Card className={classes.wdmsCard}>
+            <Card customStyles={classes.wdmsCard} blurActive={false}>
               <div className={classes.wdmsTitle}>WHAT DEFINES MODERN SOFTWARE DEVELOPMENT?</div>
               <div className={classes.wdmsBox}>
                 <div className={classes.wdmsItem}>
@@ -904,7 +904,7 @@ const ServicePage: React.FC<IServicePageProps> = (props: IServicePageProps) => {
                 </div>
               </div>
             </Card>
-            <Card className={classes.sbysCard}>
+            <Card customStyles={classes.sbysCard} blurActive={false}>
               <div className={classes.sbysBox}>
                 <SmileIcon className={classes.sbysSmileIcon} />
                 <div className={classes.sbysTextWrapper}>

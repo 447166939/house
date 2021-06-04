@@ -28,6 +28,7 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize/TextareaAutosiz
 import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
+import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -458,7 +459,7 @@ const useStyles = makeStyles((theme) =>
     },
     contactInputWrapper: {
       width: "23%",
-      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
       borderRadius: "8px",
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
@@ -469,16 +470,18 @@ const useStyles = makeStyles((theme) =>
     },
     contactTextAreaWrapper: {
       width: "100%",
-      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      height: "120px",
       borderRadius: "8px",
-      backgroundColor: "#fff",
-      opacity: 0.6,
+      background: "none",
       marginTop: "60px"
     },
     contactTextArea: {
       width: "100%",
+      height: "100%",
       border: "none",
       outline: "none",
+      opacity: 0.6,
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
       padding: theme.spacing(2),
       borderRadius: "8px"
     },
@@ -523,6 +526,7 @@ export interface ILayoutProps {
 }
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
+  const globalClasses = useGlobalStyles();
   const dispatch = useDispatch();
   const [idx, setIdx] = useState();
   const [searchOpen, setSearchOpen] = useState(false);
@@ -537,150 +541,150 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
   useEffect(() => {
-    //   var t1 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t2 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t3 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t4 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t5 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t6 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var cubeTimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var cubeTimeLine1 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var tetrahedronTimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var circle1TimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var circle2TimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var egg2TimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   t1.add({
-    //     targets: ["#circle"],
-    //     top: "0px",
-    //     left: "2500px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t2.add({
-    //     targets: ["#ball"],
-    //     top: 200,
-    //     left: "2500px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t3.add({
-    //     targets: ["#rect"],
-    //     top: 100,
-    //     left: "2500px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t4.add({
-    //     targets: ["#triangle"],
-    //     left: "2500px",
-    //     top: 300,
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t5.add({
-    //     targets: ["#egg"],
-    //     left: "2500px",
-    //     top: -400,
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t6.add({
-    //     targets: ["#triangle1"],
-    //     left: "2500px",
-    //     top: -600,
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   cubeTimeLine.add({
-    //     targets: ["#cube"],
-    //     left: "2500px",
-    //     top: "-600px",
-    //     rotate: "360deg",
-    //     duration: 50000
-    //   });
-    //   cubeTimeLine1.add({
-    //     targets: ["#cube1"],
-    //     left: "2500px",
-    //     top: "-600px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   tetrahedronTimeLine.add({
-    //     targets: ["#tetrahedron"],
-    //     left: "1000px",
-    //     top: "-600px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   circle1TimeLine.add({
-    //     targets: ["#circle1"],
-    //     left: "800px",
-    //     top: "300px",
-    //     rotate: "360deg",
-    //     duration: 60000
-    //   });
-    //   circle2TimeLine.add({
-    //     targets: ["#circle2"],
-    //     left: "1500px",
-    //     bottom: "3000px",
-    //     rotate: "360deg",
-    //     duration: 60000
-    //   });
-    //   egg2TimeLine.add({
-    //     targets: ["#egg2"],
-    //     left: "800px",
-    //     bottom: "6000px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
+    var t1 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t2 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t3 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t4 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t5 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t6 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var cubeTimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var cubeTimeLine1 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var tetrahedronTimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var circle1TimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var circle2TimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var egg2TimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    t1.add({
+      targets: ["#circle"],
+      top: "0px",
+      left: "2500px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    t2.add({
+      targets: ["#ball"],
+      top: 200,
+      left: "2500px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    t3.add({
+      targets: ["#rect"],
+      top: 100,
+      left: "2500px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    t4.add({
+      targets: ["#triangle"],
+      left: "2500px",
+      top: 300,
+      rotate: "360deg",
+      duration: 30000
+    });
+    t5.add({
+      targets: ["#egg"],
+      left: "2500px",
+      top: -400,
+      rotate: "360deg",
+      duration: 30000
+    });
+    t6.add({
+      targets: ["#triangle1"],
+      left: "2500px",
+      top: -600,
+      rotate: "360deg",
+      duration: 30000
+    });
+    cubeTimeLine.add({
+      targets: ["#cube"],
+      left: "2500px",
+      top: "-600px",
+      rotate: "360deg",
+      duration: 50000
+    });
+    cubeTimeLine1.add({
+      targets: ["#cube1"],
+      left: "2500px",
+      top: "-600px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    tetrahedronTimeLine.add({
+      targets: ["#tetrahedron"],
+      left: "1000px",
+      top: "-600px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    circle1TimeLine.add({
+      targets: ["#circle1"],
+      left: "800px",
+      top: "300px",
+      rotate: "360deg",
+      duration: 60000
+    });
+    circle2TimeLine.add({
+      targets: ["#circle2"],
+      left: "1500px",
+      bottom: "3000px",
+      rotate: "360deg",
+      duration: 60000
+    });
+    egg2TimeLine.add({
+      targets: ["#egg2"],
+      left: "800px",
+      bottom: "6000px",
+      rotate: "360deg",
+      duration: 30000
+    });
   }, []);
   useEffect(() => {
     var ballTl = anime.timeline({
@@ -1290,7 +1294,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               <span className="text-wrapper">
                 <span className="line line1"></span>
                 <span id={"blogAndNews"} className="letters">
-                  Knowing everything about us and the IT industry...
+                  {" "}
+                  Knowing everything about us and the IT industry...{" "}
                 </span>
               </span>
             </h1>
@@ -1314,49 +1319,68 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
       <div className={classes.content}>
         <div className={classes.bg}></div>
-        <img id={"circle"} className={classes.circle} src={"/circle.png"} />
-        <img id={"ball"} className={classes.ball} src={"/ball.png"} />
-        <img id={"rect"} className={classes.rect} src={"/rect.png"} />
-        <img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />
-        <img id={"cube"} className={classes.cube} src={"/cube.png"} />
-        <img className={classes.egg} id={"egg"} src={"/egg.png"} />
-        <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
+        {/*<img id={"circle"} className={classes.circle} src={"/circle.png"} />*/}
+        {/*<img id={"ball"} className={classes.ball} src={"/ball.png"} />*/}
+        {/*<img id={"rect"} className={classes.rect} src={"/rect.png"} />*/}
+        {/*<img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />*/}
+        {/*<img id={"cube"} className={classes.cube} src={"/cube.png"} />*/}
+        {/*<img className={classes.egg} id={"egg"} src={"/egg.png"} />*/}
+        {/*<img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />*/}
 
-        <img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />
-        <img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />
-        <img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />
-        <img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />
-        <img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />
-        <img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />
+        {/*<img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />*/}
+        {/*<img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />*/}
+        {/*<img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />*/}
+        {/*<img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />*/}
+        {/*<img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />*/}
+        {/*<img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />*/}
 
         {children}
-        <Card className={classes.contactSection}>
-          <div className={classes.contactTitle}>Contact Us</div>
+
+        <Card customStyles={classes.contactSection} blurActive={true}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+            Contact Us
+          </div>
           <div className={classes.contactLeft}>
             <div className={classes.contactFormLabel}>
               Drop us a line! We are here to answer your questions 24/7.
             </div>
             <div className={classes.inputGroup}>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your FirstName:"
+                />
               </div>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your LastName:"
+                />
               </div>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your Email:"
+                />
               </div>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your Number:"
+                />
               </div>
             </div>
             <div className={classes.contactTextAreaWrapper}>
               <TextareaAutosize
-                className={classes.contactTextArea}
+                className={clsx(classes.contactTextArea, globalClasses.cardSmallText)}
                 rowsMin={4}
                 placeholder="How can we help you?"
               />
@@ -1375,7 +1399,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <div className={classes.contactRightTitle}>Press inquires</div>
             <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
             <div className={classes.contactBtnWrapper}>
-              <ButtonBase className={classes.contactRightBtn}>MORE</ButtonBase>
+              <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+                MORE
+              </ButtonBase>
             </div>
           </div>
         </Card>
