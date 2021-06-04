@@ -370,7 +370,7 @@ const useStyles = makeStyles((theme) =>
       height: "auto",
       left: -100,
       top: 900,
-      zIndex: -100,
+      zIndex: -100
     },
     egg: {
       position: "fixed",
@@ -785,14 +785,18 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#ball"],
       top: 100,
       left: "1300px",
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 40000
     });
     circleTl.add({
       targets: ["#circle"],
       top: -300,
       left: "700px",
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 0,
       duration: 40000
     });
@@ -800,7 +804,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#circleB"],
       top: 800,
       left: "2600px",
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 500,
       duration: 50000
     });
@@ -808,7 +814,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#circleSB"],
       left: "2000px",
       top: -200,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 50000,
       duration: 60000
     });
@@ -816,8 +824,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#cube"],
       left: "1500px",
       top: -400,
-        scale:[2,2],
-        rotate: function() { return anime.random(-360, 360); },
+      scale: [2, 2],
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 33000,
       duration: 40000
     });
@@ -826,8 +836,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "1400px",
       top: -600,
       delay: 3000,
-        scale:[0.5,0.5],
-        rotate: function() { return anime.random(-360, 360); },
+      scale: [0.5, 0.5],
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 50000
     });
     eggTl.add({
@@ -835,7 +847,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "1100px",
       top: -400,
       delay: 40000,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 30000
     });
     rectTl.add({
@@ -843,16 +857,20 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "900px",
       top: -300,
       delay: 10000,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 40000
     });
     rectBTl.add({
       targets: ["#rectB"],
       left: "1300px",
       top: "-600px",
-        scale:[0.5,0.5],
+      scale: [0.5, 0.5],
       delay: 34000,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 50000
     });
     tetrahedronTl.add({
@@ -860,7 +878,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "900px",
       top: 100,
       delay: 21000,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 40000
     });
     tetrahedronBTl.add({
@@ -868,15 +888,19 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "1300px",
       top: 200,
       delay: 1600,
-        scale:[0.8,0.8],
-        rotate: function() { return anime.random(-360, 360); },
+      scale: [0.8, 0.8],
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 50000
     });
     triangleTl.add({
       targets: ["#triangle"],
       left: "2000px",
       top: 100,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 9000,
       duration: 40000
     });
@@ -884,7 +908,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#triangleB"],
       left: "1500px",
       top: 0,
-        rotate: function() { return anime.random(-360, 360); },
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 14000,
       duration: 50000
     });
