@@ -83,28 +83,28 @@ const useStyles = makeStyles((theme) =>
       width: "100%",
       paddingLeft: "14.7%",
       paddingRight: "14.2%",
-        position:'relative',
+      position: "relative"
     },
     toolbarGrp1: {
       display: "flex",
       alignItems: "center",
-        marginRight:'202px'
+      marginRight: "202px"
     },
     toolbarGrp2: {
       display: "flex",
-      alignItems: "center",
+      alignItems: "center"
     },
     toolbarGrp3: {
       display: "flex",
       alignItems: "center",
-        position:'absolute',
-        right:'283px',
+      position: "absolute",
+      right: "283px"
     },
     toolbarGrp4: {
       display: "flex",
       alignItems: "center",
-        position:'absolute',
-        right:'463px',
+      position: "absolute",
+      right: "463px"
     },
     drawer: {
       position: "absolute"
@@ -136,7 +136,7 @@ const useStyles = makeStyles((theme) =>
       marginRight: "26px"
     },
     searchInputWrapper: {
-        opacity:0,
+      opacity: 0,
       height: "44px",
       position: "relative",
       background: "inherit",
@@ -203,34 +203,34 @@ const useStyles = makeStyles((theme) =>
       padding: "107px 280px",
       backgroundColor: "#f7f8fa"
     },
-      technologiesContainer:{
-          display: "flex",
-          padding: "107px 280px",
-          backgroundColor: "#f7f8fa",
-          height:'500px'
-      },
-      technologiesCol1: {
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          width: "430px",
-          marginRight:'104px',
-      },
-      technologiesCol2: {
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          marginRight:'177px'
-      },
-      technologiesCol3: {
-          display: "flex",
-          flexDirection: "column",
-          marginRight:'115px'
-      },
-      technologiesCol4: {
-          display: "flex",
-          flexDirection: "column"
-      },
+    technologiesContainer: {
+      display: "flex",
+      padding: "107px 280px",
+      backgroundColor: "#f7f8fa",
+      height: "500px"
+    },
+    technologiesCol1: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      width: "430px",
+      marginRight: "104px"
+    },
+    technologiesCol2: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      marginRight: "177px"
+    },
+    technologiesCol3: {
+      display: "flex",
+      flexDirection: "column",
+      marginRight: "115px"
+    },
+    technologiesCol4: {
+      display: "flex",
+      flexDirection: "column"
+    },
     serviceCol1: {
       display: "flex",
       flexDirection: "column",
@@ -338,7 +338,7 @@ const useStyles = makeStyles((theme) =>
       left: "-300px",
       width: "253px",
       height: "auto",
-      zIndex: -50,
+      zIndex: -50
     },
     circleB: {
       position: "fixed",
@@ -346,7 +346,7 @@ const useStyles = makeStyles((theme) =>
       left: "600px",
       width: "253px",
       height: "auto",
-      zIndex: -100,
+      zIndex: -100
     },
     circleSB: {
       position: "fixed",
@@ -362,7 +362,7 @@ const useStyles = makeStyles((theme) =>
       height: "auto",
       left: "0px",
       top: "1000px",
-      zIndex: -50,
+      zIndex: -50
     },
     cubeB: {
       position: "fixed",
@@ -378,14 +378,14 @@ const useStyles = makeStyles((theme) =>
       height: "aoto",
       left: -500,
       top: "1350px",
-      zIndex: -49,
+      zIndex: -49
     },
     rect: {
       position: "fixed",
       width: "185px",
       height: "auto",
-      left: "200px",
-      top: "1000px",
+      left: "-300px",
+      top: "1200px",
       zIndex: -50
     },
     rectB: {
@@ -394,13 +394,13 @@ const useStyles = makeStyles((theme) =>
       height: "auto",
       left: "100px",
       top: "1100px",
-      zIndex: -100,
+      zIndex: -100
     },
     tetrahedron: {
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: -300,
+      left: 100,
       top: "1000px",
       zIndex: -50
     },
@@ -408,8 +408,8 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: -100,
-      top: 1000,
+      left: -300,
+      top: 1100,
       zIndex: -100
     },
     triangle: {
@@ -785,22 +785,22 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#ball"],
       top: 100,
       left: "1300px",
-      rotate: "-360deg",
-      duration: 30000
+        rotate: function() { return anime.random(-360, 360); },
+      duration: 40000
     });
     circleTl.add({
       targets: ["#circle"],
       top: -300,
       left: "700px",
-      rotate: "360deg",
+        rotate: function() { return anime.random(-360, 360); },
       delay: 0,
-      duration: 30000
+      duration: 40000
     });
     circleBTl.add({
       targets: ["#circleB"],
       top: 800,
       left: "2600px",
-      rotate: "360deg",
+        rotate: function() { return anime.random(-360, 360); },
       delay: 500,
       duration: 50000
     });
@@ -808,7 +808,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#circleSB"],
       left: "2000px",
       top: -200,
-      rotate: "360deg",
+        rotate: function() { return anime.random(-360, 360); },
       delay: 50000,
       duration: 60000
     });
@@ -816,7 +816,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#cube"],
       left: "1500px",
       top: -400,
-      rotate: "360deg",
+        scale:[2,2],
+        rotate: function() { return anime.random(-360, 360); },
       delay: 33000,
       duration: 40000
     });
@@ -825,62 +826,65 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       left: "1400px",
       top: -600,
       delay: 3000,
-      rotate: "360deg",
+        scale:[0.5,0.5],
+        rotate: function() { return anime.random(-360, 360); },
       duration: 50000
     });
     eggTl.add({
       targets: ["#egg"],
       left: "1100px",
       top: -400,
-      delay: 35000,
-      rotate: "360deg",
+      delay: 40000,
+        rotate: function() { return anime.random(-360, 360); },
       duration: 30000
     });
     rectTl.add({
       targets: ["#rect"],
-      left: "1500px",
-      top: -100,
-      delay: 19000,
-      rotate: "360deg",
-      duration: 30000
+      left: "900px",
+      top: -300,
+      delay: 10000,
+        rotate: function() { return anime.random(-360, 360); },
+      duration: 40000
     });
     rectBTl.add({
       targets: ["#rectB"],
-      left: "1100px",
+      left: "1300px",
       top: "-600px",
-      delay: 33000,
-      rotate: "360deg",
+        scale:[0.5,0.5],
+      delay: 34000,
+        rotate: function() { return anime.random(-360, 360); },
       duration: 50000
     });
     tetrahedronTl.add({
       targets: ["#tetrahedron"],
       left: "900px",
       top: 100,
-      delay: 19000,
-      rotate: "-360deg",
-      duration: 30000
+      delay: 21000,
+        rotate: function() { return anime.random(-360, 360); },
+      duration: 40000
     });
     tetrahedronBTl.add({
       targets: ["#tetrahedronB"],
-      left: "800px",
-      top: 0,
-      delay: 4600,
-      rotate: "360deg",
+      left: "1300px",
+      top: 200,
+      delay: 1600,
+        scale:[0.8,0.8],
+        rotate: function() { return anime.random(-360, 360); },
       duration: 50000
     });
     triangleTl.add({
       targets: ["#triangle"],
       left: "2000px",
       top: 100,
-      rotate: "-360deg",
+        rotate: function() { return anime.random(-360, 360); },
       delay: 9000,
-      duration: 30000
+      duration: 40000
     });
     triangleBTl.add({
       targets: ["#triangleB"],
       left: "1500px",
       top: 0,
-      rotate: "360deg",
+        rotate: function() { return anime.random(-360, 360); },
       delay: 14000,
       duration: 50000
     });
@@ -934,30 +938,32 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     });
     if (!searchOpen) {
       searchInputVar
-          .add({
-              targets:['#tabs'],
-              translateY:-50,
-              opacity:0,
-              duration:500
-          })
-          .add({
-        targets: [`#searchInput`],
-        width: "764px",
-          opacity:1,
-        duration: 270
-      });
+        .add({
+          targets: ["#tabs"],
+          translateY: -50,
+          opacity: 0,
+          duration: 500
+        })
+        .add({
+          targets: [`#searchInput`],
+          width: "764px",
+          opacity: 1,
+          duration: 270
+        });
     } else {
-      searchInputVar.add({
-        targets: [`.${classes.searchInputWrapper}`],
-        width: '41px',
-          opacity:0,
-        duration: 500
-      }).add({
-          targets:['#tabs'],
-          translateY:0,
-          opacity:1,
-          duration:500
-      });
+      searchInputVar
+        .add({
+          targets: [`.${classes.searchInputWrapper}`],
+          width: "41px",
+          opacity: 0,
+          duration: 500
+        })
+        .add({
+          targets: ["#tabs"],
+          translateY: 0,
+          opacity: 1,
+          duration: 500
+        });
     }
     setSearchOpen(!searchOpen);
   }, [searchOpen]);
@@ -1049,19 +1055,17 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <LogoIcon />
             <span className={classes.nameText}>ModuleX</span>
           </Link>
-            <div id={'tabs'} className={classes.toolbarGrp2}>
-              <Tabs
-                onChange={handleChange}
-                menus={["services", "technologies", "solutions", "blog&news"]}>
-
-              </Tabs>
+          <div id={"tabs"} className={classes.toolbarGrp2}>
+            <Tabs
+              onChange={handleChange}
+              menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+          </div>
+          <div className={classes.toolbarGrp4}>
+            <div id={"searchInput"} className={classes.searchInputWrapper}>
+              <SearchIcon />
+              <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
             </div>
-            <div  className={classes.toolbarGrp4}>
-                <div id={'searchInput'} className={classes.searchInputWrapper}>
-                    <SearchIcon />
-                    <InputBase  className={classes.searchInput} placeholder={"SERVICES"} />
-                </div>
-            </div>
+          </div>
           <div className={classes.toolbarGrp3}>
             {searchOpen ? (
               <Button key={"close"} onClick={toggleSearchOpen} className={classes.searchCloseBtn}>
