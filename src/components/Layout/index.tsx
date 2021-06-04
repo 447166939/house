@@ -28,6 +28,7 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize/TextareaAutosiz
 import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
+import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -520,9 +521,10 @@ const LogoIcon: React.FC<ILogoIconProps> = (props: ILogoIconProps) => (
 );
 export interface ILayoutProps {
   children: JSX.Element | JSX.Element[];
-}
+};
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
+  const globalClasses = useGlobalStyles();
   const dispatch = useDispatch();
   const [idx, setIdx] = useState();
   const [searchOpen, setSearchOpen] = useState(false);
@@ -537,150 +539,150 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
   useEffect(() => {
-    //   var t1 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t2 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t3 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t4 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t5 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var t6 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var cubeTimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var cubeTimeLine1 = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var tetrahedronTimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var circle1TimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var circle2TimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   var egg2TimeLine = anime.timeline({
-    //     easing: "linear",
-    //     duration: 3000,
-    //     loop: true
-    //   });
-    //   t1.add({
-    //     targets: ["#circle"],
-    //     top: "0px",
-    //     left: "2500px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t2.add({
-    //     targets: ["#ball"],
-    //     top: 200,
-    //     left: "2500px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t3.add({
-    //     targets: ["#rect"],
-    //     top: 100,
-    //     left: "2500px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t4.add({
-    //     targets: ["#triangle"],
-    //     left: "2500px",
-    //     top: 300,
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t5.add({
-    //     targets: ["#egg"],
-    //     left: "2500px",
-    //     top: -400,
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   t6.add({
-    //     targets: ["#triangle1"],
-    //     left: "2500px",
-    //     top: -600,
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   cubeTimeLine.add({
-    //     targets: ["#cube"],
-    //     left: "2500px",
-    //     top: "-600px",
-    //     rotate: "360deg",
-    //     duration: 50000
-    //   });
-    //   cubeTimeLine1.add({
-    //     targets: ["#cube1"],
-    //     left: "2500px",
-    //     top: "-600px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   tetrahedronTimeLine.add({
-    //     targets: ["#tetrahedron"],
-    //     left: "1000px",
-    //     top: "-600px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
-    //   circle1TimeLine.add({
-    //     targets: ["#circle1"],
-    //     left: "800px",
-    //     top: "300px",
-    //     rotate: "360deg",
-    //     duration: 60000
-    //   });
-    //   circle2TimeLine.add({
-    //     targets: ["#circle2"],
-    //     left: "1500px",
-    //     bottom: "3000px",
-    //     rotate: "360deg",
-    //     duration: 60000
-    //   });
-    //   egg2TimeLine.add({
-    //     targets: ["#egg2"],
-    //     left: "800px",
-    //     bottom: "6000px",
-    //     rotate: "360deg",
-    //     duration: 30000
-    //   });
+    var t1 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t2 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t3 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t4 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t5 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var t6 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var cubeTimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var cubeTimeLine1 = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var tetrahedronTimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var circle1TimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var circle2TimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    var egg2TimeLine = anime.timeline({
+      easing: "linear",
+      duration: 3000,
+      loop: true
+    });
+    t1.add({
+      targets: ["#circle"],
+      top: "0px",
+      left: "2500px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    t2.add({
+      targets: ["#ball"],
+      top: 200,
+      left: "2500px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    t3.add({
+      targets: ["#rect"],
+      top: 100,
+      left: "2500px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    t4.add({
+      targets: ["#triangle"],
+      left: "2500px",
+      top: 300,
+      rotate: "360deg",
+      duration: 30000
+    });
+    t5.add({
+      targets: ["#egg"],
+      left: "2500px",
+      top: -400,
+      rotate: "360deg",
+      duration: 30000
+    });
+    t6.add({
+      targets: ["#triangle1"],
+      left: "2500px",
+      top: -600,
+      rotate: "360deg",
+      duration: 30000
+    });
+    cubeTimeLine.add({
+      targets: ["#cube"],
+      left: "2500px",
+      top: "-600px",
+      rotate: "360deg",
+      duration: 50000
+    });
+    cubeTimeLine1.add({
+      targets: ["#cube1"],
+      left: "2500px",
+      top: "-600px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    tetrahedronTimeLine.add({
+      targets: ["#tetrahedron"],
+      left: "1000px",
+      top: "-600px",
+      rotate: "360deg",
+      duration: 30000
+    });
+    circle1TimeLine.add({
+      targets: ["#circle1"],
+      left: "800px",
+      top: "300px",
+      rotate: "360deg",
+      duration: 60000
+    });
+    circle2TimeLine.add({
+      targets: ["#circle2"],
+      left: "1500px",
+      bottom: "3000px",
+      rotate: "360deg",
+      duration: 60000
+    });
+    egg2TimeLine.add({
+      targets: ["#egg2"],
+      left: "800px",
+      bottom: "6000px",
+      rotate: "360deg",
+      duration: 30000
+    });
   }, []);
   useEffect(() => {
     var ballTl = anime.timeline({
@@ -923,8 +925,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setUserOpen(!userOpen);
   }, [userOpen]);
   const cb = useCallback(() => {
-    console.log(" calling back!... ");
-    var textWrapper = document.querySelector(".ml11 .letters");
+    var textWrapper = document.querySelector("#service");
+    console.log("service");
     if (textWrapper) {
       textWrapper.innerHTML = textWrapper.textContent?.replace(
         /([^\x00-\x80]|\w)/g,
@@ -932,15 +934,72 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       ) as string;
     }
     anime.timeline({ loop: false }).add({
-      targets: ".ml11 .letters",
+      targets: `#service .letter`,
       opacity: [0, 1],
-      easing: "easeOutCirc",
-      duration: 100,
+      easing: "easeOutExpo",
+      duration: 600,
       offset: "-=775",
-      delay: (el, i) => 34 * i
+      delay: (el, i) => 34 * (i + 1)
     });
     textWrapper = null;
-  }, [idx]);
+  }, []);
+  const cb1 = useCallback(() => {
+    var textWrapper = document.querySelector("#technologies");
+    console.log("technologies");
+    if (textWrapper) {
+      textWrapper.innerHTML = textWrapper.textContent?.replace(
+        /([^\x00-\x80]|\w)/g,
+        "<span class='letter'>$&</span>"
+      ) as string;
+    }
+    anime.timeline({ loop: false }).add({
+      targets: `#technologies .letter`,
+      opacity: [0, 1],
+      easing: "easeOutExpo",
+      duration: 600,
+      offset: "-=775",
+      delay: (el, i) => 34 * (i + 1)
+    });
+    textWrapper = null;
+  }, []);
+  const cb2 = useCallback(() => {
+    var textWrapper = document.querySelector("#solutions");
+    console.log("solutions");
+    if (textWrapper) {
+      textWrapper.innerHTML = textWrapper.textContent?.replace(
+        /([^\x00-\x80]|\w)/g,
+        "<span class='letter'>$&</span>"
+      ) as string;
+    }
+    anime.timeline({ loop: false }).add({
+      targets: `#solutions .letter`,
+      opacity: [0, 1],
+      easing: "easeOutExpo",
+      duration: 600,
+      offset: "-=775",
+      delay: (el, i) => 34 * (i + 1)
+    });
+    textWrapper = null;
+  }, []);
+  const cb3 = useCallback(() => {
+    var textWrapper = document.querySelector("#blogAndNews");
+    console.log("blogandnews");
+    if (textWrapper) {
+      textWrapper.innerHTML = textWrapper.textContent?.replace(
+        /([^\x00-\x80]|\w)/g,
+        "<span class='letter'>$&</span>"
+      ) as string;
+    }
+    anime.timeline({ loop: false }).add({
+      targets: `#blogAndNews .letter`,
+      opacity: [0, 1],
+      easing: "easeOutExpo",
+      duration: 600,
+      offset: "-=775",
+      delay: (el, i) => 34 * (i + 1)
+    });
+    textWrapper = null;
+  }, []);
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar} position={"fixed"}>
@@ -989,11 +1048,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Services</div>
-
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={"service"} className="letters">
                   Our service portfolio covers an entire software development life cycle and meets
                   varied business needs.
                 </span>
@@ -1037,8 +1095,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </div>
         </div>
       </Drawer>
-
-      <Drawer cb={cb} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
+      <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Technologies</div>
@@ -1046,7 +1103,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={"technologies"} className="letters">
                   Our expertise spans all major technologies and platforms, and advances to
                   innovative technology trends.
                 </span>
@@ -1174,7 +1231,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           )}
         </div>
       </Drawer>
-      <Drawer cb={cb} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
+      <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Solutions</div>
@@ -1182,7 +1239,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">
+                <span id={"solutions"} className="letters">
                   We build on the IT domain expertise and industry knowledge to design sustainable
                   technology solutions.
                 </span>
@@ -1226,7 +1283,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </div>
         </div>
       </Drawer>
-      <Drawer cb={cb} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
+      <Drawer cb={cb3} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
             <div className={classes.serviceTitle}>Blogs & News</div>
@@ -1234,7 +1291,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <h1 className="ml11">
               <span className="text-wrapper">
                 <span className="line line1"></span>
-                <span className="letters">Knowing everything about us and the IT industry...</span>
+                <span id={"blogAndNews"} className="letters">
+                  {" "}
+                  Knowing everything about us and the IT industry...{" "}
+                </span>
               </span>
             </h1>
             <div className={classes.serviceContactBtnWrapper}>
@@ -1257,24 +1317,25 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
       <div className={classes.content}>
         <div className={classes.bg}></div>
-        <img id={"circle"} className={classes.circle} src={"/circle.png"} />
-        <img id={"ball"} className={classes.ball} src={"/ball.png"} />
-        <img id={"rect"} className={classes.rect} src={"/rect.png"} />
-        <img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />
-        <img id={"cube"} className={classes.cube} src={"/cube.png"} />
-        <img className={classes.egg} id={"egg"} src={"/egg.png"} />
-        <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
+        {/*<img id={"circle"} className={classes.circle} src={"/circle.png"} />*/}
+        {/*<img id={"ball"} className={classes.ball} src={"/ball.png"} />*/}
+        {/*<img id={"rect"} className={classes.rect} src={"/rect.png"} />*/}
+        {/*<img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />*/}
+        {/*<img id={"cube"} className={classes.cube} src={"/cube.png"} />*/}
+        {/*<img className={classes.egg} id={"egg"} src={"/egg.png"} />*/}
+        {/*<img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />*/}
 
-        <img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />
-        <img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />
-        <img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />
-        <img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />
-        <img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />
-        <img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />
+        {/*<img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />*/}
+        {/*<img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />*/}
+        {/*<img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />*/}
+        {/*<img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />*/}
+        {/*<img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />*/}
+        {/*<img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />*/}
 
         {children}
+
         <Card className={classes.contactSection}>
-          <div className={classes.contactTitle}>Contact Us</div>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>Contact Us</div>
           <div className={classes.contactLeft}>
             <div className={classes.contactFormLabel}>
               Drop us a line! We are here to answer your questions 24/7.
@@ -1282,19 +1343,19 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <div className={classes.inputGroup}>
               <div className={classes.contactInputWrapper}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase className={classes.contactInput} placeholder="Your FirstName:"/>
               </div>
               <div className={classes.contactInputWrapper}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase className={classes.contactInput} placeholder="Your LastName:"/>
               </div>
               <div className={classes.contactInputWrapper}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase className={classes.contactInput} placeholder="Your Email:"/>
               </div>
               <div className={classes.contactInputWrapper}>
                 {" "}
-                <InputBase className={classes.contactInput} />
+                <InputBase className={classes.contactInput} placeholder="Your Number:"/>
               </div>
             </div>
             <div className={classes.contactTextAreaWrapper}>
