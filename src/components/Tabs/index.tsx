@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export interface ITabsProps {
   menus: string[];
-  onChange: (index: number) => void;
+  onChange?: (index: number) => void;
 }
 const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
   const { onChange = function () {}, menus = [] } = props;
