@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import clsx from "clsx";
 import actions from "@/store/modules/global/action";
 import { RootState } from "@/store/index";
+import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 const {
   // MAIN MENUS APP BAR
   setAppBarServiceMenuVisible,
@@ -75,36 +76,7 @@ const {
   // LAST PART
   closeAllMenu
 } = actions;
-const useStyles = makeStyles((theme) => ({
-  btn: {
-    color: "#2699FB",
-    position: "relative",
-    background: "inherit",
-    outline: "none",
-    border: "none",
-    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
-    borderRadius: "8px",
-    cursor: "pointer",
-    textTransform: "uppercase",
-    height: "40px",
-    padding: theme.spacing(2),
-    marginRight: "32px"
-  },
-  active: {
-    color: "#CBD5E5",
-    "&:after": {
-      content: "''",
-      position: "absolute",
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0,
-      boxShadow:
-        "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
-      borderRadius: "8px"
-    }
-  }
-}));
+
 export interface ITabsProps {
   menus: string[];
   onChange?: (index: number) => void;
@@ -112,7 +84,9 @@ export interface ITabsProps {
 const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
   const { onChange = function () {}, menus = [] } = props;
   // const { onChange, menus } = props;
-  const classes = useStyles();
+  // already lifted the BTN styles to Global Styles
+  // const classes = useStyles();
+  const globalClasses = useGlobalStyles();
   const [idx, setIdx] = useState();
   const dispatch = useDispatch();
   const {
@@ -214,8 +188,8 @@ const Tabs: React.FC<ITabsProps> = (props: ITabsProps) => {
           <ButtonBase
             key={index}
             onClick={handleClick.bind(null, index)}
-            className={clsx(classes.btn, {
-              [classes.active]: [
+            className={clsx(globalClasses.mainMenuBtn, {
+              [globalClasses.mainMenuBtnActive]: [
                 appBarServiceMenuVisible,
                 appBarTechnologiesMenuVisible,
                 appBarSolutionsMenuVisible,

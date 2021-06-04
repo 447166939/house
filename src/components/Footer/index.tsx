@@ -80,7 +80,7 @@ const Footer: React.FC<IFooterProps> = (props: IFooterProps) => {
             <LogoIcon />
             <span className={classes.nameText}>Module X</span>
           </div>
-          <div className={classes.footerText}>© AdobeXD Kit 2017</div>
+          <div className={classes.footerText}>© ModuleX(DBA of FlatSphere Consultancy LLC)</div>
         </div>
         <div>
           <div className={classes.linkItem}>About Us</div>
