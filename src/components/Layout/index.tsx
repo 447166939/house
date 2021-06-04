@@ -459,7 +459,7 @@ const useStyles = makeStyles((theme) =>
     },
     contactInputWrapper: {
       width: "23%",
-      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
       borderRadius: "8px",
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
@@ -470,16 +470,18 @@ const useStyles = makeStyles((theme) =>
     },
     contactTextAreaWrapper: {
       width: "100%",
-      boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
+      height: "120px",
       borderRadius: "8px",
-      backgroundColor: "#fff",
-      opacity: 0.6,
+      background: "none",
       marginTop: "60px"
     },
     contactTextArea: {
       width: "100%",
+      height: "100%",
       border: "none",
       outline: "none",
+      opacity: 0.6,
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
       padding: theme.spacing(2),
       borderRadius: "8px"
     },
@@ -521,7 +523,7 @@ const LogoIcon: React.FC<ILogoIconProps> = (props: ILogoIconProps) => (
 );
 export interface ILayoutProps {
   children: JSX.Element | JSX.Element[];
-};
+}
 const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const classes = useStyles();
   const globalClasses = useGlobalStyles();
@@ -1334,33 +1336,51 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
         {children}
 
-        <Card className={classes.contactSection}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>Contact Us</div>
+        <Card customStyles={classes.contactSection} blurActive={true}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+            Contact Us
+          </div>
           <div className={classes.contactLeft}>
             <div className={classes.contactFormLabel}>
               Drop us a line! We are here to answer your questions 24/7.
             </div>
             <div className={classes.inputGroup}>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} placeholder="Your FirstName:"/>
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your FirstName:"
+                />
               </div>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} placeholder="Your LastName:"/>
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your LastName:"
+                />
               </div>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} placeholder="Your Email:"/>
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your Email:"
+                />
               </div>
-              <div className={classes.contactInputWrapper}>
+              <div
+                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
                 {" "}
-                <InputBase className={classes.contactInput} placeholder="Your Number:"/>
+                <InputBase
+                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                  placeholder="Your Number:"
+                />
               </div>
             </div>
             <div className={classes.contactTextAreaWrapper}>
               <TextareaAutosize
-                className={classes.contactTextArea}
+                className={clsx(classes.contactTextArea, globalClasses.cardSmallText)}
                 rowsMin={4}
                 placeholder="How can we help you?"
               />
@@ -1379,7 +1399,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <div className={classes.contactRightTitle}>Press inquires</div>
             <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
             <div className={classes.contactBtnWrapper}>
-              <ButtonBase className={classes.contactRightBtn}>MORE</ButtonBase>
+              <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+                MORE
+              </ButtonBase>
             </div>
           </div>
         </Card>

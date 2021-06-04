@@ -382,7 +382,7 @@ const Index = () => {
   }, []);
   return (
     <Layout>
-      <Card className={classes.card}>
+      <Card customStyles={classes.card} blurActive={true}>
         <h1 className={globalClasses.cardMediumTitle}>
           SOFTWARE CONSULTING AND DEVELOPMENT FOR YOUR DIGITAL SUCCESS
         </h1>
@@ -390,7 +390,9 @@ const Index = () => {
           We Transform business with powerful and adaptable digital solutions that satisfy the needs
           of today and unlock the opportunities of tomorrow.
         </p>
-        <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>KNOW MORE</ButtonBase>
+        <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+          KNOW MORE
+        </ButtonBase>
       </Card>
       <div className={classes.aboutSection}>
         <div className={classes.aboutLeft}>
@@ -401,7 +403,9 @@ const Index = () => {
           </Swiper>
         </div>
         <div className={classes.aboutRight}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>About us</div>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+            About us
+          </div>
           <div className={globalClasses.cardMediumText}>
             ModuleX is a provider of IT consulting and Software development services. Having founded
             at 2016 as a small Software company and ever since we have helped non-IT organizations
@@ -416,31 +420,41 @@ const Index = () => {
         </div>
       </div>
       <div className={classes.wwdSection}>
-        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>What We Do</div>
+        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          What We Do
+        </div>
         <div className={classes.wwdTab}>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 0)}
             style={{ flexShrink: 0 }}
-            className={clsx(globalClasses.cardNormalBtn, { [globalClasses.cardNormalBtnActive]: tab == 0 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 0
+            })}>
             Technologies
           </ButtonBase>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 1)}
-            className={clsx(globalClasses.cardNormalBtn, { [globalClasses.cardNormalBtnActive]: tab == 1 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 1
+            })}>
             Services
           </ButtonBase>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 2)}
-            className={clsx(globalClasses.cardNormalBtn, { [globalClasses.cardNormalBtnActive]: tab == 2 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 2
+            })}>
             Solutions
           </ButtonBase>
           <ButtonBase
             disableRipple
             onClick={handleClickWwdTab.bind(null, 3)}
-            className={clsx(globalClasses.cardNormalBtn, { [globalClasses.cardNormalBtnActive]: tab == 3 })}>
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 3
+            })}>
             Blog & News
           </ButtonBase>
         </div>
@@ -478,9 +492,11 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <Card className={classes.partnerCard}>
+      <Card customStyles={classes.partnerCard} blurActive={true}>
         <div className={classes.partnerLeft}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>Partners</div>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+            Partners
+          </div>
           <div className={globalClasses.cardMediumText}>
             Over years of business development, ModuleX has won lots of long-term trusted
             relationship with companies across the continent. Our business partners include AWS,
@@ -490,7 +506,9 @@ const Index = () => {
             built the project like it is our project.
           </div>
           <div>
-            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </div>
         <div className={classes.partnerRight}>
@@ -498,7 +516,7 @@ const Index = () => {
         </div>
       </Card>
       <div className={classes.sectionThreeCard}>
-        <Card className={classes.threeCardWrapper}>
+        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/service.svg"} />
           </div>
@@ -508,10 +526,12 @@ const Index = () => {
             diverse services.
           </div>
           <div>
-            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </Card>
-        <Card className={classes.threeCardWrapper}>
+        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/techonologies.svg"} />
           </div>
@@ -521,10 +541,12 @@ const Index = () => {
             consulting, solution design and support for your business evolution.
           </div>
           <div>
-            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </Card>
-        <Card className={classes.threeCardWrapper}>
+        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/solution.svg"} />
           </div>
@@ -533,12 +555,16 @@ const Index = () => {
             We IT-enable all kinds of B2B, B2C interactions and internal operations.
           </div>
           <div>
-            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>MORE</ButtonBase>
+            <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+              MORE
+            </ButtonBase>
           </div>
         </Card>
       </div>
       <div className={classes.sectionBlogs}>
-        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>Blogs</div>
+        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          Blogs
+        </div>
         <div>
           <Swiper slidesPerView={1} pagination={{ clickable: true }}>
             <SwiperSlide>

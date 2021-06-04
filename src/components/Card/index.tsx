@@ -6,22 +6,27 @@ import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
-    backdropFilter: "blur(23px)",
-    background: "rgba(247, 248, 250, .3)",
+    // backdropFilter: "blur(23px)",
+    // background: "rgba(247, 248, 250, .3)",
     borderRadius: "3px"
   }
 }));
 export interface ICardProps {
-  className: string;
-  // blurActive: boolean;
-  // width: number;
-  // height: number;
+  customStyles: string;
+  blurActive: boolean;
   children: JSX.Element | JSX.Element[];
 }
 const Card: React.FC<ICardProps> = (props: ICardProps) => {
-  const { className, children } = props;
+  const { customStyles, blurActive, children } = props;
   const classes = useStyles();
   const globalClasses = useGlobalStyles();
-  return <div className={clsx(classes.root, className)}>{children}</div>;
+  return (
+    <div
+      className={clsx(classes.root, customStyles, {
+        [globalClasses.cardBlurBackground]: blurActive
+      })}>
+      {children}
+    </div>
+  );
 };
 export default Card;
