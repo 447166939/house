@@ -371,38 +371,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#c3cfde",
     lineHeight: "24px",
     marginLeft: theme.spacing(1)
-  },
-  testDiv: {
-    marginTop: "60px",
-    width:"300px",
-    height:"300px",
-    color: "#4D3252",
-    background:"#E0E5EC",
-    opacity: 0.5,
-    textAlign: "center",
-    "&::after": {
-      content: "the content after",
-      position: "absolute",
-      top: "0px",
-      left: "0px",
-      width: "200%",
-      height: "100%",
-      opacity: 1,
-      transform: "translateX(-100%)",
-      zIndex: 101,
-      background: "linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.3) 100%)",
-    },
-    "&:hover:after": {
-      color: "red",
-      opacity: 1,
-      top: 0,
-      left: 0,
-      zIndex: 101,
-      transform: "translateX(0%)",
-      transitionProperty: "transform, opacity",
-      transitionDuration: "0.7s, 0.15s",
-      transitionTimingFunction: "ease"
-    }
   }
 }));
 const Index = () => {
@@ -414,10 +382,7 @@ const Index = () => {
   }, []);
   return (
     <Layout>
-      <div className={classes.testDiv}>
-        DIV
-      </div>
-      <Card customStyles={classes.card} blurActive={true}>
+      <Card customStyles={clsx(classes.card, globalClasses.cardGlassEffect)} blurActive={true}>
         <h1 className={globalClasses.cardMediumTitle}>
           SOFTWARE CONSULTING AND DEVELOPMENT FOR YOUR DIGITAL SUCCESS
         </h1>
@@ -460,36 +425,36 @@ const Index = () => {
         </div>
         <div className={classes.wwdTab}>
           <ButtonBase
-              disableRipple
-              onClick={handleClickWwdTab.bind(null, 0)}
-              style={{ flexShrink: 0 }}
-              className={clsx(globalClasses.cardNormalBtn, {
-                [globalClasses.cardNormalBtnActive]: tab == 0
-              })}>
+            disableRipple
+            onClick={handleClickWwdTab.bind(null, 0)}
+            style={{ flexShrink: 0 }}
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 0
+            })}>
             Technologies
           </ButtonBase>
           <ButtonBase
-              disableRipple
-              onClick={handleClickWwdTab.bind(null, 1)}
-              className={clsx(globalClasses.cardNormalBtn, {
-                [globalClasses.cardNormalBtnActive]: tab == 1
-              })}>
+            disableRipple
+            onClick={handleClickWwdTab.bind(null, 1)}
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 1
+            })}>
             Services
           </ButtonBase>
           <ButtonBase
-              disableRipple
-              onClick={handleClickWwdTab.bind(null, 2)}
-              className={clsx(globalClasses.cardNormalBtn, {
-                [globalClasses.cardNormalBtnActive]: tab == 2
-              })}>
+            disableRipple
+            onClick={handleClickWwdTab.bind(null, 2)}
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 2
+            })}>
             Solutions
           </ButtonBase>
           <ButtonBase
-              disableRipple
-              onClick={handleClickWwdTab.bind(null, 3)}
-              className={clsx(globalClasses.cardNormalBtn, {
-                [globalClasses.cardNormalBtnActive]: tab == 3
-              })}>
+            disableRipple
+            onClick={handleClickWwdTab.bind(null, 3)}
+            className={clsx(globalClasses.cardNormalBtn, {
+              [globalClasses.cardNormalBtnActive]: tab == 3
+            })}>
             Blog & News
           </ButtonBase>
         </div>
@@ -515,19 +480,19 @@ const Index = () => {
             <div className={classes.wwdLinks}>
               {links.map((item, index) => {
                 return (
-                    <div key={index} className={classes.wwdLinkItem}>
-                      <span className={classes.wwdDot}></span>
-                      <Link href={item.url} color="inherit" className={classes.wwdLink}>
-                        {item.text}
-                      </Link>
-                    </div>
+                  <div key={index} className={classes.wwdLinkItem}>
+                    <span className={classes.wwdDot}></span>
+                    <Link href={item.url} color="inherit" className={classes.wwdLink}>
+                      {item.text}
+                    </Link>
+                  </div>
                 );
               })}
             </div>
           </div>
         </div>
       </Card>
-      <Card customStyles={classes.partnerCard} blurActive={true}>
+      <Card customStyles={clsx(classes.partnerCard, globalClasses.cardGlassEffect)} blurActive={true}>
         <div className={classes.partnerLeft}>
           <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
             Partners
@@ -551,7 +516,7 @@ const Index = () => {
         </div>
       </Card>
       <div className={classes.sectionThreeCard}>
-        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
+        <Card customStyles={clsx(classes.threeCardWrapper, globalClasses.cardGlassEffect)} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/service.svg"} />
           </div>
@@ -566,7 +531,7 @@ const Index = () => {
             </ButtonBase>
           </div>
         </Card>
-        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
+        <Card customStyles={clsx(classes.threeCardWrapper, globalClasses.cardGlassEffect)} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/techonologies.svg"} />
           </div>
@@ -581,7 +546,7 @@ const Index = () => {
             </ButtonBase>
           </div>
         </Card>
-        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
+        <Card customStyles={clsx(classes.threeCardWrapper, globalClasses.cardGlassEffect)} blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/solution.svg"} />
           </div>
@@ -606,27 +571,27 @@ const Index = () => {
               <div className={classes.blogsBox}>
                 {blogs.map((item, index) => {
                   return (
-                      <MuiCard key={index} className={classes.blogsCard} elevation={2}>
-                        <CardMedia className={classes.blogsCardImg} image={item.img} />
-                        <CardContent>
-                          <Typography className={classes.blogsCardTitle} variant="h6" component="h6">
-                            {item.title}
-                          </Typography>
-                          <Typography className={classes.blogCardText} variant="body2" component="p">
-                            {item.text}
-                          </Typography>
-                        </CardContent>
-                        <CardActions>
-                          <IconButton>
-                            <LikeIcon />
-                            <span className={classes.likesText}>{item.likeNum}</span>
-                          </IconButton>
-                          <IconButton>
-                            <CommentIcon />
-                            <span className={classes.commentText}>{item.commentNum}</span>
-                          </IconButton>
-                        </CardActions>
-                      </MuiCard>
+                    <MuiCard key={index} className={classes.blogsCard} elevation={2}>
+                      <CardMedia className={classes.blogsCardImg} image={item.img} />
+                      <CardContent>
+                        <Typography className={classes.blogsCardTitle} variant="h6" component="h6">
+                          {item.title}
+                        </Typography>
+                        <Typography className={classes.blogCardText} variant="body2" component="p">
+                          {item.text}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <IconButton>
+                          <LikeIcon />
+                          <span className={classes.likesText}>{item.likeNum}</span>
+                        </IconButton>
+                        <IconButton>
+                          <CommentIcon />
+                          <span className={classes.commentText}>{item.commentNum}</span>
+                        </IconButton>
+                      </CardActions>
+                    </MuiCard>
                   );
                 })}
               </div>

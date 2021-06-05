@@ -223,7 +223,7 @@ const useStyles = makeStyles((theme) =>
       fontSize: "20px",
       lineHeight: "50px",
       fontWeight: "bold",
-      position: "relative",
+      position: "relative"
       // "&:after": {
       //   content: "''",
       //   position: "absolute",
@@ -1043,14 +1043,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Services</div>
-              <span className="text-wrapper">
-                {/*<span className={globalClasses.lineBlue} />*/}
-                <span id={"service"} className="letters">
-                  Our service portfolio covers an entire software development life cycle and meets
-                  varied business needs.
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Services
+            </div>
+            <span className="text-wrapper">
+              {/*<span className={globalClasses.lineBlue} />*/}
+              <span id={"service"} className="letters">
+                Our service portfolio covers an entire software development life cycle and meets
+                varied business needs.
               </span>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1092,14 +1094,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Technologies</div>
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"technologies"} className="letters">
-                  Our expertise spans all major technologies and platforms, and advances to
-                  innovative technology trends.
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Technologies
+            </div>
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <span id={"technologies"} className="letters">
+                Our expertise spans all major technologies and platforms, and advances to innovative
+                technology trends.
               </span>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1225,14 +1229,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Solutions</div>
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"solutions"} className="letters">
-                  We build on the IT domain expertise and industry knowledge to design sustainable
-                  technology solutions.
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Solutions
+            </div>
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <span id={"solutions"} className="letters">
+                We build on the IT domain expertise and industry knowledge to design sustainable
+                technology solutions.
               </span>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1274,14 +1280,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb3} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Blogs & News</div>
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"blogAndNews"} className="letters">
-                  {" "}
-                  Knowing everything about us and the IT industry...{" "}
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Blogs & News
+            </div>
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <span id={"blogAndNews"} className="letters">
+                {" "}
+                Knowing everything about us and the IT industry...{" "}
               </span>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1319,7 +1327,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
         {children}
 
-        <Card customStyles={classes.contactSection} blurActive={true}>
+        <Card customStyles={clsx(classes.contactSection, globalClasses.cardGlassEffect)} blurActive={true}>
           <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
             Contact Us
           </div>

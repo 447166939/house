@@ -13,6 +13,7 @@ const useGlobalStyles = makeStyles((theme) => ({
     borderRadius: "4px",
     boxShadow: "-8px -4px 12px 3px #7b3bed30, 8px 4px 12px 6px #30cfda5d",
     marginTop: "30px",
+    zIndex:100,
     "&:active": {
       color: "#CBD5E5",
       paddingLeft: theme.spacing(2),
@@ -163,32 +164,32 @@ const useGlobalStyles = makeStyles((theme) => ({
     color: "#000000",
     lineHeight: "16px"
   },
-
   // Effects
-  cardGlassAfter: {
+  cardGlassEffect: {
+    position: "relative",
+    overflow: "hidden",
     "&:after": {
-      content: "",
+      content: "''",
       position: "absolute",
-      top: 0,
-      left: 0,
-      width: "200%",
+      top: "0px",
+      left: "-1000px",
+      width: "100%",
       height: "100%",
-      opacity: 1,
+      opacity: 0.5,
       transform: "translateX(-100%)",
-
-      background: "rgba(255, 255, 255, 0.1)",
-      backgroundColor: "linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0.3) 100%)",
-    }
-  },
-  cardGlassHoverAfter: {
+      background:
+          "linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.09) 75%, rgba(255, 255, 255, 0.36) 90%, rgba(255, 255, 255, 0.12) 100%)"
+    },
     "&:hover:after": {
-      opacity: 1,
-      top: 0,
-      left: 0,
-      transform: "translateX(0)",
+      width: "100%",
+      height: "100%",
+      opacity: 0.5,
+      top: "0px",
+      left: "0px",
+      transform: "translateX(15%)",
       transitionProperty: "transform, opacity",
-      transitionDuration: "0.7s, 0.15s",
-      transitionTimingFunction: "ease"
+      transitionDuration: "0.45s, 0.15s",
+      transitionTimingFunction: "cubic-bezier"
     }
   },
   // Colors
