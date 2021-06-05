@@ -224,15 +224,15 @@ const useStyles = makeStyles((theme) =>
       lineHeight: "50px",
       fontWeight: "bold",
       position: "relative",
-      "&:after": {
-        content: "''",
-        position: "absolute",
-        width: "60px",
-        height: "4px",
-        bottom: 0,
-        left: 0,
-        backgroundColor: "#2699FB"
-      }
+      // "&:after": {
+      //   content: "''",
+      //   position: "absolute",
+      //   width: "60px",
+      //   height: "4px",
+      //   bottom: 0,
+      //   left: 0,
+      //   backgroundColor: "#2699FB"
+      // }
     },
     serviceCol1Text: {
       fontSize: "16px",
@@ -892,12 +892,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       appBarTechnologiesCloudTechnologiesSubMenuVisible
     ]
   );
-  // const openSearch = useCallback(() => {
-  //   setSearchOpen(true);
-  // }, []);
-  // const closeSearch = useCallback(() => {
-  //   setSearchOpen(false);
-  // }, []);
   const toggleSearchOpen = useCallback(() => {
     let searchInputVar = anime.timeline({
       easing: "easeInOutQuad",
@@ -1049,16 +1043,14 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Services</div>
-            <h1 className="ml11">
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Services</div>
               <span className="text-wrapper">
-                <span className="line line1"></span>
+                {/*<span className={globalClasses.lineBlue} />*/}
                 <span id={"service"} className="letters">
                   Our service portfolio covers an entire software development life cycle and meets
                   varied business needs.
                 </span>
               </span>
-            </h1>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1100,9 +1092,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Technologies</div>
-
-            <h1 className="ml11">
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Technologies</div>
               <span className="text-wrapper">
                 <span className="line line1"></span>
                 <span id={"technologies"} className="letters">
@@ -1110,7 +1100,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   innovative technology trends.
                 </span>
               </span>
-            </h1>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1236,9 +1225,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Solutions</div>
-
-            <h1 className="ml11">
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Solutions</div>
               <span className="text-wrapper">
                 <span className="line line1"></span>
                 <span id={"solutions"} className="letters">
@@ -1246,7 +1233,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   technology solutions.
                 </span>
               </span>
-            </h1>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1288,9 +1274,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb3} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Blogs & News</div>
-
-            <h1 className="ml11">
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>Blogs & News</div>
               <span className="text-wrapper">
                 <span className="line line1"></span>
                 <span id={"blogAndNews"} className="letters">
@@ -1298,7 +1282,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   Knowing everything about us and the IT industry...{" "}
                 </span>
               </span>
-            </h1>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1337,7 +1320,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         {children}
 
         <Card customStyles={classes.contactSection} blurActive={true}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
             Contact Us
           </div>
           <div className={classes.contactLeft}>
@@ -1396,11 +1379,11 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               <EmailIcon />
               <span className={classes.contactRightText}>zion@galaxycgi.com</span>
             </div>
-            <div className={classes.contactRightTitle}>Press inquires</div>
-            <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
+            <div className={classes.contactRightTitle}>GET IN TOUCH WITH US</div>
+            {/*<div className={classes.contactRightText}>GET IN TOUCH WITH US</div>*/}
             <div className={classes.contactBtnWrapper}>
               <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
-                MORE
+                SEND IT!
               </ButtonBase>
             </div>
           </div>
