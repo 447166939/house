@@ -13,7 +13,7 @@ const useGlobalStyles = makeStyles((theme) => ({
     borderRadius: "4px",
     boxShadow: "-8px -4px 12px 3px #7b3bed30, 8px 4px 12px 6px #30cfda5d",
     marginTop: "30px",
-    zIndex:100,
+    zIndex: 100,
     "&:active": {
       color: "#CBD5E5",
       paddingLeft: theme.spacing(2),
@@ -178,7 +178,7 @@ const useGlobalStyles = makeStyles((theme) => ({
       opacity: 0.5,
       transform: "translateX(-100%)",
       background:
-          "linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.09) 75%, rgba(255, 255, 255, 0.36) 90%, rgba(255, 255, 255, 0.12) 100%)"
+        "linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.09) 75%, rgba(255, 255, 255, 0.36) 90%, rgba(255, 255, 255, 0.12) 100%)"
     },
     "&:hover:after": {
       width: "100%",

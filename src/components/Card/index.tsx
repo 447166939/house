@@ -20,13 +20,9 @@ const Card: React.FC<ICardProps> = (props: ICardProps) => {
   const globalClasses = useGlobalStyles();
   return (
     <div
-      className={clsx(
-        classes.root,
-        customStyles,
-        {
-          [globalClasses.cardBlurBackground]: blurActive
-        }
-      )}>
+      className={clsx(classes.root, customStyles, {
+        [globalClasses.cardBlurBackground]: blurActive
+      })}>
       {children}
     </div>
   );
