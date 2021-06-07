@@ -31,8 +31,8 @@ import servicesSubCategories from "../data/rootCategories/subCategories/services
 import technologiesSubCategories from "../data/rootCategories/subCategories/technologiesSubCategory";
 import solutionsSubCategories from "../data/rootCategories/subCategories/solutionsSubCategory";
 import blogAndNewsSubCategories from "../data/rootCategories/subCategories/blogAndNewsSubCategory";
-import servicesSubCategorySubLinks
-  from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubSubCategoryLinks";
+import servicesSubCategorySubDataAnalyticsLinks
+  from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubCategorySubDataAnalyticsLinks";
 
 const blogs = [
   {
@@ -382,7 +382,7 @@ const Index = () => {
   // const [tab, setTab] = useState([true, false, false, false]);
   const [category, setCategory] = useState(servicesCategories);
   const [subCategory, setSubCategory] = useState(servicesSubCategories);
-  const [subSubCategoryLinks, setSubSubCategoryLinks] = useState(servicesSubCategorySubLinks);
+  const [subSubCategoryLinks, setSubSubCategoryLinks] = useState(servicesSubCategorySubDataAnalyticsLinks);
   const handleClickWwdTab = useCallback(
     (idx) => {
       // console.log(" setting category to idx: ", idx, " and current category is: ", category, " and setting to category: ", rootCategory[idx]);

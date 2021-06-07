@@ -1,4 +1,4 @@
-const servicesSubCategorySubLinks: { [key: string]: object | any }[] = [
+const servicesSubCategorySubTestingAndQALinks: { [key: string]: object | any }[] = [
   {
     text: "Development Services We Provide",
     url: ""
@@ -25,4 +25,4 @@ const servicesSubCategorySubLinks: { [key: string]: object | any }[] = [
   }
 ];
 
-export default servicesSubCategorySubLinks;
+export default servicesSubCategorySubTestingAndQALinks;
