@@ -6,8 +6,6 @@ import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
-    // backdropFilter: "blur(23px)",
-    // background: "rgba(247, 248, 250, .3)",
     borderRadius: "3px"
   }
 }));

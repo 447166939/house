@@ -194,6 +194,7 @@ const useStyles = makeStyles((theme) =>
       zIndex: -10000
     },
     serviceContainer: {
+      height: "auto",
       display: "flex",
       justifyContent: "space-between",
       padding: "107px 280px",
@@ -223,16 +224,16 @@ const useStyles = makeStyles((theme) =>
       fontSize: "20px",
       lineHeight: "50px",
       fontWeight: "bold",
-      position: "relative",
-      "&:after": {
-        content: "''",
-        position: "absolute",
-        width: "60px",
-        height: "4px",
-        bottom: 0,
-        left: 0,
-        backgroundColor: "#2699FB"
-      }
+      position: "relative"
+      // "&:after": {
+      //   content: "''",
+      //   position: "absolute",
+      //   width: "60px",
+      //   height: "4px",
+      //   bottom: 0,
+      //   left: 0,
+      //   backgroundColor: "#2699FB"
+      // }
     },
     serviceCol1Text: {
       fontSize: "16px",
@@ -252,7 +253,21 @@ const useStyles = makeStyles((theme) =>
       textTransform: "uppercase",
       height: "44px",
       padding: theme.spacing(2),
-      width: "207px"
+      width: "207px",
+      "&:active": {
+        color: "#CBD5E5",
+        "&:after": {
+          content: "''",
+          position: "absolute",
+          left: 0,
+          top: 0,
+          right: 0,
+          bottom: 0,
+          boxShadow:
+            "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
+          borderRadius: "8px"
+        }
+      }
     },
     serviceCol2Btn: {
       color: "#2699FB",
@@ -892,12 +907,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       appBarTechnologiesCloudTechnologiesSubMenuVisible
     ]
   );
-  // const openSearch = useCallback(() => {
-  //   setSearchOpen(true);
-  // }, []);
-  // const closeSearch = useCallback(() => {
-  //   setSearchOpen(false);
-  // }, []);
   const toggleSearchOpen = useCallback(() => {
     let searchInputVar = anime.timeline({
       easing: "easeInOutQuad",
@@ -1049,16 +1058,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Services</div>
-            <h1 className="ml11">
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"service"} className="letters">
-                  Our service portfolio covers an entire software development life cycle and meets
-                  varied business needs.
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Services
+            </div>
+            <span className="text-wrapper">
+              {/*<span className={globalClasses.lineBlue} />*/}
+              <span id={"service"} className="letters">
+                Our service portfolio covers an entire software development life cycle and meets
+                varied business needs.
               </span>
-            </h1>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1100,17 +1109,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Technologies</div>
-
-            <h1 className="ml11">
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"technologies"} className="letters">
-                  Our expertise spans all major technologies and platforms, and advances to
-                  innovative technology trends.
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Technologies
+            </div>
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <span id={"technologies"} className="letters">
+                Our expertise spans all major technologies and platforms, and advances to innovative
+                technology trends.
               </span>
-            </h1>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1236,17 +1244,16 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Solutions</div>
-
-            <h1 className="ml11">
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"solutions"} className="letters">
-                  We build on the IT domain expertise and industry knowledge to design sustainable
-                  technology solutions.
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Solutions
+            </div>
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <span id={"solutions"} className="letters">
+                We build on the IT domain expertise and industry knowledge to design sustainable
+                technology solutions.
               </span>
-            </h1>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1288,17 +1295,15 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <Drawer cb={cb3} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
         <div className={classes.serviceContainer}>
           <div className={classes.serviceCol1}>
-            <div className={classes.serviceTitle}>Blogs & News</div>
-
-            <h1 className="ml11">
-              <span className="text-wrapper">
-                <span className="line line1"></span>
-                <span id={"blogAndNews"} className="letters">
-                  {" "}
-                  Knowing everything about us and the IT industry...{" "}
-                </span>
+            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+              Blogs & News
+            </div>
+            <span className="text-wrapper">
+              <span className="line line1"></span>
+              <span id={"blogAndNews"} className="letters">
+                Knowing everything about us and the IT industry...{" "}
               </span>
-            </h1>
+            </span>
             <div className={classes.serviceContactBtnWrapper}>
               <ButtonBase
                 className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
@@ -1307,11 +1312,11 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </ButtonBase>
             </div>
           </div>
-          <div className={classes.serviceCol2}>
+          <div className={classes.serviceCol1}>
             <div>
-              <ButtonBase className={classes.serviceCol2Btn} disableRipple>
+              <Link className={classes.serviceCol4Link} href={"#"}>
                 Check out our updates
-              </ButtonBase>
+              </Link>
             </div>
           </div>
         </div>
@@ -1336,8 +1341,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
         {children}
 
-        <Card customStyles={classes.contactSection} blurActive={true}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+        <Card
+          customStyles={clsx(classes.contactSection, globalClasses.cardGlassEffect)}
+          blurActive={true}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
             Contact Us
           </div>
           <div className={classes.contactLeft}>
@@ -1396,11 +1403,11 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               <EmailIcon />
               <span className={classes.contactRightText}>zion@galaxycgi.com</span>
             </div>
-            <div className={classes.contactRightTitle}>Press inquires</div>
-            <div className={classes.contactRightText}>GET IN TOUCH WITH US</div>
+            <div className={classes.contactRightTitle}>GET IN TOUCH WITH US</div>
+            {/*<div className={classes.contactRightText}>GET IN TOUCH WITH US</div>*/}
             <div className={classes.contactBtnWrapper}>
               <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
-                MORE
+                SEND IT!
               </ButtonBase>
             </div>
           </div>
