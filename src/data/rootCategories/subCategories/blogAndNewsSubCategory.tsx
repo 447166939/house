@@ -2,8 +2,8 @@ import blogAndNewsCategoriesSub from "../subSubCategories/BlogAndNewsSubCategori
 
 const blogAndNewsSubCategories: { [key: string]: object | any }[] = [
   {
-    text: "",
-    subSubCategories: blogAndNewsCategoriesSub
+    "text": "",
+    "subCategoriesSub": blogAndNewsCategoriesSub
   }
 ];
 

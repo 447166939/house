@@ -31,8 +31,9 @@ import servicesSubCategories from "../data/rootCategories/subCategories/services
 import technologiesSubCategories from "../data/rootCategories/subCategories/technologiesSubCategory";
 import solutionsSubCategories from "../data/rootCategories/subCategories/solutionsSubCategory";
 import blogAndNewsSubCategories from "../data/rootCategories/subCategories/blogAndNewsSubCategory";
-import servicesSubCategorySubDataAnalyticsLinks
-  from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubCategorySubDataAnalyticsLinks";
+import servicesSubCategorySubDataAnalyticsLinks from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubCategorySubDataAnalyticsLinks";
+import servicesSubCategoriesSub
+  from "../data/rootCategories/subSubCategories/servicesSubCategories/servicesSubCategoriesSub";
 
 const blogs = [
   {
@@ -137,6 +138,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px"
   },
   wwdSider: {
+    // maxHeight: "600px",
+    maxHeight: "inherit",
+    overFlow: "hidden",
     width: "331px",
     color: "#000",
     outline: "none",
@@ -149,7 +153,11 @@ const useStyles = makeStyles((theme) => ({
     padding: "50px 0"
   },
   wwdSideMenuItem: {
-    lineHeight: "50px"
+    lineHeight: "50px",
+    "&:hover":{
+      cursor: "pointer",
+      textDecoration: "underline"
+    }
   },
   wwdContent: {
     flex: 1,
@@ -379,19 +387,39 @@ const useStyles = makeStyles((theme) => ({
 const Index = () => {
   const classes = useStyles();
   const globalClasses = useGlobalStyles();
-  // const [tab, setTab] = useState([true, false, false, false]);
   const [category, setCategory] = useState(servicesCategories);
   const [subCategory, setSubCategory] = useState(servicesSubCategories);
-  const [subSubCategoryLinks, setSubSubCategoryLinks] = useState(servicesSubCategorySubDataAnalyticsLinks);
-  const handleClickWwdTab = useCallback(
-    (idx) => {
-      // console.log(" setting category to idx: ", idx, " and current category is: ", category, " and setting to category: ", rootCategory[idx]);
-      setCategory(rootCategory[idx]);
-      setSubCategory(rootCategory[idx][0]);
-      setSubSubCategoryLinks(rootCategory[idx]["subCategories"][0]["subSubCategoriesLinks"]);
-      console.log(" idx: ", idx, " categoryLinks: ", subSubCategoryLinks);
-    },
-    [category]
+  const [subCategorySub, setSubCategorySub] = useState(servicesSubCategoriesSub);
+  const [subCategorySubLinks, setSubCategorySubLinks] = useState(
+    servicesSubCategorySubDataAnalyticsLinks
+  );
+  // all the click handlers
+  const handleClickCategory = useCallback(
+      (idx) => {
+        setCategory(rootCategory[idx]);
+        setSubCategory(rootCategory[idx]["subCategories"]);
+        setSubCategorySub(rootCategory[idx]["subCategories"][0]["subCategoriesSub"]);
+        setSubCategorySubLinks(rootCategory[idx]["subCategories"][0]["subCategoriesSub"][0]["links"]);
+        // console.log(" idx: ", idx, " subCategorySubLinks: ", subCategorySubLinks);
+      },
+      [category]
+  );
+  const handleClickSubCategory = useCallback(
+      (subCate) => {
+        setSubCategory(subCate);
+        setSubCategorySub(subCate["subCategoriesSub"]);
+        setSubCategorySubLinks(subCate["subCategoriesSub"][0]["links"]);
+        // console.log(" subCate: ", subCate, " subCategorySubLinks: ", subCate["subCategoriesSub"][0]["links"]);
+      },
+      [category]
+  );
+  const handleClickSubCategorySub = useCallback(
+      (subCateSubItem) => {
+        // console.log(" subCateSub: ", subCateSubItem, " [\"links\"]: ", subCateSubItem["links"], " this is just change the links");
+        setSubCategorySubLinks(subCateSubItem["links"]);
+        // console.log(" subCateSubItem: ", subCateSubItem, " subCategorySubLinks: ", subCateSubItem["links"]);
+      },
+      [category]
   );
   return (
     <Layout>
@@ -439,7 +467,7 @@ const Index = () => {
         <div className={classes.wwdTab}>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 0)}
+            onClick={handleClickCategory.bind(null, 0)}
             style={{ flexShrink: 0 }}
             className={clsx(globalClasses.cardNormalBtn, {
               // [globalClasses.cardNormalBtnActive]: tab[0]
@@ -449,7 +477,7 @@ const Index = () => {
           </ButtonBase>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 1)}
+            onClick={handleClickCategory.bind(null, 1)}
             className={clsx(globalClasses.cardNormalBtn, {
               // [globalClasses.cardNormalBtnActive]: tab[1]
               [globalClasses.cardNormalBtnActive]:
@@ -459,7 +487,7 @@ const Index = () => {
           </ButtonBase>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 2)}
+            onClick={handleClickCategory.bind(null, 2)}
             className={clsx(globalClasses.cardNormalBtn, {
               // [globalClasses.cardNormalBtnActive]: tab[2]
               [globalClasses.cardNormalBtnActive]: category === solutionsCategories ? true : false
@@ -468,7 +496,7 @@ const Index = () => {
           </ButtonBase>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 3)}
+            onClick={handleClickCategory.bind(null, 3)}
             className={clsx(globalClasses.cardNormalBtn, {
               // [globalClasses.cardNormalBtnActive]: tab[3]
               [globalClasses.cardNormalBtnActive]: category === blogAndNewsCategories ? true : false
@@ -477,50 +505,17 @@ const Index = () => {
           </ButtonBase>
         </div>
         <div className={classes.wwdBody}>
-          {/*{(category === 0) && (*/}
-          {/*  <>*/}
-          {/*    <div className={classes.wwdSider}>*/}
-          {/*      <div className={globalClasses.cardSmallTitle}>Software Development</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>Data Analytics</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>UI/UX Design</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>Testing And QA</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>Infrastructure Services</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>IT OutSourcing</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>IT Consulting</div>*/}
-          {/*      <div className={classes.wwdSideMenuItem}>IT Support</div>*/}
-          {/*    </div>*/}
-          {/*    <div className={classes.wwdContent}>*/}
-          {/*      <div className={globalClasses.cardMediumTitle}>Software Development</div>*/}
-          {/*      <div className={globalClasses.cardSmallText}>*/}
-          {/*        The development of reliable and scalable software solutions for any OS, browser*/}
-          {/*        and device. We bring together deep industry expertise and the latest IT*/}
-          {/*        advancements to deliver custom solutions and products that perfectly fit the needs*/}
-          {/*        and behavior of their users.*/}
-          {/*      </div>*/}
-          {/*      <div className={classes.wwdLinks}>*/}
-          {/*        {servicesSoftwareDevelopmentLinks.map((item, index) => {*/}
-          {/*          return (*/}
-          {/*            <div key={index} className={classes.wwdLinkItem}>*/}
-          {/*              <span className={classes.wwdDot}></span>*/}
-          {/*              <Link href={item.url} color="inherit" className={classes.wwdLink}>*/}
-          {/*                {item.text}*/}
-          {/*              </Link>*/}
-          {/*            </div>*/}
-          {/*          );*/}
-          {/*        })}*/}
-          {/*      </div>*/}
-          {/*    </div>*/}
-          {/*  </>*/}
-          {/*)}*/}
           <div className={classes.wwdSider}>
             {category["subCategories"].map(
-              (subCategory: { [key: string]: object | any }, index: number) => {
+              (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
                 return (
                   <>
-                    <div className={globalClasses.cardSmallTitle}>{subCategory.text}</div>
-                    {subCategory["subSubCategoriesLinks"].map(
-                      (link: { [key: string]: object | any }, linkIndex: number) => {
-                        return <div className={classes.wwdSideMenuItem}>{link}</div>;
+                    <div className={globalClasses.cardSmallTitle} onClick={handleClickSubCategory.bind(null, subCategory)} key={subCategoryIndex}>{subCategory.text}</div>
+                    {subCategory["subCategoriesSub"].map(
+                      (subCategoriesSubItem: { [key: string]: object | any }, subCategoriesSubIndex: number) => {
+                        return(
+                            <div className={clsx(classes.wwdSideMenuItem, {[globalClasses.textBlue]: subCategorySubLinks === subCategoriesSubItem["links"] ? true : false})} onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)} key={subCategoriesSubIndex}>{subCategoriesSubItem["text"]}</div>
+                        )
                       }
                     )}
                   </>
@@ -537,7 +532,7 @@ const Index = () => {
               their users.
             </div>
             <div className={classes.wwdLinks}>
-              {subSubCategoryLinks.map((link: { [key: string]: object | any }, index: number) => {
+              {subCategorySubLinks.map((link: { [key: string]: object | any }, index: number) => {
                 return (
                   <div key={index} className={classes.wwdLinkItem}>
                     <span className={classes.wwdDot}></span>
