@@ -9,36 +9,36 @@ import servicesSubCategorySubITSupportLinks from "../../subSubCategoriesLinks/se
 
 const servicesSubCategoriesSub: { [key: string]: object | any }[] = [
   {
-    "text": "Software Development",
-    "links": servicesSubCategorySubSoftwareDevelopmentLinks
+    text: "Software Development",
+    links: servicesSubCategorySubSoftwareDevelopmentLinks
   },
   {
-    "text": "Data Analytics",
-    "links": servicesSubCategorySubDataAnalyticsLinks
+    text: "Data Analytics",
+    links: servicesSubCategorySubDataAnalyticsLinks
   },
   {
-    "text": "UI/UX Design",
-    "links": servicesSubCategorySubUIUXDesignLinks
+    text: "UI/UX Design",
+    links: servicesSubCategorySubUIUXDesignLinks
   },
   {
-    "text": "Testing And QA",
-    "links": servicesSubCategorySubTestingAndQALinks
+    text: "Testing And QA",
+    links: servicesSubCategorySubTestingAndQALinks
   },
   {
-    "text": "Infrastructure Services",
-    "links": servicesSubCategorySubInfrastructureServicesLinks
+    text: "Infrastructure Services",
+    links: servicesSubCategorySubInfrastructureServicesLinks
   },
   {
-    "text": "IT OutSourcing",
-    "links": servicesSubCategorySubITOutSourcingLinks
+    text: "IT OutSourcing",
+    links: servicesSubCategorySubITOutSourcingLinks
   },
   {
-    "text": "IT Consulting",
-    "links": servicesSubCategorySubITConsultingLinks
+    text: "IT Consulting",
+    links: servicesSubCategorySubITConsultingLinks
   },
   {
-    "text": "IT Support",
-    "links": servicesSubCategorySubITSupportLinks
+    text: "IT Support",
+    links: servicesSubCategorySubITSupportLinks
   }
 ];
 

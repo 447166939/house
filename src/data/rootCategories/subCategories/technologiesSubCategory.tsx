@@ -4,16 +4,16 @@ import technologiesSubCategoriesCloudTechnologies from "../subSubCategories/tech
 
 const technologiesSubCategories: { [key: string]: object | any }[] = [
   {
-    "text": "Programming Languages",
-    "subCategoriesSub": technologiesSubCategoriesProgrammingLanguages
+    text: "Programming Languages",
+    subCategoriesSub: technologiesSubCategoriesProgrammingLanguages
   },
   {
-    "text": "Advanced Technologies",
-    "subCategoriesSub": technologiesSubCategoriesAdvancedTechnologies
+    text: "Advanced Technologies",
+    subCategoriesSub: technologiesSubCategoriesAdvancedTechnologies
   },
   {
-    "text": "Cloud Technologies",
-    "subCategoriesSub": technologiesSubCategoriesCloudTechnologies
+    text: "Cloud Technologies",
+    subCategoriesSub: technologiesSubCategoriesCloudTechnologies
   }
 ];
 

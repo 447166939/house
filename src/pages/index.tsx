@@ -32,8 +32,7 @@ import technologiesSubCategories from "../data/rootCategories/subCategories/tech
 import solutionsSubCategories from "../data/rootCategories/subCategories/solutionsSubCategory";
 import blogAndNewsSubCategories from "../data/rootCategories/subCategories/blogAndNewsSubCategory";
 import servicesSubCategorySubDataAnalyticsLinks from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubCategorySubDataAnalyticsLinks";
-import servicesSubCategoriesSub
-  from "../data/rootCategories/subSubCategories/servicesSubCategories/servicesSubCategoriesSub";
+import servicesSubCategoriesSub from "../data/rootCategories/subSubCategories/servicesSubCategories/servicesSubCategoriesSub";
 
 const blogs = [
   {
@@ -154,7 +153,7 @@ const useStyles = makeStyles((theme) => ({
   },
   wwdSideMenuItem: {
     lineHeight: "50px",
-    "&:hover":{
+    "&:hover": {
       cursor: "pointer",
       textDecoration: "underline"
     }
@@ -395,31 +394,31 @@ const Index = () => {
   );
   // all the click handlers
   const handleClickCategory = useCallback(
-      (idx) => {
-        setCategory(rootCategory[idx]);
-        setSubCategory(rootCategory[idx]["subCategories"]);
-        setSubCategorySub(rootCategory[idx]["subCategories"][0]["subCategoriesSub"]);
-        setSubCategorySubLinks(rootCategory[idx]["subCategories"][0]["subCategoriesSub"][0]["links"]);
-        // console.log(" idx: ", idx, " subCategorySubLinks: ", subCategorySubLinks);
-      },
-      [category]
+    (idx) => {
+      setCategory(rootCategory[idx]);
+      setSubCategory(rootCategory[idx]["subCategories"]);
+      setSubCategorySub(rootCategory[idx]["subCategories"][0]["subCategoriesSub"]);
+      setSubCategorySubLinks(rootCategory[idx]["subCategories"][0]["subCategoriesSub"][0]["links"]);
+      // console.log(" idx: ", idx, " subCategorySubLinks: ", subCategorySubLinks);
+    },
+    [category]
   );
   const handleClickSubCategory = useCallback(
-      (subCate) => {
-        setSubCategory(subCate);
-        setSubCategorySub(subCate["subCategoriesSub"]);
-        setSubCategorySubLinks(subCate["subCategoriesSub"][0]["links"]);
-        // console.log(" subCate: ", subCate, " subCategorySubLinks: ", subCate["subCategoriesSub"][0]["links"]);
-      },
-      [category]
+    (subCate) => {
+      setSubCategory(subCate);
+      setSubCategorySub(subCate["subCategoriesSub"]);
+      setSubCategorySubLinks(subCate["subCategoriesSub"][0]["links"]);
+      // console.log(" subCate: ", subCate, " subCategorySubLinks: ", subCate["subCategoriesSub"][0]["links"]);
+    },
+    [category]
   );
   const handleClickSubCategorySub = useCallback(
-      (subCateSubItem) => {
-        // console.log(" subCateSub: ", subCateSubItem, " [\"links\"]: ", subCateSubItem["links"], " this is just change the links");
-        setSubCategorySubLinks(subCateSubItem["links"]);
-        // console.log(" subCateSubItem: ", subCateSubItem, " subCategorySubLinks: ", subCateSubItem["links"]);
-      },
-      [category]
+    (subCateSubItem) => {
+      // console.log(" subCateSub: ", subCateSubItem, " [\"links\"]: ", subCateSubItem["links"], " this is just change the links");
+      setSubCategorySubLinks(subCateSubItem["links"]);
+      // console.log(" subCateSubItem: ", subCateSubItem, " subCategorySubLinks: ", subCateSubItem["links"]);
+    },
+    [category]
   );
   return (
     <Layout>
@@ -510,12 +509,28 @@ const Index = () => {
               (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
                 return (
                   <>
-                    <div className={globalClasses.cardSmallTitle} onClick={handleClickSubCategory.bind(null, subCategory)} key={subCategoryIndex}>{subCategory.text}</div>
+                    <div
+                      className={globalClasses.cardSmallTitle}
+                      onClick={handleClickSubCategory.bind(null, subCategory)}
+                      key={subCategoryIndex}>
+                      {subCategory.text}
+                    </div>
                     {subCategory["subCategoriesSub"].map(
-                      (subCategoriesSubItem: { [key: string]: object | any }, subCategoriesSubIndex: number) => {
-                        return(
-                            <div className={clsx(classes.wwdSideMenuItem, {[globalClasses.textBlue]: subCategorySubLinks === subCategoriesSubItem["links"] ? true : false})} onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)} key={subCategoriesSubIndex}>{subCategoriesSubItem["text"]}</div>
-                        )
+                      (
+                        subCategoriesSubItem: { [key: string]: object | any },
+                        subCategoriesSubIndex: number
+                      ) => {
+                        return (
+                          <div
+                            className={clsx(classes.wwdSideMenuItem, {
+                              [globalClasses.textBlue]:
+                                subCategorySubLinks === subCategoriesSubItem["links"] ? true : false
+                            })}
+                            onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)}
+                            key={subCategoriesSubIndex}>
+                            {subCategoriesSubItem["text"]}
+                          </div>
+                        );
                       }
                     )}
                   </>

@@ -2,8 +2,8 @@ import solutionsSubCategorySub from "../subSubCategories/solutionsSubCategories/
 
 const solutionsSubCategories: { [key: string]: object | any }[] = [
   {
-    "text": "",
-    "subCategoriesSub": solutionsSubCategorySub
+    text: "",
+    subCategoriesSub: solutionsSubCategorySub
   }
 ];
 
