@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, Dispatch, SetStateAction } from "react";
 import { makeStyles } from "@material-ui/core";
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
@@ -22,16 +22,18 @@ import InputBase from "@material-ui/core/InputBase";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import clsx from "clsx";
 import useGlobalStyles from "../theme/globalStyles/globalStyles";
+import rootCategory from "../data/rootCategories/rootCategory";
+import servicesCategories from "../data/rootCategories/categories/servicesCategories";
+import technologiesCategories from "../data/rootCategories/categories/technologiesCategories";
+import solutionsCategories from "../data/rootCategories/categories/solutionsCategories";
+import blogAndNewsCategories from "../data/rootCategories/categories/blogAndNewsCategories";
+import servicesSubCategories from "../data/rootCategories/subCategories/servicesSubCategory";
+import technologiesSubCategories from "../data/rootCategories/subCategories/technologiesSubCategory";
+import solutionsSubCategories from "../data/rootCategories/subCategories/solutionsSubCategory";
+import blogAndNewsSubCategories from "../data/rootCategories/subCategories/blogAndNewsSubCategory";
+import servicesSubCategorySubLinks
+  from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubSubCategoryLinks";
 
-const linksServicesSoftwareDevelopment = [
-  { text: "Development Services We Provide", url: "", type:"subSubCategory", parent:"servicesSoftwareDevelopment"},
-  { text: "Software We Develop", url: "", type:"subSubCategory", parent:"servicesSoftwareDevelopment"},
-  { text: "Why moduleX", url: "", type:"subSubCategory", parent:"servicesSoftwareDevelopment"},
-  { text: "What Defines Modern Software", url: "", type:"subSubCategory", parent:"servicesSoftwareDevelopment"},
-  { text: "Technologies We Use", url: "", type:"subSubCategory", parent:"servicesSoftwareDevelopment"},
-  { text: "Software Types We develop", url: "", type:"subSubCategory", parent:"servicesSoftwareDevelopment"}
-];
-const links = [];
 const blogs = [
   {
     img: "/card1.svg",
@@ -377,17 +379,20 @@ const useStyles = makeStyles((theme) => ({
 const Index = () => {
   const classes = useStyles();
   const globalClasses = useGlobalStyles();
-  const [tab, setTab] = useState([true, false, false, false]);
-  const handleClickWwdTab = useCallback((idx) => {
-    const val = tab[idx];
-    for(let i=0; i<4; i++){
-      if(i == idx) continue;
-      tab[i] = false;
-    }
-    tab[idx] = !val;
-    const newTab = Object.assign([], tab);
-    setTab(newTab);
-  }, [tab]);
+  // const [tab, setTab] = useState([true, false, false, false]);
+  const [category, setCategory] = useState(servicesCategories);
+  const [subCategory, setSubCategory] = useState(servicesSubCategories);
+  const [subSubCategoryLinks, setSubSubCategoryLinks] = useState(servicesSubCategorySubLinks);
+  const handleClickWwdTab = useCallback(
+    (idx) => {
+      // console.log(" setting category to idx: ", idx, " and current category is: ", category, " and setting to category: ", rootCategory[idx]);
+      setCategory(rootCategory[idx]);
+      setSubCategory(rootCategory[idx][0]);
+      setSubSubCategoryLinks(rootCategory[idx]["subCategories"][0]["subSubCategoriesLinks"]);
+      console.log(" idx: ", idx, " categoryLinks: ", subSubCategoryLinks);
+    },
+    [category]
+  );
   return (
     <Layout>
       <Card customStyles={clsx(classes.card, globalClasses.cardGlassEffect)} blurActive={true}>
@@ -437,7 +442,8 @@ const Index = () => {
             onClick={handleClickWwdTab.bind(null, 0)}
             style={{ flexShrink: 0 }}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab[0]
+              // [globalClasses.cardNormalBtnActive]: tab[0]
+              [globalClasses.cardNormalBtnActive]: category === servicesCategories ? true : false
             })}>
             Services
           </ButtonBase>
@@ -445,7 +451,9 @@ const Index = () => {
             disableRipple
             onClick={handleClickWwdTab.bind(null, 1)}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab[1]
+              // [globalClasses.cardNormalBtnActive]: tab[1]
+              [globalClasses.cardNormalBtnActive]:
+                category === technologiesCategories ? true : false
             })}>
             Technologies
           </ButtonBase>
@@ -453,7 +461,8 @@ const Index = () => {
             disableRipple
             onClick={handleClickWwdTab.bind(null, 2)}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab[2]
+              // [globalClasses.cardNormalBtnActive]: tab[2]
+              [globalClasses.cardNormalBtnActive]: category === solutionsCategories ? true : false
             })}>
             Solutions
           </ButtonBase>
@@ -461,48 +470,85 @@ const Index = () => {
             disableRipple
             onClick={handleClickWwdTab.bind(null, 3)}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab[3]
+              // [globalClasses.cardNormalBtnActive]: tab[3]
+              [globalClasses.cardNormalBtnActive]: category === blogAndNewsCategories ? true : false
             })}>
             Blog & News
           </ButtonBase>
         </div>
         <div className={classes.wwdBody}>
-          {tab[0] && (
-              <>
-                <div className={classes.wwdSider}>
-                    <div className={globalClasses.cardSmallTitle}>Software Development</div>
-                    <div className={classes.wwdSideMenuItem}>Data Analytics</div>
-                    <div className={classes.wwdSideMenuItem}>UI/UX Design</div>
-                    <div className={classes.wwdSideMenuItem}>Testing And QA</div>
-                    <div className={classes.wwdSideMenuItem}>Infrastructure Services</div>
-                    <div className={classes.wwdSideMenuItem}>IT OutSourcing</div>
-                    <div className={classes.wwdSideMenuItem}>IT Consulting</div>
-                    <div className={classes.wwdSideMenuItem}>IT Support</div>
+          {/*{(category === 0) && (*/}
+          {/*  <>*/}
+          {/*    <div className={classes.wwdSider}>*/}
+          {/*      <div className={globalClasses.cardSmallTitle}>Software Development</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>Data Analytics</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>UI/UX Design</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>Testing And QA</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>Infrastructure Services</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>IT OutSourcing</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>IT Consulting</div>*/}
+          {/*      <div className={classes.wwdSideMenuItem}>IT Support</div>*/}
+          {/*    </div>*/}
+          {/*    <div className={classes.wwdContent}>*/}
+          {/*      <div className={globalClasses.cardMediumTitle}>Software Development</div>*/}
+          {/*      <div className={globalClasses.cardSmallText}>*/}
+          {/*        The development of reliable and scalable software solutions for any OS, browser*/}
+          {/*        and device. We bring together deep industry expertise and the latest IT*/}
+          {/*        advancements to deliver custom solutions and products that perfectly fit the needs*/}
+          {/*        and behavior of their users.*/}
+          {/*      </div>*/}
+          {/*      <div className={classes.wwdLinks}>*/}
+          {/*        {servicesSoftwareDevelopmentLinks.map((item, index) => {*/}
+          {/*          return (*/}
+          {/*            <div key={index} className={classes.wwdLinkItem}>*/}
+          {/*              <span className={classes.wwdDot}></span>*/}
+          {/*              <Link href={item.url} color="inherit" className={classes.wwdLink}>*/}
+          {/*                {item.text}*/}
+          {/*              </Link>*/}
+          {/*            </div>*/}
+          {/*          );*/}
+          {/*        })}*/}
+          {/*      </div>*/}
+          {/*    </div>*/}
+          {/*  </>*/}
+          {/*)}*/}
+          <div className={classes.wwdSider}>
+            {category["subCategories"].map(
+              (subCategory: { [key: string]: object | any }, index: number) => {
+                return (
+                  <>
+                    <div className={globalClasses.cardSmallTitle}>{subCategory.text}</div>
+                    {subCategory["subSubCategoriesLinks"].map(
+                      (link: { [key: string]: object | any }, linkIndex: number) => {
+                        return <div className={classes.wwdSideMenuItem}>{link}</div>;
+                      }
+                    )}
+                  </>
+                );
+              }
+            )}
+          </div>
+          <div className={classes.wwdContent}>
+            <div className={globalClasses.cardMediumTitle}>Software Development</div>
+            <div className={globalClasses.cardSmallText}>
+              The development of reliable and scalable software solutions for any OS, browser and
+              device. We bring together deep industry expertise and the latest IT advancements to
+              deliver custom solutions and products that perfectly fit the needs and behavior of
+              their users.
+            </div>
+            <div className={classes.wwdLinks}>
+              {subSubCategoryLinks.map((link: { [key: string]: object | any }, index: number) => {
+                return (
+                  <div key={index} className={classes.wwdLinkItem}>
+                    <span className={classes.wwdDot}></span>
+                    <Link href={link.url} color="inherit" className={classes.wwdLink}>
+                      {link.text}
+                    </Link>
                   </div>
-                <div className={classes.wwdContent}>
-                  <div className={globalClasses.cardMediumTitle}>Software Development</div>
-                  <div className={globalClasses.cardSmallText}>
-                  The development of reliable and scalable software solutions for any OS, browser and
-                  device. We bring together deep industry expertise and the latest IT advancements to
-                  deliver custom solutions and products that perfectly fit the needs and behavior of
-                  their users.
-                  </div>
-                  <div className={classes.wwdLinks}>
-                  {linksServicesSoftwareDevelopment.map((item, index) => {
-                    return (
-                        <div key={index} className={classes.wwdLinkItem}>
-                          <span className={classes.wwdDot}></span>
-                          <Link href={item.url} color="inherit" className={classes.wwdLink}>
-                            {item.text}
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </>
-          )}
-
+                );
+              })}
+            </div>
+          </div>
         </div>
       </Card>
       <Card

@@ -194,7 +194,7 @@ const useStyles = makeStyles((theme) =>
       zIndex: -10000
     },
     serviceContainer: {
-      height:"auto",
+      height: "auto",
       display: "flex",
       justifyContent: "space-between",
       padding: "107px 280px",
@@ -257,17 +257,17 @@ const useStyles = makeStyles((theme) =>
       "&:active": {
         color: "#CBD5E5",
         "&:after": {
-            content: "''",
-            position: "absolute",
-            left: 0,
-            top: 0,
-            right: 0,
-            bottom: 0,
-            boxShadow:
-                "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
-            borderRadius: "8px"
+          content: "''",
+          position: "absolute",
+          left: 0,
+          top: 0,
+          right: 0,
+          bottom: 0,
+          boxShadow:
+            "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
+          borderRadius: "8px"
         }
-      },
+      }
     },
     serviceCol2Btn: {
       color: "#2699FB",
@@ -1314,9 +1314,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </div>
           <div className={classes.serviceCol1}>
             <div>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                    Check out our updates
-                </Link>
+              <Link className={classes.serviceCol4Link} href={"#"}>
+                Check out our updates
+              </Link>
             </div>
           </div>
         </div>
