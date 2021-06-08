@@ -80,15 +80,16 @@ const useStyles = makeStyles((theme) =>
     },
     toolbar: {
       display: "flex",
-      justifyContent: "space-between",
       alignItems: "center",
       width: "100%",
       paddingLeft: "14.7%",
-      paddingRight: "14.2%"
+      paddingRight: "14.2%",
+      position: "relative"
     },
     toolbarGrp1: {
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
+      marginRight: "202px"
     },
     toolbarGrp2: {
       display: "flex",
@@ -96,11 +97,15 @@ const useStyles = makeStyles((theme) =>
     },
     toolbarGrp3: {
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
+      position: "absolute",
+      right: "283px"
     },
     toolbarGrp4: {
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
+      position: "absolute",
+      right: "463px"
     },
     drawer: {
       position: "absolute"
@@ -132,7 +137,7 @@ const useStyles = makeStyles((theme) =>
       marginRight: "26px"
     },
     searchInputWrapper: {
-      width: "870px",
+      opacity: 0,
       height: "44px",
       position: "relative",
       background: "inherit",
@@ -199,6 +204,34 @@ const useStyles = makeStyles((theme) =>
       justifyContent: "space-between",
       padding: "107px 280px",
       backgroundColor: "#f7f8fa"
+    },
+    technologiesContainer: {
+      display: "flex",
+      padding: "107px 280px",
+      backgroundColor: "#f7f8fa",
+      height: "500px"
+    },
+    technologiesCol1: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      width: "430px",
+      marginRight: "104px"
+    },
+    technologiesCol2: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      marginRight: "177px"
+    },
+    technologiesCol3: {
+      display: "flex",
+      flexDirection: "column",
+      marginRight: "115px"
+    },
+    technologiesCol4: {
+      display: "flex",
+      flexDirection: "column"
     },
     serviceCol1: {
       display: "flex",
@@ -360,7 +393,6 @@ const useStyles = makeStyles((theme) =>
       width: "700px",
       height: "aoto",
       left: -500,
-      transform: "scale(0.1)",
       top: "1350px",
       zIndex: -49
     },
@@ -368,8 +400,8 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       width: "185px",
       height: "auto",
-      left: "200px",
-      top: "1000px",
+      left: "-300px",
+      top: "1200px",
       zIndex: -50
     },
     rectB: {
@@ -384,7 +416,7 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: -300,
+      left: 100,
       top: "1000px",
       zIndex: -50
     },
@@ -392,8 +424,8 @@ const useStyles = makeStyles((theme) =>
       position: "fixed",
       width: "156px",
       height: "auto",
-      left: -100,
-      top: 1000,
+      left: -300,
+      top: 1100,
       zIndex: -100
     },
     triangle: {
@@ -770,24 +802,30 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     });
     ballTl.add({
       targets: ["#ball"],
-      top: -100,
-      left: "1200px",
-      rotate: "360deg",
-      duration: 30000
+      top: 100,
+      left: "1300px",
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
+      duration: 40000
     });
     circleTl.add({
       targets: ["#circle"],
       top: -300,
       left: "700px",
-      rotate: "360deg",
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 0,
-      duration: 30000
+      duration: 40000
     });
     circleBTl.add({
       targets: ["#circleB"],
       top: 800,
       left: "2600px",
-      rotate: "360deg",
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 500,
       duration: 50000
     });
@@ -795,7 +833,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#circleSB"],
       left: "2000px",
       top: -200,
-      rotate: "360deg",
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 50000,
       duration: 60000
     });
@@ -803,7 +843,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#cube"],
       left: "1500px",
       top: -400,
-      rotate: "360deg",
+      scale: [2, 2],
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 33000,
       duration: 40000
     });
@@ -811,63 +854,82 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       targets: ["#cubeB"],
       left: "1400px",
       top: -600,
-      delay: 0,
-      rotate: "360deg",
+      delay: 3000,
+      scale: [0.5, 0.5],
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 50000
     });
     eggTl.add({
       targets: ["#egg"],
       left: "1100px",
       top: -400,
-      delay: 35000,
-      rotate: "360deg",
+      delay: 40000,
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 30000
     });
     rectTl.add({
       targets: ["#rect"],
-      left: "1500px",
-      top: -100,
-      delay: 16000,
-      rotate: "360deg",
-      duration: 30000
+      left: "900px",
+      top: -300,
+      delay: 10000,
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
+      duration: 40000
     });
     rectBTl.add({
       targets: ["#rectB"],
-      left: "1100px",
+      left: "1300px",
       top: "-600px",
-      delay: 33000,
-      rotate: "360deg",
+      scale: [0.5, 0.5],
+      delay: 34000,
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 50000
     });
     tetrahedronTl.add({
       targets: ["#tetrahedron"],
       left: "900px",
       top: 100,
-      delay: 19000,
-      rotate: "360deg",
-      duration: 30000
+      delay: 21000,
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
+      duration: 40000
     });
     tetrahedronBTl.add({
       targets: ["#tetrahedronB"],
-      left: "800px",
-      top: 0,
+      left: "1300px",
+      top: 200,
       delay: 1600,
-      rotate: "360deg",
+      scale: [0.8, 0.8],
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       duration: 50000
     });
     triangleTl.add({
       targets: ["#triangle"],
       left: "2000px",
       top: 100,
-      rotate: "360deg",
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 9000,
-      duration: 30000
+      duration: 40000
     });
     triangleBTl.add({
       targets: ["#triangleB"],
       left: "1500px",
       top: 0,
-      rotate: "360deg",
+      rotate: function () {
+        return anime.random(-360, 360);
+      },
       delay: 14000,
       duration: 50000
     });
@@ -914,22 +976,35 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       loop: false
     });
     if (!searchOpen) {
-      console.log(" is opening!");
-      searchInputVar.add({
-        targets: [`.${classes.searchInputWrapper}`],
-        width: "870px",
-        duration: 270
-      });
+      searchInputVar
+        .add({
+          targets: ["#tabs"],
+          translateY: -50,
+          opacity: 0,
+          duration: 500
+        })
+        .add({
+          targets: [`#searchInput`],
+          width: "764px",
+          opacity: 1,
+          duration: 270
+        });
     } else {
-      console.log(" is closing! ");
-      searchInputVar.add({
-        targets: [`.${classes.searchInputWrapper}`],
-        width: "10px",
-        duration: 270
-      });
+      searchInputVar
+        .add({
+          targets: [`.${classes.searchInputWrapper}`],
+          width: "41px",
+          opacity: 0,
+          duration: 500
+        })
+        .add({
+          targets: ["#tabs"],
+          translateY: 0,
+          opacity: 1,
+          duration: 500
+        });
     }
     setSearchOpen(!searchOpen);
-    console.log(" toggle UserOpen! Now SearchState: " + searchOpen);
   }, [searchOpen]);
   const toggleUserOpen = useCallback(() => {
     console.log(" toggle UserOpen! Now UserState: " + userOpen + " and !userOpen: " + !userOpen);
@@ -1019,22 +1094,18 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <LogoIcon />
             <span className={classes.nameText}>ModuleX</span>
           </Link>
-          {searchOpen ? null : (
-            <div className={classes.toolbarGrp2}>
-              <Tabs
-                onChange={handleChange}
-                menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+          <div id={"tabs"} className={classes.toolbarGrp2}>
+            <Tabs
+              onChange={handleChange}
+              menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+          </div>
+          <div className={classes.toolbarGrp4}>
+            <div id={"searchInput"} className={classes.searchInputWrapper}>
+              <SearchIcon />
+              <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
             </div>
-          )}
+          </div>
           <div className={classes.toolbarGrp3}>
-            {searchOpen ? (
-              <div className={classes.toolbarGrp4}>
-                <div className={classes.searchInputWrapper}>
-                  <SearchIcon />
-                  <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
-                </div>
-              </div>
-            ) : null}
             {searchOpen ? (
               <Button key={"close"} onClick={toggleSearchOpen} className={classes.searchCloseBtn}>
                 <CloseIcon />
@@ -1080,7 +1151,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <Link className={classes.serviceCol3Link} href={"#"}>
               Software Development
             </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
+            <Link className={classes.serviceCol3Link} href={"/services/WebDesignService"}>
               UI/UX Design
             </Link>
             <Link className={classes.serviceCol3Link} href={"#"}>
@@ -1100,15 +1171,15 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <Link className={classes.serviceCol4Link} href={"#"}>
               IT Consulting
             </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
+            <Link className={classes.serviceCol4Link} href={"/services/ITSupport"}>
               IT Support
             </Link>
           </div>
         </div>
       </Drawer>
       <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
-        <div className={classes.serviceContainer}>
-          <div className={classes.serviceCol1}>
+        <div className={classes.technologiesContainer}>
+          <div className={classes.technologiesCol1}>
             <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
               Technologies
             </div>
@@ -1127,7 +1198,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </ButtonBase>
             </div>
           </div>
-          <div className={classes.serviceCol2}>
+          <div className={classes.technologiesCol2}>
             <div>
               <ButtonBase
                 className={clsx(classes.serviceCol2Btn, {
@@ -1165,7 +1236,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </div>
           {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
             <>
-              <div className={classes.serviceCol3}>
+              <div className={classes.technologiesCol3}>
                 <Link className={classes.serviceCol3Link} href={"#"}>
                   Java
                 </Link>
@@ -1179,7 +1250,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   C++
                 </Link>
               </div>
-              <div className={classes.serviceCol4}>
+              <div className={classes.technologiesCol4}>
                 <Link className={classes.serviceCol4Link} href={"#"}>
                   JavaScript
                 </Link>
@@ -1197,7 +1268,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           )}
           {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
             <>
-              <div className={classes.serviceCol3}>
+              <div className={classes.technologiesCol3}>
                 <Link className={classes.serviceCol3Link} href={"#"}>
                   Data Science
                 </Link>
@@ -1211,7 +1282,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   Big Data
                 </Link>
               </div>
-              <div className={classes.serviceCol4}>
+              <div className={classes.technologiesCol4}>
                 <Link className={classes.serviceCol4Link} href={"#"}>
                   Internet Of Things
                 </Link>
@@ -1223,7 +1294,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           )}
           {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
             <>
-              <div className={classes.serviceCol3}>
+              <div className={classes.technologiesCol3}>
                 <Link className={classes.serviceCol3Link} href={"#"}>
                   Amazon Web Service
                 </Link>

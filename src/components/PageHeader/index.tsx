@@ -52,6 +52,8 @@ const PageHeader: React.FC<IPageHeaderProps> = (props) => {
   }
   if (pathArr[2] == "ITSupport") {
     path1 = "IT Support Services";
+  } else if (pathArr[2] == "WebDesignService") {
+    path1 = "UI/UX(Web Design Services)";
   }
 
   return (

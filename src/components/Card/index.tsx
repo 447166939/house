@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
