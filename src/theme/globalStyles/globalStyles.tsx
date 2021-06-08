@@ -8,14 +8,18 @@ const useGlobalStyles = makeStyles((theme) => ({
     color: "#fff",
     fontSize: "12px",
     lineHeight: "30px",
-    backgroundColor: "rgba(247, 248, 250, .6)",
+    backdropFilter: "blur(23px)",
+    backgroundColor: "rgba(247, 248, 250, .45)",
     borderRadius: "4px",
     boxShadow: "-8px -4px 12px 3px #7b3bed30, 8px 4px 12px 6px #30cfda5d",
+    marginTop: "30px",
+    zIndex: 100,
     "&:active": {
-      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
+      color: "#CBD5E5",
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
-      opacity: 0.6
+      opacity: 0.45,
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30"
     }
   },
   mainMenuBtn: {
@@ -91,6 +95,8 @@ const useGlobalStyles = makeStyles((theme) => ({
   normalBtnBoxShadowActive: {
     boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset"
   },
+  // Decorator
+
   // Cards
   cardBlurBackground: {
     backdropFilter: "blur(23px)",
@@ -121,15 +127,26 @@ const useGlobalStyles = makeStyles((theme) => ({
     position: "relative",
     marginBottom: theme.spacing(2)
   },
-  cardTitleDashLine: {
+  cardTitleDashLineBlue: {
     "&:after": {
       content: "''",
       position: "absolute",
       width: "60px",
       height: "4px",
-      backgroundColor: "#ffef96",
       bottom: 0,
-      left: 0
+      left: 0,
+      backgroundColor: "#2699FB"
+    }
+  },
+  cardTitleDashLineGold: {
+    "&:after": {
+      content: "''",
+      position: "absolute",
+      width: "60px",
+      height: "4px",
+      bottom: 0,
+      left: 0,
+      backgroundColor: "#ffef96"
     }
   },
   cardBigText: {
@@ -146,6 +163,67 @@ const useGlobalStyles = makeStyles((theme) => ({
     fontSize: "16px",
     color: "#000000",
     lineHeight: "16px"
+  },
+  // Effects
+  cardGlassEffect: {
+    position: "relative",
+    overflow: "hidden",
+    "&:after": {
+      content: "''",
+      position: "absolute",
+      top: "0px",
+      left: "-1000px",
+      width: "100%",
+      height: "100%",
+      opacity: 0.5,
+      transform: "translateX(-100%)",
+      background:
+        "linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.09) 75%, rgba(255, 255, 255, 0.36) 90%, rgba(255, 255, 255, 0.12) 100%)"
+    },
+    "&:hover:after": {
+      width: "100%",
+      height: "100%",
+      opacity: 0.5,
+      top: "0px",
+      left: "0px",
+      transform: "translateX(15%)",
+      transitionProperty: "transform, opacity",
+      transitionDuration: "0.45s, 0.15s",
+      transitionTimingFunction: "cubic-bezier"
+    }
+  },
+  // Colors
+  // Text Colors
+  textWhite: {
+    color: "#FFFFFF"
+  },
+  textBlack: {
+    color: "#000000"
+  },
+  textBlue: {
+    color: "#2699FB"
+  },
+  textGrey: {
+    color: "#CBD5E5"
+  },
+  textGold: {
+    color: "#ffef96"
+  },
+  // backGround Colors
+  backgroundColorWhite: {
+    backgroundColor: "#FFFFFF"
+  },
+  backgroundColorBlack: {
+    backgroundColor: "#000000"
+  },
+  backgroundColorBlue: {
+    backgroundColor: "#2699FB"
+  },
+  backgroundColorGrey: {
+    backgroundColor: "#CBD5E5"
+  },
+  backgroundColoGold: {
+    backgroundColor: "#ffef96"
   }
 }));
 

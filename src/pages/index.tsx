@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, Dispatch, SetStateAction } from "react";
 import { makeStyles } from "@material-ui/core";
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
@@ -22,15 +22,18 @@ import InputBase from "@material-ui/core/InputBase";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import clsx from "clsx";
 import useGlobalStyles from "../theme/globalStyles/globalStyles";
+import rootCategory from "../data/rootCategories/rootCategory";
+import servicesCategories from "../data/rootCategories/categories/servicesCategories";
+import technologiesCategories from "../data/rootCategories/categories/technologiesCategories";
+import solutionsCategories from "../data/rootCategories/categories/solutionsCategories";
+import blogAndNewsCategories from "../data/rootCategories/categories/blogAndNewsCategories";
+import servicesSubCategories from "../data/rootCategories/subCategories/servicesSubCategory";
+import technologiesSubCategories from "../data/rootCategories/subCategories/technologiesSubCategory";
+import solutionsSubCategories from "../data/rootCategories/subCategories/solutionsSubCategory";
+import blogAndNewsSubCategories from "../data/rootCategories/subCategories/blogAndNewsSubCategory";
+import servicesSubCategorySubDataAnalyticsLinks from "../data/rootCategories/subSubCategoriesLinks/servicesLinks/servicesSubCategorySubDataAnalyticsLinks";
+import servicesSubCategoriesSub from "../data/rootCategories/subSubCategories/servicesSubCategories/servicesSubCategoriesSub";
 
-const links = [
-  { text: "Development Services We Provide", url: "" },
-  { text: "Software We Develop", url: "" },
-  { text: "Why moduleX", url: "" },
-  { text: "What Defines Modern Software", url: "" },
-  { text: "Technologies We Use", url: "" },
-  { text: "Software Types We develop", url: "" }
-];
 const blogs = [
   {
     img: "/card1.svg",
@@ -134,6 +137,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "30px"
   },
   wwdSider: {
+    // maxHeight: "600px",
+    maxHeight: "inherit",
+    overFlow: "hidden",
     width: "331px",
     color: "#000",
     outline: "none",
@@ -146,7 +152,11 @@ const useStyles = makeStyles((theme) => ({
     padding: "50px 0"
   },
   wwdSideMenuItem: {
-    lineHeight: "50px"
+    lineHeight: "50px",
+    "&:hover": {
+      cursor: "pointer",
+      textDecoration: "underline"
+    }
   },
   wwdContent: {
     flex: 1,
@@ -376,13 +386,43 @@ const useStyles = makeStyles((theme) => ({
 const Index = () => {
   const classes = useStyles();
   const globalClasses = useGlobalStyles();
-  const [tab, setTab] = useState();
-  const handleClickWwdTab = useCallback((tab) => {
-    setTab(tab);
-  }, []);
+  const [category, setCategory] = useState(servicesCategories);
+  const [subCategory, setSubCategory] = useState(servicesSubCategories);
+  const [subCategorySub, setSubCategorySub] = useState(servicesSubCategoriesSub);
+  const [subCategorySubLinks, setSubCategorySubLinks] = useState(
+    servicesSubCategorySubDataAnalyticsLinks
+  );
+  // all the click handlers
+  const handleClickCategory = useCallback(
+    (idx) => {
+      setCategory(rootCategory[idx]);
+      setSubCategory(rootCategory[idx]["subCategories"]);
+      setSubCategorySub(rootCategory[idx]["subCategories"][0]["subCategoriesSub"]);
+      setSubCategorySubLinks(rootCategory[idx]["subCategories"][0]["subCategoriesSub"][0]["links"]);
+      // console.log(" idx: ", idx, " subCategorySubLinks: ", subCategorySubLinks);
+    },
+    [category]
+  );
+  const handleClickSubCategory = useCallback(
+    (subCate) => {
+      setSubCategory(subCate);
+      setSubCategorySub(subCate["subCategoriesSub"]);
+      setSubCategorySubLinks(subCate["subCategoriesSub"][0]["links"]);
+      // console.log(" subCate: ", subCate, " subCategorySubLinks: ", subCate["subCategoriesSub"][0]["links"]);
+    },
+    [category]
+  );
+  const handleClickSubCategorySub = useCallback(
+    (subCateSubItem) => {
+      // console.log(" subCateSub: ", subCateSubItem, " [\"links\"]: ", subCateSubItem["links"], " this is just change the links");
+      setSubCategorySubLinks(subCateSubItem["links"]);
+      // console.log(" subCateSubItem: ", subCateSubItem, " subCategorySubLinks: ", subCateSubItem["links"]);
+    },
+    [category]
+  );
   return (
     <Layout>
-      <Card customStyles={classes.card} blurActive={true}>
+      <Card customStyles={clsx(classes.card, globalClasses.cardGlassEffect)} blurActive={true}>
         <h1 className={globalClasses.cardMediumTitle}>
           SOFTWARE CONSULTING AND DEVELOPMENT FOR YOUR DIGITAL SUCCESS
         </h1>
@@ -394,7 +434,7 @@ const Index = () => {
           KNOW MORE
         </ButtonBase>
       </Card>
-      <div className={classes.aboutSection}>
+      <Card customStyles={classes.aboutSection} blurActive={false}>
         <div className={classes.aboutLeft}>
           <Swiper slidesPerView={1} pagination={{ clickable: true }}>
             <SwiperSlide>
@@ -403,7 +443,7 @@ const Index = () => {
           </Swiper>
         </div>
         <div className={classes.aboutRight}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
             About us
           </div>
           <div className={globalClasses.cardMediumText}>
@@ -418,56 +458,85 @@ const Index = () => {
             best service across the Pacific Ocean between America, Asia and Europe.
           </div>
         </div>
-      </div>
-      <div className={classes.wwdSection}>
-        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+      </Card>
+      <Card customStyles={classes.wwdSection} blurActive={false}>
+        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
           What We Do
         </div>
         <div className={classes.wwdTab}>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 0)}
+            onClick={handleClickCategory.bind(null, 0)}
             style={{ flexShrink: 0 }}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab == 0
-            })}>
-            Technologies
-          </ButtonBase>
-          <ButtonBase
-            disableRipple
-            onClick={handleClickWwdTab.bind(null, 1)}
-            className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab == 1
+              // [globalClasses.cardNormalBtnActive]: tab[0]
+              [globalClasses.cardNormalBtnActive]: category === servicesCategories ? true : false
             })}>
             Services
           </ButtonBase>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 2)}
+            onClick={handleClickCategory.bind(null, 1)}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab == 2
+              // [globalClasses.cardNormalBtnActive]: tab[1]
+              [globalClasses.cardNormalBtnActive]:
+                category === technologiesCategories ? true : false
+            })}>
+            Technologies
+          </ButtonBase>
+          <ButtonBase
+            disableRipple
+            onClick={handleClickCategory.bind(null, 2)}
+            className={clsx(globalClasses.cardNormalBtn, {
+              // [globalClasses.cardNormalBtnActive]: tab[2]
+              [globalClasses.cardNormalBtnActive]: category === solutionsCategories ? true : false
             })}>
             Solutions
           </ButtonBase>
           <ButtonBase
             disableRipple
-            onClick={handleClickWwdTab.bind(null, 3)}
+            onClick={handleClickCategory.bind(null, 3)}
             className={clsx(globalClasses.cardNormalBtn, {
-              [globalClasses.cardNormalBtnActive]: tab == 3
+              // [globalClasses.cardNormalBtnActive]: tab[3]
+              [globalClasses.cardNormalBtnActive]: category === blogAndNewsCategories ? true : false
             })}>
             Blog & News
           </ButtonBase>
         </div>
         <div className={classes.wwdBody}>
           <div className={classes.wwdSider}>
-            <div className={globalClasses.cardSmallTitle}>Software Development</div>
-            <div className={classes.wwdSideMenuItem}>Data Analytics</div>
-            <div className={classes.wwdSideMenuItem}>UI/UX Design</div>
-            <div className={classes.wwdSideMenuItem}>Testing And QA</div>
-            <div className={classes.wwdSideMenuItem}>Infrastructure Services</div>
-            <div className={classes.wwdSideMenuItem}>IT OutSourcing</div>
-            <div className={classes.wwdSideMenuItem}>IT Consulting</div>
-            <div className={classes.wwdSideMenuItem}>IT Support</div>
+            {category["subCategories"].map(
+              (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
+                return (
+                  <>
+                    <div
+                      className={globalClasses.cardSmallTitle}
+                      onClick={handleClickSubCategory.bind(null, subCategory)}
+                      key={subCategoryIndex}>
+                      {subCategory.text}
+                    </div>
+                    {subCategory["subCategoriesSub"].map(
+                      (
+                        subCategoriesSubItem: { [key: string]: object | any },
+                        subCategoriesSubIndex: number
+                      ) => {
+                        return (
+                          <div
+                            className={clsx(classes.wwdSideMenuItem, {
+                              [globalClasses.textBlue]:
+                                subCategorySubLinks === subCategoriesSubItem["links"] ? true : false
+                            })}
+                            onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)}
+                            key={subCategoriesSubIndex}>
+                            {subCategoriesSubItem["text"]}
+                          </div>
+                        );
+                      }
+                    )}
+                  </>
+                );
+              }
+            )}
           </div>
           <div className={classes.wwdContent}>
             <div className={globalClasses.cardMediumTitle}>Software Development</div>
@@ -478,12 +547,12 @@ const Index = () => {
               their users.
             </div>
             <div className={classes.wwdLinks}>
-              {links.map((item, index) => {
+              {subCategorySubLinks.map((link: { [key: string]: object | any }, index: number) => {
                 return (
                   <div key={index} className={classes.wwdLinkItem}>
                     <span className={classes.wwdDot}></span>
-                    <Link href={item.url} color="inherit" className={classes.wwdLink}>
-                      {item.text}
+                    <Link href={link.url} color="inherit" className={classes.wwdLink}>
+                      {link.text}
                     </Link>
                   </div>
                 );
@@ -491,10 +560,12 @@ const Index = () => {
             </div>
           </div>
         </div>
-      </div>
-      <Card customStyles={classes.partnerCard} blurActive={true}>
+      </Card>
+      <Card
+        customStyles={clsx(classes.partnerCard, globalClasses.cardGlassEffect)}
+        blurActive={true}>
         <div className={classes.partnerLeft}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
             Partners
           </div>
           <div className={globalClasses.cardMediumText}>
@@ -516,7 +587,9 @@ const Index = () => {
         </div>
       </Card>
       <div className={classes.sectionThreeCard}>
-        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
+        <Card
+          customStyles={clsx(classes.threeCardWrapper, globalClasses.cardGlassEffect)}
+          blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/service.svg"} />
           </div>
@@ -531,7 +604,9 @@ const Index = () => {
             </ButtonBase>
           </div>
         </Card>
-        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
+        <Card
+          customStyles={clsx(classes.threeCardWrapper, globalClasses.cardGlassEffect)}
+          blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/techonologies.svg"} />
           </div>
@@ -546,7 +621,9 @@ const Index = () => {
             </ButtonBase>
           </div>
         </Card>
-        <Card customStyles={classes.threeCardWrapper} blurActive={true}>
+        <Card
+          customStyles={clsx(classes.threeCardWrapper, globalClasses.cardGlassEffect)}
+          blurActive={true}>
           <div className={classes.threeCardImgWrapper}>
             <img className={classes.threeCardImg} src={"/solution.svg"} />
           </div>
@@ -561,8 +638,8 @@ const Index = () => {
           </div>
         </Card>
       </div>
-      <div className={classes.sectionBlogs}>
-        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLine)}>
+      <Card customStyles={classes.sectionBlogs} blurActive={false}>
+        <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
           Blogs
         </div>
         <div>
@@ -598,7 +675,7 @@ const Index = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-      </div>
+      </Card>
     </Layout>
   );
 };
