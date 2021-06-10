@@ -30,7 +30,10 @@ import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 import theme from "../../theme";
-export interface IUPIconProps {}
+import { px2vw, px2vwMo } from "@/utils/pxtovw";
+import MenuIcon from "@material-ui/icons/Menu";
+
+export interface IUPIconProps {};
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
 };
@@ -213,7 +216,7 @@ const useStyles = makeStyles((theme) =>
     nameText: {
       color: "#2699FB",
       marginLeft: theme.spacing(2),
-      fontSize: "25px",
+      fontSize: `${px2vw(25)}`,
       fontWeight: "bold",
       marginRight: "10.5%",
       flexShrink: 0
@@ -365,17 +368,23 @@ const useStyles = makeStyles((theme) =>
       lineHeight: "50px"
     },
     upAnchor: {
+      height: px2vw(60),
+      width: px2vw(60),
       position: "fixed",
-      bottom: "397px",
+      bottom: "197px",
       right: "50px",
       backgroundColor: "#fff",
+      boxShadow: "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.3) -6px -2px 16px 0px",
       zIndex: 30000
     },
     chatBtn: {
+      height: px2vw(60),
+      width: px2vw(60),
       position: "fixed",
-      bottom: "317px",
+      bottom: "117px",
       right: "50px",
       backgroundColor: "#fff",
+      boxShadow: "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.3) -6px -2px 16px 0px",
       zIndex: 30000
     },
     ball: {
@@ -548,7 +557,8 @@ const useStyles = makeStyles((theme) =>
       borderRadius: "8px",
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
-      opacity: 0.6
+      opacity: 0.6,
+      zIndex: 1
     },
     contactInput: {
       color: "#000"
