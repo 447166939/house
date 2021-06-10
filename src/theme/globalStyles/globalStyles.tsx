@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import {px2vwMo} from "@/utils/pxtovw";
 
 const useGlobalStyles = makeStyles((theme) => ({
   // for Buttons
@@ -114,11 +115,16 @@ const useGlobalStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2)
   },
   cardMediumTitle: {
+    textAlign:'center',
     fontSize: "32px",
     lineHeight: "48px",
     fontWeight: "bold",
     position: "relative",
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down('sm')]:{
+      fontSize:`${px2vwMo(40)}`,
+      lineHeight:`${px2vwMo(48)}`,
+    }
   },
   cardSmallTitle: {
     fontSize: "24px",

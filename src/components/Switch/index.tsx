@@ -2,6 +2,7 @@ import React, { useState, useCallback } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core";
 import anime from "animejs";
+import {px2vw, px2vwMo} from "@/utils/pxtovw";
 
 const useStyles = makeStyles((theme) => ({
   swContainer: {
@@ -18,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "18px",
     textTransform: "uppercase",
     display: "flex",
+    [theme.breakpoints.down('sm')]:{
+    width:`${px2vwMo(73)}`,
+      height:`${px2vwMo(37)}`,
+    },
+    [theme.breakpoints.down('xs')]:{
+      width:`${px2vwMo(120)}`,
+      height:`${px2vwMo(57)}`,
+    },
     "&:after": {
       content: "''",
       position: "absolute",
@@ -26,7 +35,11 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       bottom: 0,
       boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
-      borderRadius: "18px"
+      borderRadius: "18px",
+      [theme.breakpoints.down('sm')]:{
+        boxShadow:`${px2vwMo(2)} ${px2vwMo(2)} ${px2vwMo(2)} 0 #DFE4EA inset,-${px2vwMo(2)} -${px2vwMo(2)} ${px2vwMo(2)} 0 #fff inset `,
+
+      }
     }
   },
   thumb: {
@@ -45,7 +58,9 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 10000,
     Left: 0,
     transition: "transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35)",
-    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA"
+    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
+    [theme.breakpoints.down('sm')]:{
+    }
   },
   off: {
     left: 0

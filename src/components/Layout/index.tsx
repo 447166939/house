@@ -29,6 +29,8 @@ import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
+import {px2vw, px2vwMo} from "@/utils/pxtovw";
+import MenuIcon from '@material-ui/icons/Menu';
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -84,28 +86,44 @@ const useStyles = makeStyles((theme) =>
       width: "100%",
       paddingLeft: "14.7%",
       paddingRight: "14.2%",
-      position: "relative"
+      position: "relative",
+        [theme.breakpoints.down('sm')]:{
+          paddingLeft:`${px2vwMo(27)}`,
+            paddingRight:`${px2vwMo(27)}`
+        }
     },
     toolbarGrp1: {
       display: "flex",
       alignItems: "center",
-      marginRight: "202px"
+      marginRight: "202px",
+        [theme.breakpoints.down('sm')]:{
+          marginRight:`${px2vwMo(5.7)}`
+        }
     },
     toolbarGrp2: {
       display: "flex",
-      alignItems: "center"
+      alignItems: "center",
+        [theme.breakpoints.down('sm')]:{
+            display:'none'
+        }
     },
     toolbarGrp3: {
       display: "flex",
       alignItems: "center",
       position: "absolute",
-      right: "283px"
+      right: "283px",
+          [theme.breakpoints.down('sm')]:{
+          right:`${px2vw(100)}`
+}
     },
     toolbarGrp4: {
       display: "flex",
       alignItems: "center",
       position: "absolute",
-      right: "463px"
+      right: "463px",
+        [theme.breakpoints.down('sm')]:{
+            right:`${px2vwMo(7)}`
+        }
     },
     drawer: {
       position: "absolute"
@@ -126,15 +144,37 @@ const useStyles = makeStyles((theme) =>
     searchBtn: {
       width: "41px",
       marginRight: "26px",
-      marginLeft: "129px"
+      marginLeft: "129px",
+        [theme.breakpoints.down('sm')]:{
+          display:'none'
+        }
     },
     userBtn: {
       width: "41px",
-      marginRight: "26px"
+      marginRight: "26px",
+        [theme.breakpoints.down('sm')]:{
+          width:`${px2vwMo(41)}`,
+            height:`${px2vwMo(37)}`,
+            marginRight:`${px2vwMo(31)}`
+        }
     },
+menuBtn:{
+    width:`${px2vwMo(41)}`,
+    height:`${px2vwMo(37)}`,
+    marginLeft:`${px2vwMo(31)}`,
+    [theme.breakpoints.up('md')]:{
+        display:'none',
+    },
+        [theme.breakpoints.down('xs')]:{
+            marginLeft:`${px2vwMo(51)}`
+}
+},
     searchCloseBtn: {
       width: "41px",
-      marginRight: "26px"
+      marginRight: "26px",
+        [theme.breakpoints.down('sm')]:{
+          diplay:'none',
+        }
     },
     searchInputWrapper: {
       opacity: 0,
@@ -154,6 +194,9 @@ const useStyles = makeStyles((theme) =>
       paddingLeft: theme.spacing(1),
       paddingRight: theme.spacing(1),
       marginRight: "41px",
+        [theme.breakpoints.down('sm')]:{
+          display:'none',
+        },
       "&:after": {
         content: "''",
         position: "absolute",
@@ -175,10 +218,13 @@ const useStyles = makeStyles((theme) =>
     nameText: {
       color: "#2699FB",
       marginLeft: theme.spacing(2),
-      fontSize: "25px",
+      fontSize: `${px2vw(25)}`,
       fontWeight: "bold",
       marginRight: "10.5%",
-      flexShrink: 0
+      flexShrink: 0,
+        [theme.breakpoints.down('sm')]:{
+          fontSize:`${px2vwMo(25)}`
+        }
     },
     content: {
       flex: 1,
@@ -510,7 +556,8 @@ const useStyles = makeStyles((theme) =>
       borderRadius: "8px",
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
-      opacity: 0.6
+      opacity: 0.6,
+        zIndex:1,
     },
     contactInput: {
       color: "#000"
@@ -1122,6 +1169,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               <UserIcon />
             </Button>
             <Switch />
+            <Button className={classes.menuBtn} key={'menu'}>
+                <MenuIcon />
+            </Button>
           </div>
         </Toolbar>
       </AppBar>
