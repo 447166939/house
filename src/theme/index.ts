@@ -10,6 +10,15 @@ const theme = createMuiTheme({
       fontFamily: "Nunito Sans"
     },
     fontFamily: "Nunito Sans"
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 540,
+      md: 768,
+      lg: 1024,
+      xl: 1920
+    }
   }
 });
 export default theme;
