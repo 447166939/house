@@ -1,4 +1,4 @@
-import React, { useState, useCallback,Fragment, Dispatch, SetStateAction } from "react";
+import React, { useState, useCallback, Fragment, Dispatch, SetStateAction } from "react";
 import { makeStyles } from "@material-ui/core";
 import { useEffect } from "react";
 import Layout from "@/components/Layout";
@@ -39,7 +39,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
-import {px2vwMo} from "@/utils/pxtovw";
+import { px2vwMo } from "@/utils/pxtovw";
 const blogs = [
   {
     img: "/card1.svg",
@@ -88,12 +88,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "123px",
     marginBottom: "137px",
     borderRadius: "10px",
-    [theme.breakpoints.down('sm')]:{
-      width:'auto',
-      marginLeft:`${px2vwMo(45)}`,
-      marginRight:`${px2vwMo(45)}`,
-      padding:`${px2vwMo(89)} ${px2vwMo(35)}`,
-      marginTop:`${px2vwMo(87)}`,
+    [theme.breakpoints.down("sm")]: {
+      width: "auto",
+      marginLeft: `${px2vwMo(45)}`,
+      marginRight: `${px2vwMo(45)}`,
+      padding: `${px2vwMo(89)} ${px2vwMo(35)}`,
+      marginTop: `${px2vwMo(87)}`
     }
   },
   cardText: {
@@ -151,8 +151,8 @@ const useStyles = makeStyles((theme) => ({
   },
   wwdSider: {
     // maxHeight: "600px",
-    height:'600px',
-    overflowY:'scroll',
+    height: "600px",
+    overflowY: "scroll",
     width: "331px",
     color: "#000",
     outline: "none",
@@ -166,7 +166,7 @@ const useStyles = makeStyles((theme) => ({
   },
   wwdSideMenuItem: {
     lineHeight: "50px",
-    paddingLeft:theme.spacing(4),
+    paddingLeft: theme.spacing(4),
     "&:hover": {
       cursor: "pointer",
       textDecoration: "underline"
@@ -402,7 +402,7 @@ const Index = () => {
   const globalClasses = useGlobalStyles();
   const [category, setCategory] = useState(servicesCategories);
   const [subCategory, setSubCategory] = useState(servicesSubCategories);
-  const [current,setCurrent]=useState('')
+  const [current, setCurrent] = useState("");
   const [subCategorySub, setSubCategorySub] = useState(servicesSubCategoriesSub);
   const [subCategorySubLinks, setSubCategorySubLinks] = useState(
     servicesSubCategorySubDataAnalyticsLinks
@@ -414,21 +414,20 @@ const Index = () => {
       setSubCategory(rootCategory[idx]["subCategories"]);
       setSubCategorySub(rootCategory[idx]["subCategories"][0]["subCategoriesSub"]);
       setSubCategorySubLinks(rootCategory[idx]["subCategories"][0]["subCategoriesSub"][0]["links"]);
-      console.log('category',category)
-      console.log('subcate',subCategory["subCategoriesSub" as unknown as number])
-
+      console.log("category", category);
+      console.log("subcate", subCategory["subCategoriesSub" as unknown as number]);
     },
     [category]
   );
   const handleClickSubCategory = useCallback(
     (subCate) => {
-      setCurrent(pre=>{
-        if(pre==subCate.text){
-          return ""
-        }else {
-          return subCate.text
+      setCurrent((pre) => {
+        if (pre == subCate.text) {
+          return "";
+        } else {
+          return subCate.text;
         }
-      })
+      });
       setSubCategory(subCate);
       setSubCategorySub(subCate["subCategoriesSub"]);
       setSubCategorySubLinks(subCate["subCategoriesSub"][0]["links"]);
@@ -443,74 +442,74 @@ const Index = () => {
     },
     [category]
   );
-  const renderPannel=(category:any)=>{
-    return category.text=='Technologies'?
-        category["subCategories"].map(
-              (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
-                return (
-                    <Fragment key={subCategoryIndex}>
-                      <ListItem
-                          className={globalClasses.cardSmallTitle}
-                          onClick={handleClickSubCategory.bind(null, subCategory)}
-                          key={subCategoryIndex}>
-                        <ListItemText>{subCategory.text}</ListItemText>
-                        {current==subCategory.text ? <ExpandLess /> : <ExpandMore />}
-                      </ListItem>
-                      <Collapse in={current==subCategory.text}>
-                        <List disablePadding>
-                          {subCategory["subCategoriesSub"].map(
-                              (
-                                  subCategoriesSubItem: { [key: string]: object | any },
-                                  subCategoriesSubIndex: number
-                              ) => {
-                                return (
-                                    <ListItem
-                                        className={clsx(classes.wwdSideMenuItem, {
-                                          [globalClasses.textBlue]:
-                                              subCategorySubLinks === subCategoriesSubItem["links"] ? true : false
-                                        })}
-                                        onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)}
-                                        key={subCategoriesSubIndex}>
-                                      {subCategoriesSubItem["text"]}
-                                    </ListItem>
-                                );
-                              }
-                          )}
-                        </List>
-                      </Collapse>
-                      </Fragment>
-                );
-              }
-          )
-    : category["subCategories"].map(
-            (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
-              return (
-                  <div key={subCategoryIndex}>
-                      <List disablePadding>
-                        {subCategory["subCategoriesSub"].map(
-                            (
-                                subCategoriesSubItem: { [key: string]: object | any },
-                                subCategoriesSubIndex: number
-                            ) => {
-                              return (
-                                  <ListItem
-                                      className={clsx(classes.wwdSideMenuItem, {
-                                        [globalClasses.textBlue]:
-                                            subCategorySubLinks === subCategoriesSubItem["links"] ? true : false
-                                      })}
-                                      onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)}
-                                      key={subCategoriesSubIndex}>
-                                    {subCategoriesSubItem["text"]}
-                                  </ListItem>
-                              );
-                            }
-                        )}
-                      </List>
-                  </div>
-              );
-            }
+  const renderPannel = (category: any) => {
+    return category.text == "Technologies"
+      ? category["subCategories"].map(
+          (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
+            return (
+              <Fragment key={subCategoryIndex}>
+                <ListItem
+                  className={globalClasses.cardSmallTitle}
+                  onClick={handleClickSubCategory.bind(null, subCategory)}
+                  key={subCategoryIndex}>
+                  <ListItemText>{subCategory.text}</ListItemText>
+                  {current == subCategory.text ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={current == subCategory.text}>
+                  <List disablePadding>
+                    {subCategory["subCategoriesSub"].map(
+                      (
+                        subCategoriesSubItem: { [key: string]: object | any },
+                        subCategoriesSubIndex: number
+                      ) => {
+                        return (
+                          <ListItem
+                            className={clsx(classes.wwdSideMenuItem, {
+                              [globalClasses.textBlue]:
+                                subCategorySubLinks === subCategoriesSubItem["links"] ? true : false
+                            })}
+                            onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)}
+                            key={subCategoriesSubIndex}>
+                            {subCategoriesSubItem["text"]}
+                          </ListItem>
+                        );
+                      }
+                    )}
+                  </List>
+                </Collapse>
+              </Fragment>
+            );
+          }
         )
-  }
+      : category["subCategories"].map(
+          (subCategory: { [key: string]: object | any }, subCategoryIndex: number) => {
+            return (
+              <div key={subCategoryIndex}>
+                <List disablePadding>
+                  {subCategory["subCategoriesSub"].map(
+                    (
+                      subCategoriesSubItem: { [key: string]: object | any },
+                      subCategoriesSubIndex: number
+                    ) => {
+                      return (
+                        <ListItem
+                          className={clsx(classes.wwdSideMenuItem, {
+                            [globalClasses.textBlue]:
+                              subCategorySubLinks === subCategoriesSubItem["links"] ? true : false
+                          })}
+                          onClick={handleClickSubCategorySub.bind(null, subCategoriesSubItem)}
+                          key={subCategoriesSubIndex}>
+                          {subCategoriesSubItem["text"]}
+                        </ListItem>
+                      );
+                    }
+                  )}
+                </List>
+              </div>
+            );
+          }
+        );
+  };
   return (
     <Layout>
       <Card customStyles={clsx(classes.card, globalClasses.cardGlassEffect)} blurActive={true}>
