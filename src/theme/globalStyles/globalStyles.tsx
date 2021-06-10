@@ -34,7 +34,16 @@ const useGlobalStyles = makeStyles((theme) => ({
     textTransform: "uppercase",
     height: "40px",
     padding: theme.spacing(2),
-    marginRight: "32px"
+    marginRight: "32px",
+    [theme.breakpoints.down("xl")]: {
+      marginRight: theme.spacing(4)
+    },
+    [theme.breakpoints.down("lg")]: {
+      marginRight: theme.spacing(2)
+    },
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(1)
+    }
   },
   mainMenuBtnActive: {
     color: "#CBD5E5",

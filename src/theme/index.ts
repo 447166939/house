@@ -10,6 +10,16 @@ const theme = createMuiTheme({
       fontFamily: "Nunito Sans"
     },
     fontFamily: "Nunito Sans"
+  },
+  breakpoints: {
+    values: {
+      xs: 0, // mobile
+      sm: 540, // mobile -> tablet
+      md: 768, // tablet -> laptop
+      lg: 1280, // laptop -> PC
+      xl: 1920 // desktop
+    }
   }
 });
+
 export default theme;

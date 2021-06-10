@@ -6,7 +6,7 @@ import Tabs from "@/components/Tabs";
 import Button from "@/components/Button";
 import Switch from "@/components/Switch";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles, createStyles } from "@material-ui/core";
+import { makeStyles, createStyles, useMediaQuery } from "@material-ui/core";
 import Footer from "@/components/Footer";
 import Drawer from "@/components/Drawer";
 import ButtonBase from "@material-ui/core/ButtonBase";
@@ -29,6 +29,7 @@ import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
+import theme from "../../theme";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -81,32 +82,36 @@ const useStyles = makeStyles((theme) =>
     toolbar: {
       display: "flex",
       alignItems: "center",
+      justifyContent: "space-between",
       width: "100%",
-      paddingLeft: "14.7%",
-      paddingRight: "14.2%",
+      paddingLeft: "15%",
+      paddingRight: "15%",
       position: "relative"
     },
     toolbarGrp1: {
       display: "flex",
+      justifyContent: "flex-start",
       alignItems: "center",
-      marginRight: "202px"
+      width: "20%"
     },
     toolbarGrp2: {
       display: "flex",
-      alignItems: "center"
+      justifyContent: "center",
+      alignItems: "center",
+      width: "66%"
     },
     toolbarGrp3: {
       display: "flex",
+      justifyContent: "flex-end",
       alignItems: "center",
-      position: "absolute",
-      right: "283px"
+      width: "20%"
     },
-    toolbarGrp4: {
-      display: "flex",
-      alignItems: "center",
-      position: "absolute",
-      right: "463px"
-    },
+    // toolbarGrp4: {
+    //   display: "flex",
+    //   alignItems: "center",
+    //   marginLeft: "5%",
+    //   width:"25%"
+    // },
     drawer: {
       position: "absolute"
     },
@@ -125,21 +130,53 @@ const useStyles = makeStyles((theme) =>
     },
     searchBtn: {
       width: "41px",
-      marginRight: "26px",
-      marginLeft: "129px"
+      [theme.breakpoints.down("xl")]: {
+        marginRight: theme.spacing(3)
+      },
+      [theme.breakpoints.down("lg")]: {
+        marginRight: theme.spacing(2)
+      },
+      [theme.breakpoints.down("md")]: {
+        marginRight: theme.spacing(1)
+      }
     },
     userBtn: {
       width: "41px",
-      marginRight: "26px"
+      [theme.breakpoints.down("xl")]: {
+        marginRight: theme.spacing(3)
+      },
+      [theme.breakpoints.down("lg")]: {
+        marginRight: theme.spacing(2)
+      },
+      [theme.breakpoints.down("md")]: {
+        marginRight: theme.spacing(1)
+      }
     },
     searchCloseBtn: {
       width: "41px",
-      marginRight: "26px"
+      [theme.breakpoints.down("xl")]: {
+        marginRight: theme.spacing(3)
+      },
+      [theme.breakpoints.down("lg")]: {
+        marginRight: theme.spacing(2)
+      },
+      [theme.breakpoints.down("md")]: {
+        marginRight: theme.spacing(1)
+      }
+    },
+    tabsWrapper: {
+      height: "44px",
+      width: "auto",
+      position: "absolute",
+      display: "flex",
+      alignItems: "center"
     },
     searchInputWrapper: {
       opacity: 0,
       height: "44px",
-      position: "relative",
+      // width: 12,
+      width: "3vw",
+      position: "absolute",
       background: "inherit",
       outline: "none",
       border: "none",
@@ -153,7 +190,7 @@ const useStyles = makeStyles((theme) =>
       fontWeight: "bold",
       paddingLeft: theme.spacing(1),
       paddingRight: theme.spacing(1),
-      marginRight: "41px",
+      cursor: "text",
       "&:after": {
         content: "''",
         position: "absolute",
@@ -161,16 +198,17 @@ const useStyles = makeStyles((theme) =>
         top: 0,
         right: 0,
         bottom: 0,
-        boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
+        boxShadow:
+          "-8px -4px 8px 0px #fff, 8px 4px 12px 0px #DFE4EA, 4px 4px 4px 0px #DFE4EA inset, -4px -4px 4px 0px #fff inset",
         borderRadius: "22px"
       }
     },
     searchInput: {
+      width: "inherit",
       color: "#CBD5E5",
       fontSize: "14px",
       lineHeight: "50px",
-      fontWeight: "bold",
-      flex: 1
+      fontWeight: "bold"
     },
     nameText: {
       color: "#2699FB",
@@ -587,6 +625,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     appBarSolutionsMenuVisible,
     appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
     var t1 = anime.timeline({
       easing: "linear",
@@ -972,39 +1012,52 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
   const toggleSearchOpen = useCallback(() => {
     let searchInputVar = anime.timeline({
       easing: "easeInOutQuad",
-      duration: 300,
+      duration: 400,
       loop: false
     });
+
     if (!searchOpen) {
+      const tabsDiv = document.getElementById("tabsWrapper");
+      let width = 480;
+      let ww = window.innerWidth;
+      // console.log(" original width is: ", width);
+      if (tabsDiv != null) {
+        // width = tabsDiv.clientWidth;
+        width = ww * 0.36;
+      }
       searchInputVar
         .add({
-          targets: ["#tabs"],
+          targets: ["#tabsWrapper"],
           translateY: -50,
           opacity: 0,
-          duration: 500
+          duration: 180
         })
         .add({
-          targets: [`#searchInput`],
-          width: "764px",
+          targets: ["#searchInputWrapper"],
+          // width: width,
+          width: "36vw",
           opacity: 1,
-          duration: 270
+          delay: 90,
+          duration: 220
         });
     } else {
       searchInputVar
         .add({
-          targets: [`.${classes.searchInputWrapper}`],
-          width: "41px",
+          targets: ["#searchInputWrapper"],
+          // width: 12,
+          width: "3vw",
           opacity: 0,
-          duration: 500
+          duration: 180
         })
         .add({
-          targets: ["#tabs"],
+          targets: ["#tabsWrapper"],
           translateY: 0,
           opacity: 1,
-          duration: 500
+          duration: 220
         });
     }
     setSearchOpen(!searchOpen);
+    console.log(" searchOpen: ", searchOpen);
   }, [searchOpen]);
   const toggleUserOpen = useCallback(() => {
     console.log(" toggle UserOpen! Now UserState: " + userOpen + " and !userOpen: " + !userOpen);
@@ -1086,313 +1139,344 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     });
     textWrapper = null;
   }, []);
+
+  const tabletOrDesktop = useMediaQuery(theme.breakpoints.down("sm"));
+  console.log(" now is TabletOrDesktop: " + tabletOrDesktop);
+  useEffect(() => {
+    setMenuOpen(false);
+    console.log(" setMenuOpen to: " + menuOpen);
+  }, [tabletOrDesktop]);
+
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appBar} position={"fixed"}>
-        <Toolbar className={classes.toolbar}>
-          <Link href={"/"} className={classes.toolbarGrp1}>
-            <LogoIcon />
-            <span className={classes.nameText}>ModuleX</span>
-          </Link>
-          <div id={"tabs"} className={classes.toolbarGrp2}>
-            <Tabs
-              onChange={handleChange}
-              menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
-          </div>
-          <div className={classes.toolbarGrp4}>
-            <div id={"searchInput"} className={classes.searchInputWrapper}>
-              <SearchIcon />
-              <InputBase className={classes.searchInput} placeholder={"SERVICES"} />
-            </div>
-          </div>
-          <div className={classes.toolbarGrp3}>
-            {searchOpen ? (
-              <Button key={"close"} onClick={toggleSearchOpen} className={classes.searchCloseBtn}>
-                <CloseIcon />
-              </Button>
-            ) : (
-              <Button key={"open"} onClick={toggleSearchOpen} className={classes.searchBtn}>
-                <SearchIcon />
-              </Button>
-            )}
-            <Button
-              key={"user"}
-              onClick={toggleUserOpen}
-              className={clsx(classes.userBtn, { [classes.active]: userOpen })}>
-              <UserIcon />
-            </Button>
-            <Switch />
-          </div>
-        </Toolbar>
-      </AppBar>
-      <div className={classes.offset}></div>
-      <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
-        <div className={classes.serviceContainer}>
-          <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
-              Services
-            </div>
-            <span className="text-wrapper">
-              {/*<span className={globalClasses.lineBlue} />*/}
-              <span id={"service"} className="letters">
-                Our service portfolio covers an entire software development life cycle and meets
-                varied business needs.
-              </span>
-            </span>
-            <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase
-                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                disableRipple>
-                CONTACT
-              </ButtonBase>
-            </div>
-          </div>
-          <div className={classes.serviceCol3}>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Software Development
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"/services/WebDesignService"}>
-              UI/UX Design
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Testing And QA
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Infrastructure Services
-            </Link>
-          </div>
-          <div className={classes.serviceCol4}>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              Data Analytics
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              IT OutSourcing
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              IT Consulting
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"/services/ITSupport"}>
-              IT Support
-            </Link>
-          </div>
-        </div>
-      </Drawer>
-      <Drawer cb={cb1} key={"technologiesMenu"} visible={idx == 1 && appBarTechnologiesMenuVisible}>
-        <div className={classes.technologiesContainer}>
-          <div className={classes.technologiesCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
-              Technologies
-            </div>
-            <span className="text-wrapper">
-              <span className="line line1"></span>
-              <span id={"technologies"} className="letters">
-                Our expertise spans all major technologies and platforms, and advances to innovative
-                technology trends.
-              </span>
-            </span>
-            <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase
-                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                disableRipple>
-                CONTACT
-              </ButtonBase>
-            </div>
-          </div>
-          <div className={classes.technologiesCol2}>
-            <div>
-              <ButtonBase
-                className={clsx(classes.serviceCol2Btn, {
-                  [classes.active]: appBarTechnologiesProgrammingLanguagesSubMenuVisible
-                })}
-                onClick={() =>
-                  handleSubClick("appBarTechnologiesProgrammingLanguagesSubMenuVisible")
-                }
-                disableRipple>
-                Programming Languages
-              </ButtonBase>
-            </div>
-            <div>
-              <ButtonBase
-                className={clsx(classes.serviceCol2Btn, {
-                  [classes.active]: appBarTechnologiesAdvancedTechnologiesSubMenuVisible
-                })}
-                onClick={() =>
-                  handleSubClick("appBarTechnologiesAdvancedTechnologiesSubMenuVisible")
-                }
-                disableRipple>
-                Advanced Technologies
-              </ButtonBase>
-            </div>
-            <div>
-              <ButtonBase
-                className={clsx(classes.serviceCol2Btn, {
-                  [classes.active]: appBarTechnologiesCloudTechnologiesSubMenuVisible
-                })}
-                onClick={() => handleSubClick("appBarTechnologiesCloudTechnologiesSubMenuVisible")}
-                disableRipple>
-                Cloud Technologies
-              </ButtonBase>
-            </div>
-          </div>
-          {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
-            <>
-              <div className={classes.technologiesCol3}>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Java
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Python
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Golang
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  C++
-                </Link>
-              </div>
-              <div className={classes.technologiesCol4}>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                  JavaScript
-                </Link>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                  NodeJS
-                </Link>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                  PHP
-                </Link>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                  .Net
-                </Link>
-              </div>
-            </>
-          )}
-          {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
-            <>
-              <div className={classes.technologiesCol3}>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Data Science
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Artificial Intelligence
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Virtual Reality
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Big Data
-                </Link>
-              </div>
-              <div className={classes.technologiesCol4}>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                  Internet Of Things
-                </Link>
-                <Link className={classes.serviceCol4Link} href={"#"}>
-                  Cloud Computing
-                </Link>
-              </div>
-            </>
-          )}
-          {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
-            <>
-              <div className={classes.technologiesCol3}>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Amazon Web Service
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  MicroSoft Azure
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Saleforce
-                </Link>
-                <Link className={classes.serviceCol3Link} href={"#"}>
-                  Google Cloud Platform
-                </Link>
-              </div>
-            </>
-          )}
-        </div>
-      </Drawer>
-      <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
-        <div className={classes.serviceContainer}>
-          <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
-              Solutions
-            </div>
-            <span className="text-wrapper">
-              <span className="line line1"></span>
-              <span id={"solutions"} className="letters">
-                We build on the IT domain expertise and industry knowledge to design sustainable
-                technology solutions.
-              </span>
-            </span>
-            <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase
-                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                disableRipple>
-                CONTACT
-              </ButtonBase>
-            </div>
-          </div>
-          <div className={classes.serviceCol3}>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              CRM
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              ERP
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Marketing & Advertising
-            </Link>
-            <Link className={classes.serviceCol3Link} href={"#"}>
-              Data Anylytics
-            </Link>
-          </div>
-          <div className={classes.serviceCol4}>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              E-commerce
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              Supply Chain Management
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              Human Resources
-            </Link>
-            <Link className={classes.serviceCol4Link} href={"#"}>
-              E-Learning
-            </Link>
-          </div>
-        </div>
-      </Drawer>
-      <Drawer cb={cb3} key={"blogAndNewsMenu"} visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
-        <div className={classes.serviceContainer}>
-          <div className={classes.serviceCol1}>
-            <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
-              Blogs & News
-            </div>
-            <span className="text-wrapper">
-              <span className="line line1"></span>
-              <span id={"blogAndNews"} className="letters">
-                Knowing everything about us and the IT industry...{" "}
-              </span>
-            </span>
-            <div className={classes.serviceContactBtnWrapper}>
-              <ButtonBase
-                className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                disableRipple>
-                CONTACT
-              </ButtonBase>
-            </div>
-          </div>
-          <div className={classes.serviceCol1}>
-            <div>
-              <Link className={classes.serviceCol4Link} href={"#"}>
-                Check out our updates
+      {!tabletOrDesktop ? (
+        <>
+          {/*showing DeskTop of Appbar*/}
+          <AppBar className={classes.appBar} position={"fixed"}>
+            <Toolbar className={classes.toolbar}>
+              <Link href={"/"} className={classes.toolbarGrp1}>
+                <LogoIcon />
+                <span className={classes.nameText}>ModuleX</span>
               </Link>
+              <div className={classes.toolbarGrp2}>
+                <div id={"tabsWrapper"} className={classes.tabsWrapper}>
+                  <Tabs
+                    onChange={handleChange}
+                    menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+                </div>
+                <div id={"searchInputWrapper"} className={classes.searchInputWrapper}>
+                  <SearchIcon />
+                  <InputBase
+                    className={classes.searchInput}
+                    placeholder={"Type & Search For Our Services."}
+                  />
+                </div>
+              </div>
+              <div className={classes.toolbarGrp3}>
+                {searchOpen ? (
+                  <Button
+                    key={"close"}
+                    onClick={toggleSearchOpen}
+                    className={classes.searchCloseBtn}>
+                    <CloseIcon />
+                  </Button>
+                ) : (
+                  <Button key={"open"} onClick={toggleSearchOpen} className={classes.searchBtn}>
+                    <SearchIcon />
+                  </Button>
+                )}
+                <Button
+                  key={"user"}
+                  onClick={toggleUserOpen}
+                  className={clsx(classes.userBtn, { [classes.active]: userOpen })}>
+                  <UserIcon />
+                </Button>
+                <Switch />
+              </div>
+            </Toolbar>
+          </AppBar>
+          <div className={classes.offset}></div>
+          <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
+            <div className={classes.serviceContainer}>
+              <div className={classes.serviceCol1}>
+                <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+                  Services
+                </div>
+                <span className="text-wrapper">
+                  {/*<span className={globalClasses.lineBlue} />*/}
+                  <span id={"service"} className="letters">
+                    Our service portfolio covers an entire software development life cycle and meets
+                    varied business needs.
+                  </span>
+                </span>
+                <div className={classes.serviceContactBtnWrapper}>
+                  <ButtonBase
+                    className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                    disableRipple>
+                    CONTACT
+                  </ButtonBase>
+                </div>
+              </div>
+              <div className={classes.serviceCol3}>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  Software Development
+                </Link>
+                <Link className={classes.serviceCol3Link} href={"/services/WebDesignService"}>
+                  UI/UX Design
+                </Link>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  Testing And QA
+                </Link>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  Infrastructure Services
+                </Link>
+              </div>
+              <div className={classes.serviceCol4}>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  Data Analytics
+                </Link>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  IT OutSourcing
+                </Link>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  IT Consulting
+                </Link>
+                <Link className={classes.serviceCol4Link} href={"/services/ITSupport"}>
+                  IT Support
+                </Link>
+              </div>
             </div>
-          </div>
-        </div>
-      </Drawer>
-
+          </Drawer>
+          <Drawer
+            cb={cb1}
+            key={"technologiesMenu"}
+            visible={idx == 1 && appBarTechnologiesMenuVisible}>
+            <div className={classes.technologiesContainer}>
+              <div className={classes.technologiesCol1}>
+                <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+                  Technologies
+                </div>
+                <span className="text-wrapper">
+                  <span className="line line1"></span>
+                  <span id={"technologies"} className="letters">
+                    Our expertise spans all major technologies and platforms, and advances to
+                    innovative technology trends.
+                  </span>
+                </span>
+                <div className={classes.serviceContactBtnWrapper}>
+                  <ButtonBase
+                    className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                    disableRipple>
+                    CONTACT
+                  </ButtonBase>
+                </div>
+              </div>
+              <div className={classes.technologiesCol2}>
+                <div>
+                  <ButtonBase
+                    className={clsx(classes.serviceCol2Btn, {
+                      [classes.active]: appBarTechnologiesProgrammingLanguagesSubMenuVisible
+                    })}
+                    onClick={() =>
+                      handleSubClick("appBarTechnologiesProgrammingLanguagesSubMenuVisible")
+                    }
+                    disableRipple>
+                    Programming Languages
+                  </ButtonBase>
+                </div>
+                <div>
+                  <ButtonBase
+                    className={clsx(classes.serviceCol2Btn, {
+                      [classes.active]: appBarTechnologiesAdvancedTechnologiesSubMenuVisible
+                    })}
+                    onClick={() =>
+                      handleSubClick("appBarTechnologiesAdvancedTechnologiesSubMenuVisible")
+                    }
+                    disableRipple>
+                    Advanced Technologies
+                  </ButtonBase>
+                </div>
+                <div>
+                  <ButtonBase
+                    className={clsx(classes.serviceCol2Btn, {
+                      [classes.active]: appBarTechnologiesCloudTechnologiesSubMenuVisible
+                    })}
+                    onClick={() =>
+                      handleSubClick("appBarTechnologiesCloudTechnologiesSubMenuVisible")
+                    }
+                    disableRipple>
+                    Cloud Technologies
+                  </ButtonBase>
+                </div>
+              </div>
+              {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
+                <>
+                  <div className={classes.technologiesCol3}>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Java
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Python
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Golang
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      C++
+                    </Link>
+                  </div>
+                  <div className={classes.technologiesCol4}>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      JavaScript
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      NodeJS
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      PHP
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      .Net
+                    </Link>
+                  </div>
+                </>
+              )}
+              {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
+                <>
+                  <div className={classes.technologiesCol3}>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Data Science
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Artificial Intelligence
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Virtual Reality
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Big Data
+                    </Link>
+                  </div>
+                  <div className={classes.technologiesCol4}>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      Internet Of Things
+                    </Link>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      Cloud Computing
+                    </Link>
+                  </div>
+                </>
+              )}
+              {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
+                <>
+                  <div className={classes.technologiesCol3}>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Amazon Web Service
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      MicroSoft Azure
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Saleforce
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Google Cloud Platform
+                    </Link>
+                  </div>
+                </>
+              )}
+            </div>
+          </Drawer>
+          <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
+            <div className={classes.serviceContainer}>
+              <div className={classes.serviceCol1}>
+                <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+                  Solutions
+                </div>
+                <span className="text-wrapper">
+                  <span className="line line1"></span>
+                  <span id={"solutions"} className="letters">
+                    We build on the IT domain expertise and industry knowledge to design sustainable
+                    technology solutions.
+                  </span>
+                </span>
+                <div className={classes.serviceContactBtnWrapper}>
+                  <ButtonBase
+                    className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                    disableRipple>
+                    CONTACT
+                  </ButtonBase>
+                </div>
+              </div>
+              <div className={classes.serviceCol3}>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  CRM
+                </Link>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  ERP
+                </Link>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  Marketing & Advertising
+                </Link>
+                <Link className={classes.serviceCol3Link} href={"#"}>
+                  Data Anylytics
+                </Link>
+              </div>
+              <div className={classes.serviceCol4}>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  E-commerce
+                </Link>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  Supply Chain Management
+                </Link>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  Human Resources
+                </Link>
+                <Link className={classes.serviceCol4Link} href={"#"}>
+                  E-Learning
+                </Link>
+              </div>
+            </div>
+          </Drawer>
+          <Drawer
+            cb={cb3}
+            key={"blogAndNewsMenu"}
+            visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
+            <div className={classes.serviceContainer}>
+              <div className={classes.serviceCol1}>
+                <div className={clsx(classes.serviceTitle, globalClasses.cardTitleDashLineBlue)}>
+                  Blogs & News
+                </div>
+                <span className="text-wrapper">
+                  <span className="line line1"></span>
+                  <span id={"blogAndNews"} className="letters">
+                    Knowing everything about us and the IT industry...{" "}
+                  </span>
+                </span>
+                <div className={classes.serviceContactBtnWrapper}>
+                  <ButtonBase
+                    className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                    disableRipple>
+                    CONTACT
+                  </ButtonBase>
+                </div>
+              </div>
+              <div className={classes.serviceCol1}>
+                <div>
+                  <Link className={classes.serviceCol4Link} href={"#"}>
+                    Check out our updates
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Drawer>
+        </>
+      ) : (
+        <>
+          <h1>This is the AppBar for Tablet!</h1>
+          {/*showing mobile of Appbar*/}
+        </>
+      )}
       <div className={classes.content}>
         <div className={classes.bg}></div>
         {/*<img id={"circle"} className={classes.circle} src={"/circle.png"} />*/}

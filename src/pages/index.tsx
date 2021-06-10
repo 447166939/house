@@ -416,7 +416,6 @@ const Index = () => {
     (subCateSubItem) => {
       // console.log(" subCateSub: ", subCateSubItem, " [\"links\"]: ", subCateSubItem["links"], " this is just change the links");
       setSubCategorySubLinks(subCateSubItem["links"]);
-      // console.log(" subCateSubItem: ", subCateSubItem, " subCategorySubLinks: ", subCateSubItem["links"]);
     },
     [category]
   );
