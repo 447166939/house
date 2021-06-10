@@ -1,4 +1,4 @@
-import React, { useState, useCallback,Fragment } from "react";
+import React, { useState, useCallback, Fragment } from "react";
 import { makeStyles } from "@material-ui/core";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -6,7 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
-import rootCategory from '../../data/rootCategories/rootCategory'
+import rootCategory from "../../data/rootCategories/rootCategory";
 import clsx from "clsx";
 const useStyles = makeStyles((theme) => ({
   sider: {
@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "8px",
     backgroundColor: "#f7f8fa",
     padding: "25px 21px 55px 21px",
-    height:'600px',
-    overflowY:'scroll',
+    height: "600px",
+    overflowY: "scroll"
   },
   serviceBtn: {
     color: "#2699FB",
@@ -55,28 +55,28 @@ const Sider: React.FC<ISiderProps> = (props) => {
   const [idx, setIdx] = useState();
   const [tech, setTech] = useState(false);
   const handleClick = useCallback((idx) => {
-    setIdx(pre=>{
-      if(pre==idx){
-        return null
-      }else{
+    setIdx((pre) => {
+      if (pre == idx) {
+        return null;
+      } else {
         return idx;
       }
     });
   }, []);
   const handleClickTechSub = useCallback((index) => {
     setTech((pre) => {
-      if(pre==index){
+      if (pre == index) {
         return null;
-      }else{
+      } else {
         return index;
       }
     });
   }, []);
-  const servicesub=rootCategory[0].subCategories[0].subCategoriesSub
-  const technologiessub=rootCategory[1].subCategories
-  const solutionssub=rootCategory[2].subCategories[0].subCategoriesSub
-  const blogAndNewsSub=rootCategory[3].subCategories[0].subCategoriesSub
-  console.log('root',technologiessub)
+  const servicesub = rootCategory[0].subCategories[0].subCategoriesSub;
+  const technologiessub = rootCategory[1].subCategories;
+  const solutionssub = rootCategory[2].subCategories[0].subCategoriesSub;
+  const blogAndNewsSub = rootCategory[3].subCategories[0].subCategoriesSub;
+  console.log("root", technologiessub);
   return (
     <List component={"nav"} className={classes.sider}>
       <ListItem
@@ -85,17 +85,15 @@ const Sider: React.FC<ISiderProps> = (props) => {
         button>
         Services
       </ListItem>
-      <Collapse in={idx==0} timeout="auto" unmountOnExit>
+      <Collapse in={idx == 0} timeout="auto" unmountOnExit>
         <List disablePadding>
-          {
-           servicesub.map((item:any,index:any)=>{
-             return (
-                 <ListItem key={index} className={classes.nested} button>
-                   <ListItemText>{item.text}</ListItemText>
-                 </ListItem>
-             )
-           })
-          }
+          {servicesub.map((item: any, index: any) => {
+            return (
+              <ListItem key={index} className={classes.nested} button>
+                <ListItemText>{item.text}</ListItemText>
+              </ListItem>
+            );
+          })}
         </List>
       </Collapse>
       <ListItem
@@ -106,24 +104,30 @@ const Sider: React.FC<ISiderProps> = (props) => {
       </ListItem>
       <Collapse in={idx == 1} timeout="auto" unmountOnExit>
         <List disablePadding>
-          {technologiessub.map((item:any,index:any)=>{
+          {technologiessub.map((item: any, index: any) => {
             return (
-                <Fragment key={index}>
-                <ListItem key={index} className={classes.nested} button onClick={handleClickTechSub.bind(null,index)}>
+              <Fragment key={index}>
+                <ListItem
+                  key={index}
+                  className={classes.nested}
+                  button
+                  onClick={handleClickTechSub.bind(null, index)}>
                   <ListItemText>{item.text}</ListItemText>
-                  {index==tech ? <ExpandLess /> : <ExpandMore />}
+                  {index == tech ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse in={index==tech} timeout="auto" unmountOnExit>
-            <List disablePadding>
-              {item.subCategoriesSub.map((v:any,i:any)=>{
-                return (
-                    <ListItem key={i} className={classes.childNested}>{v.text}</ListItem>
-                )
-              })}
-                </List>
+                <Collapse in={index == tech} timeout="auto" unmountOnExit>
+                  <List disablePadding>
+                    {item.subCategoriesSub.map((v: any, i: any) => {
+                      return (
+                        <ListItem key={i} className={classes.childNested}>
+                          {v.text}
+                        </ListItem>
+                      );
+                    })}
+                  </List>
                 </Collapse>
-                </Fragment>
-            )
+              </Fragment>
+            );
           })}
         </List>
       </Collapse>
@@ -133,15 +137,15 @@ const Sider: React.FC<ISiderProps> = (props) => {
         className={clsx(classes.serviceBtn, { [classes.active]: idx == 2 })}>
         Solutions
       </ListItem>
-      <Collapse in={idx==2} timeout="auto" unmountOnExit>
+      <Collapse in={idx == 2} timeout="auto" unmountOnExit>
         <List disablePadding>
-          {
-            solutionssub.map((item:any,index:any)=>{
-              return (
-                  <ListItem key={index} className={classes.childNested}>{item.text}</ListItem>
-              )
-            })
-          }
+          {solutionssub.map((item: any, index: any) => {
+            return (
+              <ListItem key={index} className={classes.childNested}>
+                {item.text}
+              </ListItem>
+            );
+          })}
         </List>
       </Collapse>
       <ListItem
@@ -150,15 +154,15 @@ const Sider: React.FC<ISiderProps> = (props) => {
         className={clsx(classes.serviceBtn, { [classes.active]: idx == 3 })}>
         Blog & News
       </ListItem>
-      <Collapse in={idx==3} timeout="auto" unmountOnExit>
+      <Collapse in={idx == 3} timeout="auto" unmountOnExit>
         <List disablePadding>
-          {
-            blogAndNewsSub.map((item:any,index:any)=>{
-              return (
-                  <ListItem key={index} className={classes.childNested}>{item.text}</ListItem>
-              )
-            })
-          }
+          {blogAndNewsSub.map((item: any, index: any) => {
+            return (
+              <ListItem key={index} className={classes.childNested}>
+                {item.text}
+              </ListItem>
+            );
+          })}
         </List>
       </Collapse>
     </List>
