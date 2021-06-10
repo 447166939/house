@@ -121,10 +121,6 @@ const useGlobalStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     position: "relative",
     marginBottom: theme.spacing(2),
-    [theme.breakpoints.down('sm')]:{
-      fontSize:`${px2vwMo(40)}`,
-      lineHeight:`${px2vwMo(48)}`,
-    }
   },
   cardSmallTitle: {
     fontSize: "24px",

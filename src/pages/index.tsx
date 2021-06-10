@@ -88,13 +88,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "123px",
     marginBottom: "137px",
     borderRadius: "10px",
-    [theme.breakpoints.down("sm")]: {
-      width: "auto",
-      marginLeft: `${px2vwMo(45)}`,
-      marginRight: `${px2vwMo(45)}`,
-      padding: `${px2vwMo(89)} ${px2vwMo(35)}`,
-      marginTop: `${px2vwMo(87)}`
-    }
   },
   cardText: {
     fontSize: "20px",

@@ -12,7 +12,6 @@ import "swiper/components/pagination/pagination.scss";
 import "swiper/components/scrollbar/scrollbar.scss";
 import "./global.css";
 import { AppProps } from "next/app";
-import {px2vw,px2vwMo} from '@/utils/pxtovw';
 function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
   useEffect(() => {
