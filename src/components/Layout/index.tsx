@@ -29,8 +29,8 @@ import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
-import {px2vw, px2vwMo} from "@/utils/pxtovw";
-import MenuIcon from '@material-ui/icons/Menu';
+import { px2vw, px2vwMo } from "@/utils/pxtovw";
+import MenuIcon from "@material-ui/icons/Menu";
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -86,29 +86,28 @@ const useStyles = makeStyles((theme) =>
       width: "100%",
       paddingLeft: "14.7%",
       paddingRight: "14.2%",
-      position: "relative",
+      position: "relative"
     },
     toolbarGrp1: {
       display: "flex",
       alignItems: "center",
-      marginRight: "202px",
+      marginRight: "202px"
     },
     toolbarGrp2: {
       display: "flex",
-      alignItems: "center",
+      alignItems: "center"
     },
     toolbarGrp3: {
       display: "flex",
       alignItems: "center",
       position: "absolute",
-      right: "283px",
-
+      right: "283px"
     },
     toolbarGrp4: {
       display: "flex",
       alignItems: "center",
       position: "absolute",
-      right: "463px",
+      right: "463px"
     },
     drawer: {
       position: "absolute"
@@ -129,15 +128,15 @@ const useStyles = makeStyles((theme) =>
     searchBtn: {
       width: "41px",
       marginRight: "26px",
-      marginLeft: "129px",
+      marginLeft: "129px"
     },
     userBtn: {
       width: "41px",
-      marginRight: "26px",
+      marginRight: "26px"
     },
     searchCloseBtn: {
       width: "41px",
-      marginRight: "26px",
+      marginRight: "26px"
     },
     searchInputWrapper: {
       opacity: 0,
@@ -181,7 +180,7 @@ const useStyles = makeStyles((theme) =>
       fontSize: `${px2vw(25)}`,
       fontWeight: "bold",
       marginRight: "10.5%",
-      flexShrink: 0,
+      flexShrink: 0
     },
     content: {
       flex: 1,
@@ -514,7 +513,7 @@ const useStyles = makeStyles((theme) =>
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
       opacity: 0.6,
-        zIndex:1,
+      zIndex: 1
     },
     contactInput: {
       color: "#000"

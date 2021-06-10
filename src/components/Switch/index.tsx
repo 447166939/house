@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       bottom: 0,
       boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
-      borderRadius: "18px",
+      borderRadius: "18px"
     }
   },
   thumb: {
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 10000,
     Left: 0,
     transition: "transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35)",
-    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
+    boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA"
   },
   off: {
     left: 0

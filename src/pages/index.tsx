@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "129px 117px 67px 117px",
     marginTop: "123px",
     marginBottom: "137px",
-    borderRadius: "10px",
+    borderRadius: "10px"
   },
   cardText: {
     fontSize: "20px",
