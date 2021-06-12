@@ -149,6 +149,12 @@ const useGlobalStyles = makeStyles((theme) => ({
       backgroundColor: "#2699FB"
     }
   },
+  cardTitleDashLineBlueMobile: {
+      width: "60px",
+      height: "4px",
+      margin: "0 auto 21px auto",
+      backgroundColor: "#2699FB"
+  },
   cardTitleDashLineGold: {
     "&:after": {
       content: "''",
@@ -235,6 +241,11 @@ const useGlobalStyles = makeStyles((theme) => ({
   },
   backgroundColoGold: {
     backgroundColor: "#ffef96"
+  },
+
+  // events
+  pointerEventsNone: {
+    pointerEvents: "none"
   }
 }));
 

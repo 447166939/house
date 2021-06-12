@@ -19,6 +19,7 @@ import upSvg from "@/assets/up.svg";
 import chatSvg from "@/assets/chat.svg";
 import logoSvg from "@/assets/logo.svg";
 import userSvg from "@/assets/person.svg";
+import menuSvg from "@/assets/menu.svg";
 import EmailSvg from "@/assets/email.svg";
 import { RootState } from "@/store/index";
 import CloseIcon from "@material-ui/icons/Close";
@@ -31,9 +32,9 @@ import PhoneSvg from "@/assets/phone.svg";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 import theme from "../../theme";
 import { px2vw, px2vwMo } from "@/utils/pxtovw";
-import MenuIcon from "@material-ui/icons/Menu";
+// import MenuIcon from "@material-ui/icons/Menu";
 
-export interface IUPIconProps {};
+export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
 };
@@ -58,6 +59,10 @@ export interface IUserIconProps {}
 const UserIcon: React.FC<IUserIconProps> = (props: IUserIconProps) => {
   return <SvgIcon component={userSvg} viewBox={"0 0 14.843 14.843"} />;
 };
+export interface IMenuIconProps {}
+const MenuIcon: React.FC<IMenuIconProps> = (props: IMenuIconProps) => {
+  return <SvgIcon component={menuSvg} viewBox={"0 0 14.843 14.843"} />;
+};
 const EmailIcon = (props: IEmailIconProps) => (
   <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />
 );
@@ -76,6 +81,9 @@ const useStyles = makeStyles((theme) =>
       paddingBottom: "1px",
       zIndex: 1000
     },
+    topIndex:{
+      zIndex: 999999
+    },
     appBar: {
       display: "flex",
       justifyContent: "center",
@@ -91,11 +99,27 @@ const useStyles = makeStyles((theme) =>
       paddingRight: "15%",
       position: "relative"
     },
+  toolbarMobile: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      width: "100%",
+      paddingLeft: "6%",
+      paddingRight: "6%",
+      position: "relative",
+      zIndex: 1000000
+  },
     toolbarGrp1: {
       display: "flex",
       justifyContent: "flex-start",
       alignItems: "center",
       width: "20%"
+    },
+    toolbarGrp1Mobile: {
+      display: "flex",
+      justifyContent: "flex-start",
+      alignItems: "center",
+      width: "30%"
     },
     toolbarGrp2: {
       display: "flex",
@@ -103,18 +127,25 @@ const useStyles = makeStyles((theme) =>
       alignItems: "center",
       width: "66%"
     },
+    toolbarGrp2Mobile: {
+      height: "60px",
+      display: "flex",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      alignItems: "center",
+      padding: "10px 0",
+    },
     toolbarGrp3: {
       display: "flex",
       justifyContent: "flex-end",
       alignItems: "center",
       width: "20%"
     },
-    // toolbarGrp4: {
-    //   display: "flex",
-    //   alignItems: "center",
-    //   marginLeft: "5%",
-    //   width:"25%"
-    // },
+    toolbarGrp3Mobile: {
+      display: "flex",
+      justifyContent: "flex-end",
+      alignItems: "center",
+    },
     drawer: {
       position: "absolute"
     },
@@ -155,6 +186,10 @@ const useStyles = makeStyles((theme) =>
         marginRight: theme.spacing(1)
       }
     },
+    menuBtnMobile: {
+      width: "41px",
+      marginLeft: theme.spacing(5)
+    },
     searchCloseBtn: {
       width: "41px",
       [theme.breakpoints.down("xl")]: {
@@ -174,11 +209,18 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       alignItems: "center"
     },
+    tabsWrapperMobile: {
+      height: "39px",
+      width: "auto",
+      marginTop: "12px",
+      position: "absolute",
+      display: "flex",
+      alignItems: "center"
+    },
     searchInputWrapper: {
       opacity: 0,
       height: "44px",
-      // width: 12,
-      width: "3vw",
+      width: 12,
       position: "absolute",
       background: "inherit",
       outline: "none",
@@ -216,10 +258,18 @@ const useStyles = makeStyles((theme) =>
     nameText: {
       color: "#2699FB",
       marginLeft: theme.spacing(2),
-      fontSize: `${px2vw(25)}`,
+      fontSize: 25,
+      // fontSize: `${px2vw(25)}`,
       fontWeight: "bold",
       marginRight: "10.5%",
-      flexShrink: 0
+    },
+    nameTextMobile: {
+      color: "#2699FB",
+      marginLeft: theme.spacing(1),
+      fontSize: 25,
+      // fontSize: `${px2vwMo(25)}`,
+      fontWeight: "bold",
+      marginRight: "10.5%",
     },
     content: {
       flex: 1,
@@ -244,13 +294,31 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       justifyContent: "space-between",
       padding: "107px 280px",
-      backgroundColor: "#f7f8fa"
+      backgroundColor: "#f7f8fa",
+    },
+    serviceContainerMobile: {
+      height: "auto",
+      width: "100%",
+      paddingBottom: "30px",
+      backgroundColor: "#f7f8fa",
+    },
+    toolbarMobileContainer: {
+      height: "auto",
+      width: "100%",
+      backgroundColor: "#f7f8fa",
+      padding: "12px 0 18px 0"
     },
     technologiesContainer: {
       display: "flex",
       padding: "107px 280px",
       backgroundColor: "#f7f8fa",
       height: "500px"
+    },
+    technologiesContainerMobile: {
+      height: "auto",
+      width: "100%",
+      paddingBottom: "30px",
+      backgroundColor: "#f7f8fa",
     },
     technologiesCol1: {
       display: "flex",
@@ -259,16 +327,36 @@ const useStyles = makeStyles((theme) =>
       width: "430px",
       marginRight: "104px"
     },
+    technologiesCol1Mobile: {
+      height: "auto",
+      padding: "0 21px 0 21px",
+      width: "inherit"
+    },
     technologiesCol2: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
       marginRight: "177px"
     },
+    technologiesCol2Mobile: {
+      width: "inherit",
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingBottom: "24px"
+    },
     technologiesCol3: {
       display: "flex",
       flexDirection: "column",
       marginRight: "115px"
+    },
+    technologiesCol3Mobile: {
+      width: "inherit",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
     },
     technologiesCol4: {
       display: "flex",
@@ -280,6 +368,11 @@ const useStyles = makeStyles((theme) =>
       justifyContent: "space-between",
       width: "430px"
     },
+    serviceCol1Mobile: {
+      height: "auto",
+      padding: "0 21px 0 21px",
+      width: "inherit"
+    },
     serviceCol2: {
       display: "flex",
       flexDirection: "column",
@@ -288,6 +381,13 @@ const useStyles = makeStyles((theme) =>
     serviceCol3: {
       display: "flex",
       flexDirection: "column"
+    },
+    serviceCol3Mobile: {
+      width: "inherit",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center"
     },
     serviceCol4: {
       display: "flex",
@@ -299,15 +399,18 @@ const useStyles = makeStyles((theme) =>
       lineHeight: "50px",
       fontWeight: "bold",
       position: "relative"
-      // "&:after": {
-      //   content: "''",
-      //   position: "absolute",
-      //   width: "60px",
-      //   height: "4px",
-      //   bottom: 0,
-      //   left: 0,
-      //   backgroundColor: "#2699FB"
-      // }
+    },
+    serviceTitleMobile: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      color: "#2A2D31",
+      fontSize: "20px",
+      marginTop: "18px",
+      lineHeight: "50px",
+      fontWeight: "bold",
     },
     serviceCol1Text: {
       fontSize: "16px",
@@ -315,6 +418,14 @@ const useStyles = makeStyles((theme) =>
       lineHeight: "24px"
     },
     serviceContactBtnWrapper: {},
+    serviceContactBtnWrapperMobile: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      margin: "30px 0 30px 0",
+    },
     serviceContactBtn: {
       color: "#2699FB",
       position: "relative",
@@ -357,6 +468,22 @@ const useStyles = makeStyles((theme) =>
       padding: theme.spacing(2),
       width: "224px"
     },
+    serviceCol2BtnMobile: {
+      color: "#2699FB",
+      position: "relative",
+      background: "inherit",
+      outline: "none",
+      border: "none",
+      boxShadow: "-8px -4px 8px 0px #fff,8px 4px 12px 0px #DFE4EA",
+      borderRadius: "8px",
+      cursor: "pointer",
+      fontSize: "12px",
+      textTransform: "uppercase",
+      height: "39px",
+      padding: theme.spacing(1),
+      margin: "0px 10px 0px 10px",
+      width: "138px"
+    },
     serviceCol3Link: {
       fontSize: "16px",
       color: "#2A2D31",
@@ -368,24 +495,42 @@ const useStyles = makeStyles((theme) =>
       lineHeight: "50px"
     },
     upAnchor: {
-      height: px2vw(60),
-      width: px2vw(60),
+      [theme.breakpoints.up("md")]: {
+        height: 66,
+        width: 66,
+        bottom: "197px",
+        right: "50px",
+      },
+      [theme.breakpoints.down("sm")]: {
+        height: 51,
+        width: 51,
+        bottom: "136px",
+        right: "36px",
+      },
       position: "fixed",
-      bottom: "197px",
-      right: "50px",
       backgroundColor: "#fff",
-      boxShadow: "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.3) -6px -2px 16px 0px",
-      zIndex: 30000
+      boxShadow:
+        "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.36) -6px -2px 16px 0px",
+      zIndex: 60000
     },
     chatBtn: {
-      height: px2vw(60),
-      width: px2vw(60),
+      [theme.breakpoints.up("md")]: {
+        height: 66,
+        width: 66,
+        bottom: "197px",
+        right: "50px",
+      },
+      [theme.breakpoints.down("sm")]: {
+        height: 51,
+        width: 51,
+        bottom: "66px",
+        right: "36px",
+      },
       position: "fixed",
-      bottom: "117px",
-      right: "50px",
       backgroundColor: "#fff",
-      boxShadow: "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.3) -6px -2px 16px 0px",
-      zIndex: 30000
+      boxShadow:
+        "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.36) -6px -2px 16px 0px",
+      zIndex: 60000
     },
     ball: {
       position: "fixed",
@@ -1025,15 +1170,14 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       duration: 400,
       loop: false
     });
-
     if (!searchOpen) {
       const tabsDiv = document.getElementById("tabsWrapper");
       let width = 480;
       let ww = window.innerWidth;
-      // console.log(" original width is: ", width);
-      if (tabsDiv != null) {
-        // width = tabsDiv.clientWidth;
+      if (ww >= 1024) {
         width = ww * 0.36;
+      }else{
+        width = ww * 0.78;
       }
       searchInputVar
         .add({
@@ -1044,8 +1188,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         })
         .add({
           targets: ["#searchInputWrapper"],
-          // width: width,
-          width: "36vw",
+          width: width,
           opacity: 1,
           delay: 90,
           duration: 220
@@ -1054,8 +1197,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       searchInputVar
         .add({
           targets: ["#searchInputWrapper"],
-          // width: 12,
-          width: "3vw",
+          width: 12,
           opacity: 0,
           duration: 180
         })
@@ -1073,9 +1215,11 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     console.log(" toggle UserOpen! Now UserState: " + userOpen + " and !userOpen: " + !userOpen);
     setUserOpen(!userOpen);
   }, [userOpen]);
+  const cbMenu = useCallback(() => {
+    console.log(" MainMenu CallBack!");
+  }, []);
   const cb = useCallback(() => {
     var textWrapper = document.querySelector("#service");
-    console.log("service");
     if (textWrapper) {
       textWrapper.innerHTML = textWrapper.textContent?.replace(
         /([^\x00-\x80]|\w)/g,
@@ -1156,6 +1300,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     setMenuOpen(false);
     console.log(" setMenuOpen to: " + menuOpen);
   }, [tabletOrDesktop]);
+  const toggleMenuOpen = useCallback(() => {
+    console.log(" toggle menuOpenOpen! Now menuOpenState: " + menuOpen + " and !menuOpen: " + !menuOpen);
+    setMenuOpen(!menuOpen);
+  }, [menuOpen]);
 
   return (
     <div className={classes.root}>
@@ -1482,10 +1630,342 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
           </Drawer>
         </>
       ) : (
-        <>
-          <h1>This is the AppBar for Tablet!</h1>
+        <div className={classes.topIndex}>
           {/*showing mobile of Appbar*/}
-        </>
+          <AppBar className={classes.appBar} position={"fixed"}>
+            <Toolbar className={classes.toolbarMobile}>
+              <Link href={"/"} className={classes.toolbarGrp1Mobile}>
+                <LogoIcon />
+                <span className={classes.nameTextMobile}>ModuleX</span>
+              </Link>
+              <div className={classes.toolbarGrp3Mobile}>
+                <Switch />
+                {menuOpen ? (
+                    <Button
+                        key={"menu"}
+                        onClick={toggleMenuOpen}
+                        className={clsx(classes.menuBtnMobile, { [classes.active]: menuOpen })}>
+                      <CloseIcon />
+                    </Button>
+                ) : (
+                    <Button
+                        key={"menuClose"}
+                        onClick={toggleMenuOpen}
+                        className={clsx(classes.menuBtnMobile, { [classes.active]: menuOpen })}>
+                      <MenuIcon />
+                    </Button>
+                )}
+              </div>
+            </Toolbar>
+          </AppBar>
+          <div className={classes.offset}></div>
+          <Drawer cb={cbMenu} key={"mainMenu"} visible={menuOpen == true}>
+            <div className={classes.toolbarMobileContainer}>
+              <div className={classes.toolbarGrp2Mobile}>
+                {searchOpen ? (
+                    <Button
+                        key={"close"}
+                        onClick={toggleSearchOpen}
+                        className={classes.searchCloseBtn}>
+                      <CloseIcon />
+                    </Button>
+                ) : (
+                    <Button key={"open"} onClick={toggleSearchOpen} className={classes.searchBtn}>
+                      <SearchIcon />
+                    </Button>
+                )}
+                <Button
+                    key={"user"}
+                    onClick={toggleUserOpen}
+                    className={clsx(classes.userBtn, { [classes.active]: userOpen })}>
+                  <UserIcon />
+                </Button>
+              </div>
+              <div className={classes.toolbarGrp2Mobile}>
+                <div id={"tabsWrapper"} className={clsx(classes.tabsWrapperMobile, {[globalClasses.pointerEventsNone]: searchOpen})}>
+                  <Tabs
+                      onChange={handleChange}
+                      menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+                </div>
+                <div id={"searchInputWrapper"} className={classes.searchInputWrapper}>
+                  <SearchIcon />
+                  <InputBase
+                      className={classes.searchInput}
+                      placeholder={"Type & Search For Our Services."}
+                  />
+                </div>
+              </div>
+            </div>
+            <Drawer cb={cb} key={"serviceMenu"} visible={idx == 0 && appBarServiceMenuVisible}>
+              <div className={classes.serviceContainerMobile}>
+                <div className={classes.serviceCol3Mobile}>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Software Development
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"/services/WebDesignService"}>
+                    UI/UX Design
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Testing And QA
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Infrastructure Services
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Data Analytics
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    IT OutSourcing
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    IT Consulting
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"/services/ITSupport"}>
+                    IT Support
+                  </Link>
+                </div>
+                <div className={classes.serviceCol1Mobile}>
+                  <div className={classes.serviceTitleMobile}>
+                    Services
+                  </div>
+                  <div className={globalClasses.cardTitleDashLineBlueMobile} />
+                  <span className="text-wrapper">
+                    <span id={"service"} className="letters">
+                      Our service portfolio covers an entire software development life cycle and meets
+                      varied business needs.
+                    </span>
+                  </span>
+                  <div className={classes.serviceContactBtnWrapperMobile}>
+                    <ButtonBase
+                        className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                        disableRipple>
+                      CONTACT
+                    </ButtonBase>
+                  </div>
+                </div>
+              </div>
+            </Drawer>
+            <Drawer
+              cb={cb1}
+              key={"technologiesMenu"}
+              visible={idx == 1 && appBarTechnologiesMenuVisible}>
+              <div className={classes.technologiesContainerMobile}>
+                <div className={classes.technologiesCol2Mobile}>
+                  <div>
+                    <ButtonBase
+                      className={clsx(classes.serviceCol2BtnMobile, {
+                        [classes.active]: appBarTechnologiesProgrammingLanguagesSubMenuVisible
+                      })}
+                      onClick={() =>
+                        handleSubClick("appBarTechnologiesProgrammingLanguagesSubMenuVisible")
+                      }
+                      disableRipple>
+                      Programming Languages
+                    </ButtonBase>
+                  </div>
+                  <div>
+                    <ButtonBase
+                      className={clsx(classes.serviceCol2BtnMobile, {
+                        [classes.active]: appBarTechnologiesAdvancedTechnologiesSubMenuVisible
+                      })}
+                      onClick={() =>
+                        handleSubClick("appBarTechnologiesAdvancedTechnologiesSubMenuVisible")
+                      }
+                      disableRipple>
+                      Advanced Technologies
+                    </ButtonBase>
+                  </div>
+                  <div>
+                    <ButtonBase
+                      className={clsx(classes.serviceCol2BtnMobile, {
+                        [classes.active]: appBarTechnologiesCloudTechnologiesSubMenuVisible
+                      })}
+                      onClick={() =>
+                        handleSubClick("appBarTechnologiesCloudTechnologiesSubMenuVisible")
+                      }
+                      disableRipple>
+                      Cloud Technologies
+                    </ButtonBase>
+                  </div>
+                </div>
+                {appBarTechnologiesProgrammingLanguagesSubMenuVisible && (
+                  <>
+                    <div className={classes.technologiesCol3Mobile}>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Java
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Python
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Golang
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        C++
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        JavaScript
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        NodeJS
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        PHP
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        .Net
+                      </Link>
+                    </div>
+                  </>
+                )}
+                {appBarTechnologiesAdvancedTechnologiesSubMenuVisible && (
+                  <>
+                    <div className={classes.technologiesCol3Mobile}>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Data Science
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Artificial Intelligence
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Virtual Reality
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Big Data
+                      </Link>
+                      <Link className={classes.serviceCol4Link} href={"#"}>
+                        Internet Of Things
+                      </Link>
+                      <Link className={classes.serviceCol4Link} href={"#"}>
+                        Cloud Computing
+                      </Link>
+                    </div>
+                  </>
+                )}
+                {appBarTechnologiesCloudTechnologiesSubMenuVisible && (
+                  <>
+                    <div className={classes.technologiesCol3Mobile}>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Amazon Web Service
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        MicroSoft Azure
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Saleforce
+                      </Link>
+                      <Link className={classes.serviceCol3Link} href={"#"}>
+                        Google Cloud Platform
+                      </Link>
+                    </div>
+                  </>
+                )}
+                <div className={classes.technologiesCol1Mobile}>
+                  <div className={classes.serviceTitleMobile}>
+                    Technologies
+                  </div>
+                  <div className={globalClasses.cardTitleDashLineBlueMobile} />
+                  <span className="text-wrapper">
+                    <span className="line line1"></span>
+                    <span id={"technologies"} className="letters">
+                      Our expertise spans all major technologies and platforms, and advances to
+                      innovative technology trends.
+                    </span>
+                  </span>
+                  <div className={classes.serviceContactBtnWrapperMobile}>
+                    <ButtonBase
+                        className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                        disableRipple>
+                      CONTACT
+                    </ButtonBase>
+                  </div>
+                </div>
+              </div>
+            </Drawer>
+            <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
+                <div className={classes.serviceContainerMobile}>
+                  <div className={classes.serviceCol3Mobile}>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      CRM
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      ERP
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Marketing & Advertising
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Data Anylytics
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      E-commerce
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Supply Chain Management
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      Human Resources
+                    </Link>
+                    <Link className={classes.serviceCol3Link} href={"#"}>
+                      E-Learning
+                    </Link>
+                  </div>
+                  <div className={classes.serviceCol1Mobile}>
+                    <div className={classes.serviceTitleMobile}>
+                      Solutions
+                    </div>
+                    <div className={globalClasses.cardTitleDashLineBlueMobile} />
+                    <span className="text-wrapper">
+                      <span id={"solutions"} className="letters">
+                        We build on the IT domain expertise and industry knowledge to design sustainable
+                        technology solutions.
+                      </span>
+                    </span>
+                    <div className={classes.serviceContactBtnWrapperMobile}>
+                      <ButtonBase
+                          className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                          disableRipple>
+                        CONTACT
+                      </ButtonBase>
+                    </div>
+                  </div>
+                </div>
+            </Drawer>
+            <Drawer
+              cb={cb3}
+              key={"blogAndNewsMenu"}
+              visible={idx == 3 && appBarBlogAndNewsMenuVisible}>
+              <div className={classes.serviceContainerMobile}>
+                <div className={classes.serviceCol3Mobile}>
+                  <div>
+                    <Link className={classes.serviceCol4Link} href={"#"}>
+                      Check out our updates
+                    </Link>
+                  </div>
+                </div>
+                <div className={classes.serviceCol1Mobile}>
+                  <div className={classes.serviceTitleMobile}>
+                    Blogs & News
+                  </div>
+                  <div className={globalClasses.cardTitleDashLineBlueMobile} />
+                  <span className="text-wrapper">
+                    <span className="line line1"></span>
+                    <span id={"blogAndNews"} className="letters">
+                      Knowing everything about us and the IT industry...{" "}
+                    </span>
+                  </span>
+                  <div className={classes.serviceContactBtnWrapperMobile}>
+                    <ButtonBase
+                        className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                        disableRipple>
+                      CONTACT
+                    </ButtonBase>
+                  </div>
+                </div>
+              </div>
+            </Drawer>
+          </Drawer>
+        </div>
       )}
       <div className={classes.content}>
         <div className={classes.bg}></div>
