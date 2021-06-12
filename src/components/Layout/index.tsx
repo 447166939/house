@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme) =>
       paddingBottom: "1px",
       zIndex: 1000
     },
-    topIndex:{
+    topIndex: {
       zIndex: 999999
     },
     appBar: {
@@ -99,7 +99,7 @@ const useStyles = makeStyles((theme) =>
       paddingRight: "15%",
       position: "relative"
     },
-  toolbarMobile: {
+    toolbarMobile: {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
@@ -108,7 +108,7 @@ const useStyles = makeStyles((theme) =>
       paddingRight: "6%",
       position: "relative",
       zIndex: 1000000
-  },
+    },
     toolbarGrp1: {
       display: "flex",
       justifyContent: "flex-start",
@@ -133,7 +133,7 @@ const useStyles = makeStyles((theme) =>
       justifyContent: "center",
       flexWrap: "wrap",
       alignItems: "center",
-      padding: "10px 0",
+      padding: "10px 0"
     },
     toolbarGrp3: {
       display: "flex",
@@ -144,7 +144,7 @@ const useStyles = makeStyles((theme) =>
     toolbarGrp3Mobile: {
       display: "flex",
       justifyContent: "flex-end",
-      alignItems: "center",
+      alignItems: "center"
     },
     drawer: {
       position: "absolute"
@@ -261,7 +261,7 @@ const useStyles = makeStyles((theme) =>
       fontSize: 25,
       // fontSize: `${px2vw(25)}`,
       fontWeight: "bold",
-      marginRight: "10.5%",
+      marginRight: "10.5%"
     },
     nameTextMobile: {
       color: "#2699FB",
@@ -269,7 +269,7 @@ const useStyles = makeStyles((theme) =>
       fontSize: 25,
       // fontSize: `${px2vwMo(25)}`,
       fontWeight: "bold",
-      marginRight: "10.5%",
+      marginRight: "10.5%"
     },
     content: {
       flex: 1,
@@ -294,13 +294,13 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       justifyContent: "space-between",
       padding: "107px 280px",
-      backgroundColor: "#f7f8fa",
+      backgroundColor: "#f7f8fa"
     },
     serviceContainerMobile: {
       height: "auto",
       width: "100%",
       paddingBottom: "30px",
-      backgroundColor: "#f7f8fa",
+      backgroundColor: "#f7f8fa"
     },
     toolbarMobileContainer: {
       height: "auto",
@@ -318,7 +318,7 @@ const useStyles = makeStyles((theme) =>
       height: "auto",
       width: "100%",
       paddingBottom: "30px",
-      backgroundColor: "#f7f8fa",
+      backgroundColor: "#f7f8fa"
     },
     technologiesCol1: {
       display: "flex",
@@ -356,7 +356,7 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      alignItems: "center",
+      alignItems: "center"
     },
     technologiesCol4: {
       display: "flex",
@@ -410,7 +410,7 @@ const useStyles = makeStyles((theme) =>
       fontSize: "20px",
       marginTop: "18px",
       lineHeight: "50px",
-      fontWeight: "bold",
+      fontWeight: "bold"
     },
     serviceCol1Text: {
       fontSize: "16px",
@@ -424,7 +424,7 @@ const useStyles = makeStyles((theme) =>
       justifyContent: "center",
       alignItems: "center",
       width: "100%",
-      margin: "30px 0 30px 0",
+      margin: "30px 0 30px 0"
     },
     serviceContactBtn: {
       color: "#2699FB",
@@ -499,13 +499,13 @@ const useStyles = makeStyles((theme) =>
         height: 66,
         width: 66,
         bottom: "197px",
-        right: "50px",
+        right: "50px"
       },
       [theme.breakpoints.down("sm")]: {
         height: 51,
         width: 51,
         bottom: "136px",
-        right: "36px",
+        right: "36px"
       },
       position: "fixed",
       backgroundColor: "#fff",
@@ -518,13 +518,13 @@ const useStyles = makeStyles((theme) =>
         height: 66,
         width: 66,
         bottom: "197px",
-        right: "50px",
+        right: "50px"
       },
       [theme.breakpoints.down("sm")]: {
         height: 51,
         width: 51,
         bottom: "66px",
-        right: "36px",
+        right: "36px"
       },
       position: "fixed",
       backgroundColor: "#fff",
@@ -1176,7 +1176,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       let ww = window.innerWidth;
       if (ww >= 1024) {
         width = ww * 0.36;
-      }else{
+      } else {
         width = ww * 0.78;
       }
       searchInputVar
@@ -1301,7 +1301,9 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     console.log(" setMenuOpen to: " + menuOpen);
   }, [tabletOrDesktop]);
   const toggleMenuOpen = useCallback(() => {
-    console.log(" toggle menuOpenOpen! Now menuOpenState: " + menuOpen + " and !menuOpen: " + !menuOpen);
+    console.log(
+      " toggle menuOpenOpen! Now menuOpenState: " + menuOpen + " and !menuOpen: " + !menuOpen
+    );
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
 
@@ -1641,19 +1643,19 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               <div className={classes.toolbarGrp3Mobile}>
                 <Switch />
                 {menuOpen ? (
-                    <Button
-                        key={"menu"}
-                        onClick={toggleMenuOpen}
-                        className={clsx(classes.menuBtnMobile, { [classes.active]: menuOpen })}>
-                      <CloseIcon />
-                    </Button>
+                  <Button
+                    key={"menu"}
+                    onClick={toggleMenuOpen}
+                    className={clsx(classes.menuBtnMobile, { [classes.active]: menuOpen })}>
+                    <CloseIcon />
+                  </Button>
                 ) : (
-                    <Button
-                        key={"menuClose"}
-                        onClick={toggleMenuOpen}
-                        className={clsx(classes.menuBtnMobile, { [classes.active]: menuOpen })}>
-                      <MenuIcon />
-                    </Button>
+                  <Button
+                    key={"menuClose"}
+                    onClick={toggleMenuOpen}
+                    className={clsx(classes.menuBtnMobile, { [classes.active]: menuOpen })}>
+                    <MenuIcon />
+                  </Button>
                 )}
               </div>
             </Toolbar>
@@ -1663,35 +1665,39 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <div className={classes.toolbarMobileContainer}>
               <div className={classes.toolbarGrp2Mobile}>
                 {searchOpen ? (
-                    <Button
-                        key={"close"}
-                        onClick={toggleSearchOpen}
-                        className={classes.searchCloseBtn}>
-                      <CloseIcon />
-                    </Button>
+                  <Button
+                    key={"close"}
+                    onClick={toggleSearchOpen}
+                    className={classes.searchCloseBtn}>
+                    <CloseIcon />
+                  </Button>
                 ) : (
-                    <Button key={"open"} onClick={toggleSearchOpen} className={classes.searchBtn}>
-                      <SearchIcon />
-                    </Button>
+                  <Button key={"open"} onClick={toggleSearchOpen} className={classes.searchBtn}>
+                    <SearchIcon />
+                  </Button>
                 )}
                 <Button
-                    key={"user"}
-                    onClick={toggleUserOpen}
-                    className={clsx(classes.userBtn, { [classes.active]: userOpen })}>
+                  key={"user"}
+                  onClick={toggleUserOpen}
+                  className={clsx(classes.userBtn, { [classes.active]: userOpen })}>
                   <UserIcon />
                 </Button>
               </div>
               <div className={classes.toolbarGrp2Mobile}>
-                <div id={"tabsWrapper"} className={clsx(classes.tabsWrapperMobile, {[globalClasses.pointerEventsNone]: searchOpen})}>
+                <div
+                  id={"tabsWrapper"}
+                  className={clsx(classes.tabsWrapperMobile, {
+                    [globalClasses.pointerEventsNone]: searchOpen
+                  })}>
                   <Tabs
-                      onChange={handleChange}
-                      menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
+                    onChange={handleChange}
+                    menus={["services", "technologies", "solutions", "blog&news"]}></Tabs>
                 </div>
                 <div id={"searchInputWrapper"} className={classes.searchInputWrapper}>
                   <SearchIcon />
                   <InputBase
-                      className={classes.searchInput}
-                      placeholder={"Type & Search For Our Services."}
+                    className={classes.searchInput}
+                    placeholder={"Type & Search For Our Services."}
                   />
                 </div>
               </div>
@@ -1725,20 +1731,18 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   </Link>
                 </div>
                 <div className={classes.serviceCol1Mobile}>
-                  <div className={classes.serviceTitleMobile}>
-                    Services
-                  </div>
+                  <div className={classes.serviceTitleMobile}>Services</div>
                   <div className={globalClasses.cardTitleDashLineBlueMobile} />
                   <span className="text-wrapper">
                     <span id={"service"} className="letters">
-                      Our service portfolio covers an entire software development life cycle and meets
-                      varied business needs.
+                      Our service portfolio covers an entire software development life cycle and
+                      meets varied business needs.
                     </span>
                   </span>
                   <div className={classes.serviceContactBtnWrapperMobile}>
                     <ButtonBase
-                        className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                        disableRipple>
+                      className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                      disableRipple>
                       CONTACT
                     </ButtonBase>
                   </div>
@@ -1861,9 +1865,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   </>
                 )}
                 <div className={classes.technologiesCol1Mobile}>
-                  <div className={classes.serviceTitleMobile}>
-                    Technologies
-                  </div>
+                  <div className={classes.serviceTitleMobile}>Technologies</div>
                   <div className={globalClasses.cardTitleDashLineBlueMobile} />
                   <span className="text-wrapper">
                     <span className="line line1"></span>
@@ -1874,8 +1876,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   </span>
                   <div className={classes.serviceContactBtnWrapperMobile}>
                     <ButtonBase
-                        className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                        disableRipple>
+                      className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                      disableRipple>
                       CONTACT
                     </ButtonBase>
                   </div>
@@ -1883,53 +1885,51 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </div>
             </Drawer>
             <Drawer cb={cb2} key={"solutionsMenu"} visible={idx == 2 && appBarSolutionsMenuVisible}>
-                <div className={classes.serviceContainerMobile}>
-                  <div className={classes.serviceCol3Mobile}>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      CRM
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      ERP
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      Marketing & Advertising
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      Data Anylytics
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      E-commerce
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      Supply Chain Management
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      Human Resources
-                    </Link>
-                    <Link className={classes.serviceCol3Link} href={"#"}>
-                      E-Learning
-                    </Link>
-                  </div>
-                  <div className={classes.serviceCol1Mobile}>
-                    <div className={classes.serviceTitleMobile}>
-                      Solutions
-                    </div>
-                    <div className={globalClasses.cardTitleDashLineBlueMobile} />
-                    <span className="text-wrapper">
-                      <span id={"solutions"} className="letters">
-                        We build on the IT domain expertise and industry knowledge to design sustainable
-                        technology solutions.
-                      </span>
+              <div className={classes.serviceContainerMobile}>
+                <div className={classes.serviceCol3Mobile}>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    CRM
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    ERP
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Marketing & Advertising
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Data Anylytics
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    E-commerce
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Supply Chain Management
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    Human Resources
+                  </Link>
+                  <Link className={classes.serviceCol3Link} href={"#"}>
+                    E-Learning
+                  </Link>
+                </div>
+                <div className={classes.serviceCol1Mobile}>
+                  <div className={classes.serviceTitleMobile}>Solutions</div>
+                  <div className={globalClasses.cardTitleDashLineBlueMobile} />
+                  <span className="text-wrapper">
+                    <span id={"solutions"} className="letters">
+                      We build on the IT domain expertise and industry knowledge to design
+                      sustainable technology solutions.
                     </span>
-                    <div className={classes.serviceContactBtnWrapperMobile}>
-                      <ButtonBase
-                          className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                          disableRipple>
-                        CONTACT
-                      </ButtonBase>
-                    </div>
+                  </span>
+                  <div className={classes.serviceContactBtnWrapperMobile}>
+                    <ButtonBase
+                      className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                      disableRipple>
+                      CONTACT
+                    </ButtonBase>
                   </div>
                 </div>
+              </div>
             </Drawer>
             <Drawer
               cb={cb3}
@@ -1944,9 +1944,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   </div>
                 </div>
                 <div className={classes.serviceCol1Mobile}>
-                  <div className={classes.serviceTitleMobile}>
-                    Blogs & News
-                  </div>
+                  <div className={classes.serviceTitleMobile}>Blogs & News</div>
                   <div className={globalClasses.cardTitleDashLineBlueMobile} />
                   <span className="text-wrapper">
                     <span className="line line1"></span>
@@ -1956,8 +1954,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                   </span>
                   <div className={classes.serviceContactBtnWrapperMobile}>
                     <ButtonBase
-                        className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
-                        disableRipple>
+                      className={clsx(classes.serviceContactBtn, { [classes.active]: false })}
+                      disableRipple>
                       CONTACT
                     </ButtonBase>
                   </div>

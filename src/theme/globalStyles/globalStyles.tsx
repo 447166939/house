@@ -150,10 +150,10 @@ const useGlobalStyles = makeStyles((theme) => ({
     }
   },
   cardTitleDashLineBlueMobile: {
-      width: "60px",
-      height: "4px",
-      margin: "0 auto 21px auto",
-      backgroundColor: "#2699FB"
+    width: "60px",
+    height: "4px",
+    margin: "0 auto 21px auto",
+    backgroundColor: "#2699FB"
   },
   cardTitleDashLineGold: {
     "&:after": {
