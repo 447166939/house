@@ -14,7 +14,7 @@ const useStyles = makeStyles((themme) => ({
     left: 0,
     right: 0,
     zIndex: 40000,
-    overflow:'hidden'
+    overflow: "hidden"
   },
   mask: {
     position: "fixed",

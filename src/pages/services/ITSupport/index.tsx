@@ -22,7 +22,7 @@ import sf6Svg from "@/assets/sf6.svg";
 import wcsLeftSvg from "@/assets/wcsLeft.svg";
 import wcsRightSvg from "@/assets/wcsRight.svg";
 import smileSvg from "@/assets/smile.svg";
-import {px2vw} from "@/utils/pxtovw";
+import { px2vw } from "@/utils/pxtovw";
 export interface ICard1IconProps {}
 export interface ICard2IconProps {}
 export interface ICard3IconProps {}
