@@ -1306,7 +1306,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     );
     setMenuOpen(!menuOpen);
   }, [menuOpen]);
-
   return (
     <div className={classes.root}>
       {!tabletOrDesktop ? (

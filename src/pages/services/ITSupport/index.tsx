@@ -22,6 +22,7 @@ import sf6Svg from "@/assets/sf6.svg";
 import wcsLeftSvg from "@/assets/wcsLeft.svg";
 import wcsRightSvg from "@/assets/wcsRight.svg";
 import smileSvg from "@/assets/smile.svg";
+import {px2vw} from "@/utils/pxtovw";
 export interface ICard1IconProps {}
 export interface ICard2IconProps {}
 export interface ICard3IconProps {}
@@ -92,67 +93,67 @@ const SmileIcon: React.FC<ISmileIconProps> = (props: ISmileIconProps) => (
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      paddingLeft: "276px",
-      paddingRight: "276px",
+      paddingLeft: `${px2vw(276)}`,
+      paddingRight: `${px2vw(276)}`,
       alignSelf: "stretch"
     },
     sectionService: {
       display: "flex",
-      marginTop: "20px"
+      marginTop: `${px2vw(20)}`
     },
     serviceLeft: {
-      width: "320px",
-      marginRight: "20px"
+      width: `${px2vw(320)}`,
+      marginRight: `${px2vw(20)}`
     },
     serviceRight: {
       flex: 1
     },
     sdsCard: {
-      padding: "40px",
-      borderRadius: "10px"
+      padding: `${px2vw(40)}`,
+      borderRadius: `${px2vw(10)}`
     },
     sdsTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
       }
     },
     sdsImg: {
-      height: "300px",
+      height: `${px2vw(300)}`,
       background: "url(/sds.png) no-repeat center",
       backgroundSize: "cover"
     },
     sdsText: {
-      fontSize: "16px",
-      lineHeight: "24px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(24)}`,
       color: "#000"
     },
     wsaCard: {
-      borderRadius: "10px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(10)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     wsaTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
@@ -169,12 +170,12 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      padding: "32px 25px",
-      marginBottom: "20px"
+      padding: `${px2vw(32)} ${px2vw(25)}`,
+      marginBottom: `${px2vw(20)}`
     },
     wsaCardImg: {
-      width: "91px",
-      height: "91px",
+      width: `${px2vw(91)}`,
+      height: `${px2vw(91)}`,
       borderRadius: "50%",
       backgroundColor: "#fff",
       display: "flex",
@@ -183,44 +184,44 @@ const useStyles = makeStyles((theme) =>
       marginBottom: "26px"
     },
     wsaCardTitle: {
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       fontWeight: "bold",
       color: "#000",
       textAlign: "center",
-      marginBottom: "21px"
+      marginBottom: `${px2vw(21)}`
     },
     wsaCardText: {
-      fontSize: "14px",
-      lineHeight: "24px",
+      fontSize: `${px2vw(14)}`,
+      lineHeight: `${px2vw(24)}`,
       color: "#000",
       textAlign: "center"
     },
     wsaCardBtn: {
       color: "#2699FB",
-      height: "54px",
+      height: `${px2vw(54)}`,
       backgroundColor: "rgba(255,255,255,0.5)",
-      borderRadius: "8px",
-      marginTop: "27px",
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(27)}`,
       textAlign: "center",
-      padding: "0 35px"
+      padding: `0 ${px2vw(35)}`
     },
     sfCard: {
-      borderRadius: "8px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     sfTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
@@ -237,43 +238,43 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      padding: "32px 25px",
-      marginBottom: "20px"
+      padding: `${px2vw(32)} ${px2vw(25)}`,
+      marginBottom: `${px2vw(20)}`
     },
     sfCardImg: {
-      width: "79px",
-      height: "79px",
+      width: `${px2vw(79)}`,
+      height: `${px2vw(79)}`,
       borderRadius: "50%",
       backgroundColor: "#fff",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      marginBottom: "26px"
+      marginBottom: `${px2vw(26)}`
     },
     sfCardTitle: {
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       fontWeight: "bold",
       color: "#000",
       textAlign: "center",
-      marginBottom: "21px"
+      marginBottom: `${px2vw(21)}`
     },
     wcsCard: {
-      borderRadius: "8px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     wcsTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
@@ -286,43 +287,43 @@ const useStyles = makeStyles((theme) =>
       filter: "opacity(0.8)"
     },
     wcsContext: {
-      marginTop: "44px",
+      marginTop: `${px2vw(44)}`,
       backgroundColor: "#fff",
       opacity: 0.3,
-      padding: "50px"
+      padding: `${px2vw(50)}`
     },
     wcsTextWrapper: {
       display: "flex",
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       position: "relative",
       "&:before": {
         position: "absolute",
-        left: "-14px",
+        left: `-${px2vw(14)}`,
         transform: "translateY(0.25em)",
-        width: "9px",
-        height: "9px",
+        width: `${px2vw(9)}`,
+        height: `${px2vw(9)}`,
         borderRadius: "50%",
         backgroundColor: "#2699FB",
         content: "''"
       }
     },
     wepCard: {
-      borderRadius: "8px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     wepTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
@@ -338,32 +339,32 @@ const useStyles = makeStyles((theme) =>
       width: "23%",
       backgroundColor: "#f1f4f9",
       filter: "opacity(0.3)",
-      height: "102px",
+      height: `${px2vw(102)}`,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       fontWeight: "bold",
       color: "#373737",
-      marginBottom: "20px"
+      marginBottom: `${px2vw(20)}`
     },
     stwCard: {
-      borderRadius: "8px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     stwTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
@@ -377,15 +378,15 @@ const useStyles = makeStyles((theme) =>
     },
     stwItem: {
       width: "31%",
-      padding: "20px",
+      padding: `${px2vw(20)}`,
       backgroundColor: "#f1f4f9",
       filter: "opacity(0.3)",
-      paddingLeft: "34px",
-      marginBottom: "23px"
+      paddingLeft: `${px2vw(34)}`,
+      marginBottom: `${px2vw(23)}`
     },
     stwCardTitle: {
-      fontSize: "20px",
-      lineHeight: "23px",
+      fontSize: `${px2vw(20)}`,
+      lineHeight: `${px2vw(23)}`,
       fontWeight: "bold",
       color: "#000",
       marginBottom: theme.spacing(1)
@@ -394,47 +395,47 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       marginBottom: theme.spacing(1),
       position: "relative",
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       color: "#000",
       "&:before": {
         position: "absolute",
-        left: "-14px",
+        left: `-${px2vw(14)}`,
         transform: "translateY(0.25em)",
-        width: "9px",
-        height: "9px",
+        width: `${px2vw(9)}`,
+        height: `${px2vw(9)}`,
         borderRadius: "50%",
         backgroundColor: "#2699FB",
         content: "''"
       }
     },
     whatCard: {
-      borderRadius: "10px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(10)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     whatTitle: {
-      fontSize: "30px",
-      lineHeight: "34px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(34)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
       }
     },
     whatSubTitle: {
-      fontSize: "20px",
-      lineHeight: "23px",
+      fontSize: `${px2vw(20)}`,
+      lineHeight: `${px2vw(23)}`,
       fontWeight: "bold",
       color: "#000",
-      marginBottom: "36px"
+      marginBottom: `${px2vw(36)}`
     },
     whatBox: {
       display: "flex",
@@ -445,32 +446,32 @@ const useStyles = makeStyles((theme) =>
       width: "23%",
       backgroundColor: "#f1f4f9",
       filter: "opacity(0.3)",
-      height: "102px",
+      height: `${px2vw(102)}`,
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       fontWeight: "bold",
       color: "#373737",
-      marginBottom: "20px"
+      marginBottom: `${px2vw(20)}`
     },
     wdmsCard: {
-      borderRadius: "8px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     wdmsTitle: {
-      fontSize: "30px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(30)}`,
+      lineHeight: `${px2vw(50)}`,
       fontWeight: "bold",
       position: "relative",
       marginBottom: theme.spacing(4),
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         backgroundColor: "#2699FB",
         bottom: 0,
         left: 0
@@ -484,15 +485,15 @@ const useStyles = makeStyles((theme) =>
     },
     wdmsItem: {
       width: "31%",
-      padding: "20px",
+      padding: `${px2vw(20)}`,
       backgroundColor: "#f1f4f9",
       filter: "opacity(0.3)",
-      paddingLeft: "34px",
-      marginBottom: "23px"
+      paddingLeft: `${px2vw(34)}`,
+      marginBottom: `${px2vw(23)}`
     },
     wdmsCardTitle: {
-      fontSize: "20px",
-      lineHeight: "23px",
+      fontSize: `${px2vw(20)}`,
+      lineHeight: `${px2vw(23)}`,
       fontWeight: "bold",
       color: "#000",
       marginBottom: theme.spacing(1)
@@ -501,56 +502,56 @@ const useStyles = makeStyles((theme) =>
       display: "flex",
       marginBottom: theme.spacing(1),
       position: "relative",
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       color: "#000",
       "&:before": {
         position: "absolute",
-        left: "-14px",
+        left: `-${px2vw(14)}`,
         transform: "translateY(0.25em)",
-        width: "9px",
-        height: "9px",
+        width: `${px2vw(9)}`,
+        height: `${px2vw(9)}`,
         borderRadius: "50%",
         backgroundColor: "#2699FB",
         content: "''"
       }
     },
     sbysCard: {
-      borderRadius: "8px",
-      marginTop: "20px",
-      padding: "40px"
+      borderRadius: `${px2vw(8)}`,
+      marginTop: `${px2vw(20)}`,
+      padding: `${px2vw(40)}`
     },
     sbysBox: {
       display: "flex",
-      height: "184px",
+      height: `${px2vw(184)}`,
       backgroundColor: "rgba(255,255,255,0.3)",
-      padding: "0 34px"
+      padding: `0 ${px2vw(34)}`
     },
     sbysSmileIcon: {
-      marginTop: "48px"
+      marginTop: `${px2vw(48)}`
     },
     sbysTextWrapper: {
-      marginTop: "48px",
-      marginLeft: "26px"
+      marginTop: `${px2vw(48)}`,
+      marginLeft: `${px2vw(26)}`
     },
     sbysTitle: {
-      fontSize: "20px",
+      fontSize: `${px2vw(20)}`,
       lineHeight: 1,
       fontWeight: "bold",
       color: "#373737"
     },
     sbysText: {
-      fontSize: "16px",
-      lineHeight: "24px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(24)}`,
       color: "#000"
     },
     sbysBtn: {
-      width: "274px",
-      height: "68px",
+      width: `${px2vw(274)}`,
+      height: `${px2vw(68)}`,
       color: "#40C4FF",
-      fontSize: "16px",
-      lineHeight: "18px",
-      borderRadius: "8px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
+      borderRadius: `${px2vw(8)}`,
       alignSelf: "center",
       backgroundColor: "#fff",
       filter: "opacity(0.5)"
