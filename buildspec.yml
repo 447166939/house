@@ -20,11 +20,11 @@ phases:
       - echo Testing...
       - echo Building...
       - yarn build
-      - echo Building...
+      - echo Exporting...
       - yarn export
 artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: .out
+  base-directory: out
   # base-directory: .next
