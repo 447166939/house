@@ -107,7 +107,7 @@ const useStyles = makeStyles((theme) =>
     },
     serviceRight: {
       flex: 1,
-        overflow:'hidden'
+      overflow: "hidden"
     },
     sdsCard: {
       padding: `${px2vw(40)}`,

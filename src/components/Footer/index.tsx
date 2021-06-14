@@ -7,7 +7,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import InputBase from "@material-ui/core/InputBase";
 import logoSvg from "@/assets/footerLogo.svg";
-import {px2vw} from "@/utils/pxtovw";
+import { px2vw } from "@/utils/pxtovw";
 
 const useStyles = makeStyles((theme) => ({
   footer: {

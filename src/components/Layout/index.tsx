@@ -652,16 +652,16 @@ const useStyles = makeStyles((theme) =>
     },
     contactSection: {
       alignSelf: "stretch",
-      marginLeft: "252px",
-      marginRight: "252px",
-      padding: "60px",
-      marginTop: "50px",
-      borderRadius: "10px"
+      marginLeft: `${px2vw(252)}`,
+      marginRight: `${px2vw(252)}`,
+      padding: `${px2vw(60)}`,
+      marginTop: `${px2vw(50)}`,
+      borderRadius: `${px2vw(10)}`
     },
     contactBtnWrapper: {},
     contactTitle: {
-      fontSize: "38px",
-      lineHeight: "50px",
+      fontSize: `${px2vw(38)}`,
+      lineHeight: `${px2vw(50)}`,
       color: "#000",
       fontWeight: "bold",
       position: "relative",
@@ -669,8 +669,8 @@ const useStyles = makeStyles((theme) =>
       "&:after": {
         content: "''",
         position: "absolute",
-        width: "60px",
-        height: "4px",
+        width: `${px2vw(60)}`,
+        height: `${px2vw(4)}`,
         bottom: 0,
         left: 0,
         backgroundColor: "#2699FB"
@@ -683,23 +683,23 @@ const useStyles = makeStyles((theme) =>
     contactRight: {
       display: "inline-block",
       width: "35%",
-      paddingLeft: "100px",
+      paddingLeft: `${px2vw(100)}`,
       verticalAlign: "bottom"
     },
     contactFormLabel: {
-      fontSize: "16px",
-      lineHeight: "24px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(24)}`,
       color: "#000"
     },
     inputGroup: {
       display: "flex",
       justifyContent: "space-between",
-      marginTop: "30px"
+      marginTop: `${px2vw(30)}`
     },
     contactInputWrapper: {
       width: "23%",
       boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
-      borderRadius: "8px",
+      borderRadius: `${px2vw(8)}`,
       paddingLeft: theme.spacing(2),
       backgroundColor: "#fff",
       opacity: 0.6,
@@ -710,10 +710,10 @@ const useStyles = makeStyles((theme) =>
     },
     contactTextAreaWrapper: {
       width: "100%",
-      height: "120px",
-      borderRadius: "8px",
+      height: `${px2vw(120)}`,
+      borderRadius: `${px2vw(8)}`,
       background: "none",
-      marginTop: "60px"
+      marginTop: `${px2vw(60)}`
     },
     contactTextArea: {
       width: "100%",
@@ -723,25 +723,25 @@ const useStyles = makeStyles((theme) =>
       opacity: 0.6,
       boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
       padding: theme.spacing(2),
-      borderRadius: "8px"
+      borderRadius: `${px2vw(8)}`
     },
     contactRightTitle: {
-      fontSize: "20px",
+      fontSize: `${px2vw(20)}`,
       color: "#000",
-      lineHeight: "24px",
+      lineHeight: `${px2vw(24)}`,
       marginBottom: theme.spacing(1.5)
     },
     contactRightText: {
-      fontSize: "16px",
-      lineHeight: "18px",
+      fontSize: `${px2vw(16)}`,
+      lineHeight: `${px2vw(18)}`,
       color: "#2699FB",
       marginLeft: theme.spacing(1)
     },
     contactRightBtn: {
-      width: "189px",
-      height: "52px",
+      width: `${px2vw(189)}`,
+      height: `${px2vw(52)}`,
       backgroundColor: "#fff",
-      borderRadius: "8px",
+      borderRadius: `${px2vw(8)}`,
       opacity: 0.5,
       marginTop: theme.spacing(1.5)
     },
@@ -2061,7 +2061,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <IconButton className={classes.chatBtn}>
         <ChatIcon />
       </IconButton>
-      <Footer />
+        <Footer />
     </div>
   );
 };

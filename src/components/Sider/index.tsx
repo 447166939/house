@@ -15,7 +15,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#f7f8fa",
     padding: "25px 21px 55px 21px",
     height: "600px",
-    overflowY: "scroll"
+    overflowY: "scroll",
+    ['scrollbar-width']:'none',
+    ['&::-webkit-scrollbar']:{
+     display: 'none',
+}
   },
   serviceBtn: {
     color: "#2699FB",

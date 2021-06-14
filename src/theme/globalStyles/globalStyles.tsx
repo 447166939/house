@@ -1,19 +1,19 @@
 import { makeStyles } from "@material-ui/core";
-import { px2vwMo } from "@/utils/pxtovw";
+import {px2vw, px2vwMo} from "@/utils/pxtovw";
 
 const useGlobalStyles = makeStyles((theme) => ({
   // for Buttons
   cardBlurBtn: {
-    width: "148px",
-    height: "48px",
+    width: `${px2vw(148)}`,
+    height: `${px2vw(48)}`,
     color: "#fff",
-    fontSize: "12px",
-    lineHeight: "30px",
+    fontSize: `${px2vw(12)}`,
+    lineHeight: `${px2vw(30)}`,
     backdropFilter: "blur(23px)",
     backgroundColor: "rgba(247, 248, 250, .45)",
-    borderRadius: "4px",
+    borderRadius: `${px2vw(4)}`,
     boxShadow: "-8px -4px 12px 3px #7b3bed30, 8px 4px 12px 6px #30cfda5d",
-    marginTop: "30px",
+    marginTop: `${px2vw(30)}`,
     zIndex: 100,
     "&:active": {
       color: "#CBD5E5",
@@ -61,16 +61,16 @@ const useGlobalStyles = makeStyles((theme) => ({
     }
   },
   cardNormalBtn: {
-    width: "331px",
-    height: "69px",
+    width: `${px2vw(331)}`,
+    height: `${px2vw(69)}`,
     color: "#2699FB",
     outline: "none",
     border: "none",
     boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
-    borderRadius: "8px",
+    borderRadius: `${px2vw(8)}`,
     cursor: "pointer",
     textTransform: "uppercase",
-    marginRight: "15px"
+    marginRight: `${px2vw(15)}`
   },
   cardNormalBtnActive: {
     color: "#CBD5E5",
@@ -82,7 +82,7 @@ const useGlobalStyles = makeStyles((theme) => ({
       right: 0,
       bottom: 0,
       boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
-      borderRadius: "8px"
+      borderRadius: `${px2vw(8)}`
     }
   },
   // boxShadows
@@ -117,23 +117,23 @@ const useGlobalStyles = makeStyles((theme) => ({
   },
   // Cards Title Text
   cardBigTitle: {
-    fontSize: "40px",
-    lineHeight: "56px",
+    fontSize: `${px2vw(40)}`,
+    lineHeight: `${px2vw(56)}`,
     fontWeight: "bold",
     position: "relative",
     marginBottom: theme.spacing(2)
   },
   cardMediumTitle: {
     textAlign: "center",
-    fontSize: "32px",
-    lineHeight: "48px",
+    fontSize: `${px2vw(32)}`,
+    lineHeight: `${px2vw(48)}`,
     fontWeight: "bold",
     position: "relative",
     marginBottom: theme.spacing(2)
   },
   cardSmallTitle: {
-    fontSize: "24px",
-    lineHeight: "40px",
+    fontSize: `${px2vw(24)}`,
+    lineHeight: `${px2vw(40)}`,
     fontWeight: "bold",
     position: "relative",
     marginBottom: theme.spacing(2)
@@ -142,8 +142,8 @@ const useGlobalStyles = makeStyles((theme) => ({
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#2699FB"
@@ -159,27 +159,27 @@ const useGlobalStyles = makeStyles((theme) => ({
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#ffef96"
     }
   },
   cardBigText: {
-    fontSize: "24px",
+    fontSize: `${px2vw(24)}`,
     color: "#000000",
-    lineHeight: "24px"
+    lineHeight: `${px2vw(24)}`
   },
   cardMediumText: {
-    fontSize: "20px",
+    fontSize: `${px2vw(20)}`,
     color: "#000000",
-    lineHeight: "20px"
+    lineHeight: `${px2vw(20)}`
   },
   cardSmallText: {
-    fontSize: "16px",
+    fontSize: `${px2vw(16)}`,
     color: "#000000",
-    lineHeight: "16px"
+    lineHeight: `${px2vw(16)}`
   },
   // Effects
   cardGlassEffect: {
@@ -189,7 +189,7 @@ const useGlobalStyles = makeStyles((theme) => ({
       content: "''",
       position: "absolute",
       top: "0px",
-      left: "-1000px",
+      left: `-${px2vw(1000)}`,
       width: "100%",
       height: "100%",
       opacity: 0.5,
