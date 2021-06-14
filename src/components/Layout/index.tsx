@@ -1967,20 +1967,20 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       )}
       <div className={classes.content}>
         <div className={classes.bg}></div>
-        {/*<img id={"circle"} className={classes.circle} src={"/circle.png"} />*/}
-        {/*<img id={"ball"} className={classes.ball} src={"/ball.png"} />*/}
-        {/*<img id={"rect"} className={classes.rect} src={"/rect.png"} />*/}
-        {/*<img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />*/}
-        {/*<img id={"cube"} className={classes.cube} src={"/cube.png"} />*/}
-        {/*<img className={classes.egg} id={"egg"} src={"/egg.png"} />*/}
-        {/*<img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />*/}
+        <img id={"circle"} className={classes.circle} src={"/circle.png"} />
+        <img id={"ball"} className={classes.ball} src={"/ball.png"} />
+        <img id={"rect"} className={classes.rect} src={"/rect.png"} />
+        <img id={"triangle"} className={classes.triangle} src={"/triangle.png"} />
+        <img id={"cube"} className={classes.cube} src={"/cube.png"} />
+        <img className={classes.egg} id={"egg"} src={"/egg.png"} />
+        <img id="tetrahedron" className={classes.tetrahedron} src={"/tetrahedron.png"} />
 
-        {/*<img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />*/}
-        {/*<img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />*/}
-        {/*<img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />*/}
-        {/*<img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />*/}
-        {/*<img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />*/}
-        {/*<img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />*/}
+        <img id={"circleB"} className={classes.circleB} src={"/circleB.png"} />
+        <img id={"circleSB"} className={classes.circleSB} src={"/circleSB.png"} />
+        <img id="cubeB" className={classes.cubeB} src={"/cubeB.png"} />
+        <img id={"rectB"} className={classes.rectB} src={"/rectB.png"} />
+        <img id="tetrahedronB" className={classes.tetrahedronB} src={"/tetrahedronB.png"} />
+        <img id={"triangleB"} className={classes.triangleB} src={"/triangleB.png"} />
 
         {children}
 
