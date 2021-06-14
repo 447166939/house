@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import {px2vw, px2vwMo} from "@/utils/pxtovw";
+import { px2vw, px2vwMo } from "@/utils/pxtovw";
 
 const useGlobalStyles = makeStyles((theme) => ({
   // for Buttons

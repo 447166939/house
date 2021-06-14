@@ -8,30 +8,31 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import rootCategory from "../../data/rootCategories/rootCategory";
 import clsx from "clsx";
+import {px2vw} from "@/utils/pxtovw";
 const useStyles = makeStyles((theme) => ({
   sider: {
     width: "100%",
-    borderRadius: "8px",
+    borderRadius: `${px2vw(8)}`,
     backgroundColor: "#f7f8fa",
-    padding: "25px 21px 55px 21px",
-    height: "600px",
+    padding: `${px2vw(25)} ${px2vw(21)} ${px2vw(55)} ${px2vw(21)}`,
+    height: `${px2vw(600)}`,
     overflowY: "scroll",
-    ['scrollbar-width']:'none',
-    ['&::-webkit-scrollbar']:{
-     display: 'none',
-}
+    ["scrollbar-width"]: "none",
+    ["&::-webkit-scrollbar"]: {
+      display: "none"
+    }
   },
   serviceBtn: {
     color: "#2699FB",
-    width: "278px",
-    height: "44px",
+    width: `${px2vw(278)}`,
+    height: `${px2vw(44)}`,
     outline: "none",
     border: "none",
     boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
-    borderRadius: "8px",
+    borderRadius: `${px2vw(8)}`,
     cursor: "pointer",
     textTransform: "uppercase",
-    marginBottom: "25px"
+    marginBottom: `${px2vw(25)}`
   },
   active: {
     color: "#CBD5E5",
@@ -43,14 +44,14 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       bottom: 0,
       boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
-      borderRadius: "8px"
+      borderRadius:`${px2vw(8)}`
     }
   },
   nested: {
-    paddingLeft: theme.spacing(4)
+    paddingLeft: `${px2vw(16)}`
   },
   childNested: {
-    paddingLeft: theme.spacing(8)
+    paddingLeft: `${px2vw(32)}`
   }
 }));
 export interface ISiderProps {}

@@ -2061,7 +2061,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <IconButton className={classes.chatBtn}>
         <ChatIcon />
       </IconButton>
-        <Footer />
+      <Footer />
     </div>
   );
 };
