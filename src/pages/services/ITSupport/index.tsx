@@ -106,7 +106,8 @@ const useStyles = makeStyles((theme) =>
       marginRight: `${px2vw(20)}`
     },
     serviceRight: {
-      flex: 1
+      flex: 1,
+        overflow:'hidden'
     },
     sdsCard: {
       padding: `${px2vw(40)}`,

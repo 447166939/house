@@ -278,7 +278,7 @@ const useStyles = makeStyles((theme) =>
       alignItems: "center",
       position: "relative",
       overflow: "hidden",
-      paddingBottom: "97px"
+      paddingBottom: `${px2vw(97)}`
     },
     bg: {
       position: "fixed",

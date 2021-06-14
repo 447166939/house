@@ -7,13 +7,14 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import InputBase from "@material-ui/core/InputBase";
 import logoSvg from "@/assets/footerLogo.svg";
+import {px2vw} from "@/utils/pxtovw";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
     width: "100%",
-    height: "267px",
+    height: `${px2vw(267)}`,
     backgroundColor: "#2699FB",
-    padding: "42px 273px",
+    padding: `${px2vw(42)} ${px2vw(273)}`,
     color: "#fff",
     display: "flex",
     alignItems: "center",
@@ -22,44 +23,44 @@ const useStyles = makeStyles((theme) => ({
   },
   footerText: {},
   linksBox: {
-    borderRadius: "8px",
+    borderRadius: `${px2vw(8)}`,
     boxShadow: "-4px -4px 10px #64B8FF99,4px 4px 5px rgba(0,0,0,.3)",
     display: "flex",
     justifyContent: "space-around",
     width: "100%",
-    padding: "60px 0"
+    padding: `${px2vw(60)} 0`
   },
   linkItem: {
     alignItems: "center",
     display: "flex",
-    lineHeight: "30px",
+    lineHeight: `${px2vw(30)}`,
     color: "#fff",
-    fontSize: "12px"
+    fontSize: `${px2vw(12)}`
   },
   ModuleX: {
-    lineHeight: "54px"
+    lineHeight: `${px2vw(54)}`
   },
   nameText: {
     color: "#fff",
-    fontSize: "25px",
+    fontSize: `${px2vw(25)}`,
     fontWeight: "bold",
     marginLeft: theme.spacing(1)
   },
   okBtn: {
     boxShadow: "-4px -2px 4px #47AAFF,1px 1px 10px rgba(0,0,0,0.3)",
-    width: "82px",
-    height: "42px",
-    marginLeft: "24px"
+    width: `${px2vw(82)}`,
+    height: `${px2vw(42)}`,
+    marginLeft: `${px2vw(24)}`
   },
   inputWrapper: {
     boxShadow: "inset 3px 3px 3px 0px rgba(0,0,0,0.2), 3px 3px 3px 0px rgba(255,255,255,0.2)",
-    borderRadius: "8px",
+    borderRadius: `${px2vw(8)}`,
     paddingLeft: theme.spacing(2),
     backgroundColor: "#2699FB"
   },
   inputStyle: {
-    height: "41px",
-    minWidth: "220px"
+    height: `${px2vw(41)}`,
+    minWidth: `${px2vw(220)}`
   },
   row: {
     display: "flex"
