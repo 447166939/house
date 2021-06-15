@@ -8,7 +8,7 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
 import rootCategory from "../../data/rootCategories/rootCategory";
 import clsx from "clsx";
-import {px2vw} from "@/utils/pxtovw";
+import { px2vw } from "@/utils/pxtovw";
 const useStyles = makeStyles((theme) => ({
   sider: {
     width: "100%",
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       bottom: 0,
       boxShadow: "2px 2px 2px 0px #DFE4EA inset, -2px -2px 2px 0px #fff inset",
-      borderRadius:`${px2vw(8)}`
+      borderRadius: `${px2vw(8)}`
     }
   },
   nested: {

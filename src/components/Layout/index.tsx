@@ -658,6 +658,15 @@ const useStyles = makeStyles((theme) =>
       marginTop: `${px2vw(50)}`,
       borderRadius: `${px2vw(10)}`
     },
+      contactSectionMobile:{
+          alignSelf: "stretch",
+          marginLeft: `${px2vwMo(20)}`,
+          marginRight: `${px2vwMo(20)}`,
+          padding: `${px2vwMo(40)} ${px2vwMo(33)}`,
+          marginTop: `${px2vwMo(31)}`,
+          borderRadius: `${px2vwMo(10)}`,
+
+      },
     contactBtnWrapper: {},
     contactTitle: {
       fontSize: `${px2vw(38)}`,
@@ -691,6 +700,13 @@ const useStyles = makeStyles((theme) =>
       lineHeight: `${px2vw(24)}`,
       color: "#000"
     },
+      contactFormLabelMobile:{
+       fontSize:`${px2vwMo(20)}`,
+          lineHeight:`${px2vwMo(24)}`,
+          color:'#000',
+          marginBottom:`${px2vwMo(36)}`,
+          marginTop:`${px2vwMo(32)}`
+      },
     inputGroup: {
       display: "flex",
       justifyContent: "space-between",
@@ -705,9 +721,26 @@ const useStyles = makeStyles((theme) =>
       opacity: 0.6,
       zIndex: 1
     },
+      contactInputWrapperMobile: {
+          width: "100%",
+          boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
+          borderRadius: `${px2vwMo(8)}`,
+          paddingLeft: theme.spacing(2),
+          backgroundColor: "#fff",
+          opacity: 0.6,
+          zIndex: 1,
+          height:`${px2vwMo(53)}`,
+          lineHeight:`${px2vwMo(53)}`,
+          fontSize:`${px2vwMo(20)}`,
+          marginBottom:`${px2vwMo(20)}`
+      },
     contactInput: {
       color: "#000"
     },
+      contactInputMobile:{
+        fontSize:`${px2vwMo(20)}`,
+          width:`100%`,
+      },
     contactTextAreaWrapper: {
       width: "100%",
       height: `${px2vw(120)}`,
@@ -715,6 +748,13 @@ const useStyles = makeStyles((theme) =>
       background: "none",
       marginTop: `${px2vw(60)}`
     },
+      contactTextAreaWrapperMobile:{
+          width: "100%",
+          height: `${px2vwMo(271)}`,
+          borderRadius: `${px2vwMo(8)}`,
+          background: "none",
+          marginTop: `${px2vwMo(40)}`
+      },
     contactTextArea: {
       width: "100%",
       height: "100%",
@@ -725,6 +765,18 @@ const useStyles = makeStyles((theme) =>
       padding: theme.spacing(2),
       borderRadius: `${px2vw(8)}`
     },
+      contactTextAreaMobile: {
+          width: "100%",
+          height: "100%!important",
+          border: "none",
+          outline: "none",
+          opacity: 0.6,
+          boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
+          padding: theme.spacing(2),
+          borderRadius: `${px2vwMo(8)}`,
+          fontSize:`${px2vwMo(20)}!important`,
+          lineHeight:`${px2vwMo(23)}!important`
+      },
     contactRightTitle: {
       fontSize: `${px2vw(20)}`,
       color: "#000",
@@ -781,153 +833,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    var t1 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t2 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t3 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t4 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t5 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var t6 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var cubeTimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var cubeTimeLine1 = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var tetrahedronTimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var circle1TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var circle2TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    var egg2TimeLine = anime.timeline({
-      easing: "linear",
-      duration: 3000,
-      loop: true
-    });
-    t1.add({
-      targets: ["#circle"],
-      top: "0px",
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    t2.add({
-      targets: ["#ball"],
-      top: 200,
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    t3.add({
-      targets: ["#rect"],
-      top: 100,
-      left: "2500px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    t4.add({
-      targets: ["#triangle"],
-      left: "2500px",
-      top: 300,
-      rotate: "360deg",
-      duration: 30000
-    });
-    t5.add({
-      targets: ["#egg"],
-      left: "2500px",
-      top: -400,
-      rotate: "360deg",
-      duration: 30000
-    });
-    t6.add({
-      targets: ["#triangle1"],
-      left: "2500px",
-      top: -600,
-      rotate: "360deg",
-      duration: 30000
-    });
-    cubeTimeLine.add({
-      targets: ["#cube"],
-      left: "2500px",
-      top: "-600px",
-      rotate: "360deg",
-      duration: 50000
-    });
-    cubeTimeLine1.add({
-      targets: ["#cube1"],
-      left: "2500px",
-      top: "-600px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    tetrahedronTimeLine.add({
-      targets: ["#tetrahedron"],
-      left: "1000px",
-      top: "-600px",
-      rotate: "360deg",
-      duration: 30000
-    });
-    circle1TimeLine.add({
-      targets: ["#circle1"],
-      left: "800px",
-      top: "300px",
-      rotate: "360deg",
-      duration: 60000
-    });
-    circle2TimeLine.add({
-      targets: ["#circle2"],
-      left: "1500px",
-      bottom: "3000px",
-      rotate: "360deg",
-      duration: 60000
-    });
-    egg2TimeLine.add({
-      targets: ["#egg2"],
-      left: "800px",
-      bottom: "6000px",
-      rotate: "360deg",
-      duration: 30000
-    });
-  }, []);
   useEffect(() => {
     var ballTl = anime.timeline({
       easing: "linear",
@@ -1983,7 +1888,52 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
         {children}
 
-        <Card
+          {tabletOrDesktop ? (
+              <Card customStyles={clsx(classes.contactSectionMobile, globalClasses.cardGlassEffect)} blurActive>
+                  <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
+                      Contact Us
+                  </div>
+                  <div className={classes.contactFormLabelMobile}>
+                      Drop us a line! We are here to answer your questions 24/7.
+                  </div>
+                  <div
+                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
+                      <InputBase
+                          classes={{root:clsx(classes.contactInputMobile, globalClasses.cardSmallText)}}
+                          placeholder="Your FirstName:"
+                      />
+                  </div>
+                  <div
+                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
+                      <InputBase
+                          className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
+                          placeholder="Your LastName:"
+                      />
+                  </div>
+                  <div
+                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
+                      <InputBase
+                          className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
+                          placeholder="Your Email:"
+                      />
+                  </div>
+                  <div
+                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
+                      <InputBase
+                          className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
+                          placeholder="Your Number:"
+                      />
+                  </div>
+                  <div className={classes.contactTextAreaWrapperMobile}>
+                      <TextareaAutosize
+                          className={clsx(classes.contactTextAreaMobile, globalClasses.cardSmallText)}
+                          rowsMin={4}
+                          placeholder="How can we help you?"
+                      />
+                  </div>
+              </Card>
+              ):
+              (<Card
           customStyles={clsx(classes.contactSection, globalClasses.cardGlassEffect)}
           blurActive={true}>
           <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
@@ -1996,7 +1946,6 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
             <div className={classes.inputGroup}>
               <div
                 className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
-                {" "}
                 <InputBase
                   className={clsx(classes.contactInput, globalClasses.cardSmallText)}
                   placeholder="Your FirstName:"
@@ -2053,7 +2002,8 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
               </ButtonBase>
             </div>
           </div>
-        </Card>
+        </Card>)
+          }
       </div>
       <IconButton className={classes.upAnchor}>
         <UPIcon />
