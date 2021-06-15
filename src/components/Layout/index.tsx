@@ -29,11 +29,18 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize/TextareaAutosiz
 import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
+import ArrowSvg from "@/assets/arrow.svg"
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 import theme from "../../theme";
 import { px2vw, px2vwMo } from "@/utils/pxtovw";
 // import MenuIcon from "@material-ui/icons/Menu";
 
+export interface ArrowIconProps {
+    classes?:object;
+}
+const ArrowIcon: React.FC<ArrowIconProps> = (props) => {
+    return <SvgIcon {...props} component={ArrowSvg} viewBox={"0 0 12 12"} />;
+};
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
   return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
@@ -64,11 +71,13 @@ const MenuIcon: React.FC<IMenuIconProps> = (props: IMenuIconProps) => {
   return <SvgIcon component={menuSvg} viewBox={"0 0 14.843 14.843"} />;
 };
 const EmailIcon = (props: IEmailIconProps) => (
-  <SvgIcon component={EmailSvg} viewBox="0 0 19.79 19.79" />
+  <SvgIcon {...props} component={EmailSvg} viewBox="0 0 19.79 19.79" />
 );
-export interface IPhoneIconProps {}
+export interface IPhoneIconProps {
+    classes?:object;
+}
 const PhoneIcon = (props: IPhoneIconProps) => (
-  <SvgIcon component={PhoneSvg} viewBox="0 0 19.79 19.79" />
+  <SvgIcon {...props} component={PhoneSvg} viewBox="0 0 19.79 19.79" />
 );
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -658,15 +667,14 @@ const useStyles = makeStyles((theme) =>
       marginTop: `${px2vw(50)}`,
       borderRadius: `${px2vw(10)}`
     },
-      contactSectionMobile:{
-          alignSelf: "stretch",
-          marginLeft: `${px2vwMo(20)}`,
-          marginRight: `${px2vwMo(20)}`,
-          padding: `${px2vwMo(40)} ${px2vwMo(33)}`,
-          marginTop: `${px2vwMo(31)}`,
-          borderRadius: `${px2vwMo(10)}`,
-
-      },
+    contactSectionMobile: {
+      alignSelf: "stretch",
+      marginLeft: `${px2vwMo(20)}`,
+      marginRight: `${px2vwMo(20)}`,
+      padding: `${px2vwMo(40)} ${px2vwMo(33)}`,
+      marginTop: `${px2vwMo(31)}`,
+      borderRadius: `${px2vwMo(10)}`
+    },
     contactBtnWrapper: {},
     contactTitle: {
       fontSize: `${px2vw(38)}`,
@@ -700,13 +708,13 @@ const useStyles = makeStyles((theme) =>
       lineHeight: `${px2vw(24)}`,
       color: "#000"
     },
-      contactFormLabelMobile:{
-       fontSize:`${px2vwMo(20)}`,
-          lineHeight:`${px2vwMo(24)}`,
-          color:'#000',
-          marginBottom:`${px2vwMo(36)}`,
-          marginTop:`${px2vwMo(32)}`
-      },
+    contactFormLabelMobile: {
+      fontSize: `${px2vwMo(20)}`,
+      lineHeight: `${px2vwMo(24)}`,
+      color: "#000",
+      marginBottom: `${px2vwMo(36)}`,
+      marginTop: `${px2vwMo(32)}`
+    },
     inputGroup: {
       display: "flex",
       justifyContent: "space-between",
@@ -721,25 +729,92 @@ const useStyles = makeStyles((theme) =>
       opacity: 0.6,
       zIndex: 1
     },
-      contactInputWrapperMobile: {
-          width: "100%",
-          boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
-          borderRadius: `${px2vwMo(8)}`,
-          paddingLeft: theme.spacing(2),
-          backgroundColor: "#fff",
-          opacity: 0.6,
-          zIndex: 1,
-          height:`${px2vwMo(53)}`,
-          lineHeight:`${px2vwMo(53)}`,
-          fontSize:`${px2vwMo(20)}`,
-          marginBottom:`${px2vwMo(20)}`
-      },
+    contactInputWrapperMobile: {
+      width: "100%",
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
+      borderRadius: `${px2vwMo(8)}`,
+      paddingLeft: theme.spacing(2),
+      backgroundColor: "#fff",
+      opacity: 0.6,
+      zIndex: 1,
+      height: `${px2vwMo(53)}`,
+      lineHeight: `${px2vwMo(53)}`,
+      fontSize: `${px2vwMo(20)}`,
+      marginBottom: `${px2vwMo(20)}`
+    },
     contactInput: {
       color: "#000"
     },
-      contactInputMobile:{
-        fontSize:`${px2vwMo(20)}`,
-          width:`100%`,
+    contactInputMobile: {
+      fontSize: `${px2vwMo(20)}`,
+      width: `100%`
+    },
+      contactLinkMobile:{
+        display:'flex',
+          justifyContent:'space-between',
+          marginTop:`${px2vwMo(71)}`
+      },
+      contactLeftMobile:{
+        display:'flex',
+          flexDirection:'column'
+      },
+      contactRightMobile:{
+        display:'flex',
+          flexDirection:'column'
+      },
+      contactTitleMobile:{
+        fontSize:`${px2vwMo(34)}`,
+          lineHeigt:`${px2vwMo(34)}`,
+          color:'#000'
+      },
+      contactTextMobile:{
+      fontSize:`${px2vwMo(20)}`,
+          lineHeight:`${px2vwMo(23)}`,
+          color:'#2699FB',
+      },
+      phoneWrapperMobile:{
+         marginTop:`${px2vwMo(26)}`,
+          display:'flex',
+          alignItems:'center',
+      },
+      phoneIconMobile:{
+      fontSize:`${px2vwMo(28)}`
+      },
+      emailIconMobile:{
+          fontSize:`${px2vwMo(28)}`
+      },
+      emailWrapperMobile:{
+        marginTop:`${px2vwMo(24)}`,
+          display:'flex',
+          alignItems:'center',
+      },
+      phoneTextMobile:{
+       fontSize:`${px2vwMo(22)}`,
+          lineHeight:`${px2vwMo(24)}`,
+          color:'#2699FB',
+          marginLeft:`${px2vwMo(10)}`
+      },
+      emailTextMobile:{
+          fontSize:`${px2vwMo(22)}`,
+          lineHeight:`${px2vwMo(24)}`,
+          color:'#2699FB',
+          marginLeft:`${px2vwMo(10)}`
+      },
+      contactArrowWrapperMobile:{
+     marginTop:`${px2vwMo(23)}`
+      },
+      arrowIconMobile:{
+      fontSize:`${px2vwMo(17)}`,
+          marginLeft:`${px2vwMo(10)}`
+      },
+      sendBtnMobile:{
+          height:`${px2vwMo(68)}`,
+          width:'100%',
+          borderRadius:`${px2vwMo(8)}`,
+          fontSize:`${px2vwMo(24)}`,
+          color:'#2699FB',
+          lineHeight:`${px2vwMo(30)}`,
+          fontWeight:'bold'
       },
     contactTextAreaWrapper: {
       width: "100%",
@@ -748,12 +823,15 @@ const useStyles = makeStyles((theme) =>
       background: "none",
       marginTop: `${px2vw(60)}`
     },
-      contactTextAreaWrapperMobile:{
-          width: "100%",
-          height: `${px2vwMo(271)}`,
-          borderRadius: `${px2vwMo(8)}`,
-          background: "none",
-          marginTop: `${px2vwMo(40)}`
+    contactTextAreaWrapperMobile: {
+      width: "100%",
+      height: `${px2vwMo(271)}`,
+      borderRadius: `${px2vwMo(8)}`,
+      background: "none",
+      marginTop: `${px2vwMo(40)}`
+    },
+      btnWrapperMobile:{
+        alignSelf:'stretch',
       },
     contactTextArea: {
       width: "100%",
@@ -765,18 +843,18 @@ const useStyles = makeStyles((theme) =>
       padding: theme.spacing(2),
       borderRadius: `${px2vw(8)}`
     },
-      contactTextAreaMobile: {
-          width: "100%",
-          height: "100%!important",
-          border: "none",
-          outline: "none",
-          opacity: 0.6,
-          boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
-          padding: theme.spacing(2),
-          borderRadius: `${px2vwMo(8)}`,
-          fontSize:`${px2vwMo(20)}!important`,
-          lineHeight:`${px2vwMo(23)}!important`
-      },
+    contactTextAreaMobile: {
+      width: "100%",
+      height: "100%!important",
+      border: "none",
+      outline: "none",
+      opacity: 0.6,
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
+      padding: theme.spacing(2),
+      borderRadius: `${px2vwMo(8)}`,
+      fontSize: `${px2vwMo(20)}!important`,
+      lineHeight: `${px2vwMo(23)}!important`
+    },
     contactRightTitle: {
       fontSize: `${px2vw(20)}`,
       color: "#000",
@@ -833,7 +911,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
     appBarBlogAndNewsMenuVisible
   } = useSelector((state: RootState) => state.global);
   const [menuOpen, setMenuOpen] = useState(false);
-  useEffect(() => {
+  /*useEffect(() => {
     var ballTl = anime.timeline({
       easing: "linear",
       duration: 3000,
@@ -1033,7 +1111,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       delay: 14000,
       duration: 50000
     });
-  }, []);
+  }, []);*/
   const handleChange = useCallback((index) => {
     setIdx(index);
   }, []);
@@ -1888,122 +1966,159 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
 
         {children}
 
-          {tabletOrDesktop ? (
-              <Card customStyles={clsx(classes.contactSectionMobile, globalClasses.cardGlassEffect)} blurActive>
-                  <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
-                      Contact Us
-                  </div>
-                  <div className={classes.contactFormLabelMobile}>
-                      Drop us a line! We are here to answer your questions 24/7.
-                  </div>
-                  <div
-                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
-                      <InputBase
-                          classes={{root:clsx(classes.contactInputMobile, globalClasses.cardSmallText)}}
-                          placeholder="Your FirstName:"
-                      />
-                  </div>
-                  <div
-                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
-                      <InputBase
-                          className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
-                          placeholder="Your LastName:"
-                      />
-                  </div>
-                  <div
-                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
-                      <InputBase
-                          className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
-                          placeholder="Your Email:"
-                      />
-                  </div>
-                  <div
-                      className={clsx(classes.contactInputWrapperMobile, globalClasses.cardBlurBtnBoxShadow)}>
-                      <InputBase
-                          className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
-                          placeholder="Your Number:"
-                      />
-                  </div>
-                  <div className={classes.contactTextAreaWrapperMobile}>
-                      <TextareaAutosize
-                          className={clsx(classes.contactTextAreaMobile, globalClasses.cardSmallText)}
-                          rowsMin={4}
-                          placeholder="How can we help you?"
-                      />
-                  </div>
-              </Card>
-              ):
-              (<Card
-          customStyles={clsx(classes.contactSection, globalClasses.cardGlassEffect)}
-          blurActive={true}>
-          <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
-            Contact Us
-          </div>
-          <div className={classes.contactLeft}>
-            <div className={classes.contactFormLabel}>
+        {tabletOrDesktop ? (
+          <Card
+            customStyles={clsx(classes.contactSectionMobile, globalClasses.cardGlassEffect)}
+            blurActive>
+            <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
+              Contact Us
+            </div>
+            <div className={classes.contactFormLabelMobile}>
               Drop us a line! We are here to answer your questions 24/7.
             </div>
-            <div className={classes.inputGroup}>
-              <div
-                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
-                <InputBase
-                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
-                  placeholder="Your FirstName:"
-                />
-              </div>
-              <div
-                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
-                {" "}
-                <InputBase
-                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
-                  placeholder="Your LastName:"
-                />
-              </div>
-              <div
-                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
-                {" "}
-                <InputBase
-                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
-                  placeholder="Your Email:"
-                />
-              </div>
-              <div
-                className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
-                {" "}
-                <InputBase
-                  className={clsx(classes.contactInput, globalClasses.cardSmallText)}
-                  placeholder="Your Number:"
-                />
-              </div>
+            <div
+              className={clsx(
+                classes.contactInputWrapperMobile,
+                globalClasses.cardBlurBtnBoxShadow
+              )}>
+              <InputBase
+                classes={{ root: clsx(classes.contactInputMobile, globalClasses.cardSmallText) }}
+                placeholder="Your FirstName:"
+              />
             </div>
-            <div className={classes.contactTextAreaWrapper}>
+            <div
+              className={clsx(
+                classes.contactInputWrapperMobile,
+                globalClasses.cardBlurBtnBoxShadow
+              )}>
+              <InputBase
+                className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
+                placeholder="Your LastName:"
+              />
+            </div>
+            <div
+              className={clsx(
+                classes.contactInputWrapperMobile,
+                globalClasses.cardBlurBtnBoxShadow
+              )}>
+              <InputBase
+                className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
+                placeholder="Your Email:"
+              />
+            </div>
+            <div
+              className={clsx(
+                classes.contactInputWrapperMobile,
+                globalClasses.cardBlurBtnBoxShadow
+              )}>
+              <InputBase
+                className={clsx(classes.contactInputMobile, globalClasses.cardSmallText)}
+                placeholder="Your Number:"
+              />
+            </div>
+            <div className={classes.contactTextAreaWrapperMobile}>
               <TextareaAutosize
-                className={clsx(classes.contactTextArea, globalClasses.cardSmallText)}
+                className={clsx(classes.contactTextAreaMobile, globalClasses.cardSmallText)}
                 rowsMin={4}
                 placeholder="How can we help you?"
               />
             </div>
-          </div>
-          <div className={classes.contactRight}>
-            <div className={classes.contactRightTitle}>Our contact details</div>
-            <div className={classes.phoneWrapper}>
-              <PhoneIcon />
-              <span className={classes.contactRightText}>+ 1 626-265-5257</span>
+              <div className={classes.contactLinkMobile}>
+              <div className={classes.contactLeftMobile}>
+                  <div className={classes.contactTitleMobile}>Our contact details</div>
+                  <div className={classes.phoneWrapperMobile}>
+                  <PhoneIcon classes={{root:classes.phoneIconMobile}} />
+                  <span className={classes.phoneTextMobile}>+ 1 626-265-5257</span>
+                  </div>
+                  <div className={classes.emailWrapperMobile}>
+                      <EmailIcon classes={{root:classes.emailIconMobile}} />
+                      <span className={classes.emailTextMobile}>zion@galaxycgi.com</span>
+                  </div>
+              </div>
+              <div className={classes.contactRightMobile}>
+                  <div className={classes.contactTitleMobile}>Press inquires</div>
+                  <div className={classes.contactArrowWrapperMobile}><span className={classes.contactTextMobile}>GET IN TOUCH WITH US</span><ArrowIcon classes={{root:classes.arrowIconMobile}}/></div>
+
+              </div>
+              </div>
+              <div className={classes.btnWrapperMobile}>
+                  <ButtonBase className={clsx(globalClasses.cardBlurBtn,classes.sendBtnMobile)} disableRipple>
+                      SEND IT!
+                  </ButtonBase>
+              </div>
+          </Card>
+        ) : (
+          <Card
+            customStyles={clsx(classes.contactSection, globalClasses.cardGlassEffect)}
+            blurActive={true}>
+            <div className={clsx(globalClasses.cardBigTitle, globalClasses.cardTitleDashLineGold)}>
+              Contact Us
             </div>
-            <div className={classes.emailWrapper}>
-              <EmailIcon />
-              <span className={classes.contactRightText}>zion@galaxycgi.com</span>
+            <div className={classes.contactLeft}>
+              <div className={classes.contactFormLabel}>
+                Drop us a line! We are here to answer your questions 24/7.
+              </div>
+              <div className={classes.inputGroup}>
+                <div
+                  className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
+                  <InputBase
+                    className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                    placeholder="Your FirstName:"
+                  />
+                </div>
+                <div
+                  className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
+                  {" "}
+                  <InputBase
+                    className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                    placeholder="Your LastName:"
+                  />
+                </div>
+                <div
+                  className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
+                  {" "}
+                  <InputBase
+                    className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                    placeholder="Your Email:"
+                  />
+                </div>
+                <div
+                  className={clsx(classes.contactInputWrapper, globalClasses.cardBlurBtnBoxShadow)}>
+                  {" "}
+                  <InputBase
+                    className={clsx(classes.contactInput, globalClasses.cardSmallText)}
+                    placeholder="Your Number:"
+                  />
+                </div>
+              </div>
+              <div className={classes.contactTextAreaWrapper}>
+                <TextareaAutosize
+                  className={clsx(classes.contactTextArea, globalClasses.cardSmallText)}
+                  rowsMin={4}
+                  placeholder="How can we help you?"
+                />
+              </div>
             </div>
-            <div className={classes.contactRightTitle}>GET IN TOUCH WITH US</div>
-            {/*<div className={classes.contactRightText}>GET IN TOUCH WITH US</div>*/}
-            <div className={classes.contactBtnWrapper}>
-              <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
-                SEND IT!
-              </ButtonBase>
+            <div className={classes.contactRight}>
+              <div className={classes.contactRightTitle}>Our contact details</div>
+              <div className={classes.phoneWrapper}>
+                <PhoneIcon />
+                <span className={classes.contactRightText}>+ 1 626-265-5257</span>
+              </div>
+              <div className={classes.emailWrapper}>
+                <EmailIcon />
+                <span className={classes.contactRightText}>zion@galaxycgi.com</span>
+              </div>
+              <div className={classes.contactRightTitle}>GET IN TOUCH WITH US</div>
+              {/*<div className={classes.contactRightText}>GET IN TOUCH WITH US</div>*/}
+              <div className={classes.contactBtnWrapper}>
+                <ButtonBase className={globalClasses.cardBlurBtn} disableRipple>
+                  SEND IT!
+                </ButtonBase>
+              </div>
             </div>
-          </div>
-        </Card>)
-          }
+          </Card>
+        )}
       </div>
       <IconButton className={classes.upAnchor}>
         <UPIcon />

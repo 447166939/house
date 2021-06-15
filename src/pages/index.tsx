@@ -73,7 +73,9 @@ const blogs = [
 SwiperCore.use([Pagination]);
 export interface ILikeIconProps {}
 export interface ICommentIconProps {}
-export interface IEmailIconProps {}
+export interface IEmailIconProps {
+  classes?:object;
+}
 const LikeIcon = (props: ILikeIconProps) => <SvgIcon component={LikeSvg} viewBox="0 0 16 14" />;
 const CommentIcon = (props: ICommentIconProps) => (
   <SvgIcon component={CommentSvg} viewBox="0 0 16 16" />

@@ -122,10 +122,10 @@ const useGlobalStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     position: "relative",
     marginBottom: theme.spacing(2),
-    [`${theme.breakpoints.down('sm')}`]:{
-        fontSize:`${px2vwMo(30)}`,
-      lineHeight:`${px2vwMo(50)}`,
-      marginBottom:`${px2vwMo(8)}`
+    [`${theme.breakpoints.down("sm")}`]: {
+      fontSize: `${px2vwMo(30)}`,
+      lineHeight: `${px2vwMo(50)}`,
+      marginBottom: `${px2vwMo(8)}`
     }
   },
   cardMediumTitle: {
@@ -169,9 +169,9 @@ const useGlobalStyles = makeStyles((theme) => ({
       bottom: 0,
       left: 0,
       backgroundColor: "#ffef96",
-      [`${theme.breakpoints.down('sm')}`]:{
-        width:`${px2vwMo(60)}`,
-        height:`${px2vwMo(4)}`,
+      [`${theme.breakpoints.down("sm")}`]: {
+        width: `${px2vwMo(60)}`,
+        height: `${px2vwMo(4)}`
       }
     }
   },
@@ -194,9 +194,9 @@ const useGlobalStyles = makeStyles((theme) => ({
   cardGlassEffect: {
     position: "relative",
     overflow: "hidden",
-    zIndex:1,
+    zIndex: 1,
     "&:after": {
-      zIndex:-1,
+      zIndex: -1,
       content: "''",
       position: "absolute",
       top: "0px",
@@ -209,7 +209,7 @@ const useGlobalStyles = makeStyles((theme) => ({
         "linear-gradient(to right, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.09) 75%, rgba(255, 255, 255, 0.36) 90%, rgba(255, 255, 255, 0.12) 100%)"
     },
     "&:hover:after": {
-      zIndex:-1,
+      zIndex: -1,
       width: "100%",
       height: "100%",
       opacity: 0.5,

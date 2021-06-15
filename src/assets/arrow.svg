@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12" height="12" viewBox="0 0 12 12">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="12" height="12" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Forward_arrow" data-name="Forward arrow" clip-path="url(#clip-path)">
+    <path id="路径_10" data-name="路径 10" d="M6,0,4.909,1.091l4.13,4.13H0V6.779H9.039l-4.13,4.13L6,12l6-6Z" fill="#2699fb"/>
+  </g>
+</svg>
