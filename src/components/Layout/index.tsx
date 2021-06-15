@@ -29,17 +29,18 @@ import TextareaAutosize from "@material-ui/core/TextareaAutosize/TextareaAutosiz
 import Card from "@/components/Card";
 import { IEmailIconProps } from "../../pages";
 import PhoneSvg from "@/assets/phone.svg";
-import ArrowSvg from "@/assets/arrow.svg"
+import ArrowSvg from "@/assets/arrow.svg";
 import useGlobalStyles from "../../theme/globalStyles/globalStyles";
 import theme from "../../theme";
 import { px2vw, px2vwMo } from "@/utils/pxtovw";
+import FooterM from "@/components/FooterM";
 // import MenuIcon from "@material-ui/icons/Menu";
 
 export interface ArrowIconProps {
-    classes?:object;
+  classes?: object;
 }
 const ArrowIcon: React.FC<ArrowIconProps> = (props) => {
-    return <SvgIcon {...props} component={ArrowSvg} viewBox={"0 0 12 12"} />;
+  return <SvgIcon {...props} component={ArrowSvg} viewBox={"0 0 12 12"} />;
 };
 export interface IUPIconProps {}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
@@ -74,7 +75,7 @@ const EmailIcon = (props: IEmailIconProps) => (
   <SvgIcon {...props} component={EmailSvg} viewBox="0 0 19.79 19.79" />
 );
 export interface IPhoneIconProps {
-    classes?:object;
+  classes?: object;
 }
 const PhoneIcon = (props: IPhoneIconProps) => (
   <SvgIcon {...props} component={PhoneSvg} viewBox="0 0 19.79 19.79" />
@@ -749,73 +750,73 @@ const useStyles = makeStyles((theme) =>
       fontSize: `${px2vwMo(20)}`,
       width: `100%`
     },
-      contactLinkMobile:{
-        display:'flex',
-          justifyContent:'space-between',
-          marginTop:`${px2vwMo(71)}`
-      },
-      contactLeftMobile:{
-        display:'flex',
-          flexDirection:'column'
-      },
-      contactRightMobile:{
-        display:'flex',
-          flexDirection:'column'
-      },
-      contactTitleMobile:{
-        fontSize:`${px2vwMo(34)}`,
-          lineHeigt:`${px2vwMo(34)}`,
-          color:'#000'
-      },
-      contactTextMobile:{
-      fontSize:`${px2vwMo(20)}`,
-          lineHeight:`${px2vwMo(23)}`,
-          color:'#2699FB',
-      },
-      phoneWrapperMobile:{
-         marginTop:`${px2vwMo(26)}`,
-          display:'flex',
-          alignItems:'center',
-      },
-      phoneIconMobile:{
-      fontSize:`${px2vwMo(28)}`
-      },
-      emailIconMobile:{
-          fontSize:`${px2vwMo(28)}`
-      },
-      emailWrapperMobile:{
-        marginTop:`${px2vwMo(24)}`,
-          display:'flex',
-          alignItems:'center',
-      },
-      phoneTextMobile:{
-       fontSize:`${px2vwMo(22)}`,
-          lineHeight:`${px2vwMo(24)}`,
-          color:'#2699FB',
-          marginLeft:`${px2vwMo(10)}`
-      },
-      emailTextMobile:{
-          fontSize:`${px2vwMo(22)}`,
-          lineHeight:`${px2vwMo(24)}`,
-          color:'#2699FB',
-          marginLeft:`${px2vwMo(10)}`
-      },
-      contactArrowWrapperMobile:{
-     marginTop:`${px2vwMo(23)}`
-      },
-      arrowIconMobile:{
-      fontSize:`${px2vwMo(17)}`,
-          marginLeft:`${px2vwMo(10)}`
-      },
-      sendBtnMobile:{
-          height:`${px2vwMo(68)}`,
-          width:'100%',
-          borderRadius:`${px2vwMo(8)}`,
-          fontSize:`${px2vwMo(24)}`,
-          color:'#2699FB',
-          lineHeight:`${px2vwMo(30)}`,
-          fontWeight:'bold'
-      },
+    contactLinkMobile: {
+      display: "flex",
+      justifyContent: "space-between",
+      marginTop: `${px2vwMo(71)}`
+    },
+    contactLeftMobile: {
+      display: "flex",
+      flexDirection: "column"
+    },
+    contactRightMobile: {
+      display: "flex",
+      flexDirection: "column"
+    },
+    contactTitleMobile: {
+      fontSize: `${px2vwMo(34)}`,
+      lineHeigt: `${px2vwMo(34)}`,
+      color: "#000"
+    },
+    contactTextMobile: {
+      fontSize: `${px2vwMo(20)}`,
+      lineHeight: `${px2vwMo(23)}`,
+      color: "#2699FB"
+    },
+    phoneWrapperMobile: {
+      marginTop: `${px2vwMo(26)}`,
+      display: "flex",
+      alignItems: "center"
+    },
+    phoneIconMobile: {
+      fontSize: `${px2vwMo(28)}`
+    },
+    emailIconMobile: {
+      fontSize: `${px2vwMo(28)}`
+    },
+    emailWrapperMobile: {
+      marginTop: `${px2vwMo(24)}`,
+      display: "flex",
+      alignItems: "center"
+    },
+    phoneTextMobile: {
+      fontSize: `${px2vwMo(22)}`,
+      lineHeight: `${px2vwMo(24)}`,
+      color: "#2699FB",
+      marginLeft: `${px2vwMo(10)}`
+    },
+    emailTextMobile: {
+      fontSize: `${px2vwMo(22)}`,
+      lineHeight: `${px2vwMo(24)}`,
+      color: "#2699FB",
+      marginLeft: `${px2vwMo(10)}`
+    },
+    contactArrowWrapperMobile: {
+      marginTop: `${px2vwMo(23)}`
+    },
+    arrowIconMobile: {
+      fontSize: `${px2vwMo(17)}`,
+      marginLeft: `${px2vwMo(10)}`
+    },
+    sendBtnMobile: {
+      height: `${px2vwMo(68)}`,
+      width: "100%",
+      borderRadius: `${px2vwMo(8)}`,
+      fontSize: `${px2vwMo(24)}`,
+      color: "#2699FB",
+      lineHeight: `${px2vwMo(30)}`,
+      fontWeight: "bold"
+    },
     contactTextAreaWrapper: {
       width: "100%",
       height: `${px2vw(120)}`,
@@ -830,9 +831,9 @@ const useStyles = makeStyles((theme) =>
       background: "none",
       marginTop: `${px2vwMo(40)}`
     },
-      btnWrapperMobile:{
-        alignSelf:'stretch',
-      },
+    btnWrapperMobile: {
+      alignSelf: "stretch"
+    },
     contactTextArea: {
       width: "100%",
       height: "100%",
@@ -2023,29 +2024,33 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
                 placeholder="How can we help you?"
               />
             </div>
-              <div className={classes.contactLinkMobile}>
+            <div className={classes.contactLinkMobile}>
               <div className={classes.contactLeftMobile}>
-                  <div className={classes.contactTitleMobile}>Our contact details</div>
-                  <div className={classes.phoneWrapperMobile}>
-                  <PhoneIcon classes={{root:classes.phoneIconMobile}} />
+                <div className={classes.contactTitleMobile}>Our contact details</div>
+                <div className={classes.phoneWrapperMobile}>
+                  <PhoneIcon classes={{ root: classes.phoneIconMobile }} />
                   <span className={classes.phoneTextMobile}>+ 1 626-265-5257</span>
-                  </div>
-                  <div className={classes.emailWrapperMobile}>
-                      <EmailIcon classes={{root:classes.emailIconMobile}} />
-                      <span className={classes.emailTextMobile}>zion@galaxycgi.com</span>
-                  </div>
+                </div>
+                <div className={classes.emailWrapperMobile}>
+                  <EmailIcon classes={{ root: classes.emailIconMobile }} />
+                  <span className={classes.emailTextMobile}>zion@galaxycgi.com</span>
+                </div>
               </div>
               <div className={classes.contactRightMobile}>
-                  <div className={classes.contactTitleMobile}>Press inquires</div>
-                  <div className={classes.contactArrowWrapperMobile}><span className={classes.contactTextMobile}>GET IN TOUCH WITH US</span><ArrowIcon classes={{root:classes.arrowIconMobile}}/></div>
-
+                <div className={classes.contactTitleMobile}>Press inquires</div>
+                <div className={classes.contactArrowWrapperMobile}>
+                  <span className={classes.contactTextMobile}>GET IN TOUCH WITH US</span>
+                  <ArrowIcon classes={{ root: classes.arrowIconMobile }} />
+                </div>
               </div>
-              </div>
-              <div className={classes.btnWrapperMobile}>
-                  <ButtonBase className={clsx(globalClasses.cardBlurBtn,classes.sendBtnMobile)} disableRipple>
-                      SEND IT!
-                  </ButtonBase>
-              </div>
+            </div>
+            <div className={classes.btnWrapperMobile}>
+              <ButtonBase
+                className={clsx(globalClasses.cardBlurBtn, classes.sendBtnMobile)}
+                disableRipple>
+                SEND IT!
+              </ButtonBase>
+            </div>
           </Card>
         ) : (
           <Card
@@ -2126,7 +2131,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <IconButton className={classes.chatBtn}>
         <ChatIcon />
       </IconButton>
-      <Footer />
+        {tabletOrDesktop ? <FooterM/>:<Footer />}
     </div>
   );
 };
