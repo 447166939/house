@@ -15,12 +15,24 @@ const useGlobalStyles = makeStyles((theme) => ({
     boxShadow: "-8px -4px 12px 3px #7b3bed30, 8px 4px 12px 6px #30cfda5d",
     marginTop: `${px2vw(30)}`,
     zIndex: 100,
+    [`${theme.breakpoints.down("sm")}`]:{
+      width: `${px2vwMo(496)}`,
+      height: `${px2vwMo(68)}`,
+      fontSize: `${px2vwMo(20)}`,
+      lineHeight: `${px2vwMo(30)}`,
+      borderRadius: `${px2vwMo(4)}`,
+      marginTop: `${px2vwMo(35)}`,
+      fontWeight:'bold',
+    },
     "&:active": {
       color: "#CBD5E5",
-      paddingLeft: theme.spacing(2),
+      paddingLeft: `${px2vw(8)}`,
       backgroundColor: "#fff",
       opacity: 0.45,
-      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30"
+      boxShadow: "inset 3px 3px 3px 3px #30cfda5d, 3px 3px 3px 3px #7b3bed30",
+        [`${theme.breakpoints.down("sm")}`]:{
+          paddingLeft: `${px2vwMo(8)}`
+        }
     }
   },
   mainMenuBtn: {
@@ -134,7 +146,13 @@ const useGlobalStyles = makeStyles((theme) => ({
     lineHeight: `${px2vw(48)}`,
     fontWeight: "bold",
     position: "relative",
-    marginBottom: theme.spacing(2)
+    marginBottom: `${px2vw(8)}`,
+    [`${theme.breakpoints.down("sm")}`]:{
+      fontSize: `${px2vwMo(40)}`,
+      lineHeight: `${px2vwMo(48)}`,
+      marginBottom: `${px2vwMo(16)}`,
+      fontWeight:900
+    }
   },
   cardSmallTitle: {
     fontSize: `${px2vw(24)}`,
@@ -183,7 +201,12 @@ const useGlobalStyles = makeStyles((theme) => ({
   cardMediumText: {
     fontSize: `${px2vw(20)}`,
     color: "#000000",
-    lineHeight: `${px2vw(20)}`
+    lineHeight: `${px2vw(20)}`,
+    [`${theme.breakpoints.down("sm")}`]:{
+      fontSize: `${px2vwMo(20)}`,
+      lineHeight: `${px2vwMo(25)}`,
+      textAlign: 'center'
+    }
   },
   cardSmallText: {
     fontSize: `${px2vw(16)}`,

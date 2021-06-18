@@ -39,7 +39,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
-import {px2vw, px2vwMo} from "@/utils/pxtovw";
+import { px2vw, px2vwMo } from "@/utils/pxtovw";
 const blogs = [
   {
     img: "/card1.svg",
@@ -86,10 +86,17 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding:`${px2vw(129)} ${px2vw(117)} ${px2vw(67)} ${px2vw(117)}`,
+    padding: `${px2vw(129)} ${px2vw(117)} ${px2vw(67)} ${px2vw(117)}`,
     marginTop: `${px2vw(123)}`,
     marginBottom: `${px2vw(137)}`,
-    borderRadius: `${px2vw(10)}`
+    borderRadius: `${px2vw(10)}`,
+    [theme.breakpoints.down("sm")]:{
+      width:`${px2vwMo(662)}`,
+      padding: `${px2vwMo(89)} ${px2vwMo(35)} ${px2vwMo(62)} ${px2vwMo(35)}`,
+      marginTop: `${px2vwMo(87)}`,
+      marginBottom: `${px2vwMo(99)}`,
+      borderRadius: `${px2vwMo(10)}`,
+    }
   },
   cardText: {
     fontSize: `${px2vw(20)}`,
@@ -97,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center"
   },
   aboutSection: {
-    margin:`${px2vw(137)} ${px2vw(50)} ${px2vw(20)} ${px2vw(50)}`,
+    margin: `${px2vw(137)} ${px2vw(50)} ${px2vw(20)} ${px2vw(50)}`,
     borderRadius: `${px2vw(10)}`,
     display: "flex",
     alignItems: "center",
@@ -110,14 +117,24 @@ const useStyles = makeStyles((theme) => ({
     width: "50%"
   },
   aboutRight: {
-    width: "50%"
+    width: "50%",
+    paddingLeft:`${px2vw(80)}`
+  },
+  slide:{
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  slideImg:{
+    minWidth:'100%',
+    objectFit:'cover',
   },
   wwdSection: {
     borderRadius: `${px2vw(10)}`,
-    margin:`${px2vw(20)} ${px2vw(50)} ${px2vw(30)} ${px2vw(50)}`,
+    margin: `${px2vw(20)} ${px2vw(50)} ${px2vw(30)} ${px2vw(50)}`,
     alignSelf: "stretch",
     backgroundColor: "#f7f8fa",
-    padding:`${px2vw(60)} 0`,
+    padding: `${px2vw(60)} 0`,
     display: "flex",
     flexDirection: "column",
     paddingLeft: `${px2vw(221)}`,
@@ -169,7 +186,7 @@ const useStyles = makeStyles((theme) => ({
   },
   wwdContent: {
     flex: 1,
-    padding:`${px2vw(50)} ${px2vw(14)}`,
+    padding: `${px2vw(50)} ${px2vw(14)}`,
     outline: "none",
     border: "none",
     boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
@@ -239,6 +256,9 @@ const useStyles = makeStyles((theme) => ({
   partnerRight: {
     width: "60%",
     margin: `${px2vw(30)} 0`
+  },
+  partnerImg:{
+    maxWidth:'100%',
   },
   partnerTitle: {
     position: "relative",
@@ -521,8 +541,8 @@ const Index = () => {
       <Card customStyles={classes.aboutSection} blurActive={false}>
         <div className={classes.aboutLeft}>
           <Swiper slidesPerView={1} pagination={{ clickable: true }}>
-            <SwiperSlide>
-              <img src={"/swiper1.svg"} />
+            <SwiperSlide className={classes.slide}>
+              <img className={classes.slideImg} src={"/swiper1.svg"} />
             </SwiperSlide>
           </Swiper>
         </div>
@@ -636,7 +656,7 @@ const Index = () => {
           </div>
         </div>
         <div className={classes.partnerRight}>
-          <img src={"/map.svg"} />
+          <img className={classes.partnerImg} src={"/map.svg"} />
         </div>
       </Card>
       <div className={classes.sectionThreeCard}>

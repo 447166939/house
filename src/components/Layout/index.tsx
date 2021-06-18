@@ -42,13 +42,17 @@ export interface ArrowIconProps {
 const ArrowIcon: React.FC<ArrowIconProps> = (props) => {
   return <SvgIcon {...props} component={ArrowSvg} viewBox={"0 0 12 12"} />;
 };
-export interface IUPIconProps {}
+export interface IUPIconProps {
+    className?:string;
+}
 const UPIcon: React.FC<IUPIconProps> = (props: IUPIconProps) => {
-  return <SvgIcon component={upSvg} viewBox={"0 0 21 26"} />;
+  return <SvgIcon {...props} component={upSvg} viewBox={"0 0 21 26"} />;
 };
-export interface IChatIconProps {}
+export interface IChatIconProps {
+    className?:string;
+}
 const ChatIcon: React.FC<IChatIconProps> = (props: IChatIconProps) => {
-  return <SvgIcon component={chatSvg} viewBox={"0 0 26.6 22.3"} />;
+  return <SvgIcon {...props} component={chatSvg} viewBox={"0 0 26.6 22.3"} />;
 };
 const {
   // MAIN MENUS APP BAR
@@ -505,43 +509,51 @@ const useStyles = makeStyles((theme) =>
       lineHeight: "50px"
     },
     upAnchor: {
-      [theme.breakpoints.up("md")]: {
-        height: 66,
-        width: 66,
-        bottom: "197px",
-        right: "50px"
-      },
-      [theme.breakpoints.down("sm")]: {
-        height: 51,
-        width: 51,
-        bottom: "136px",
-        right: "36px"
-      },
+        height: `${px2vw(64)}`,
+        width: `${px2vw(64)}`,
+        bottom: `${px2vw(277)}`,
+        right: `${px2vw(50)}`,
       position: "fixed",
       backgroundColor: "#fff",
       boxShadow:
         "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.36) -6px -2px 16px 0px",
-      zIndex: 60000
+      zIndex: 60000,
+        [theme.breakpoints.down("sm")]: {
+            height: `${px2vwMo(51)}`,
+            width: `${px2vwMo(51)}`,
+            bottom: `${px2vwMo(136)}`,
+            right: `${px2vwMo(36)}`
+        },
     },
     chatBtn: {
-      [theme.breakpoints.up("md")]: {
-        height: 66,
-        width: 66,
-        bottom: "197px",
-        right: "50px"
-      },
-      [theme.breakpoints.down("sm")]: {
-        height: 51,
-        width: 51,
-        bottom: "66px",
-        right: "36px"
-      },
+        height: `${px2vw(64)}`,
+        width: `${px2vw(64)}`,
+        bottom: `${px2vw(197)}`,
+        right: `${px2vw(50)}`,
       position: "fixed",
       backgroundColor: "#fff",
       boxShadow:
         "rgba(136, 165, 191, 0.75) 6px 2px 16px 0px, rgba(255, 255, 255, 0.36) -6px -2px 16px 0px",
-      zIndex: 60000
+      zIndex: 60000,
+        [theme.breakpoints.down("sm")]: {
+            height: `${px2vwMo(51)}`,
+            width: `${px2vwMo(51)}`,
+            bottom: `${px2vwMo(66)}`,
+            right: `${px2vwMo(36)}`
+        },
     },
+      upIcon:{
+       fontSize:`${px2vw(26)}`,
+          [theme.breakpoints.down("sm")]:{
+           fontSize:`${px2vwMo(26)}`
+          }
+      },
+      chatIcon:{
+       fontSize:`${px2vw(26)}`,
+          [theme.breakpoints.down("sm")]:{
+              fontSize:`${px2vwMo(26)}`
+          }
+      },
     ball: {
       position: "fixed",
       width: "92px",
@@ -2126,10 +2138,10 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
         )}
       </div>
       <IconButton className={classes.upAnchor}>
-        <UPIcon />
+        <UPIcon className={classes.upIcon} />
       </IconButton>
       <IconButton className={classes.chatBtn}>
-        <ChatIcon />
+        <ChatIcon className={classes.chatIcon} />
       </IconButton>
       {tabletOrDesktop ? <FooterM /> : <Footer />}
     </div>
