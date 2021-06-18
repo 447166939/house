@@ -39,7 +39,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import Collapse from "@material-ui/core/Collapse";
-import { px2vwMo } from "@/utils/pxtovw";
+import {px2vw, px2vwMo} from "@/utils/pxtovw";
 const blogs = [
   {
     img: "/card1.svg",
@@ -82,28 +82,28 @@ const CommentIcon = (props: ICommentIconProps) => (
 );
 const useStyles = makeStyles((theme) => ({
   card: {
-    width: "1220px",
+    width: `${px2vw(1220)}`,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: "129px 117px 67px 117px",
-    marginTop: "123px",
-    marginBottom: "137px",
-    borderRadius: "10px"
+    padding:`${px2vw(129)} ${px2vw(117)} ${px2vw(67)} ${px2vw(117)}`,
+    marginTop: `${px2vw(123)}`,
+    marginBottom: `${px2vw(137)}`,
+    borderRadius: `${px2vw(10)}`
   },
   cardText: {
-    fontSize: "20px",
+    fontSize: `${px2vw(20)}`,
     color: "#000",
     textAlign: "center"
   },
   aboutSection: {
-    margin: "137px 50px 20px 50px",
-    borderRadius: "10px",
+    margin:`${px2vw(137)} ${px2vw(50)} ${px2vw(20)} ${px2vw(50)}`,
+    borderRadius: `${px2vw(10)}`,
     display: "flex",
     alignItems: "center",
     backgroundColor: "#f7f8fa",
     alignSelf: "stretch",
-    padding: "200px",
+    padding: `${px2vw(200)}`,
     zIndex: 10000
   },
   aboutLeft: {
@@ -113,28 +113,28 @@ const useStyles = makeStyles((theme) => ({
     width: "50%"
   },
   wwdSection: {
-    borderRadius: "10px",
-    margin: "20px 50px 30px 50px",
+    borderRadius: `${px2vw(10)}`,
+    margin:`${px2vw(20)} ${px2vw(50)} ${px2vw(30)} ${px2vw(50)}`,
     alignSelf: "stretch",
     backgroundColor: "#f7f8fa",
-    padding: "60px 0",
+    padding:`${px2vw(60)} 0`,
     display: "flex",
     flexDirection: "column",
-    paddingLeft: "221px",
-    paddingRight: "221px",
+    paddingLeft: `${px2vw(221)}`,
+    paddingRight: `${px2vw(221)}`,
     zIndex: 10000
   },
   wwdTitle: {
-    fontSize: "40px",
+    fontSize: `${px2vw(40)}`,
     fontWeight: "bold",
-    lineHeight: "50px",
+    lineHeight: `${px2vw(50)}`,
     position: "relative",
-    marginBottom: "70px",
+    marginBottom: `${px2vw(70)}`,
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#2699FB"
@@ -142,26 +142,26 @@ const useStyles = makeStyles((theme) => ({
   },
   wwdTab: {
     display: "flex",
-    marginBottom: "30px"
+    marginBottom: `${px2vw(30)}`
   },
   wwdSider: {
     // maxHeight: "600px",
-    height: "600px",
+    height: `${px2vw(600)}`,
     overflowY: "scroll",
-    width: "331px",
+    width: `${px2vw(331)}`,
     color: "#000",
     outline: "none",
     border: "none",
     boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
-    borderRadius: "8px",
-    marginRight: "15px",
+    borderRadius: `${px2vw(8)}`,
+    marginRight: `${px2vw(15)}`,
     textAlign: "center",
-    fontSize: "20px",
-    padding: "50px 0"
+    fontSize: `${px2vw(20)}`,
+    padding: `${px2vw(50)} 0`
   },
   wwdSideMenuItem: {
-    lineHeight: "50px",
-    paddingLeft: theme.spacing(4),
+    lineHeight: `${px2vw(50)}`,
+    paddingLeft: `${px2vw(16)}`,
     "&:hover": {
       cursor: "pointer",
       textDecoration: "underline"
@@ -169,32 +169,32 @@ const useStyles = makeStyles((theme) => ({
   },
   wwdContent: {
     flex: 1,
-    padding: "50px 14px",
+    padding:`${px2vw(50)} ${px2vw(14)}`,
     outline: "none",
     border: "none",
     boxShadow: "-4px -2px 4px 0px #fff,4px 2px 6px 0px #DFE4EA",
-    borderRadius: "8px",
-    marginRight: "15px"
+    borderRadius: `${px2vw(8)}`,
+    marginRight: `${px2vw(15)}`
   },
   wwdContentTitle: {
     position: "relative",
-    fontSize: "26px",
+    fontSize: `${px2vw(26)}`,
     fontWeight: "bold",
-    lineHeight: "50px",
+    lineHeight: `${px2vw(50)}`,
     marginBottom: theme.spacing(1),
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#2699FB"
     }
   },
   wwdContentText: {
-    fontSize: "16px",
-    lineHeight: "24px"
+    fontSize: `${px2vw(16)}`,
+    lineHeight: `${px2vw(24)}`
   },
   wwdBody: {
     display: "flex"
@@ -202,23 +202,23 @@ const useStyles = makeStyles((theme) => ({
   wwdLinks: {
     display: "flex",
     flexWrap: "wrap",
-    marginTop: "100px"
+    marginTop: `${px2vw(100)}`
   },
   wwdLinkItem: {
     width: "31%",
-    fontSize: "20px",
-    lineHeight: "50px",
+    fontSize: `${px2vw(20)}`,
+    lineHeight: `${px2vw(50)}`,
     color: "#000",
     display: "flex",
     alignItems: "center",
     marginRight: "2%",
-    marginBottom: "70px"
+    marginBottom: `${px2vw(70)}`
   },
   wwdDot: {
-    width: "9px",
-    height: "9px",
+    width: `${px2vw(9)}`,
+    height: `${px2vw(9)}`,
     backgroundColor: "#2699FB",
-    marginRight: "13px"
+    marginRight: `${px2vw(13)}`
   },
   wwdLink: {
     overflow: "hidden",
@@ -228,130 +228,130 @@ const useStyles = makeStyles((theme) => ({
   partnerCard: {
     display: "flex",
 
-    marginLeft: "273px",
-    marginRight: "273px",
-    borderRadius: "10px"
+    marginLeft: `${px2vw(273)}`,
+    marginRight: `${px2vw(273)}`,
+    borderRadius: `${px2vw(10)}`
   },
   partnerLeft: {
     width: "40%",
-    margin: "60px 50px"
+    margin: `${px2vw(60)} ${px2vw(50)}`
   },
   partnerRight: {
     width: "60%",
-    margin: "30px 0px"
+    margin: `${px2vw(30)} 0`
   },
   partnerTitle: {
     position: "relative",
-    fontSize: "40px",
-    lineHeight: "50px",
+    fontSize: `${px2vw(40)}`,
+    lineHeight: `${px2vw(50)}`,
     fontWeight: "bold",
     color: "#000",
-    marginBottom: theme.spacing(2),
+    marginBottom: `${px2vw(8)}`,
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#2699FB"
     }
   },
   partnerText: {
-    fontSize: "16px",
-    lineHeight: "24px",
+    fontSize: `${px2vw(16)}`,
+    lineHeight: `${px2vw(24)}`,
     color: "#000",
-    marginBottom: "20px"
+    marginBottom: `${px2vw(20)}`
   },
   partnerBtn: {
-    width: "148px",
-    height: "48px",
+    width: `${px2vw(148)}`,
+    height: `${px2vw(48)}`,
     color: "#40C4FF",
-    fontSize: "12px",
-    lineHeight: "30px",
+    fontSize: `${px2vw(12)}`,
+    lineHeight: `${px2vw(30)}`,
     backgroundColor: "rgba(247, 248, 250, .5)",
-    borderRadius: "3px"
+    borderRadius: `${px2vw(3)}`
   },
   sectionThreeCard: {
-    marginLeft: "273px",
-    marginRight: "273px",
+    marginLeft: `${px2vw(273)}`,
+    marginRight: `${px2vw(273)}`,
     display: "flex",
     justifyContent: "space-between",
     alignSelf: "stretch",
-    marginTop: "30px"
+    marginTop: `${px2vw(30)}`
   },
   threeCardWrapper: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     width: "30%",
-    borderRadius: "10px",
-    padding: "40px",
+    borderRadius: `${px2vw(10)}`,
+    padding: `${px2vw(40)}`,
     justifyContent: "space-between"
   },
   threeCardImgWrapper: {
-    marginBottom: "50px"
+    marginBottom: `${px2vw(50)}`
   },
   threeCardImg: {
-    width: "148px",
+    width: `${px2vw(148)}`,
     height: "auto",
     borderRadius: "74px"
   },
   threeCardTitle: {
     position: "relative",
-    fontSize: "20px",
-    lineHeight: "50px",
+    fontSize: `${px2vw(20)}`,
+    lineHeight: `${px2vw(50)}`,
     color: "#000",
     fontWeight: "bold",
-    marginBottom: "32px",
+    marginBottom: `${px2vw(32)}`,
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#2699FB"
     }
   },
   threeCardText: {
-    fontSize: "16px",
-    lineHeight: "24px",
+    fontSize: `${px2vw(16)}`,
+    lineHeight: `${px2vw(24)}`,
     color: "#000",
     textAlign: "center"
   },
   threeCardBtn: {
-    borderRadius: "8px",
-    fontSize: "14px",
-    lineHeight: "30px",
+    borderRadius: `${px2vw(8)}`,
+    fontSize: `${px2vw(14)}`,
+    lineHeight: `${px2vw(30)}`,
     color: "#2699FB",
-    width: "189px",
-    height: "52px",
+    width: `${px2vw(189)}`,
+    height: `${px2vw(52)}`,
     backgroundColor: "#fff",
-    marginTop: "22px",
+    marginTop: `${px2vw(22)}`,
     opacity: 0.5
   },
   sectionBlogs: {
     backgroundColor: "#f7f8fa",
-    borderRadius: "8px",
-    marginLeft: "50px",
-    marginRight: "50px",
+    borderRadius: `${px2vw(8)}`,
+    marginLeft: `${px2vw(50)}`,
+    marginRight: `${px2vw(50)}`,
     alignSelf: "stretch",
-    padding: "60px 277px",
-    marginTop: "58px",
+    padding: `${px2vw(60)} ${px2vw(277)}`,
+    marginTop: `${px2vw(58)}`,
     zIndex: 100
   },
   sectionBlogsTitle: {
-    fontSize: "40px",
-    lineHeight: "50px",
+    fontSize: `${px2vw(40)}`,
+    lineHeight: `${px2vw(50)}`,
     color: "#000",
     fontWeight: "bold",
     position: "relative",
     "&:after": {
       content: "''",
       position: "absolute",
-      width: "60px",
-      height: "4px",
+      width: `${px2vw(60)}`,
+      height: `${px2vw(4)}`,
       bottom: 0,
       left: 0,
       backgroundColor: "#2699FB"
@@ -360,8 +360,8 @@ const useStyles = makeStyles((theme) => ({
   blogsBox: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: "50px",
-    padding: "10px 0"
+    marginTop: `${px2vw(50)}`,
+    padding: `${px2vw(10)} 0`
   },
   blogsCard: {
     width: "23%",
@@ -378,18 +378,18 @@ const useStyles = makeStyles((theme) => ({
     color: "#808080"
   },
   likesText: {
-    fontSize: "14px",
+    fontSize: `${px2vw(14)}`,
     fontWeight: "bold",
     color: "#c3cfde",
-    lineHeight: "24px",
+    lineHeight: `${px2vw(24)}`,
     marginLeft: theme.spacing(1)
   },
   commentText: {
-    fontSize: "14px",
+    fontSize: `${px2vw(14)}`,
     fontWeight: "bold",
     color: "#c3cfde",
-    lineHeight: "24px",
-    marginLeft: theme.spacing(1)
+    lineHeight: `${px2vw(24)}`,
+    marginLeft: `${px2vw(4)}`
   }
 }));
 const Index = () => {
