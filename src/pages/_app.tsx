@@ -6,7 +6,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import "@fontsource/nunito-sans";
 import theme from "../theme";
-import './global.scss'
+import "./global.scss";
 import { AppProps } from "next/app";
 function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
