@@ -1,36 +1,40 @@
-import { wrapper } from "../store";
-import React, { useEffect, Fragment } from "react";
-import PropTypes from "prop-types";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import React, { useEffect } from "react";
 import Head from "next/head";
-import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import "@fontsource/nunito-sans";
-import theme from "../theme";
-import "./global.scss";
-import { AppProps } from "next/app";
-function MyApp(props: AppProps) {
-  const { Component, pageProps } = props;
-  useEffect(() => {
-    const jssStyles = document.querySelector("#jss-server-side");
-    if (jssStyles) {
-      jssStyles.parentElement?.removeChild(jssStyles);
-    }
-  }, []);
+import { AppProps, NextWebVitalsMetric } from "next/app";
+import { Provider } from "react-redux";
+import { wrapper } from "../store";
+import theme from "@/theme/index";
+import createEmotionCache from "@/utils/createEmotionCache";
+
+const clientSideEmotionCache = createEmotionCache();
+
+export interface MyAppProps extends AppProps {
+  emotionCache?: EmotionCache;
+}
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  console.log(metric);
+}
+function MyApp(props: MyAppProps) {
+  // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const { Component, ...rest } = props;
+  const { store } = wrapper.useWrappedStore(rest);
+  const { emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <>
-      <Head>
-        <title>ModuleX</title>
-        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
+    <Provider store={store}>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </CacheProvider>
+    </Provider>
   );
 }
-MyApp.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object.isRequired
-};
-export default wrapper.withRedux(MyApp);
+export default MyApp;
