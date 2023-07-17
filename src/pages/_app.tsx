@@ -1,20 +1,20 @@
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import React, {ReactElement, useEffect} from "react";
+import React, { ReactElement, useEffect } from "react";
 import Head from "next/head";
 import { AppProps, NextWebVitalsMetric } from "next/app";
 import { Provider } from "react-redux";
 import { wrapper } from "../store";
 import theme from "@/theme/index";
 import createEmotionCache from "@/utils/createEmotionCache";
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
-import '/src/style/normalize.scss';
-import {NextComponentType, NextPage} from "next";
-import { useRouter } from 'next/router'
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "/src/style/normalize.scss";
+import { NextComponentType, NextPage } from "next";
+import { useRouter } from "next/router";
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {
@@ -25,20 +25,20 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
 }
 function MyApp(props: MyAppProps) {
   // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const router = useRouter()
+  const router = useRouter();
   useEffect(() => {
-    const handleRouteChange = (url:string) => {
-      document.body.classList.add('fade-out')
-    }
+    const handleRouteChange = (url: string) => {
+      document.body.classList.add("fade-out");
+    };
 
-    router.events.on('routeChangeStart', handleRouteChange)
+    router.events.on("routeChangeStart", handleRouteChange);
 
     return () => {
-      router.events.off('routeChangeStart', handleRouteChange)
-    }
-  }, [])
-  const { Component, ...rest }:any = props;
-  const getLayout = Component.getLayout || ((page:NextPage) => page)
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, []);
+  const { Component, ...rest }: any = props;
+  const getLayout = Component.getLayout || ((page: NextPage) => page);
   const { store } = wrapper.useWrappedStore(rest);
   const { emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
