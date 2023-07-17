@@ -1,25 +1,29 @@
-import React from "react";
-import Link from "@/components/Link";
-import Button from "@mui/material/Button";
-import { useDispatch, useSelector } from "react-redux";
-import actions from "@/store/modules/global/action";
-const { addCount } = actions;
-export interface IHomeProps {}
-const index: React.FC<IHomeProps> = (props) => {
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(addCount(3));
-  };
-  return (
-    <div className={"test"}>
-      hello world
-      <Button variant="contained" component={Link} noLinkStyle href="/test">
-        Go to the test page
-      </Button>
-      <div
-        style={{ width: "300px", height: "80px", backgroundColor: "green" }}
-        onClick={handleClick}></div>
-    </div>
-  );
+import React, {ReactElement, useEffect} from "react";
+import Layout from '@/components/layout'
+import Content from "@/components/Home/Content";
+import Sider from "@/components/Home/Sider";
+import Pannel from "@/components/Home/Pannel";
+import {NextPage} from "next";
+import {Grid} from "@mui/material";
+
+export type IPage=NextPage&{getLayout:(props:ReactElement)=>ReactElement}
+const index: IPage = (props) => {
+    useEffect(() => {
+        document.body.classList.remove('fade-out')
+    }, [])
+    return (
+        <Grid css={{display:'flex',flexWrap:'nowrap'}} container>
+            <Sider />
+            <Content />
+            <Pannel />
+        </Grid>
+    );
 };
 export default index;
+index.getLayout = function getLayout(page:ReactElement) {
+    return (
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
