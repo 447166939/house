@@ -1,13 +1,13 @@
-import { Grid } from "@mui/material";
+import {Box, Grid} from "@mui/material";
 import Header from "@/components/Header";
 
 export interface ILayout {}
 const Layout: React.FC<ILayout> = ({ children }) => {
   return (
-    <Grid container direction={"column"}>
+    <Box css={{flexDirection:'column',display:'flex'}}>
       <Header />
-      <Grid item>{children}</Grid>
-    </Grid>
+      <Box>{children}</Box>
+    </Box>
   );
 };
 export default Layout;

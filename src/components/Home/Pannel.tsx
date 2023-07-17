@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
-import { Box, Grid } from "@mui/material";
+import { Box} from "@mui/material";
 import * as styles from "./pannelStyle";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { RootState } from "@/store/index";
 import { CheckBox } from "@mui/icons-material";
+import actions from "@/store/modules/global/action";
+const {setPannel}=actions
 export interface IPannel {}
 const Pannel: React.FC<IPannel> = (props) => {
   const data = {
@@ -17,17 +19,22 @@ const Pannel: React.FC<IPannel> = (props) => {
     ]
   };
   const { pannels, currentPannel } = useSelector((state: RootState) => state.global);
+  const dispatch=useDispatch()
+    const handleChangePannel=(idx:number)=>{
+      dispatch(setPannel(idx))
+    }
   return (
     <Box css={styles.container}>
       <Box css={styles.pannelTabs}>
         {pannels.map((item, index) => (
-          <Box css={styles.pannelTabItem({ isActive: currentPannel == index })} key={item.id}>
-            {item.text}
+          <Box onClick={handleChangePannel.bind(null,index)} css={styles.pannelTabItem({ isActive: currentPannel == index })} key={item.id}>
+            <Box css={styles.tabItemBorder({isActive:currentPannel==index})}></Box>
+            <span css={styles.pannelTabItemText({isActive:currentPannel==index})}>{item.text}</span>
           </Box>
         ))}
       </Box>
-      <Box>
-        <Box>第二阶段</Box>
+      <Box css={styles.taskBox}>
+        <Box css={styles.taskTitle}>第二阶段</Box>
         <Box>
           <Box>2</Box>
           <Box>Offer被采纳</Box>

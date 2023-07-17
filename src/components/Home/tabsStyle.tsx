@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import { t20 } from "@/style/baseStyle";
-import { isA } from "expect/build/jasmineUtils";
 
 export const container = css`
   display: flex;
@@ -8,27 +7,27 @@ export const container = css`
   background-color: #111113;
   height: 2.62rem;
   padding-left: 1.6rem;
-  position:relative;
-  overflow:hidden;
+  position: relative;
+  overflow: hidden;
 `;
-export const boderBottom=css`
- position:absolute;
-  bottom:0;
-  width:auto;
-  height:1px;
-  background-color:#313338;
-  left:0;
-  right:0;
-  margin:auto 1.6rem;
-`
+export const boderBottom = css`
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  height: 1px;
+  background-color: #313338;
+  left: 0;
+  right: 0;
+  margin: auto 1.6rem;
+`;
 export const tabItem = css`
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   position: relative;
   margin-right: 2.29rem;
-  height:100%;
-  cursor:pointer;
+  height: 100%;
+  cursor: pointer;
 `;
 export const tabItemText = (props: any) => css`
   ${t20};

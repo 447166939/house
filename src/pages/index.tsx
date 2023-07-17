@@ -4,7 +4,7 @@ import Content from "@/components/Home/Content";
 import Sider from "@/components/Home/Sider";
 import Pannel from "@/components/Home/Pannel";
 import { NextPage } from "next";
-import { Grid } from "@mui/material";
+import {Box} from "@mui/material";
 
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const index: IPage = (props) => {
@@ -12,11 +12,11 @@ const index: IPage = (props) => {
     document.body.classList.remove("fade-out");
   }, []);
   return (
-    <Grid css={{ display: "flex", flexWrap: "nowrap" }} container>
+    <Box css={{ display: "flex", flexWrap: "nowrap" }}>
       <Sider />
       <Content />
       <Pannel />
-    </Grid>
+    </Box>
   );
 };
 export default index;

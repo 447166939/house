@@ -4,21 +4,21 @@ import { grey, t18, t20, white } from "@/style/baseStyle";
 export const container = css`
   background-color: #111113;
   width: 100%;
-  padding-bottom:1.45rem;
+  padding-bottom: 1.45rem;
 `;
-export const taskHead=css`
-display:flex;
-margin-top:1.09rem;
-margin-left:1.71rem;
-`
-export const taskList=css`
-margin-top:1.09rem;
-margin-left:3.24rem;
-`
-export const taskTitle=css`
-${t20};
-${white};
-`
+export const taskHead = css`
+  display: flex;
+  margin-top: 1.09rem;
+  margin-left: 1.71rem;
+`;
+export const taskList = css`
+  margin-top: 1.09rem;
+  margin-left: 3.24rem;
+`;
+export const taskTitle = css`
+  ${t20};
+  ${white};
+`;
 export const title = css`
   ${t20};
   ${white};

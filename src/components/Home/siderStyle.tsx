@@ -5,14 +5,18 @@ export const container = css`
   display: flex;
   background-color: #222226;
   min-height: 100vh;
+  width:13.05rem;
 `;
 export const toolbar = css`
+display:flex;
+flex-direction:column;
   width: 3.05rem;
   height: 100%;
   background-color: #1e1f22;
   align-items: center;
   padding-top: 0.73rem;
-  flex-direction:column;
+  flex-direction: column;
+  justify-content:center;
 `;
 export const avatar = css`
   margin-bottom: 0.73rem;
@@ -58,8 +62,8 @@ export const menuBtn = css`
 export const channelWrapper = css`
   background-color: #222226;
   width: 10rem;
-   padding-left:0.43rem;
-   padding-right:0.51rem;
+  padding-left: 0.43rem;
+  padding-right: 0.51rem;
 `;
 export const projectText = css`
   ${t20};
@@ -93,7 +97,7 @@ export const channelTitle = css`
   ${t20};
   ${white};
   margin-top: 1.17rem;
-  margin-bottom:0.36rem;
+  margin-bottom: 0.36rem;
 `;
 export const channelIcon = css`
   width: 0.73rem;
@@ -104,13 +108,13 @@ export const channelItem = (props: any) => css`
   color: ${props.isActive ? "#fff" : "#80848E"};
   display: flex;
   align-items: center;
-  border-radius:0.22rem;
-  padding-left:0.4rem;
-  height:1.31rem;
-  cursor:pointer;
-  &:hover{
-  background-color: #3A3A3F;
-  color:#fff;
+  border-radius: 0.22rem;
+  padding-left: 0.4rem;
+  height: 1.31rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #3a3a3f;
+    color: #fff;
   }
 `;
 export const channelText = (props: any) => css`
@@ -126,21 +130,21 @@ export const splitline = css`
 export const projectTitle = css`
   ${t20};
   ${white};
-  margin-top:1.16rem;
-  margin-bottom:0.36rem;
+  margin-top: 1.16rem;
+  margin-bottom: 0.36rem;
 `;
 export const manItem = (props: any) => css`
   background-color: ${props.isActive ? "#3A3A3F" : "transparent"};
   color: ${props.isActive ? "#fff" : "#80848E"};
   display: flex;
   align-items: center;
-   border-radius:0.22rem;
-   padding-left:0.40rem;
-   height:1.31rem;
-   cursor:pointer;
-  &:hover{
-  background-color: #3A3A3F;
-  color:#fff;
+  border-radius: 0.22rem;
+  padding-left: 0.4rem;
+  height: 1.31rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #3a3a3f;
+    color: #fff;
   }
 `;
 export const manName = (props: any) => css`

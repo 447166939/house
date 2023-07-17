@@ -44,7 +44,7 @@ export const defaultState: GlobalStateType = {
     { id: 2, text: "房产投资计算器" }
   ]
 };
-const { addCount, setCurrentnav, setPannel,setChannel,setManagechannel } = actions;
+const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel } = actions;
 export const globalReducer = handleActions(
   {
     [addCount as unknown as string]: (state, action: any) => {

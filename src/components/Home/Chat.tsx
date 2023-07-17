@@ -2,7 +2,8 @@ import React from "react";
 import Grid from "@mui/system/Unstable_Grid";
 import {
   Avatar,
-  Box, IconButton,
+  Box,
+  IconButton,
   InputBase,
   List,
   ListItem,
@@ -85,15 +86,21 @@ const Chat: React.FC<IChat> = (props) => {
           ))}
         </Box>
         <Box css={styles.sendBox}>
-          <InputBase css={styles.sendInput} placeholder={'输入你想说的内容'} />
-          <IconButton><Image css={styles.circlePlus} src={circlePlusIcon} alt={""} /></IconButton>
-          <IconButton><Image css={styles.faceIcon} src={faceIcon} alt={""} /></IconButton>
+          <InputBase css={styles.sendInput} placeholder={"输入你想说的内容"} />
+          <IconButton>
+            <Image css={styles.circlePlus} src={circlePlusIcon} alt={""} />
+          </IconButton>
+          <IconButton>
+            <Image css={styles.faceIcon} src={faceIcon} alt={""} />
+          </IconButton>
         </Box>
       </Box>
       <Box css={styles.right}>
         <Box css={styles.contactHead}>
           <span css={styles.contactTitle}>项目联系人</span>
-          <IconButton css={{marginLeft:'auto'}}><Image css={styles.contactPlus} src={circlePlusIcon} alt={""} /></IconButton>
+          <IconButton css={{ marginLeft: "auto" }}>
+            <Image css={styles.contactPlus} src={circlePlusIcon} alt={""} />
+          </IconButton>
         </Box>
         <Box css={styles.contactList}>
           {contacts.map((item, index) => (

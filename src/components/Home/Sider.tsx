@@ -6,10 +6,10 @@ import menuIcon from "@/assets/images/menu.png";
 import homeIcon from "@/assets/images/home.png";
 import * as styles from "./siderStyle";
 import Image from "next/image";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
-const {setChannel,setManagechannel}=actions;
+const { setChannel, setManagechannel } = actions;
 export interface ISider {}
 const Sider: React.FC<ISider> = (props) => {
   const projectsData = [
@@ -21,13 +21,13 @@ const Sider: React.FC<ISider> = (props) => {
   const { commonChannels, currentChannel, projects, currentManageChannel } = useSelector(
     (state: RootState) => state.global
   );
-  const dispatch=useDispatch()
-  const handleChangeChannel=(idx:number)=>{
-    dispatch(setChannel(idx))
-  }
-  const handleChangeManageChannel=(idx:number)=>{
-    dispatch(setManagechannel(idx))
-  }
+  const dispatch = useDispatch();
+  const handleChangeChannel = (idx: number) => {
+    dispatch(setChannel(idx));
+  };
+  const handleChangeManageChannel = (idx: number) => {
+    dispatch(setManagechannel(idx));
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.toolbar}>
@@ -56,7 +56,10 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.channelTitle}>公共频道</Box>
         <Box>
           {commonChannels.map((item, index) => (
-            <Box onClick={handleChangeChannel.bind(null,index)} css={styles.channelItem({ isActive: index == currentChannel })} key={item.id}>
+            <Box
+              onClick={handleChangeChannel.bind(null, index)}
+              css={styles.channelItem({ isActive: index == currentChannel })}
+              key={item.id}>
               {item.icon ? (
                 <Image width={20} height={20} css={styles.channelIcon} src={item.icon} alt={""} />
               ) : (
@@ -72,7 +75,10 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.projectTitle}>项目管理频道</Box>
         <Box>
           {projects.map((item, index) => (
-            <Box onClick={handleChangeManageChannel.bind(null,index)} css={styles.manItem({ isActive: currentManageChannel == index })} key={item.id}>
+            <Box
+              onClick={handleChangeManageChannel.bind(null, index)}
+              css={styles.manItem({ isActive: currentManageChannel == index })}
+              key={item.id}>
               <Box css={styles.manName({ isActive: currentManageChannel == index })}>
                 {item.name}
               </Box>
