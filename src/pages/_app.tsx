@@ -1,4 +1,3 @@
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import React, { ReactElement, useEffect } from "react";
@@ -13,8 +12,9 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "/src/style/normalize.scss";
-import { NextComponentType, NextPage } from "next";
+import { NextPage } from "next";
 import { useRouter } from "next/router";
+import {ThemeProvider} from "@mui/material";
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {

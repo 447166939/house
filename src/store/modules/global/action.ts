@@ -8,6 +8,7 @@ const actions = createActions(
   "SET_PANNEL",
   "SET_CHANNEL",
   "SET_MANAGECHANNEL",
+  "SET_TAB",
   {
     prefix: "GLOBAL"
   }

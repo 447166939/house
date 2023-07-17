@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import Grid from "@mui/system/Unstable_Grid";
 import Image from "next/image";
 import { Box } from "@mui/material";
 import * as styles from "@/components/Home/tabsStyle";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "@/store/modules/global/action";
+const { setTab } = actions;
+import { RootState } from "@/store/index";
 export interface ITabs {}
 const Tabs: React.FC<ITabs> = (props) => {
-  const tabs = [
-    { id: 1, icon: "/task.png", text: "子任务细节描述" },
-    { id: 2, icon: "/folder.png", text: "文件夹管理空间" },
-    { id: 3, icon: "/backup.png", text: "备忘录" }
-  ];
-  const [currentTab, setCurrentTab] = useState(0);
+  const { tabs, currentTab } = useSelector((state: RootState) => state.global);
+  const dispatch = useDispatch();
   const handleChangeTab = (idx: number) => {
-    setCurrentTab(idx);
+    dispatch(setTab(idx));
   };
   return (
     <Box css={styles.container}>

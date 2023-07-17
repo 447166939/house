@@ -11,6 +11,8 @@ export interface GlobalStateType {
   currentManageChannel: number;
   currentPannel: number;
   pannels: any[];
+  tabs: any[];
+  currentTab: number;
 }
 export const defaultState: GlobalStateType = {
   count: 1,
@@ -42,9 +44,15 @@ export const defaultState: GlobalStateType = {
   pannels: [
     { text: "阶段子任务", id: 1 },
     { id: 2, text: "房产投资计算器" }
-  ]
+  ],
+  tabs: [
+    { id: 1, icon: "/task.png", text: "子任务细节描述" },
+    { id: 2, icon: "/folder.png", text: "文件夹管理空间" },
+    { id: 3, icon: "/backup.png", text: "备忘录" }
+  ],
+  currentTab: 0
 };
-const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel } = actions;
+const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel, setTab } = actions;
 export const globalReducer = handleActions(
   {
     [addCount as unknown as string]: (state, action: any) => {
@@ -76,6 +84,12 @@ export const globalReducer = handleActions(
       return {
         ...state,
         currentManageChannel: action.payload
+      };
+    },
+    [setTab as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        currentTab: action.payload
       };
     }
   },

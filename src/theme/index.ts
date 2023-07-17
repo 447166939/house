@@ -1,16 +1,16 @@
 import { Roboto } from "next/font/google";
-import { createTheme } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
-
+import { createTheme } from "@mui/material/styles";
 export const roboto = Roboto({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Helvetica", "Arial", "sans-serif"]
 });
-
-// Create a index instance.
 const index = createTheme({
+  status: {
+    danger: "#e53e3e"
+  },
   palette: {
     primary: {
       main: "#4B66DA"
@@ -20,6 +20,10 @@ const index = createTheme({
     },
     error: {
       main: red.A400
+    },
+    checkbox: {
+      main: "#fff",
+      contrastText: "#fff"
     }
   },
   typography: {

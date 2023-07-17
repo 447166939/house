@@ -5,18 +5,18 @@ export const container = css`
   display: flex;
   background-color: #222226;
   min-height: 100vh;
-  width:13.05rem;
+  width: 13.05rem;
 `;
 export const toolbar = css`
-display:flex;
-flex-direction:column;
+  display: flex;
+  flex-direction: column;
   width: 3.05rem;
   height: 100%;
   background-color: #1e1f22;
   align-items: center;
   padding-top: 0.73rem;
   flex-direction: column;
-  justify-content:center;
+  justify-content: center;
 `;
 export const avatar = css`
   margin-bottom: 0.73rem;

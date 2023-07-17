@@ -1,5 +1,5 @@
 import React from "react";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 import * as styles from "./contentStyle";
 import Tabs from "@/components/Home/Tabs";
 import SubTask from "@/components/Home/SubTask";

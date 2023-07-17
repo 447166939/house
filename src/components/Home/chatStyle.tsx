@@ -15,12 +15,12 @@ export const left = css`
   padding-right: 0.87rem;
   display: flex;
   flex-direction: column;
-  background-color:#1e1f22;
+  background-color: #1e1f22;
 `;
 export const right = css`
   width: 9.23rem;
   flex-shrink: 0;
-  background-color:#222226;
+  background-color: #222226;
 `;
 export const chatTitle = css`
   ${t20};
@@ -71,7 +71,7 @@ export const contactItem = css`
   display: flex;
   margin-top: 0.73rem;
   align-items: center;
-  padding-left:1.44rem;
+  padding-left: 1.44rem;
 `;
 export const sendBox = css`
   background-color: #222226;

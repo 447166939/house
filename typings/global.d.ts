@@ -2,24 +2,33 @@ declare global {
   declare module "*.svg";
   declare module "*.png";
 }
-import { PaletteType } from "@material-ui/core";
-declare module "@material-ui/core/styles/createMuiTheme" {
-  import { PaletteType } from "@material-ui/core";
+declare module "@mui/material/styles" {
+  export { createTheme } from "@mui/styles";
   interface Theme {
-    palette: {
-      type: PaletteType;
-    };
-    custom: {
-      background: React.CSSProperties["background"];
+    status: {
+      danger: React.CSSProperties["color"];
     };
   }
-  // 允许用 `createMuiTheme` 来配置
+
   interface ThemeOptions {
-    palette?: {
-      type?: PaletteType;
+    status: {
+      danger: React.CSSProperties["color"];
     };
-    custom?: {
-      background?: React.CSSProperties["background"];
-    };
+  }
+
+  interface Palette {
+    checkbox: Palette["primary"];
+  }
+
+  interface PaletteOptions {
+    checkbox: PaletteOptions["primary"];
+  }
+
+  interface PaletteColor {
+    darker?: string;
+  }
+
+  interface SimplePaletteColorOptions {
+    darker?: string;
   }
 }

@@ -62,7 +62,7 @@ export const t15 = css`
   font-weight: 400;
 `;
 export const t14 = css`
-  font-size: 0.50rem;
+  font-size: 0.5rem;
   font-weight: 400;
 `;
 export const white = css`

@@ -4,7 +4,7 @@ import Content from "@/components/Home/Content";
 import Sider from "@/components/Home/Sider";
 import Pannel from "@/components/Home/Pannel";
 import { NextPage } from "next";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const index: IPage = (props) => {
