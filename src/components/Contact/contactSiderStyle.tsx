@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import {grey, h20, t16, t20, white} from "@/style/baseStyle";
+import { grey, h20, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   width: 13.04rem;
@@ -33,7 +33,7 @@ export const searchInputWrapper = css`
   margin-top: 0.78rem;
   margin-left: 0.87rem;
   margin-right: 0.59rem;
-  margin-bottom:0.78rem;
+  margin-bottom: 0.78rem;
 `;
 export const searchIcon = css`
   width: 0.72rem;
@@ -48,57 +48,56 @@ export const searchInput = css`
 `;
 export const contacts = css`
   flex: 1;
-  display:flex;
-  flex-direction:column;
-  position:relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 `;
-export const contactItem=css`
-display:flex;
-align-items:center;
-margin-bottom:0.62rem;
-`
-export const contactAvatar=css`
-margin-left:1.71rem;
-width:2.10rem;
-height:2.10rem;
-`
-export const contactName=css`
-${t20};
-${grey};
-margin-left:0.53rem;
-`
-export const myInfo=css`
-position:absolute;
-bottom:0;
-display:flex;
-align-items:center;
-z-index:10000;
-background-color:#1A1A1D;
-width:100%;
-height:3.34rem;
-`
-export const myAvatar=css`
-width:1.92rem;
-height:1.92rem;
-margin-left:1.02rem;
-`
-export const myContactName=css`
-${h20};
-${white};
-`
-export const myStatus=css`
-${t20};
-${grey};
-`
-export const myText=css`
-margin-left:0.45rem;
-`
-export const mySetting=css`
-width:0.65rem;
-height:auto;
-`
-export const mySettingBtn=css`
-margin-left:auto;
-margin-right:0.59rem;
-`
-
+export const contactItem = css`
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.62rem;
+`;
+export const contactAvatar = css`
+  margin-left: 1.71rem;
+  width: 2.1rem;
+  height: 2.1rem;
+`;
+export const contactName = css`
+  ${t20};
+  ${grey};
+  margin-left: 0.53rem;
+`;
+export const myInfo = css`
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 10000;
+  background-color: #1a1a1d;
+  width: 100%;
+  height: 3.34rem;
+`;
+export const myAvatar = css`
+  width: 1.92rem;
+  height: 1.92rem;
+  margin-left: 1.02rem;
+`;
+export const myContactName = css`
+  ${h20};
+  ${white};
+`;
+export const myStatus = css`
+  ${t20};
+  ${grey};
+`;
+export const myText = css`
+  margin-left: 0.45rem;
+`;
+export const mySetting = css`
+  width: 0.65rem;
+  height: auto;
+`;
+export const mySettingBtn = css`
+  margin-left: auto;
+  margin-right: 0.59rem;
+`;

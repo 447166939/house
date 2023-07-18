@@ -5,7 +5,8 @@ export interface ContactStateType {
   tabs: any[];
   currentTab: number;
   contacts: any[];
-  chatList:any[];
+  chatList: any[];
+  contactInfo:any;
 }
 export const defaultState: ContactStateType = {
   tabs: [
@@ -60,11 +61,37 @@ export const defaultState: ContactStateType = {
     }
   ],
   currentTab: 0,
-  chatList:[
-      {id:1,avatar:'/avatar.jpg',name:'Mitch Lujan',msg:'Oops! we actually pushed a version of panning. that didn\'t have all the bug fixes in it... We just upgraded it again and now your panned images should have improved coherence and less image splitting. Enjoy!'},
-    {id:2,avatar:'/avatar.jpg',name:'Sean Potts',msg:'Oops! we actually pushed a version of panning. that didn\'t have all the bug fixes in it... We just upgraded it again and now your panned images should have improved coherence and less image splitting. Enjoy!'},
-    {id:3,avatar:'/avatar.jpg',name:'martelantoine',msg:'Oops! we actually pushed a version of panning. that didn\'t have all the bug fixes in it... We just upgraded it again and now your panned images should have improved coherence and less image splitting. Enjoy!'}
-  ]
+  chatList: [
+    {
+      id: 1,
+      avatar: "/avatar.jpg",
+      name: "Mitch Lujan",
+      msg: "Oops! we actually pushed a version of panning. that didn't have all the bug fixes in it... We just upgraded it again and now your panned images should have improved coherence and less image splitting. Enjoy!"
+    },
+    {
+      id: 2,
+      avatar: "/avatar.jpg",
+      name: "Sean Potts",
+      msg: "Oops! we actually pushed a version of panning. that didn't have all the bug fixes in it... We just upgraded it again and now your panned images should have improved coherence and less image splitting. Enjoy!"
+    },
+    {
+      id: 3,
+      avatar: "/avatar.jpg",
+      name: "martelantoine",
+      msg: "Oops! we actually pushed a version of panning. that didn't have all the bug fixes in it... We just upgraded it again and now your panned images should have improved coherence and less image splitting. Enjoy!"
+    }
+  ],
+  contactInfo:{
+    avatar:'/avatar.jpg',
+    name:'Mitch Lujan',
+    remark:'这是一句个人名言',
+    tags:['Accountant','Seattle,WA','English'],
+    potts:{title:'Sean Potts',text:'seanpotts'},
+    date:{title:'MEMBER SINCE',text:'Jan 10, 2023'},
+    note:{title:'NOTE',text:'click to add note'},
+    server:"1 Mutual Server",
+    friends:"2 MutualFriends"
+  }
 };
 const { setTab } = actions;
 export const contactReducer = handleActions(
