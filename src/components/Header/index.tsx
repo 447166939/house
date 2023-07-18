@@ -1,14 +1,11 @@
 import React, { Fragment } from "react";
 import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Typography,
-  InputBase,
-  Badge,
-  Grid,
-  SvgIcon,
-  Avatar
+    AppBar,
+    Toolbar,
+    Badge,
+    Grid,
+    SvgIcon,
+    Avatar, Popper, Box, IconButton
 } from "@mui/material";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
@@ -16,6 +13,12 @@ import Link from "@/components/Link";
 import * as styles from "@/components/Header/headerStyle";
 import headerLogo from "@/assets/images/header_logo.png";
 import cnIcon from "@/assets/images/cn.png";
+import settingIcon from '@/assets/images/setting.png'
+import moonIcon from '@/assets//images/moon.png'
+import userAdd from '@/assets/images/userAdd.png'
+import exitIcon from '@/assets/images/exit.png'
+import playIcon from '@/assets/images/play.png'
+import editIcon from '@/assets/images/edit.png'
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 export interface IHeader {}
@@ -43,9 +46,14 @@ function HelperIcon(props: any) {
 const Index: React.FC<IHeader> = () => {
   const dispatch = useDispatch();
   const { navs, currentNav } = useSelector((state: RootState) => state.global);
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const {userInfo}=useSelector((state:RootState)=>state.global)
   const handleChangeNav = (index: number) => {
     dispatch(setCurrentnav(index));
   };
+    const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+        setAnchorEl(anchorEl ? null : event.currentTarget);
+    };
   return (
     <AppBar css={styles.appBar} position="static">
       <Toolbar>
@@ -66,8 +74,50 @@ const Index: React.FC<IHeader> = () => {
         </Badge>
         <Image css={styles.cnIcon} src={cnIcon} alt={""} />
         <HelperIcon css={styles.helpIcon} />
-        <Avatar css={styles.avatar} alt="Remy Sharp" src={"/avatar.jpg"} />
+        <Avatar onClick={handleClick} css={styles.avatar} alt="Remy Sharp" src={"/avatar.jpg"} />
       </Toolbar>
+      <Popper
+          id="placement-popper"
+          open={Boolean(anchorEl)}
+          anchorEl={anchorEl}
+          placement={'bottom-end'}
+      >
+          <Box css={styles.popoverContainer}>
+              <Avatar  css={styles.userAvatar} src={userInfo.avatar}></Avatar>
+              <Box css={styles.userinfoName}>{userInfo.name}</Box>
+              <Box css={styles.userEmail}>{userInfo.email}</Box>
+              <Box css={styles.userMenuItem}>
+                   <IconButton>
+                       <Image width={15} height={15} css={styles.settingIcon} src={settingIcon} alt={''} />
+                   </IconButton>
+                  <Box css={styles.settingText}>设置</Box>
+              </Box>
+              <Box css={styles.userMenuItem}>
+                  <IconButton>
+                      <Image css={styles.moonIcon} width={15} height={15} src={moonIcon} alt={''} />
+                  </IconButton>
+                  <Box css={styles.moonText}>黑夜</Box>
+                  <IconButton css={styles.playBtn}>
+                      <Image css={styles.playIcon} width={11} height={11} src={playIcon} alt={''} />
+                  </IconButton>
+              </Box>
+              <Box css={styles.userMenuItem}>
+                  <IconButton>
+                      <Image width={12} height={12} css={styles.userAddIcon} src={userAdd} alt={''} />
+                  </IconButton>
+                  <Box css={styles.addUserText}>添加账户</Box>
+              </Box>
+              <Box css={styles.userMenuItem}>
+                  <IconButton>
+                      <Image css={styles.exitIcon} src={exitIcon} alt={''} />
+                  </IconButton>
+                  <Box css={styles.exitText}>退出</Box>
+                  <IconButton css={styles.playBtn}>
+                      <Image css={styles.playIcon} src={playIcon} alt={''} />
+                  </IconButton>
+              </Box>
+          </Box>
+      </Popper>
     </AppBar>
   );
 };

@@ -13,6 +13,7 @@ export interface GlobalStateType {
   pannels: any[];
   tabs: any[];
   currentTab: number;
+  userInfo:any;
 }
 export const defaultState: GlobalStateType = {
   count: 1,
@@ -50,7 +51,8 @@ export const defaultState: GlobalStateType = {
     { id: 2, icon: "/folder.png", text: "文件夹管理空间" },
     { id: 3, icon: "/backup.png", text: "备忘录" }
   ],
-  currentTab: 0
+  currentTab: 0,
+  userInfo:{avatar:'/avatar.jpg',name:'Tom.Tang',email:'tangshaobo90@gmail.com'},
 };
 const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel, setTab } = actions;
 export const globalReducer = handleActions(

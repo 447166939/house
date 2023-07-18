@@ -37,6 +37,10 @@ export const h14 = css`
   font-size: 0.508rem;
   font-weight: 600;
 `;
+export const h12=css`
+font-size: 0.43rem;
+  font-weight: 600;
+`
 export const t20 = css`
   font-size: 0.72rem;
   font-weight: 400;
@@ -63,6 +67,10 @@ export const t15 = css`
 `;
 export const t14 = css`
   font-size: 0.5rem;
+  font-weight: 400;
+`;
+export const t12 = css`
+  font-size: 0.43rem;
   font-weight: 400;
 `;
 export const white = css`
