@@ -1,16 +1,25 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import * as styles from "@/style/projectStyle";
+import React, { ReactElement, useEffect } from "react";
 import Layout from "@/components/layout";
+import Content from "@/components/Project/Content";
+import Sider from "@/components/Project/Sider";
+import Pannel from "@/components/Project/Pannel";
 import { NextPage } from "next";
+import { Box } from "@mui/material";
+
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
-const Project: IPage = (props) => {
+const project: IPage = (props) => {
   useEffect(() => {
     document.body.classList.remove("fade-out");
   }, []);
-  return <Box css={styles.container}>project</Box>;
+  return (
+    <Box css={{ display: "flex", flexWrap: "nowrap" }}>
+      <Sider />
+      <Content />
+      <Pannel />
+    </Box>
+  );
 };
-export default Project;
-Project.getLayout = function getLayout(page: ReactElement) {
+export default project;
+project.getLayout = function getLayout(page: ReactElement) {
   return <Layout>{page}</Layout>;
 };

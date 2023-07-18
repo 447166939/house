@@ -1,10 +1,10 @@
 import React from "react";
 import { Box } from "@mui/material";
 import * as styles from "./contentStyle";
-import Tabs from "@/components/Home/Tabs";
-import SubTask from "@/components/Home/SubTask";
-import FileManage from "@/components/Home/FileManage";
-import Chat from "@/components/Home/Chat";
+import Tabs from "@/components/Project/Tabs";
+import SubTask from "@/components/Project/SubTask";
+import FileManage from "@/components/Project/FileManage";
+import Chat from "@/components/Project/Chat";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 export interface IContent {}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { Box } from "@mui/material";
-import * as styles from "@/components/Home/tabsStyle";
+import * as styles from "@/components/Project/tabsStyle";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "@/store/modules/global/action";
 const { setTab } = actions;
