@@ -19,7 +19,7 @@ export const defaultState: GlobalStateType = {
   count: 1,
   currentNav: 0,
   navs: [
-    { text: "首页", id: 1, path: "/" },
+    { text: "首页", id: 1, path: "/contact" },
     { text: "课程", id: 2, path: "/course" },
     { text: "地图", id: 3, path: "/map" },
     { text: "项目管理", id: 4, path: "/project" }

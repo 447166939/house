@@ -1,6 +1,6 @@
-import {css} from "@emotion/react";
+import { css } from "@emotion/react";
 
-export const container=css`
-flex:1;
-background-color:#1E1F22;
-`
+export const container = css`
+  flex: 1;
+  background-color: #1e1f22;
+`;
