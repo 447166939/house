@@ -1,9 +1,9 @@
 import React from "react";
-import {Avatar, Box, IconButton, InputBase, TextareaAutosize} from "@mui/material";
+import { Avatar, Box, IconButton, InputBase, TextareaAutosize } from "@mui/material";
 import * as styles from "./contactPannelStyle";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
-import rightIcon from '@/assets/images/right.png';
+import rightIcon from "@/assets/images/right.png";
 import Image from "next/image";
 export interface IContactPannel {}
 const ContactPannel: React.FC<IContactPannel> = (props) => {
@@ -24,31 +24,30 @@ const ContactPannel: React.FC<IContactPannel> = (props) => {
       </Box>
       <Box css={styles.midBox}>
         <Box css={styles.potts}>
-            <Box css={styles.pottsTitle}>{contactInfo.potts.title}</Box>
-            <Box css={styles.pottsText}>{contactInfo.potts.text}</Box>
+          <Box css={styles.pottsTitle}>{contactInfo.potts.title}</Box>
+          <Box css={styles.pottsText}>{contactInfo.potts.text}</Box>
         </Box>
-          <Box css={styles.date}>
-              <Box css={styles.dateTitle}>{contactInfo.date.title}</Box>
-              <Box css={styles.dateText}>{contactInfo.date.text}</Box>
-          </Box>
-          <Box css={styles.note}>
-              <Box css={styles.noteTitle}>{contactInfo.note.title}</Box>
-              <Box css={styles.noteText}>{contactInfo.note.text}</Box>
-
-          </Box>
+        <Box css={styles.date}>
+          <Box css={styles.dateTitle}>{contactInfo.date.title}</Box>
+          <Box css={styles.dateText}>{contactInfo.date.text}</Box>
+        </Box>
+        <Box css={styles.note}>
+          <Box css={styles.noteTitle}>{contactInfo.note.title}</Box>
+          <Box css={styles.noteText}>{contactInfo.note.text}</Box>
+        </Box>
       </Box>
-        <Box css={styles.serverBox}>
-            <Box css={styles.serverText}>{contactInfo.server}</Box>
-            <IconButton css={styles.rightIconBtn}>
-                <Image css={styles.rightIcon} src={rightIcon} alt={''}/>
-            </IconButton>
-        </Box>
-        <Box css={styles.friendsBox}>
-            <Box css={styles.friendsText}>{contactInfo.server}</Box>
-            <IconButton css={styles.friendRightBtn}>
-                <Image css={styles.rightIcon} src={rightIcon} alt={''}/>
-            </IconButton>
-        </Box>
+      <Box css={styles.serverBox}>
+        <Box css={styles.serverText}>{contactInfo.server}</Box>
+        <IconButton css={styles.rightIconBtn}>
+          <Image css={styles.rightIcon} src={rightIcon} alt={""} />
+        </IconButton>
+      </Box>
+      <Box css={styles.friendsBox}>
+        <Box css={styles.friendsText}>{contactInfo.server}</Box>
+        <IconButton css={styles.friendRightBtn}>
+          <Image css={styles.rightIcon} src={rightIcon} alt={""} />
+        </IconButton>
+      </Box>
     </Box>
   );
 };

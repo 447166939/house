@@ -61,7 +61,7 @@ export const midBox = css`
   padding-left: 1.35rem;
   display: flex;
   flex-direction: column;
-  padding-bottom:0.95rem;
+  padding-bottom: 0.95rem;
 `;
 export const potts = css``;
 export const pottsTitle = css`
@@ -69,32 +69,33 @@ export const pottsTitle = css`
   ${white};
 `;
 export const pottsText = css`
-${t16};
-${grey};
+  ${t16};
+  ${grey};
 `;
-export const date=css`
-margin-top:1.06rem;`
-export const dateTitle=css`
-${t16};
-${white};
-`
-export const dateText=css`
-${t16};
-${grey};
-`
-export const note=css`
-margin-top:1.06rem;
-`
-export const noteTitle=css`
-${t16};
-${white};
-`
-export const noteText=css`
-${t16};
-${grey};
-`
-export const friendsBox=css`
-background-color: #1a1a1d;
+export const date = css`
+  margin-top: 1.06rem;
+`;
+export const dateTitle = css`
+  ${t16};
+  ${white};
+`;
+export const dateText = css`
+  ${t16};
+  ${grey};
+`;
+export const note = css`
+  margin-top: 1.06rem;
+`;
+export const noteTitle = css`
+  ${t16};
+  ${white};
+`;
+export const noteText = css`
+  ${t16};
+  ${grey};
+`;
+export const friendsBox = css`
+  background-color: #1a1a1d;
   width: 13.6rem;
   border-radius: 0.36rem;
   align-self: center;
@@ -103,16 +104,18 @@ background-color: #1a1a1d;
   padding-top: 0.5rem;
   padding-left: 1.35rem;
   display: flex;
-  padding-bottom:0.5rem;
-  align-items:center;
-`
-export const friendsText=css`
-${t16};
-${white};
-`
-export const friendRightBtn=css`margin-left:auto;`
-export const serverBox=css`
-background-color: #1a1a1d;
+  padding-bottom: 0.5rem;
+  align-items: center;
+`;
+export const friendsText = css`
+  ${t16};
+  ${white};
+`;
+export const friendRightBtn = css`
+  margin-left: auto;
+`;
+export const serverBox = css`
+  background-color: #1a1a1d;
   width: 13.6rem;
   border-radius: 0.36rem;
   align-self: center;
@@ -121,15 +124,17 @@ background-color: #1a1a1d;
   padding-top: 0.5rem;
   padding-left: 1.35rem;
   display: flex;
-  padding-bottom:0.5rem;
-  align-items:center;
-`
-export const serverText=css`
-${t16};
-${white};
-`
-export const rightIcon=css`
-width:0.39rem;
-height:auto;
-`
-export const rightIconBtn=css`margin-left:auto;`
+  padding-bottom: 0.5rem;
+  align-items: center;
+`;
+export const serverText = css`
+  ${t16};
+  ${white};
+`;
+export const rightIcon = css`
+  width: 0.39rem;
+  height: auto;
+`;
+export const rightIconBtn = css`
+  margin-left: auto;
+`;
