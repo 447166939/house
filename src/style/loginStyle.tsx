@@ -25,7 +25,7 @@ export const container = css`
 `;
 export const leftBox = css`
   width: 50%;
-  background: url(/auth_bg.png) no-repeat center;
+  background: url(/auth_bg.webp) no-repeat center;
   background-size: cover;
   display: flex;
   flex-direction: column;
