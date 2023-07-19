@@ -9,6 +9,7 @@ export const appBar = css`
 `;
 export const navBox = css`
   margin-left: 5.05rem;
+  flex:1;
 `;
 export type linkStyle = { isActive: boolean };
 export const navItem = (props: linkStyle) =>
@@ -16,6 +17,20 @@ export const navItem = (props: linkStyle) =>
     margin-right: 3.19rem;
     color: ${props.isActive ? "#00E1FE" : "#fff"};
   `;
+export const msgIcon=css`
+width:0.97rem;
+height:auto;
+`
+export const msgBtn=css`
+margin-left:1.09rem;
+`
+export const bookIcon=css`
+width:0.97rem;
+height:auto;
+`
+export const bookBtn=css`
+margin-left:1.09rem;
+`
 export const cnIcon = css`
   width: 0.95rem;
   height: auto;

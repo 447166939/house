@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   Badge,
-  Grid,
   SvgIcon,
   Avatar,
   Popper,
@@ -22,6 +21,8 @@ import userAdd from "@/assets/images/userAdd.png";
 import exitIcon from "@/assets/images/exit.png";
 import playIcon from "@/assets/images/play.png";
 import editIcon from "@/assets/images/edit.png";
+import msgIcon from '@/assets/images/msg.png';
+import bookIcon from '@/assets/images/book.png'
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 export interface IHeader {}
@@ -61,7 +62,7 @@ const Index: React.FC<IHeader> = () => {
     <AppBar css={styles.appBar} position="static">
       <Toolbar>
         <Image css={styles.headerLogo} src={headerLogo} alt={""} />
-        <Grid css={styles.navBox} container>
+        <Box css={styles.navBox}>
           {navs.map((item, index) => (
             <Link
               onClick={handleChangeNav.bind(null, index)}
@@ -71,10 +72,12 @@ const Index: React.FC<IHeader> = () => {
               {item.text}
             </Link>
           ))}
-        </Grid>
+        </Box>
         <Badge badgeContent={4} color="error">
           <PersonIcon />
         </Badge>
+        <IconButton css={styles.msgBtn}><Image css={styles.msgIcon} src={msgIcon} alt={''} /></IconButton>
+        <IconButton css={styles.bookBtn}><Image css={styles.bookIcon} src={bookIcon} alt={''} /></IconButton>
         <Image css={styles.cnIcon} src={cnIcon} alt={""} />
         <HelperIcon css={styles.helpIcon} />
         <Avatar onClick={handleClick} css={styles.avatar} alt="Remy Sharp" src={"/avatar.jpg"} />
