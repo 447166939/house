@@ -4,7 +4,6 @@ import { grey, t16, t18, t20, white } from "@/style/baseStyle";
 export const container = css`
   display: flex;
   background-color: #222226;
-  min-height: 100vh;
   width: 13.05rem;
 `;
 export const toolbar = css`

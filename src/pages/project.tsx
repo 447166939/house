@@ -12,7 +12,7 @@ const project: IPage = (props) => {
     document.body.classList.remove("fade-out");
   }, []);
   return (
-    <Box css={{ display: "flex", flexWrap: "nowrap" }}>
+    <Box css={{ display: "flex", flexWrap: "nowrap",flex:1 }}>
       <Sider />
       <Content />
       <Pannel />
