@@ -24,6 +24,7 @@ export default function MyDocument({ emotionStyleTags }: MyDocumentProps) {
         <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXuXEJU5uRHJ1i7jYkmAA5YsQrGCdSPvY"></script>
         {emotionStyleTags}
       </Head>
       <body>

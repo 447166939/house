@@ -1,5 +1,5 @@
-import {css} from "@emotion/react";
+import { css } from "@emotion/react";
 
-export const container=css`
-width:25.39rem;
-`
+export const container = css`
+  width: 25.39rem;
+`;

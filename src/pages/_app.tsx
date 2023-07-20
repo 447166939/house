@@ -15,6 +15,8 @@ import "/src/style/normalize.scss";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { ThemeProvider } from "@mui/material";
+import Script from 'next/script'
+import Box from "@mui/material/Box";
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {
