@@ -7,10 +7,10 @@ export interface ContactStateType {
 }
 export const defaultState: ContactStateType = {
   tabs: [
-    { id: 1, text: "项目沟通" },
-    { id: 2, text: "联系人中心" }
+    { id: 1, text: "备选项目" },
+    { id: 2, text: "档案库" }
   ],
-  currentTab:0
+  currentTab: 0
 };
 const { setTab } = actions;
 export const mapReducer = handleActions(

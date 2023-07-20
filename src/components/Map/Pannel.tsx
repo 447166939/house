@@ -4,6 +4,7 @@ import * as styles from "./pannelStyle";
 export interface IPannel {}
 const Pannel: React.FC<IPannel> = (props) => {
   return <Box css={styles.container}>
+<Box></Box>
 
   </Box>;
 };
