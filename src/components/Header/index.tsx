@@ -1,14 +1,5 @@
-import React, { Fragment } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Badge,
-  SvgIcon,
-  Avatar,
-  Popper,
-  Box,
-  IconButton
-} from "@mui/material";
+import React, { Fragment,useRef } from "react";
+import { AppBar, Toolbar, Badge, SvgIcon, Avatar, Popper, Box, IconButton } from "@mui/material";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "@/components/Link";
@@ -21,9 +12,10 @@ import userAdd from "@/assets/images/userAdd.png";
 import exitIcon from "@/assets/images/exit.png";
 import playIcon from "@/assets/images/play.png";
 import editIcon from "@/assets/images/edit.png";
-import msgIcon from '@/assets/images/msg.png';
-import bookIcon from '@/assets/images/book.png'
+import msgIcon from "@/assets/images/msg.png";
+import bookIcon from "@/assets/images/book.png";
 import { RootState } from "@/store/index";
+import {useClickOutside} from "@/hooks/useClickoutside";
 import actions from "@/store/modules/global/action";
 export interface IHeader {}
 const { setCurrentnav } = actions;
@@ -52,6 +44,11 @@ const Index: React.FC<IHeader> = () => {
   const { navs, currentNav } = useSelector((state: RootState) => state.global);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const { userInfo } = useSelector((state: RootState) => state.global);
+  const avatarRef=useRef(null)
+  const closePopover=()=>{
+    setAnchorEl(null)
+  }
+  useClickOutside(avatarRef,closePopover)
   const handleChangeNav = (index: number) => {
     dispatch(setCurrentnav(index));
   };
@@ -76,11 +73,15 @@ const Index: React.FC<IHeader> = () => {
         <Badge badgeContent={4} color="error">
           <PersonIcon />
         </Badge>
-        <IconButton css={styles.msgBtn}><Image css={styles.msgIcon} src={msgIcon} alt={''} /></IconButton>
-        <IconButton css={styles.bookBtn}><Image css={styles.bookIcon} src={bookIcon} alt={''} /></IconButton>
+        <IconButton css={styles.msgBtn}>
+          <Image css={styles.msgIcon} src={msgIcon} alt={""} />
+        </IconButton>
+        <IconButton css={styles.bookBtn}>
+          <Image css={styles.bookIcon} src={bookIcon} alt={""} />
+        </IconButton>
         <Image css={styles.cnIcon} src={cnIcon} alt={""} />
         <HelperIcon css={styles.helpIcon} />
-        <Avatar onClick={handleClick} css={styles.avatar} alt="Remy Sharp" src={"/avatar.jpg"} />
+        <Avatar ref={avatarRef} onClick={handleClick} css={styles.avatar} alt="Remy Sharp" src={"/avatar.jpg"} />
       </Toolbar>
       <Popper
         id="placement-popper"
