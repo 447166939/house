@@ -72,9 +72,9 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
         </Box>
       </Box>
       <Box css={styles.contactsBox}>
-        <Grid direction="row" justifyContent="center" alignItems="center" spacing={2} container>
+        <Box css={styles.contactList}>
           {centerContacts.map((item, index) => (
-            <Grid item key={index}>
+            <Box  key={index}>
               <Box css={styles.card}>
                 <Box css={styles.topBox}>
                   <Avatar src={item.avatar} />
@@ -104,9 +104,9 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
                   ))}
                 </Box>
               </Box>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Box>
     </Box>
   );
