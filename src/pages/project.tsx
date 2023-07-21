@@ -8,9 +8,6 @@ import { Box } from "@mui/material";
 
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const project: IPage = (props) => {
-  useEffect(() => {
-    document.body.classList.remove("fade-out");
-  }, []);
   return (
     <Box css={{ display: "flex", flexWrap: "nowrap", flex: 1 }}>
       <Sider />

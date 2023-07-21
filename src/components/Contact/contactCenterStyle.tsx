@@ -6,12 +6,12 @@ export const container = css`
   display: flex;
   flex-direction: column;
   background-color: #111113;
-  overflow:hidden;
+  overflow: hidden;
 `;
 export const centerHeader = css`
   display: flex;
   align-items: center;
-  height:1.59rem;
+  height: 1.59rem;
 `;
 export const centerHeadTitle = css`
   ${t20};
@@ -49,8 +49,8 @@ export const selectInput = css`
   width: 6.68rem;
   height: 1.38rem;
   padding-left: 0.69rem;
-  display:flex;
-  align-items:center;
+  display: flex;
+  align-items: center;
 `;
 export const cateBox = css`
   width: 6.68rem;
@@ -67,17 +67,17 @@ export const filterBox = css`
 `;
 export const contactsBox = css`
   margin-top: 1.23rem;
- flex:36.9rem;
- overflow-y: auto;
- padding-bottom:350px; 
+  flex: 36.9rem;
+  overflow-y: auto;
+  padding-bottom: 350px;
 `;
 
 export const contactList = css`
-justify-items:center;
-display:grid;
-grid-template-columns:repeat(5,1fr);
-column-gap:0.72rem;
-row-gap:0.72rem;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 0.72rem;
+  row-gap: 0.72rem;
 `;
 export const topBox = css`
   display: flex;

@@ -11,9 +11,6 @@ import * as styles from "@/components/Contact/contactStyle";
 
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const Index: IPage = (props) => {
-  useEffect(() => {
-    document.body.classList.remove("fade-out");
-  }, []);
   const { currentTab } = useSelector((state: RootState) => state.contact);
   return (
     <Box css={styles.container}>

@@ -74,7 +74,7 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
       <Box css={styles.contactsBox}>
         <Box css={styles.contactList}>
           {centerContacts.map((item, index) => (
-            <Box  key={index}>
+            <Box key={index}>
               <Box css={styles.card}>
                 <Box css={styles.topBox}>
                   <Avatar src={item.avatar} />

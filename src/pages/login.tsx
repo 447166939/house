@@ -24,9 +24,6 @@ import {
 } from "@mui/material";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
-  useEffect(() => {
-    document.body.classList.remove("fade-out");
-  }, []);
   const [role, setRole] = useState("");
   const handleChange = (event: SelectChangeEvent) => {
     setRole(event.target.value);

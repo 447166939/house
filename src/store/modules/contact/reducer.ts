@@ -213,7 +213,8 @@ export const defaultState: ContactStateType = {
       remark: "这是一句个人简介",
       tags: ["Accountant", "Seattle,WA", "English"],
       isFriend: true
-    },{
+    },
+    {
       id: 16,
       avatar: "/avatar.jpg",
       name: "Brent Mcaliste",
@@ -284,9 +285,7 @@ export const defaultState: ContactStateType = {
       remark: "这是一句个人简介",
       tags: ["Accountant", "Seattle,WA", "English"],
       isFriend: false
-    },
-
-
+    }
   ]
 };
 const { setTab } = actions;

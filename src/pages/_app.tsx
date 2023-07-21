@@ -7,16 +7,14 @@ import { Provider } from "react-redux";
 import { wrapper } from "../store";
 import theme from "@/theme/index";
 import createEmotionCache from "@/utils/createEmotionCache";
+import TransitionEffect from "@/components/TransitionEffect";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import "/src/style/normalize.scss";
 import { NextPage } from "next";
-import { useRouter } from "next/router";
 import { ThemeProvider } from "@mui/material";
-import Script from "next/script";
-import Box from "@mui/material/Box";
 const clientSideEmotionCache = createEmotionCache();
 
 export interface MyAppProps extends AppProps {
@@ -27,18 +25,6 @@ export function reportWebVitals(metric: NextWebVitalsMetric) {
 }
 function MyApp(props: MyAppProps) {
   // const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const router = useRouter();
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      document.body.classList.add("fade-out");
-    };
-
-    router.events.on("routeChangeStart", handleRouteChange);
-
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-  }, []);
   const { Component, ...rest }: any = props;
   const getLayout = Component.getLayout || ((page: NextPage) => page);
   const { store } = wrapper.useWrappedStore(rest);

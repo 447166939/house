@@ -21,9 +21,6 @@ import {
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const [role, setRole] = useState("");
-  useEffect(() => {
-    document.body.classList.remove("fade-out");
-  }, []);
   const handleChange = (event: SelectChangeEvent) => {
     setRole(event.target.value);
   };

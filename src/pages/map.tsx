@@ -7,9 +7,6 @@ import Pannel from "@/components/Map/Pannel";
 import * as styles from "@/style/mapStyle";
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const Map: IPage = (props) => {
-  useEffect(() => {
-    document.body.classList.remove("fade-out");
-  }, []);
   return (
     <Box css={styles.container}>
       <Content />
