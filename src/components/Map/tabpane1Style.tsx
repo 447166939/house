@@ -44,6 +44,22 @@ export const gridContainer = css`
   padding: 0 0.94rem 0.94rem 0.94rem;
   overflow: scroll;
   margin-top: 0.67rem;
+  &::-webkit-scrollbar {
+    background-color: #111113;
+    width: 0.29rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #38383f;
+    border-radius: 0.29rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #38383f;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: #38383f #111113;
+  &::-webkit-scrollbar-track {
+    background-color: #111113;
+  }
 `;
 export const list = css`
   justify-items: center;

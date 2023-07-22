@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { grey, h20, h30, t14, t16, t18, t20, white } from "@/style/baseStyle";
+import {grey, h20, h30, t12, t14, t16, t18, t20, white} from "@/style/baseStyle";
 
 export const container = css`
   width: 59.55rem;
@@ -76,15 +76,22 @@ export const picItem = css`
   }
 `;
 export const midBox = css`
-  width:20.79rem;
+  width: 20.79rem;
   display: flex;
   flex-direction: column;
 `;
 export const caculatorBox = css`
-  width: 20.34rem;
+ width: 20.34rem;
+ margin-right:0.447rem;
+ margin-left:auto;
   display: flex;
   flex-direction: column;
-  flex-shrink:0;
+  flex-shrink: 0;
+  background-color:#1E1F22;
+  border-radius:0.726rem;
+  margin-top:0.79rem;
+  margin-bottom:0.501rem;
+  
 `;
 export const navBox = css`
   display: flex;
@@ -295,7 +302,7 @@ export const overviewContent = css`
   ${grey};
   margin-left: 1.079rem;
   margin-top: 0.398rem;
-  margin-right:1.76rem;
+  margin-right: 1.76rem;
 `;
 export const showMore = css`
   color: #00e0fd;
@@ -309,10 +316,10 @@ export const viewerBox = css`
   align-items: center;
   margin-left: 1.079rem;
 `;
-export const viewerItem=css`
-margin-right:4.19rem;
-white-space:nowrap;
-`
+export const viewerItem = css`
+  margin-right: 4.19rem;
+  white-space: nowrap;
+`;
 export const dayText = css`
   ${t18};
   ${grey};
@@ -337,10 +344,105 @@ export const savenum = css`
   ${t18};
   ${white};
 `;
-export const descriptionText=css`
+export const descriptionText = css`
+  ${t14};
+  ${grey};
+  white-space: pre-wrap;
+  margin-left: 1.079rem;
+  margin-top: 0.877rem;
+`;
+export const caculatorTitle=css`
+${h20};
+${white};
+margin-top:1.014rem;
+margin-left:0.757rem;
+`
+export const caculateTab=css`
+display:flex;
+align-items:center;
+margin-top:0.728rem;
+margin-left:0.757rem;
+margin-right:0.394rem;
+border-bottom:1px solid #313338;
+padding-bottom:0.497rem;
+`
+export const cateTabItem = ({ isActive }: any) => css`
+cursor:pointer;
+  ${t18};
+  color: ${isActive ? "#fff" : "#80848E"};
+  margin-right: 2.833rem;
+  white-space: nowrap;
+  width: max-content;
+  position: relative;
+  &:after {
+    bottom: -0.5rem;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00e0fd;
+    height: 0.145rem;
+    width: 2.95rem;
+    display: ${isActive ? "block" : "none"};
+  }
+`;
+export const inputBox=css`
+display:grid;
+column-gap:1.292rem;
+row-gap:0.8rem;
+grid-template-columns:repeat(3,1fr);
+margin-left:0.757rem;
+margin-right:0.684rem;
+margin-top:0.965rem;
+padding-bottom:1.4rem;
+border-bottom: 1px solid #313338;
+box-sizing:border-box;
+`
+export const inputLabel=css`
 ${t14};
 ${grey};
-white-space:pre-wrap;
-margin-left:1.079rem;
-margin-top:0.877rem;
+`
+export const inputGridItem=css`
+display:flex;
+flex-direction:column;
+`
+export const inputText=css`
+${t16};
+${grey};
+width:100%;
+height:1.2rem;
+border: 1px solid #393A3F;
+background-color:#1A1A1A;
+border-radius:0.145rem;
+padding:0 0.378rem;
+box-sizing:border-box;
+`
+export const inputPre=css`
+& .MuiTypography-root{
+${t16};
+${grey};
+}
+`
+export const inutpos=css`
+& .MuiTypography-root{
+${t12};
+${grey};
+}
+`
+export const bottomInputBox=css`
+display:grid;
+column-gap:1.292rem;
+row-gap:0.879rem;
+grid-template-columns:repeat(3,1fr);
+margin-left:0.757rem;
+margin-right:0.684rem;
+margin-top:1.4rem;
+`
+export const saveBtn=css`
+white-space:nowrap;
+margin: auto auto auto auto;
+${t20};
+${white};
+width:5.23rem;
+height:1.38rem;
 `
