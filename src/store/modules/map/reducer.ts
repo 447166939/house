@@ -5,7 +5,7 @@ export interface ContactStateType {
   tabs: any[];
   currentTab: number;
   tabpane1Data: any;
-  detail:any;
+  detail: any;
 }
 export const defaultState: ContactStateType = {
   tabs: [
@@ -91,21 +91,43 @@ export const defaultState: ContactStateType = {
       }
     ]
   },
-  detail:{
-    pictures:['/house.png','/house.png','/house.png','/house.png','/house.png','/house.png','/house.png','/house.png','/house.png','/house.png','/house.png'],
-    money:'$134,000',
-    address:'2339 Noble Rd, Cleveland Heights, OH 44121',
-    links:[{text:'Overview '},{text:'Facts and features'},{text: 'Home value'},{text: 'Price and tax hist'},{text: 'Price and tax hist'},{text: 'Price and tax hist'},{text: 'Price and tax hist'}],
-    overviewText:'Duplex, multi family\n' +
-        'Built in 1959\n' +
-        'Forced air, gas\n' +
-        'None\n' +
-        'p2 Garage spaces\n' +
-        '$55 price/sqft',
-    overviewContent:'Come check out this partially occupied duplex in ClevelandHeights! Situated on a corner lot, this property offers twospacious units with incredibly easy access to local shopping.parks, and more. The lower unit is currently rented by a long',
-    day:'1',
-    views:'165',
-    save:'24'
+  detail: {
+    pictures: [
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png",
+      "/house.png"
+    ],
+    money: "$134,000",
+    address: "2339 Noble Rd, Cleveland Heights, OH 44121",
+    links: [
+      { text: "Overview " },
+      { text: "Facts and features" },
+      { text: "Home value" },
+      { text: "Price and tax hist" },
+      { text: "Price and tax hist" },
+      { text: "Price and tax hist" },
+      { text: "Price and tax hist" }
+    ],
+    overviewText:
+      "Duplex, multi family\n" +
+      "Built in 1959\n" +
+      "Forced air, gas\n" +
+      "None\n" +
+      "p2 Garage spaces\n" +
+      "$55 price/sqft",
+    overviewContent:
+      "Come check out this partially occupied duplex in ClevelandHeights! Situated on a corner lot, this property offers twospacious units with incredibly easy access to local shopping.parks, and more. The lower unit is currently rented by a long",
+    day: "1",
+    views: "165",
+    save: "24"
   }
 };
 const { setTab } = actions;
