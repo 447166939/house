@@ -112,19 +112,20 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
               <Box css={styles.overviewContent}>{detail.overviewContent}</Box>
               <Box css={styles.showMore}>Show more</Box>
               <Box css={styles.viewerBox}>
-                <Box>
+                <Box css={styles.viewerItem}>
                   <span css={styles.daynum}>{detail.day}</span>
                   <span css={styles.dayText}> day on Zillow</span>
                 </Box>
-                <Box>
+                <Box css={styles.viewerItem}>
                   <span css={styles.viewnum}>{detail.views}</span>
                   <span css={styles.viewText}> views</span>
                 </Box>
-                <Box>
+                <Box css={styles.viewerItem}>
                   <span css={styles.savenum}>{detail.save}</span>
                   <span css={styles.saveText}> saves</span>
                 </Box>
               </Box>
+              <Box css={styles.descriptionText}>{detail.description}</Box>
             </Box>
           </Box>
           <Box css={styles.caculatorBox}></Box>

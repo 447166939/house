@@ -76,14 +76,15 @@ export const picItem = css`
   }
 `;
 export const midBox = css`
-  flex: 1;
-  display:flex;
-  flex-direction:column;
+  width:20.79rem;
+  display: flex;
+  flex-direction: column;
 `;
 export const caculatorBox = css`
   width: 20.34rem;
   display: flex;
   flex-direction: column;
+  flex-shrink:0;
 `;
 export const navBox = css`
   display: flex;
@@ -91,7 +92,7 @@ export const navBox = css`
   margin-left: 1.08rem;
   margin-top: 1.08rem;
   position: relative;
-  margin-right: 0.79rem;
+  margin-right: 0.88rem;
   &:after {
     content: "";
     position: absolute;
@@ -215,7 +216,6 @@ export const documentBtn = css`
   margin-left: 1.14rem;
 `;
 export const overviewTab = css`
-  max-width: 20rem;
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
@@ -261,7 +261,7 @@ export const overviewText = css`
   margin-top: 0.68rem;
   padding-bottom: 0.46rem;
   border-bottom: 1px solid #313338;
-  margin-right: 0.88rem;
+  margin-right: 0.59rem;
 `;
 export const overviewTitle = css`
   ${h20};
@@ -270,6 +270,7 @@ export const overviewTitle = css`
   margin-top: 0.429rem;
 `;
 export const scrollContainer = css`
+padding-bottom:100px;
 flex:1;
 overflow-y:auto;
 &::-webkit-scrollbar {
@@ -294,6 +295,7 @@ export const overviewContent = css`
   ${grey};
   margin-left: 1.079rem;
   margin-top: 0.398rem;
+  margin-right:1.76rem;
 `;
 export const showMore = css`
   color: #00e0fd;
@@ -307,6 +309,10 @@ export const viewerBox = css`
   align-items: center;
   margin-left: 1.079rem;
 `;
+export const viewerItem=css`
+margin-right:4.19rem;
+white-space:nowrap;
+`
 export const dayText = css`
   ${t18};
   ${grey};
@@ -331,3 +337,10 @@ export const savenum = css`
   ${t18};
   ${white};
 `;
+export const descriptionText=css`
+${t14};
+${grey};
+white-space:pre-wrap;
+margin-left:1.079rem;
+margin-top:0.877rem;
+`

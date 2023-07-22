@@ -127,7 +127,16 @@ export const defaultState: ContactStateType = {
       "Come check out this partially occupied duplex in ClevelandHeights! Situated on a corner lot, this property offers twospacious units with incredibly easy access to local shopping.parks, and more. The lower unit is currently rented by a long",
     day: "1",
     views: "165",
-    save: "24"
+    save: "24",
+    description:'Listing Provided by:\n' +
+        'JAMM Real Estate Co.\n' +
+        'jordan Marra 574-575-3242\n' +
+        '\n' +
+        'Source: MLS Now，MLS#:4470098\n' +
+        'Originating MLS: Akron Cleveland Association of REALTORS\n' +
+        '\n' +
+        'Zillow last checked: 12 minutes ago\n' +
+        'Listing updated: 11 hours ago'
   }
 };
 const { setTab } = actions;
