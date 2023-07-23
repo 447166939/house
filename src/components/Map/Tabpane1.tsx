@@ -37,12 +37,12 @@ const Tabpane1: React.FC<ITabpane1> = (props) => {
   const handleCateChange = (event: SelectChangeEvent) => {
     setCate(event.target.value);
   };
-  const like=(event:React.MouseEvent)=>{
+  const like = (event: React.MouseEvent) => {
     event.stopPropagation();
-  }
-  const unlike=(event:React.MouseEvent)=>{
+  };
+  const unlike = (event: React.MouseEvent) => {
     event.stopPropagation();
-  }
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.title}>{tabpane1Data.title}</Box>

@@ -74,10 +74,10 @@ export const card = css`
   border-radius: 0.14rem;
   position: relative;
 `;
-export const cardPic=css`
-width:100%;
-height:auto;
-`
+export const cardPic = css`
+  width: 100%;
+  height: auto;
+`;
 export const listTitle = css`
   ${h17};
   ${white};

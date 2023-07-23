@@ -98,7 +98,7 @@ const Chat: React.FC<IChat> = (props) => {
       <Box css={styles.right}>
         <Box css={styles.contactHead}>
           <span css={styles.contactTitle}>项目联系人</span>
-          <IconButton css={{ marginLeft: "auto" }}>
+          <IconButton css={styles.contactAddBtn}>
             <Image css={styles.contactPlus} src={circlePlusIcon} alt={""} />
           </IconButton>
         </Box>

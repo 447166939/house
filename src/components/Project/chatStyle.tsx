@@ -95,6 +95,17 @@ export const faceIcon = css`
   width: 0.66rem;
   height: auto;
 `;
+export const contactAddBtn=css`
+margin-left:auto;
+width:1.568rem;
+height:1.568rem;
+border-radius:50%;
+background-color:rgba(255, 0, 0, 0.30);
+margin-right:0.189rem;
+&:hover{
+background-color:rgb(204,0,0,0.3);
+}
+`
 export const contactPlus = css`
   width: 0.66rem;
   height: auto;
