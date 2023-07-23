@@ -31,13 +31,13 @@ export const defaultState: GlobalStateType = {
   ],
   currentChannel: 0,
   projects: [
-    { name: "1", id: 1, title: "项目提交Offer",status:0 },
-    { name: "2", id: 2, title: "Offer被采纳",status: 1 },
-    { name: "3", id: 3, title: "房屋改造准备 ",status: 0 },
-    { name: "4", id: 4, title: "房屋卖前准备 ",status: 0 },
-    { name: "5", id: 5, title: "卖房阶段 ",status: 0 },
-    { name: "6", id: 6, title: "售后事宜" ,status: 0},
-    { name: "7", id: 7, title: "被动收入管理" ,status: 0}
+    { name: "1", id: 1, title: "项目提交Offer", status: 0 },
+    { name: "2", id: 2, title: "Offer被采纳", status: 1 },
+    { name: "3", id: 3, title: "房屋改造准备 ", status: 0 },
+    { name: "4", id: 4, title: "房屋卖前准备 ", status: 0 },
+    { name: "5", id: 5, title: "卖房阶段 ", status: 0 },
+    { name: "6", id: 6, title: "售后事宜", status: 0 },
+    { name: "7", id: 7, title: "被动收入管理", status: 0 }
   ],
   currentManageChannel: 0,
   currentPannel: 0,

@@ -13,11 +13,11 @@ const Pannel: React.FC<IPannel> = (props) => {
   const data = {
     title: "此环节需要完成：",
     list: [
-      {id:1,text:"1.完成房屋过户手续合同流程",status:0},
-      {id:2,text:"2.办理房产Insurance",status: 1},
-      {id:3,text:"3.收集原房屋出租合同以及相关文件",status: 0},
-      {id:4,text:"4.和Property Manager沟通",status: 0},
-      {id:5,text:"5.(支持自定义子任务)",status: 0}
+      { id: 1, text: "1.完成房屋过户手续合同流程", status: 0 },
+      { id: 2, text: "2.办理房产Insurance", status: 1 },
+      { id: 3, text: "3.收集原房屋出租合同以及相关文件", status: 0 },
+      { id: 4, text: "4.和Property Manager沟通", status: 0 },
+      { id: 5, text: "5.(支持自定义子任务)", status: 0 }
     ]
   };
   const { pannels, currentPannel } = useSelector((state: RootState) => state.global);
@@ -77,13 +77,19 @@ const Pannel: React.FC<IPannel> = (props) => {
         <Fragment>
           {data.list.map((item, index) => (
             <Box css={styles.taskItem} key={index}>
-              <span css={styles.taskListItemText({ isChecked: checked[index],isGoing:item.status==1 })}>{item.text}</span>
+              <span
+                css={styles.taskListItemText({
+                  isChecked: checked[index],
+                  isGoing: item.status == 1
+                })}>
+                {item.text}
+              </span>
               <Checkbox
                 checked={checked[index] || false}
                 onChange={(e) => handleCheckedChange(e, index)}
-                color={(item.status==1 ? "green" :"checkbox") as "primary"}
+                color={(item.status == 1 ? "green" : "checkbox") as "primary"}
                 size={"small"}
-                css={styles.taskCheckbox({isGoing:item.status==1})}
+                css={styles.taskCheckbox({ isGoing: item.status == 1 })}
               />
 
               <ClickAwayListener onClickAway={handleClickaway.bind(null, index)}>

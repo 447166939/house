@@ -37,6 +37,12 @@ const Tabpane1: React.FC<ITabpane1> = (props) => {
   const handleCateChange = (event: SelectChangeEvent) => {
     setCate(event.target.value);
   };
+  const like=(event:React.MouseEvent)=>{
+    event.stopPropagation();
+  }
+  const unlike=(event:React.MouseEvent)=>{
+    event.stopPropagation();
+  }
   return (
     <Box css={styles.container}>
       <Box css={styles.title}>{tabpane1Data.title}</Box>
@@ -65,15 +71,15 @@ const Tabpane1: React.FC<ITabpane1> = (props) => {
             <Box onClick={openDetail} key={index} css={styles.card}>
               <Box css={styles.dateBox}>{item.date}</Box>
               {item.isCollect ? (
-                <IconButton css={styles.likeBtn}>
+                <IconButton onClick={like} css={styles.likeBtn}>
                   <Image css={styles.likeIcon} src={likeIcon} alt={""} />
                 </IconButton>
               ) : (
-                <IconButton css={styles.unlikeBtn}>
+                <IconButton onClick={unlike} css={styles.unlikeBtn}>
                   <Image css={styles.unlikeIcon} src={unlikeIcon} alt={""} />
                 </IconButton>
               )}
-              <Image width={313} height={200} src={item.imgUrl} alt={""} />
+              <Image css={styles.cardPic} width={313} height={200} src={item.imgUrl} alt={""} />
               <Box css={styles.listTitle}>{item.title}</Box>
               <Box css={styles.address}>
                 <Image css={styles.addressIcon} src={locationIcon} alt={""} />

@@ -25,7 +25,7 @@ const index = createTheme({
       main: "#fff",
       contrastText: "#fff"
     },
-    green:{
+    green: {
       main: "#23A55A",
       contrastText: "#23A55A"
     }

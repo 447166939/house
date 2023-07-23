@@ -99,9 +99,9 @@ export const taskHeadTitle = css`
   ${t18};
   ${white};
 `;
-export const taskListItemText = ({ isChecked,isGoing }: any) => css`
+export const taskListItemText = ({ isChecked, isGoing }: any) => css`
   ${t18};
-  color: ${isGoing ? '#23A55A' :(isChecked ? "#fff" : "#80848E")};
+  color: ${isGoing ? "#23A55A" : isChecked ? "#fff" : "#80848E"};
 `;
 export const addIcon = css`
   width: 0.42rem;
@@ -115,9 +115,9 @@ export const taskDetail = css`
   padding-left: 0.75rem;
   padding-right: 0.78rem;
 `;
-export const taskCheckbox =(props:any)=> css`
+export const taskCheckbox = (props: any) => css`
   margin-left: auto;
-  color: ${props.isGoing ? '#23A55A':'#80848e'};
+  color: ${props.isGoing ? "#23A55A" : "#80848e"};
 `;
 export const taskItem = css`
   display: flex;

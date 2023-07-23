@@ -133,7 +133,7 @@ export const projectTitle = css`
   margin-bottom: 0.36rem;
 `;
 export const manName = (props: any) => css`
-  background-color: ${props.isGoing ? '#23A55A' :(props.isActive ? "#fff" : "#80848E")};
+  background-color: ${props.isGoing ? "#23A55A" : props.isActive ? "#fff" : "#80848E"};
   color: #222226;
   display: flex;
   align-items: center;
@@ -145,7 +145,7 @@ export const manName = (props: any) => css`
 `;
 export const manItem = (props: any) => css`
   background-color: ${props.isActive ? "#3A3A3F" : "transparent"};
-  color: ${props.isGoing ? '#23A55A':(props.isActive ? "#fff" : "#80848E")};
+  color: ${props.isGoing ? "#23A55A" : props.isActive ? "#fff" : "#80848E"};
   display: flex;
   align-items: center;
   border-radius: 0.22rem;
@@ -155,8 +155,8 @@ export const manItem = (props: any) => css`
   &:hover {
     background-color: #3a3a3f;
     color: #fff;
-    &>[data-hover]{
-    background-color:#fff;
+    & > [data-hover] {
+      background-color: #fff;
     }
   }
 `;
