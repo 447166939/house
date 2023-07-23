@@ -14,8 +14,10 @@ export interface GlobalStateType {
   tabs: any[];
   currentTab: number;
   userInfo: any;
+  siderWidth: string;
 }
 export const defaultState: GlobalStateType = {
+  siderWidth:'13.05rem',
   count: 1,
   currentNav: 0,
   navs: [
@@ -43,7 +45,8 @@ export const defaultState: GlobalStateType = {
   currentPannel: 0,
   pannels: [
     { text: "阶段子任务", id: 1 },
-    { id: 2, text: "房产投资计算器" }
+    { id: 2, text: "房产投资计算器" },
+    {id:3,text:'备忘录'}
   ],
   tabs: [
     { id: 1, icon: "/task.png", text: "子任务细节描述" },
@@ -58,7 +61,7 @@ export const defaultState: GlobalStateType = {
     status: "online"
   }
 };
-const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel, setTab } = actions;
+const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel, setTab,setSiderwidth } = actions;
 export const globalReducer = handleActions(
   {
     [addCount as unknown as string]: (state, action: any) => {
@@ -96,6 +99,12 @@ export const globalReducer = handleActions(
       return {
         ...state,
         currentTab: action.payload
+      };
+    },
+    [setSiderwidth as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        siderWidth: action.payload
       };
     }
   },

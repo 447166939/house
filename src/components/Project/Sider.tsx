@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState, useRef, useEffect} from "react";
 import { Avatar, IconButton, Fab, Switch, Box } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import plusIcon from "@/assets/images/plus.png";
@@ -9,7 +9,7 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
-const { setChannel, setManagechannel } = actions;
+const { setChannel, setManagechannel,setSiderwidth } = actions;
 export interface ISider {}
 const Sider: React.FC<ISider> = (props) => {
   const projectsData = [
@@ -18,18 +18,32 @@ const Sider: React.FC<ISider> = (props) => {
     { name: "T", id: 3 },
     { name: "G", id: 4 }
   ];
-  const { commonChannels, currentChannel, projects, currentManageChannel } = useSelector(
+  const { commonChannels, currentChannel, projects, currentManageChannel,siderWidth } = useSelector(
     (state: RootState) => state.global
   );
   const dispatch = useDispatch();
+  const siderRef=useRef<HTMLDivElement|null>(null)
   const handleChangeChannel = (idx: number) => {
     dispatch(setChannel(idx));
   };
   const handleChangeManageChannel = (idx: number) => {
     dispatch(setManagechannel(idx));
   };
+  const resize=(event:MouseEvent)=>{
+    const size = `${event.x}px`;
+    dispatch(setSiderwidth(size))
+  }
+  /*useEffect(()=>{
+    siderRef.current!.addEventListener("mousedown", (event) => {
+      document.addEventListener("mousemove", resize, false);
+      document.addEventListener("mouseup", () => {
+        document.removeEventListener("mousemove", resize, false);
+      }, false);
+    });
+  },[])*/
   return (
-    <Box css={styles.container}>
+    <Box style={{flexBasis:siderWidth}} ref={siderRef} css={styles.container}>
+      <Box css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (
           <Avatar css={styles.avatar} key={item.id}>

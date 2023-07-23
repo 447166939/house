@@ -4,18 +4,29 @@ import { grey, t16, t18, t20, white } from "@/style/baseStyle";
 export const container = css`
   display: flex;
   background-color: #222226;
-  width: 13.05rem;
+  position:relative;
+  user-select:none;
+  min-width:0;
 `;
+export const resizer=css`
+position:absolute;
+cursor:col-resize;
+right:-5px;
+height:100%;
+width:10px;
+z-index:20000;
+`
 export const toolbar = css`
   display: flex;
   flex-direction: column;
-  width: 3.05rem;
+  flex-basis: 3.05rem;
   height: 100%;
   background-color: #1e1f22;
   align-items: center;
   padding-top: 0.73rem;
   flex-direction: column;
   justify-content: center;
+  min-width:0;
 `;
 export const avatar = css`
   margin-bottom: 0.73rem;
@@ -60,9 +71,10 @@ export const menuBtn = css`
 `;
 export const channelWrapper = css`
   background-color: #222226;
-  width: 10rem;
   padding-left: 0.43rem;
   padding-right: 0.51rem;
+  flex-basis:10rem;
+  min-width:0;
 `;
 export const projectText = css`
   ${t20};
