@@ -25,7 +25,7 @@ export const pannelTabs = css`
     background-color: #313338;
     left: 0.76rem;
     right: 1.01rem;
-    width: calc(100% - 24.73/27.52px);
+    width: calc(100% - 24.73 / 27.52px);
   }
 `;
 export const pannelTabItem = ({ isActive }: any) => css`

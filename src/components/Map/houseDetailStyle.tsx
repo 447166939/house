@@ -292,8 +292,9 @@ overflow-y:auto;
 }
   scrollbar-width: thin;
   scrollbar-color: #38383F #111113;
-&::-webkit-scrollbar-track {
-  b
+  &::-webkit-scrollbar-track {
+    background-color: #111113;
+  }
 `;
 export const overviewContent = css`
   white-space: pre-wrap;

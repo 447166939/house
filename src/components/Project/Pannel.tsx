@@ -29,7 +29,7 @@ const Pannel: React.FC<IPannel> = (props) => {
           </Box>
         ))}
       </Box>
-        {[<TaskTabpane />,<CaculateTabpane />,<TaskTabpane />][currentPannel]}
+      {[<TaskTabpane />, <CaculateTabpane />, <TaskTabpane />][currentPannel]}
     </Box>
   );
 };
