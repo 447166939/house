@@ -4,11 +4,11 @@ import * as styles from "./pannelStyle";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
-import TaskTabpane from '@/components/Project/TaskTabpane'
+import TaskTabpane from "@/components/Project/TaskTabpane";
+import CaculateTabpane from "@/components/Project/CaculateTapane";
 const { setPannel } = actions;
 export interface IPannel {}
 const Pannel: React.FC<IPannel> = (props) => {
-
   const { pannels, currentPannel } = useSelector((state: RootState) => state.global);
   const dispatch = useDispatch();
   const handleChangePannel = (idx: number) => {
@@ -29,9 +29,7 @@ const Pannel: React.FC<IPannel> = (props) => {
           </Box>
         ))}
       </Box>
-      <TaskTabpane />
-
-
+        {[<TaskTabpane />,<CaculateTabpane />,<TaskTabpane />][currentPannel]}
     </Box>
   );
 };

@@ -1,10 +1,10 @@
-import {css} from "@emotion/react";
-import {h16, t16, t18, t20, white} from "@/style/baseStyle";
-export const container=css`
-flex:1;
-display:flex;
-flex-direction:column;
-`
+import { css } from "@emotion/react";
+import { h16, t16, t18, t20, white } from "@/style/baseStyle";
+export const container = css`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const taskBox = css`
   background-color: #1a1a1d;
@@ -71,7 +71,6 @@ export const taskListItemText = ({ isChecked, isGoing }: any) => css`
   ${t18};
   color: ${isGoing ? "#23A55A" : isChecked ? "#fff" : "#80848E"};
 `;
-
 
 export const taskCheckbox = (props: any) => css`
   margin-left: auto;

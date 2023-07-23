@@ -25,7 +25,7 @@ export const pannelTabs = css`
     background-color: #313338;
     left: 0.76rem;
     right: 1.01rem;
-    width: 9.84rem;
+    width: calc(100% - 24.73/27.52px);
   }
 `;
 export const pannelTabItem = ({ isActive }: any) => css`
@@ -38,8 +38,8 @@ export const pannelTabItem = ({ isActive }: any) => css`
   display: flex;
   align-items: center;
   user-select: none;
-  &:last-child{
-  margin-right:0;
+  &:last-child {
+    margin-right: 0;
   }
 `;
 export const pannelTabItemText = ({ isActive }: any) => css`
@@ -57,9 +57,3 @@ export const tabItemBorder = ({ isActive }: any) => css`
   height: 0.15rem;
   width: 3.56rem;
 `;
-
-
-
-
-
-

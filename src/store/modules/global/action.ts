@@ -9,7 +9,7 @@ const actions = createActions(
   "SET_CHANNEL",
   "SET_MANAGECHANNEL",
   "SET_TAB",
-    "SET_SIDERWIDTH",
+  "SET_SIDERWIDTH",
   {
     prefix: "GLOBAL"
   }
