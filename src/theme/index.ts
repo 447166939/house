@@ -24,6 +24,10 @@ const index = createTheme({
     checkbox: {
       main: "#fff",
       contrastText: "#fff"
+    },
+    green:{
+      main: "#23A55A",
+      contrastText: "#23A55A"
     }
   },
   typography: {

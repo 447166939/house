@@ -77,9 +77,9 @@ const Sider: React.FC<ISider> = (props) => {
           {projects.map((item, index) => (
             <Box
               onClick={handleChangeManageChannel.bind(null, index)}
-              css={styles.manItem({ isActive: currentManageChannel == index })}
+              css={styles.manItem({ isActive: currentManageChannel == index,isGoing:item.status==1 })}
               key={item.id}>
-              <Box css={styles.manName({ isActive: currentManageChannel == index })}>
+              <Box data-hover css={styles.manName({ isActive: currentManageChannel == index,isGoing:item.status==1 })}>
                 {item.name}
               </Box>
               <Box css={styles.manTitle}>{item.title}</Box>

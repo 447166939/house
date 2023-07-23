@@ -132,22 +132,8 @@ export const projectTitle = css`
   margin-top: 1.16rem;
   margin-bottom: 0.36rem;
 `;
-export const manItem = (props: any) => css`
-  background-color: ${props.isActive ? "#3A3A3F" : "transparent"};
-  color: ${props.isActive ? "#fff" : "#80848E"};
-  display: flex;
-  align-items: center;
-  border-radius: 0.22rem;
-  padding-left: 0.4rem;
-  height: 1.31rem;
-  cursor: pointer;
-  &:hover {
-    background-color: #3a3a3f;
-    color: #fff;
-  }
-`;
 export const manName = (props: any) => css`
-  background-color: ${props.isActive ? "#fff" : "#80848E"};
+  background-color: ${props.isGoing ? '#23A55A' :(props.isActive ? "#fff" : "#80848E")};
   color: #222226;
   display: flex;
   align-items: center;
@@ -157,6 +143,24 @@ export const manName = (props: any) => css`
   height: 0.8rem;
   font-size: 16px;
 `;
+export const manItem = (props: any) => css`
+  background-color: ${props.isActive ? "#3A3A3F" : "transparent"};
+  color: ${props.isGoing ? '#23A55A':(props.isActive ? "#fff" : "#80848E")};
+  display: flex;
+  align-items: center;
+  border-radius: 0.22rem;
+  padding-left: 0.4rem;
+  height: 1.31rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #3a3a3f;
+    color: #fff;
+    &>[data-hover]{
+    background-color:#fff;
+    }
+  }
+`;
+
 export const manTitle = (props: any) => css`
   font-size: 0.66rem;
   margin-left: 0.4rem;
