@@ -15,8 +15,10 @@ export interface GlobalStateType {
   currentTab: number;
   userInfo: any;
   siderWidth: string;
+  addFriendDialogOpen: boolean;
 }
 export const defaultState: GlobalStateType = {
+  addFriendDialogOpen: false,
   siderWidth: "13.05rem",
   count: 1,
   currentNav: 0,
@@ -61,8 +63,16 @@ export const defaultState: GlobalStateType = {
     status: "online"
   }
 };
-const { addCount, setCurrentnav, setPannel, setChannel, setManagechannel, setTab, setSiderwidth } =
-  actions;
+const {
+  addCount,
+  setCurrentnav,
+  setPannel,
+  setChannel,
+  setManagechannel,
+  setTab,
+  setSiderwidth,
+  setAddfrienddialogopen
+} = actions;
 export const globalReducer = handleActions(
   {
     [addCount as unknown as string]: (state, action: any) => {
@@ -106,6 +116,12 @@ export const globalReducer = handleActions(
       return {
         ...state,
         siderWidth: action.payload
+      };
+    },
+    [setAddfrienddialogopen as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        addFriendDialogOpen: action.payload
       };
     }
   },

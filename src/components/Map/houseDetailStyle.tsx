@@ -276,22 +276,22 @@ export const overviewTitle = css`
   margin-top: 0.429rem;
 `;
 export const scrollContainer = css`
-padding-bottom:100px;
-flex:1;
-overflow-y:auto;
-&::-webkit-scrollbar {
-  background-color: #111113;
-  width: 0.29rem;
-}
-&::-webkit-scrollbar-thumb {
-  background-color: #38383F;
-  border-radius: 0.29rem;
-}
-&::-webkit-scrollbar-thumb:hover {
-  background-color: #38383F;
-}
+  padding-bottom: 100px;
+  flex: 1;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    background-color: #111113;
+    width: 0.29rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #38383f;
+    border-radius: 0.29rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #38383f;
+  }
   scrollbar-width: thin;
-  scrollbar-color: #38383F #111113;
+  scrollbar-color: #38383f #111113;
   &::-webkit-scrollbar-track {
     background-color: #111113;
   }

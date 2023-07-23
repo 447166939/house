@@ -1,38 +1,38 @@
 import { css } from "@emotion/react";
-import {grey, t12, t14, t16, t20, white} from "@/style/baseStyle";
+import { grey, t12, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
-  flex-basis:33.79rem;
+  flex-basis: 27.79rem;
   display: flex;
   flex-direction: column;
-  padding-bottom:150px;
-  overflow-y:auto;
-&::-webkit-scrollbar {
-  background-color: #111113;
-  width: 0.29rem;
-}
-&::-webkit-scrollbar-thumb {
-  background-color: #38383F;
-  border-radius: 0.29rem;
-}
-&::-webkit-scrollbar-thumb:hover {
-  background-color: #38383F;
-}
+  padding-bottom: 0.726rem;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    background-color: #111113;
+    width: 0.29rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #38383f;
+    border-radius: 0.29rem;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #38383f;
+  }
   scrollbar-width: thin;
-  scrollbar-color: #38383F #111113;
+  scrollbar-color: #38383f #111113;
   &::-webkit-scrollbar-track {
     background-color: #111113;
   }
 `;
-export const caculateBox=css`
-display:grid;
-grid-template-columns:repeat(2,1fr);
-margin: 0.897rem 1.356rem 0 1.356rem;
-column-gap:1.292rem;
-row-gap:1.093rem;
-padding-bottom:1.15rem;
-border-bottom:1px solid #313338;
+export const caculateBox = css`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0.897rem 1.356rem 0 1.356rem;
+  column-gap: 1.292rem;
+  row-gap: 1.093rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid #313338;
 `;
 export const inputGridItem = css`
   display: flex;
@@ -65,12 +65,12 @@ export const inutpos = css`
     ${grey};
   }
 `;
-export const bottomCaculateBox=css`
-display:grid;
-grid-template-columns:repeat(2,1fr);
-margin: 0.549rem 1.356rem 0 1.356rem;
-column-gap:1.292rem;
-row-gap:1.093rem;
+export const bottomCaculateBox = css`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0.549rem 1.356rem 0 1.356rem;
+  column-gap: 1.292rem;
+  row-gap: 1.093rem;
 `;
 export const saveBtn = css`
   white-space: nowrap;

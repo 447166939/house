@@ -10,6 +10,7 @@ const actions = createActions(
   "SET_MANAGECHANNEL",
   "SET_TAB",
   "SET_SIDERWIDTH",
+  "SET_ADDFRIENDDIALOGOPEN",
   {
     prefix: "GLOBAL"
   }

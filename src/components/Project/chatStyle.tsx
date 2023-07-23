@@ -96,6 +96,7 @@ export const faceIcon = css`
   height: auto;
 `;
 export const contactAddBtn = css`
+position:relative;
   margin-left: auto;
   width: 1.568rem;
   height: 1.568rem;
