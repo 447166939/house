@@ -15,10 +15,7 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
       { id: 4, text: "4.和Property Manager沟通", status: 0 },
       { id: 5, text: "5.(支持自定义子任务)", status: 0 }
     ]
-  };
-  const [checked, setChecked] = useState<any>([]);
-  const [currentMenu, setCurrentMenu] = useState<number | undefined>();
-  const handleCheckedChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number) => {
+  };const handleCheckedChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number) => {
     console.log(e.target.value);
     setChecked((pre: any) => {
       pre[idx] = e.target.checked;
@@ -26,6 +23,9 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
     });
     console.log(checked);
   };
+  const [checked, setChecked] = useState<any>([]);
+  const [currentMenu, setCurrentMenu] = useState<number | undefined>();
+
   const handleClickaway = (idx: number) => {
     setCurrentMenu((pre) => {
       if (pre == idx) {

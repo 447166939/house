@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, IconButton } from "@mui/material";
+import {Box, ClickAwayListener, IconButton} from "@mui/material";
 import * as styles from "./filemanageStyle";
 import Image from "next/image";
 import fileAdd from "@/assets/images/fileAdd.png";
+import elliseIcon from "@/assets/images/ellisis.png";
 export interface IFileManage {}
 const FileManage: React.FC<IFileManage> = (props) => {
   const [files, setFiles] = useState([
@@ -15,6 +16,17 @@ const FileManage: React.FC<IFileManage> = (props) => {
     { id: 7, title: "我的文档", date: "07/09  12:00", icon: "/purpleFolder.png" },
     { id: 8, title: "我的文档", date: "07/09  12:00", icon: "/purpleFolder.png" }
   ]);
+  const [currentMenu, setCurrentMenu] = useState<number | undefined>();
+  const handleClick = (idx: number) => {
+    setCurrentMenu(idx);
+  };
+  const handleClickaway = (idx: number) => {
+    setCurrentMenu((pre) => {
+      if (pre == idx) {
+        return undefined;
+      } else return pre;
+    });
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.head}>
@@ -28,6 +40,17 @@ const FileManage: React.FC<IFileManage> = (props) => {
       <Box css={styles.fileList}>
         {files.map((item, index) => (
           <Box key={item.id} css={styles.fileItem}>
+            <ClickAwayListener onClickAway={handleClickaway.bind(null, item.id)}>
+              <IconButton data-btn onClick={handleClick.bind(null, item.id)} css={styles.menuBtn}>
+                <Image css={styles.elliseIcon} src={elliseIcon} alt={""} />
+                <Box css={styles.menus({ isActive: currentMenu == item.id })}>
+                  <Box css={styles.downloadItem}>下载</Box>
+                  <Box css={styles.renameItem}>重命名</Box>
+                  <Box css={styles.moveItem}>移动</Box>
+                  <Box css={styles.recycleItem}>放入回收站</Box>
+                </Box>
+              </IconButton>
+            </ClickAwayListener>
             <Image css={styles.folderIcon} width={103} height={82} src={item.icon} alt={""} />
             <Box css={styles.fileTitle}>{item.title}</Box>
             <Box css={styles.fileDate}>{item.date}</Box>

@@ -16,16 +16,16 @@ export interface GlobalStateType {
   userInfo: any;
   siderWidth: string;
   addFriendDialogOpen: boolean;
-  newFriends:any[];
+  newFriends: any[];
 }
 export const defaultState: GlobalStateType = {
-  newFriends:[
-    {id:1,name:'Mitch Lujan',status:0,avatar:'/avatar.jpg'},
-    {id:2,name:'Sean Potts',avatar: 'avatar.jpg',status: 1},
-    {id:3,name:'Ankit',status: 2,avatar: '/avatar.jpg'},
-    {id:4,name: 'Ursula444',status: 1,avatar: '/avatar.jpg'},
-    {id: 5,name: 'martelantoine',status: 2,avatar: '/avatar.jpg'},
-    {id:6,name: 'Elzat',status: 2,avatar: '/avatar.jpg'},
+  newFriends: [
+    { id: 1, name: "Mitch Lujan", status: 0, avatar: "/avatar.jpg" },
+    { id: 2, name: "Sean Potts", avatar: "avatar.jpg", status: 1 },
+    { id: 3, name: "Ankit", status: 2, avatar: "/avatar.jpg" },
+    { id: 4, name: "Ursula444", status: 1, avatar: "/avatar.jpg" },
+    { id: 5, name: "martelantoine", status: 2, avatar: "/avatar.jpg" },
+    { id: 6, name: "Elzat", status: 2, avatar: "/avatar.jpg" }
   ],
   addFriendDialogOpen: false,
   siderWidth: "13.05rem",
