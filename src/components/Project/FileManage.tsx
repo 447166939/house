@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Box, ClickAwayListener, IconButton} from "@mui/material";
+import { Box, ClickAwayListener, IconButton } from "@mui/material";
 import * as styles from "./filemanageStyle";
 import Image from "next/image";
 import fileAdd from "@/assets/images/fileAdd.png";

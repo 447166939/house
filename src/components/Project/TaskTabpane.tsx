@@ -15,7 +15,8 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
       { id: 4, text: "4.和Property Manager沟通", status: 0 },
       { id: 5, text: "5.(支持自定义子任务)", status: 0 }
     ]
-  };const handleCheckedChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number) => {
+  };
+  const handleCheckedChange = (e: React.ChangeEvent<HTMLInputElement>, idx: number) => {
     console.log(e.target.value);
     setChecked((pre: any) => {
       pre[idx] = e.target.checked;
