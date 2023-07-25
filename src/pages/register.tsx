@@ -6,6 +6,7 @@ import rIcon from "@/assets/images/icon_r.png";
 import atIcon from "@/assets/images/at.png";
 import lockIcon from "@/assets/images/lock.png";
 import downIcon from "@/assets/images/down.png";
+import eyeIcon from '@/assets/images/pass_eye.png'
 import {
   FormControl,
   InputBase,
@@ -30,6 +31,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
         <Image css={styles.rIcon} src={rIcon} alt={""} />
         <Box css={styles.title}>{`Find Your Perfect Place\nWith Homeey`}</Box>
       </Box>
+      <Box css={styles.right}>
       <Box css={styles.rightBox}>
         <Box css={styles.formTitle}>{`Welcome to Remote`}</Box>
         <Box
@@ -38,43 +40,99 @@ const Register: React.FC<IRegisterProps> = (props) => {
           }>{`Welcome back! login with your data that you entered \n during registration.`}</Box>
         <form css={styles.loginForm}>
           <FormControl css={styles.userControl}>
-            <InputLabel css={styles.userLabel} shrink htmlFor="username-input">
-              Username
-            </InputLabel>
+            <Box css={styles.userLabel}>
+              Email
+            </Box>
             <InputBase
               placeholder={"Enter your email..."}
               id="username-input"
               css={styles.userInput}
               endAdornment={
                 <InputAdornment position="end">
-                  <IconButton>
-                    <Image css={styles.atIcon} src={atIcon} alt={"#"} />
-                  </IconButton>
+                  <Button css={styles.sendCaptBtn} variant={'contained'}>
+                    发送邮箱验证
+                  </Button>
                 </InputAdornment>
               }
             />
           </FormControl>
+          <FormControl css={styles.captControl}>
+            <Box css={styles.captLabel}>
+              Captcha
+            </Box>
+            <InputBase
+                placeholder={"Enter your Captcha..."}
+                id="captcha-input"
+                css={styles.captInput}
+
+            />
+          </FormControl>
+          <FormControl css={styles.telControl}>
+            <Box css={styles.telLabel}>
+              Telephone
+            </Box>
+            <InputBase
+                placeholder={"Enter your telephone..."}
+                id="tel-input"
+                css={styles.telInput}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <Button css={styles.sendCaptBtn} variant={'contained'}>
+                      发送验证码
+                    </Button>
+                  </InputAdornment>
+                }
+            />
+          </FormControl>
+          <FormControl css={styles.captControl}>
+            <Box css={styles.captLabel}>
+              Captcha
+            </Box>
+            <InputBase
+                placeholder={"Enter your Captcha..."}
+                id="username-input"
+                css={styles.captInput}
+
+            />
+          </FormControl>
           <FormControl css={styles.passControl}>
-            <InputLabel css={styles.passLabel} shrink htmlFor="password-input">
+            <Box css={styles.passLabel}>
               Password
-            </InputLabel>
+            </Box>
             <InputBase
               type={"password"}
               id="password-input"
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton>
-                    <Image css={styles.lockIcon} src={lockIcon} alt={""} />
+                    <Image css={styles.lockIcon} src={eyeIcon} alt={""} />
                   </IconButton>
                 </InputAdornment>
               }
               css={styles.passInput}
             />
           </FormControl>
+          <FormControl css={styles.passControl}>
+            <Box css={styles.passLabel}>
+              Password
+            </Box>
+            <InputBase
+                type={"password"}
+                id="password-input"
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton>
+                      <Image css={styles.lockIcon} src={eyeIcon} alt={""} />
+                    </IconButton>
+                  </InputAdornment>
+                }
+                css={styles.passInput}
+            />
+          </FormControl>
           <FormControl css={styles.roleControl}>
-            <InputLabel shrink css={styles.roleLabel}>
+            <Box css={styles.roleLabel}>
               Platform Role
-            </InputLabel>
+            </Box>
             <Select
               IconComponent={(props) => (
                 <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
@@ -91,9 +149,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
             </Select>
           </FormControl>
           <FormControl css={styles.roleControl}>
-            <InputLabel shrink css={styles.roleLabel}>
+            <Box  css={styles.roleLabel}>
               Language
-            </InputLabel>
+            </Box>
             <Select
               IconComponent={(props) => (
                 <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
@@ -110,9 +168,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
             </Select>
           </FormControl>
           <FormControl css={styles.roleControl}>
-            <InputLabel shrink css={styles.roleLabel}>
+            <Box css={styles.roleLabel}>
               Location
-            </InputLabel>
+            </Box>
             <Select
               IconComponent={(props) => (
                 <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
@@ -128,18 +186,13 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <MenuItem value={30}>Thirty</MenuItem>
             </Select>
           </FormControl>
-          <FormControl css={styles.bioControl}>
-            <InputLabel shrink css={styles.bioLabel}>
-              Bio
-            </InputLabel>
-            <InputBase css={styles.bioInput} id="outlined-multiline-flexible" multiline />
-          </FormControl>
           <FormControl css={styles.buttonControl}>
             <Button variant="contained" color="primary" css={styles.registerButton}>
               Sign Up
             </Button>
           </FormControl>
         </form>
+      </Box>
       </Box>
     </Box>
   );

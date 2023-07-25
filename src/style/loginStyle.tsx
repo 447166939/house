@@ -22,7 +22,7 @@ export const container = css`
   background-color: #111113;
   width: 100vw;
   display: flex;
-  height:100vh;
+  height: 100vh;
 `;
 export const leftBox = css`
   width: 50%;
@@ -32,13 +32,13 @@ export const leftBox = css`
   flex-direction: column;
   align-self: stretch;
 `;
-export const right=css`
-display:flex;
-justify-content:center;
-align-items:center;
-width:50%;
-height:100%;
-`
+export const right = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+`;
 export const rightBox = css`
   width: 100%;
   display: flex;
@@ -97,7 +97,7 @@ export const userInput = css`
   height: 48px;
   padding-left: 19px;
   margin-top: 10px;
- & input:-webkit-autofill,
+  & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
   }
@@ -116,7 +116,7 @@ export const passInput = css`
   border: 1px solid #36404e;
   ${h15};
   ${grey};
-   height: 48px;
+  height: 48px;
   padding-left: 19px;
   margin-top: 14px;
   & input:-webkit-autofill,
@@ -154,8 +154,8 @@ export const forgetText = css`
   margin-left: 30px;
 `;
 export const registerButton = css`
-height:38px;
-${t16};
+  height: 38px;
+  ${t16};
 `;
 export const buttonControl = css`
   margin-top: 30px;
@@ -210,7 +210,7 @@ export const bioLabel = css`
 export const orWrapper = css`
   display: flex;
   justify-content: center;
-  align-items:center;
+  align-items: center;
   margin-top: 30px;
 `;
 export const leftBorder = css`

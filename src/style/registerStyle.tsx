@@ -22,6 +22,7 @@ export const container = css`
   background-color: #111113;
   width: 100vw;
   display: flex;
+  height:100vh;
 `;
 export const leftBox = css`
   width: 50%;
@@ -31,13 +32,20 @@ export const leftBox = css`
   flex-direction: column;
   align-self: stretch;
 `;
+export const right=css`
+width:50%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+`
 export const rightBox = css`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
 export const rIcon = css`
-  width: 7.67rem;
+  width: 211px;
   height: auto;
   margin: auto auto 0 auto;
   display: block;
@@ -53,7 +61,7 @@ export const formTitle = css`
   ${h30};
   ${white};
   text-align: center;
-  margin-top: 3.6rem;
+  margin-top: auto;
 `;
 export const formSubTitle = css`
   ${t15};
@@ -62,12 +70,16 @@ export const formSubTitle = css`
   text-align: center;
 `;
 export const loginForm = css`
-  margin: 1.92rem auto 0 auto;
-  width: 17.08rem;
+  margin: 49.44px auto 0 auto;
   display: flex;
   flex-direction: column;
 `;
-export const userControl = css``;
+export const userControl = css`
+display:flex;
+align-items:center;
+flex-direction:row;
+justify-content:flex-end;
+`;
 export const userLabel = css`
   ${h15};
   ${grey};
@@ -80,9 +92,80 @@ export const userInput = css`
   border: 1px solid #36404e;
   ${h15};
   ${grey};
-  height: 1.75rem;
-  padding-left: 0.69rem;
-  margin-top: 0.37rem;
+  margin-left:10.77px;
+  width:470px;
+  height: 48px;
+  padding-left: 19px;
+  box-sizing:border-box;
+   & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+`;
+export const sendCaptBtn=css`
+width:156px;
+height:38px;
+${t16};
+${white};
+margin-right:5.23px;
+`
+export const captControl = css`
+display:flex;
+align-items:center;
+flex-direction:row;
+justify-content:flex-end;
+margin-top:30px;
+`;
+export const captLabel = css`
+  ${h15};
+  ${grey};
+  &.Mui-focused {
+    ${grey};
+  }
+`;
+
+export const captInput = css`
+  border: 1px solid #36404e;
+  ${h15};
+  ${grey};
+  margin-left:10.77px;
+  width:470px;
+  height: 48px;
+  padding-left: 19px;
+  box-sizing:border-box;
+   & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
+`;
+export const telControl = css`
+display:flex;
+align-items:center;
+flex-direction:row;
+justify-content:flex-end;
+margin-top:30px;
+`;
+export const telLabel = css`
+  ${h15};
+  ${grey};
+  &.Mui-focused {
+    ${grey};
+  }
+`;
+
+export const telInput = css`
+  border: 1px solid #36404e;
+  ${h15};
+  ${grey};
+  margin-left:10.77px;
+  width:470px;
+  height: 48px;
+  padding-left: 19px;
+  box-sizing:border-box;
+   & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
 `;
 export const passLabel = css`
   ${h15};
@@ -92,15 +175,25 @@ export const passLabel = css`
   }
 `;
 export const passControl = css`
-  margin-top: 0.872rem;
+display:flex;
+align-items:center;
+flex-direction:row;
+justify-content:flex-end;
+  margin-top: 30px;
 `;
 export const passInput = css`
   border: 1px solid #36404e;
   ${h15};
   ${grey};
-  height: 1.75rem;
-  padding-left: 0.69rem;
-  margin-top: 0.37rem;
+   margin-left:10.77px;
+  width:470px;
+  height: 48px;
+  padding-left: 19px;
+  box-sizing:border-box;
+   & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
 `;
 export const rememberControl = css`
   display: flex;
@@ -125,10 +218,19 @@ export const forgetText = css`
   ${t14};
   ${grey};
 `;
-export const registerButton = css``;
+export const registerButton = css`
+width:470px;
+height:38px;
+${t16};
+${white};
+`;
 export const buttonControl = css`
-  margin-top: 1.73rem;
-  margin-bottom: 4.47rem;
+display:flex;
+align-items:center;
+flex-direction:row;
+justify-content:flex-end;
+  margin-top: 49.44px;
+  margin-bottom: auto;
 `;
 export const atIcon = css`
   width: 0.8rem;
@@ -146,18 +248,24 @@ export const roleLabel = css`
   }
 `;
 export const roleControl = css`
-  margin-top: 0.73rem;
+  margin-top: 30px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  flex-direction:row;
 `;
 export const roleInput = css`
   border: 1px solid #36404e;
   ${h15};
   ${grey};
-  height: 1.75rem;
-  padding-left: 0.69rem;
-  margin-top: 0.37rem;
+   width:470px;
+  height: 48px;
+  padding-left: 12px;
+   margin-left:10.77px;
+   box-sizing:border-box;
 `;
 export const downIcon = css`
-  width: 0.48rem;
+  width: 13px;
   height: auto;
 `;
 export const bioControl = css`
