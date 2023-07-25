@@ -17,8 +17,10 @@ export interface GlobalStateType {
   siderWidth: string;
   addFriendDialogOpen: boolean;
   newFriends: any[];
+  settingDialogOpen:boolean;
 }
 export const defaultState: GlobalStateType = {
+  settingDialogOpen:false,
   newFriends: [
     { id: 1, name: "Mitch Lujan", status: 0, avatar: "/avatar.jpg" },
     { id: 2, name: "Sean Potts", avatar: "avatar.jpg", status: 1 },
@@ -69,7 +71,11 @@ export const defaultState: GlobalStateType = {
     avatar: "/avatar.jpg",
     name: "Tom.Tang",
     email: "tangshaobo90@gmail.com",
-    status: "online"
+    status: "online",
+    remark:'这是一句个人简介',
+    job:'Accountant',
+    address:['Seattle,WA','Seattle,WA','Seattle,WA'],
+    lang:['English','English','English']
   }
 };
 const {
@@ -80,7 +86,8 @@ const {
   setManagechannel,
   setTab,
   setSiderwidth,
-  setAddfrienddialogopen
+  setAddfrienddialogopen,
+    setSettingdialogopen,
 } = actions;
 export const globalReducer = handleActions(
   {
@@ -131,6 +138,12 @@ export const globalReducer = handleActions(
       return {
         ...state,
         addFriendDialogOpen: action.payload
+      };
+    },
+    [setSettingdialogopen as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        settingDialogOpen: action.payload
       };
     }
   },

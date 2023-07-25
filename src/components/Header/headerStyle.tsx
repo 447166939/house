@@ -53,6 +53,7 @@ export const popoverContainer = css`
   align-items: center;
   background-color: #313136;
   border-radius: 0.36rem;
+  position:relative;
 `;
 export const userAvatar = css`
   margin-top: 0.872rem;
@@ -65,6 +66,7 @@ export const userMenuItem = css`
   padding-right: 0.86rem;
   align-self: stretch;
   border-top: 1px solid #414141;
+  cursor:pointer;
 `;
 export const userinfoName = css`
   ${t16};

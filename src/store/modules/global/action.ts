@@ -11,6 +11,7 @@ const actions = createActions(
   "SET_TAB",
   "SET_SIDERWIDTH",
   "SET_ADDFRIENDDIALOGOPEN",
+    "SET_SETTINGDIALOGOPEN",
   {
     prefix: "GLOBAL"
   }
