@@ -19,7 +19,7 @@ import { RootState } from "@/store/index";
 import { useClickOutside } from "@/hooks/useClickoutside";
 import actions from "@/store/modules/global/action";
 export interface IHeader {}
-const { setCurrentnav,setSettingdialogopen } = actions;
+const { setCurrentnav, setSettingdialogopen } = actions;
 function PersonIcon(props: any) {
   return (
     <SvgIcon viewBox="0 0 28 26" {...props}>
@@ -46,20 +46,20 @@ const Index: React.FC<IHeader> = () => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const { userInfo } = useSelector((state: RootState) => state.global);
   const avatarRef = useRef(null);
-  const popoverRef=useRef(null)
+  const popoverRef = useRef(null);
   const closePopover = () => {
     setAnchorEl(null);
   };
-  useClickOutside(avatarRef, closePopover,popoverRef);
+  useClickOutside(avatarRef, closePopover, popoverRef);
   const handleChangeNav = (index: number) => {
     dispatch(setCurrentnav(index));
   };
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
-  const openSetting=()=>{
-    dispatch(setSettingdialogopen(true))
-  }
+  const openSetting = () => {
+    dispatch(setSettingdialogopen(true));
+  };
   return (
     <AppBar css={styles.appBar} position="static">
       <Toolbar>

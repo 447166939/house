@@ -22,6 +22,7 @@ export const container = css`
   background-color: #111113;
   width: 100vw;
   display: flex;
+  height:100vh;
 `;
 export const leftBox = css`
   width: 50%;
@@ -31,19 +32,26 @@ export const leftBox = css`
   flex-direction: column;
   align-self: stretch;
 `;
+export const right=css`
+display:flex;
+justify-content:center;
+align-items:center;
+width:50%;
+height:100%;
+`
 export const rightBox = css`
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
 export const loginLogo = css`
-  width: 9.31rem;
+  width: 326px;
   height: auto;
   display: block;
-  margin: 7.74rem auto 0 auto;
+  margin: auto auto 0 auto;
 `;
 export const rIcon = css`
-  width: 7.67rem;
+  width: 211px;
   height: auto;
   margin: auto auto 0 auto;
   display: block;
@@ -59,7 +67,7 @@ export const formTitle = css`
   ${h30};
   ${white};
   text-align: center;
-  margin-top: 3.4rem;
+  margin-top: 93.24px;
 `;
 export const formSubTitle = css`
   ${t15};
@@ -68,8 +76,8 @@ export const formSubTitle = css`
   text-align: center;
 `;
 export const loginForm = css`
-  margin: 1.453rem auto 0 auto;
-  width: 17.08rem;
+  margin: 40px auto 0 auto;
+  width: 470px;
   display: flex;
   flex-direction: column;
 `;
@@ -86,9 +94,13 @@ export const userInput = css`
   border: 1px solid #36404e;
   ${h15};
   ${grey};
-  height: 1.75rem;
-  padding-left: 0.69rem;
-  margin-top: 0.37rem;
+  height: 48px;
+  padding-left: 19px;
+  margin-top: 10px;
+ & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
 `;
 export const passLabel = css`
   ${h15};
@@ -98,27 +110,31 @@ export const passLabel = css`
   }
 `;
 export const passControl = css`
-  margin-top: 0.872rem;
+  margin-top: 24px;
 `;
 export const passInput = css`
   border: 1px solid #36404e;
   ${h15};
   ${grey};
-  height: 1.75rem;
-  padding-left: 0.69rem;
-  margin-top: 0.37rem;
+   height: 48px;
+  padding-left: 19px;
+  margin-top: 14px;
+  & input:-webkit-autofill,
+  & input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  }
 `;
 export const rememberControl = css`
   display: flex;
   align-items: center;
   flex-direction: row;
-  alignitems: center;
-  margin-top: 0.37rem;
+  align-items: center;
+  margin-top: 10px;
 `;
 export const remberText = css`
   ${t15};
   ${grey};
-  margin-left: 0.26rem;
+  margin-left: 7px;
 `;
 export const remberCheckbox = css`
   color: #36404e;
@@ -135,18 +151,21 @@ export const signupText = css`
 export const forgetText = css`
   ${t14};
   ${grey};
-  margin-left: 1.09rem;
+  margin-left: 30px;
 `;
-export const registerButton = css``;
+export const registerButton = css`
+height:38px;
+${t16};
+`;
 export const buttonControl = css`
-  margin-top: 1.73rem;
+  margin-top: 30px;
 `;
 export const atIcon = css`
-  width: 0.8rem;
+  width: 22px;
   height: auto;
 `;
 export const lockIcon = css`
-  width: 0.8rem;
+  width: 22px;
   height: auto;
 `;
 export const roleLabel = css`
@@ -191,38 +210,39 @@ export const bioLabel = css`
 export const orWrapper = css`
   display: flex;
   justify-content: center;
-  margin-top: 1.09rem;
+  align-items:center;
+  margin-top: 30px;
 `;
 export const leftBorder = css`
-  width: 5.09rem;
+  width: 140px;
   height: 1px;
   background: linear-gradient(90deg, rgba(115, 125, 140, 0) 0%, #47546c 100%);
 `;
 export const rightBorder = css`
-  width: 5.09rem;
+  width: 140px;
   height: 1px;
   background: linear-gradient(90deg, #47546c 0%, rgba(115, 125, 140, 0) 100%);
 `;
 export const orText = css`
   ${t15};
   ${grey};
-  margin: 0 0.73rem;
+  margin: 0 20px;
 `;
 export const buttonWrapper = css`
   display: flex;
   justify-content: center;
-  margin-top: 1.38rem;
-  margin-bottom: 7.37rem;
+  margin-top: 30px;
+  margin-bottom: auto;
 `;
 export const googleIcon = css`
-  width: 0.95rem;
+  width: 26px;
   height: auto;
-  margin-right: 0.43rem;
+  margin-right: 12px;
 `;
 export const facebookIcon = css`
-  width: 0.95rem;
+  width: 26px;
   height: auto;
-  margin-right: 0.43rem;
+  margin-right: 12px;
 `;
 export const googleFab = css`
   white-space: nowrap;
@@ -235,5 +255,5 @@ export const facebookFab = css`
   ${t15};
   ${grey};
   text-transform: initial;
-  margin-left: 0.73rem;
+  margin-left: 20px;
 `;

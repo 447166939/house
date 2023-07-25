@@ -34,6 +34,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
         <Image css={styles.rIcon} src={rIcon} alt={""} />
         <Box css={styles.title}>{`Find Your Perfect Place\nWith Homeey`}</Box>
       </Box>
+      <Box css={styles.right}>
       <Box css={styles.rightBox}>
         <Image css={styles.loginLogo} src={loginLogo} alt={""} />
         <Box css={styles.formTitle}>{`Welcome to Remote`}</Box>
@@ -108,6 +109,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
           </Box>
         </form>
       </Box>
+      </Box>
+
     </Box>
   );
 };
