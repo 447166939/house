@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import {Avatar, IconButton, Fab, Switch, Box, styled, SwitchProps} from "@mui/material";
+import {Avatar, IconButton, Fab, Switch, Box, styled, SwitchProps, Badge, BadgeProps} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import plusIcon from "@/assets/images/plus.png";
 import menuIcon from "@/assets/images/menu.png";
@@ -12,28 +12,35 @@ import actions from "@/store/modules/global/action";
 const { setChannel, setManagechannel, setSiderwidth } = actions;
 export interface ISider {}
 const CustomSwitch = styled(Switch)(({ theme }) => ({
-  '& .MuiSwitch-switchBase': {
-    '&.Mui-checked': {
-      color: '#00E1FE',
-      '& + .MuiSwitch-track': {
-        backgroundColor: '#00E1FE',
-        opacity:1,
-      },
+  "& .MuiSwitch-switchBase": {
+    "&.Mui-checked": {
+      color: "#00E1FE",
+      "& + .MuiSwitch-track": {
+        backgroundColor: "#00E1FE",
+        opacity: 1
+      }
     },
-    '& .MuiSwitch-thumb': {
-      color: '#00E1FE',
+    "& .MuiSwitch-thumb": {
+      color: "#00E1FE"
     }
   },
-  '& .MuiSwitch-track': {
-    backgroundColor: '#333',
+  "& .MuiSwitch-track": {
+    backgroundColor: "#333"
+  }
+}));
+const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    right: 5,
+    top: 10,
+    padding: '0 4px',
   },
 }));
 const Sider: React.FC<ISider> = (props) => {
   const projectsData = [
-    { name: "1", id: 1 },
-    { name: "2", id: 2 },
-    { name: "T", id: 3 },
-    { name: "G", id: 4 }
+    { name: "1", id: 1 ,avatar:'/avatar.jpg',count:1},
+    { name: "2", id: 2,avatar:'/avatar.jpg',count:2 },
+    { name: "T", id: 3 ,avatar:'/avatar.jpg',count:3},
+    { name: "G", id: 4 ,avatar:'/avatar.jpg',count:4}
   ];
   const { commonChannels, currentChannel, projects, currentManageChannel, siderWidth } =
     useSelector((state: RootState) => state.global);
@@ -62,18 +69,13 @@ const Sider: React.FC<ISider> = (props) => {
       <Box css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (
-          <Avatar css={styles.avatar} key={item.id}>
+          <StyledBadge color={'error'} badgeContent={item.count} key={item.id}><Avatar src={item.avatar} css={styles.avatar}>
             {item.name}
           </Avatar>
+          </StyledBadge>
         ))}
-        <Fab css={styles.plusFab}>
-          <Image css={styles.plusIcon} src={plusIcon} alt={""} />
-        </Fab>
         <CustomSwitch css={styles.switchStyle} size="medium" />
         <Box css={styles.switchText}>已完成</Box>
-        <IconButton css={styles.menuBtn}>
-          <Image css={styles.menuIcon} src={menuIcon} alt={""} />
-        </IconButton>
       </Box>
       <Box css={styles.channelWrapper}>
         <Box css={styles.projectText}>项目</Box>

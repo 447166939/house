@@ -44,7 +44,7 @@ export const defaultState: GlobalStateType = {
     { title: "自定义聊天频道2", id: 3 },
     { title: "自定义聊天频道3", id: 4 }
   ],
-  currentChannel: 0,
+  currentChannel: -1,
   projects: [
     { name: "1", id: 1, title: "项目提交Offer", status: 0 },
     { name: "2", id: 2, title: "Offer被采纳", status: 1 },
@@ -54,7 +54,7 @@ export const defaultState: GlobalStateType = {
     { name: "6", id: 6, title: "售后事宜", status: 0 },
     { name: "7", id: 7, title: "被动收入管理", status: 0 }
   ],
-  currentManageChannel: 0,
+  currentManageChannel: -1,
   currentPannel: 0,
   pannels: [
     { text: "阶段子任务", id: 1 },
