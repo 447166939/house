@@ -3,7 +3,8 @@ import { grey, t12, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
-  flex-basis: 419px;
+  width:100%;
+  flex-basis:800px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;

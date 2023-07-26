@@ -12,6 +12,7 @@ const actions = createActions(
   "SET_SIDERWIDTH",
   "SET_ADDFRIENDDIALOGOPEN",
   "SET_SETTINGDIALOGOPEN",
+    "SET_PANNELWIDTH",
   {
     prefix: "GLOBAL"
   }

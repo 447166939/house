@@ -66,17 +66,21 @@ const Sider: React.FC<ISider> = (props) => {
     const size = `${event.x}px`;
     dispatch(setSiderwidth(size));
   };
-  useEffect(()=>{
+  useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
       document.addEventListener("mousemove", resize, false);
-      document.addEventListener("mouseup", () => {
-        document.removeEventListener("mousemove", resize, false);
-      }, false);
+      document.addEventListener(
+        "mouseup",
+        () => {
+          document.removeEventListener("mousemove", resize, false);
+        },
+        false
+      );
     });
-  },[])
+  }, []);
   return (
-    <Box style={{ flexBasis: siderWidth }} ref={siderRef} css={styles.container}>
-      <Box css={styles.resizer}></Box>
+    <Box style={{ flexBasis: siderWidth }}  css={styles.container}>
+      <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (
           <StyledBadge color={"error"} badgeContent={item.count} key={item.id}>

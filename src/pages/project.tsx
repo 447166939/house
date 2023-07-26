@@ -9,7 +9,7 @@ import { Box } from "@mui/material";
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const project: IPage = (props) => {
   return (
-    <Box css={{ display: "flex", flexWrap: "nowrap", flex: 1 }}>
+    <Box css={{ display: "flex", flexWrap: "nowrap", flex: 1,userSelect:'none' }}>
       <Sider />
       <Content />
       <Pannel />

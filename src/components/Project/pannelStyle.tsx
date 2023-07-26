@@ -1,13 +1,21 @@
 import { css } from "@emotion/react";
-import { grey, h16, h18, t16, t18, t20, white } from "@/style/baseStyle";
+import {t20, } from "@/style/baseStyle";
 
 export const container = css`
-  width: 419px;
   background-color: #1e1f22;
   min-height: 100%;
   display: flex;
   flex-direction: column;
+  position:relative;
 `;
+export const resizer=css`
+position:absolute;
+  cursor: col-resize;
+  left: -5px;
+  height: 100%;
+  width: 10px;
+  z-index: 20000;
+`
 export const pannelTabs = css`
   display: flex;
   width: 100%;

@@ -15,6 +15,7 @@ export interface GlobalStateType {
   currentTab: number;
   userInfo: any;
   siderWidth: string;
+  pannelWidth:string;
   addFriendDialogOpen: boolean;
   newFriends: any[];
   settingDialogOpen: boolean;
@@ -33,6 +34,7 @@ export const defaultState: GlobalStateType = {
   ],
   addFriendDialogOpen: false,
   siderWidth: "358px",
+  pannelWidth:'419px',
   count: 1,
   currentNav: 0,
   navs: [
@@ -89,7 +91,8 @@ const {
   setTab,
   setSiderwidth,
   setAddfrienddialogopen,
-  setSettingdialogopen
+  setSettingdialogopen,
+    setPannelwidth,
 } = actions;
 export const globalReducer = handleActions(
   {
@@ -146,6 +149,12 @@ export const globalReducer = handleActions(
       return {
         ...state,
         settingDialogOpen: action.payload
+      };
+    },
+    [setPannelwidth as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        pannelWidth: action.payload
       };
     }
   },
