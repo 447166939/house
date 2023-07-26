@@ -3,7 +3,7 @@ import { grey, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   background-color: #1e1f22;
-  width: 41.46rem;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: no-wrap;
@@ -11,21 +11,21 @@ export const container = css`
 `;
 export const left = css`
   flex: 1;
-  padding-left: 1.27rem;
-  padding-right: 0.87rem;
+  padding-left: 35.86px;
+  padding-right: 24.5px;
   display: flex;
   flex-direction: column;
   background-color: #1e1f22;
 `;
 export const right = css`
-  width: 9.23rem;
+  width: 254px;
   flex-shrink: 0;
   background-color: #222226;
 `;
 export const chatTitle = css`
   ${t20};
   ${white};
-  margin-top: 0.83rem;
+  margin-top: 23.25px;
 `;
 export const chatName = css`
   ${t16};
@@ -36,15 +36,16 @@ export const chatmsg = css`
   ${grey};
 `;
 export const chatList = css`
-  padding-top: 1.36rem;
+  padding-top: 20px;
   flex: 1;
+  box-sizing:border-box;
 `;
 export const listItem = css`
   display: flex;
-  padding-left: 0.36rem;
-  padding-top: 0.54rem;
-  padding-bottom: 0.54rem;
-  border-radius: 0.36rem;
+  padding-left: 10.86px;
+  padding-top: 15.05px;
+  padding-bottom: 15.05px;
+  border-radius: 10px;
   cursor: pointer;
   user-select: none;
   &:hover {
@@ -52,7 +53,7 @@ export const listItem = css`
   }
 `;
 export const listItemText = css`
-  margin-left: 0.424rem;
+  margin-left: 11.69px;
 `;
 export const listItemTitle = css`
   ${t16};
@@ -69,56 +70,51 @@ export const contactTitle = css`
 `;
 export const contactItem = css`
   display: flex;
-  margin-top: 0.73rem;
+  margin-top: 20px;
   align-items: center;
-  padding-left: 1.44rem;
+  padding-left: 14.4px;
 `;
 export const sendBox = css`
   background-color: #222226;
-  border-radius: 0.36rem;
+  border-radius: 10px;
   display: flex;
   align-items: center;
-  margin-bottom: 0.51rem;
-  height: 2.18rem;
+  margin-bottom: 13.87px;
+  height: 60px;
 `;
 export const sendInput = css`
   ${t16};
   ${grey};
-  padding-left: 0.98rem;
+  padding-left: 27px;
   flex: 1;
 `;
 export const circlePlus = css`
-  width: 0.66rem;
+  width: 18px;
   height: auto;
 `;
 export const faceIcon = css`
-  width: 0.66rem;
+  width: 18px;
   height: auto;
 `;
 export const contactAddBtn = css`
   position: relative;
   margin-left: auto;
-  width: 1.568rem;
-  height: 1.568rem;
-  border-radius: 50%;
-  background-color: rgba(255, 0, 0, 0.3);
-  margin-right: 0.189rem;
-  &:hover {
-    background-color: rgb(204, 0, 0, 0.3);
-  }
+  margin-right: 5px;
+  padding:0;
 `;
 export const contactPlus = css`
-  width: 0.66rem;
+  width: 18px;
   height: auto;
 `;
 export const contactHead = css`
   display: flex;
   align-items: center;
-  margin-top: 0.91rem;
-  margin-left: 0.84rem;
+  margin-top: 25.75px;
+  line-height:1;
+  margin-left: 14.4px;
 `;
 export const contactName = css`
   ${t16};
   ${grey};
-  margin-left: 0.44rem;
+  margin-left: 12px;
 `;

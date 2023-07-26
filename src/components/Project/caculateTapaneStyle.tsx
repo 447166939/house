@@ -51,7 +51,7 @@ export const inputText = css`
   border-radius: 4px;
   padding: 0 10.78px;
   box-sizing: border-box;
-  margin-top:6.62px;
+  margin-top: 6.62px;
 `;
 export const inputPre = css`
   & .MuiTypography-root {
