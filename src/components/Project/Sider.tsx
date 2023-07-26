@@ -1,5 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
-import {Avatar, IconButton, Fab, Switch, Box, styled, SwitchProps, Badge, BadgeProps} from "@mui/material";
+import {
+  Avatar,
+  IconButton,
+  Fab,
+  Switch,
+  Box,
+  styled,
+  SwitchProps,
+  Badge,
+  BadgeProps
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import plusIcon from "@/assets/images/plus.png";
 import menuIcon from "@/assets/images/menu.png";
@@ -29,18 +39,18 @@ const CustomSwitch = styled(Switch)(({ theme }) => ({
   }
 }));
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
-  '& .MuiBadge-badge': {
+  "& .MuiBadge-badge": {
     right: 5,
     top: 10,
-    padding: '0 4px',
-  },
+    padding: "0 4px"
+  }
 }));
 const Sider: React.FC<ISider> = (props) => {
   const projectsData = [
-    { name: "1", id: 1 ,avatar:'/avatar.jpg',count:1},
-    { name: "2", id: 2,avatar:'/avatar.jpg',count:2 },
-    { name: "T", id: 3 ,avatar:'/avatar.jpg',count:3},
-    { name: "G", id: 4 ,avatar:'/avatar.jpg',count:4}
+    { name: "1", id: 1, avatar: "/avatar.jpg", count: 1 },
+    { name: "2", id: 2, avatar: "/avatar.jpg", count: 2 },
+    { name: "T", id: 3, avatar: "/avatar.jpg", count: 3 },
+    { name: "G", id: 4, avatar: "/avatar.jpg", count: 4 }
   ];
   const { commonChannels, currentChannel, projects, currentManageChannel, siderWidth } =
     useSelector((state: RootState) => state.global);
@@ -69,9 +79,10 @@ const Sider: React.FC<ISider> = (props) => {
       <Box css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (
-          <StyledBadge color={'error'} badgeContent={item.count} key={item.id}><Avatar src={item.avatar} css={styles.avatar}>
-            {item.name}
-          </Avatar>
+          <StyledBadge color={"error"} badgeContent={item.count} key={item.id}>
+            <Avatar src={item.avatar} css={styles.avatar}>
+              {item.name}
+            </Avatar>
           </StyledBadge>
         ))}
         <CustomSwitch css={styles.switchStyle} size="medium" />

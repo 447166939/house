@@ -48,7 +48,7 @@ export const switchStyle = css`
 export const switchText = css`
   ${t16};
   ${grey};
-  margin-bottom:27.62px;
+  margin-bottom: 27.62px;
 `;
 export const channelWrapper = css`
   background-color: #222226;
@@ -89,7 +89,7 @@ export const channelTitle = css`
   ${t20};
   ${white};
   margin-top: 9.52px;
-  margin-bottom:20px;
+  margin-bottom: 20px;
 `;
 export const channelIcon = css`
   width: 20px;

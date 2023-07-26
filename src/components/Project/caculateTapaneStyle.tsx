@@ -3,18 +3,17 @@ import { grey, t12, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
-  flex-basis: 27.79rem;
+  flex-basis: 419px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.726rem;
   overflow-y: auto;
   &::-webkit-scrollbar {
     background-color: #111113;
-    width: 0.29rem;
+    width: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #38383f;
-    border-radius: 0.29rem;
+    border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb:hover {
     background-color: #38383f;
@@ -28,10 +27,10 @@ export const container = css`
 export const caculateBox = css`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 0.897rem 1.356rem 0 1.356rem;
-  column-gap: 1.292rem;
-  row-gap: 1.093rem;
-  padding-bottom: 1.15rem;
+  margin: 24.7px 37.34px 0 37.34px;
+  column-gap: 35.56px;
+  row-gap: 30.1px;
+  padding-bottom: 31.66px;
   border-bottom: 1px solid #313338;
 `;
 export const inputGridItem = css`
@@ -46,12 +45,13 @@ export const inputText = css`
   ${t16};
   ${grey};
   width: 100%;
-  height: 1.2rem;
+  height: 38px;
   border: 1px solid #393a3f;
   background-color: #1a1a1a;
-  border-radius: 0.145rem;
-  padding: 0 0.378rem;
+  border-radius: 4px;
+  padding: 0 10.78px;
   box-sizing: border-box;
+  margin-top:6.62px;
 `;
 export const inputPre = css`
   & .MuiTypography-root {
@@ -68,15 +68,15 @@ export const inutpos = css`
 export const bottomCaculateBox = css`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 0.549rem 1.356rem 0 1.356rem;
-  column-gap: 1.292rem;
-  row-gap: 1.093rem;
+  margin: 15.12px 37.34px 0 37.34px;
+  column-gap: 35.56px;
+  row-gap: 18.56px;
 `;
 export const saveBtn = css`
   white-space: nowrap;
-  margin: 1.162rem auto;
+  margin: 32.48px auto;
   ${t20};
   ${white};
-  width: 5.23rem;
-  height: 1.38rem;
+  width: 145px;
+  height: 38px;
 `;
