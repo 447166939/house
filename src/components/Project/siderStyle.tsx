@@ -7,6 +7,7 @@ export const container = css`
   position: relative;
   user-select: none;
   min-width: 0;
+  overflow:hidden;
 `;
 export const resizer = css`
   position: absolute;

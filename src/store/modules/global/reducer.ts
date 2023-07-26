@@ -32,7 +32,7 @@ export const defaultState: GlobalStateType = {
     { id: 8, name: "Elzat", status: 2, avatar: "/avatar.jpg" }
   ],
   addFriendDialogOpen: false,
-  siderWidth: "13.05rem",
+  siderWidth: "358px",
   count: 1,
   currentNav: 0,
   navs: [

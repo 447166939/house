@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { grey, h16, h18, t16, t18, t20, white } from "@/style/baseStyle";
 
 export const container = css`
-  width: 15.23rem;
+  width: 419px;
   background-color: #1e1f22;
   min-height: 100%;
   display: flex;
@@ -12,9 +12,8 @@ export const pannelTabs = css`
   display: flex;
   width: 100%;
   align-items: center;
-  padding-left: 0.72rem;
-  padding-right: 1.01rem;
-  height: 2.61rem;
+  padding-left: 20.9px;
+  height: 69px;
   position: relative;
   width: 100%;
   &:after {
@@ -23,18 +22,17 @@ export const pannelTabs = css`
     bottom: 0;
     height: 1px;
     background-color: #313338;
-    left: 0.76rem;
-    right: 1.01rem;
-    width: calc(100% - 24.73 / 27.52px);
+    left: 20.9px;
+    right: 20.9px;
   }
 `;
 export const pannelTabItem = ({ isActive }: any) => css`
   color: ${isActive ? "#fff" : "#686B74"};
   ${t20};
   cursor: pointer;
-  margin-right: 1.09rem;
+  margin-right: 30.35px;
   position: relative;
-  height: 2.61rem;
+  height: 100%;
   display: flex;
   align-items: center;
   user-select: none;
@@ -54,6 +52,6 @@ export const tabItemBorder = ({ isActive }: any) => css`
   right: 0;
   margin: auto;
   background-color: #00e0fd;
-  height: 0.15rem;
-  width: 3.56rem;
+  height: 5px;
+  width: 138px;
 `;

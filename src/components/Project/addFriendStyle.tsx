@@ -59,8 +59,8 @@ export const title = css`
   margin-left: 29px;
 `;
 export const list = css`
-box-sizing:border-box;
-padding-top:29px;
+  box-sizing: border-box;
+  padding-top: 29px;
   flex: 1;
   height: 507px;
   overflow-y: auto;
