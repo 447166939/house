@@ -27,7 +27,9 @@ export const defaultState: GlobalStateType = {
     { id: 3, name: "Ankit", status: 2, avatar: "/avatar.jpg" },
     { id: 4, name: "Ursula444", status: 1, avatar: "/avatar.jpg" },
     { id: 5, name: "martelantoine", status: 2, avatar: "/avatar.jpg" },
-    { id: 6, name: "Elzat", status: 2, avatar: "/avatar.jpg" }
+    { id: 6, name: "Elzat", status: 2, avatar: "/avatar.jpg" },
+    { id: 7, name: "Elzat", status: 2, avatar: "/avatar.jpg" },
+    { id: 8, name: "Elzat", status: 2, avatar: "/avatar.jpg" }
   ],
   addFriendDialogOpen: false,
   siderWidth: "13.05rem",

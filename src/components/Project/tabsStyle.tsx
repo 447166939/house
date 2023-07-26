@@ -5,8 +5,8 @@ export const container = css`
   display: flex;
   align-items: center;
   background-color: #111113;
-  height: 2.62rem;
-  padding-left: 1.6rem;
+  height: 71.86px;
+  padding-left: 43.9px;
   position: relative;
   overflow: hidden;
 `;
@@ -18,7 +18,7 @@ export const boderBottom = css`
   background-color: #313338;
   left: 0;
   right: 0;
-  margin: auto 1.6rem;
+  margin: auto 43.9px;
 `;
 export const tabItem = css`
   display: flex;
@@ -32,7 +32,7 @@ export const tabItem = css`
 export const tabItemText = (props: any) => css`
   ${t20};
   color: ${props.isActive ? "#fff" : "#80848E"};
-  margin-left: 0.2rem;
+  margin-left: 5px;
 `;
 export const tabSplit = ({ isActive }: any) => css`
   display: ${isActive ? "block" : "none"};
@@ -42,6 +42,6 @@ export const tabSplit = ({ isActive }: any) => css`
   right: 0;
   margin: auto;
   background-color: #00e0fd;
-  height: 0.15rem;
-  width: 6.04rem;
+  height: 4px;
+  width: 166px;
 `;

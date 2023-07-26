@@ -3,27 +3,27 @@ import { grey, t16, t18, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   position: absolute;
-  width: 19.731rem;
-  height: 23.364rem;
-  border-radius: 0.363rem;
+  width: 543px;
+  height: 643px;
+  border-radius: 10px;
   background-color: #313136;
   z-index: 20000;
-  right: 2.4rem;
-  top: -6.4rem;
+  right: 67px;
+  top: -145px;
   z-index: 30000;
   cursor: auto;
 `;
 export const header = css`
   display: flex;
   align-items: center;
-  padding: 1.235rem 00.819rem 0 1.057rem;
+  padding: 34.08px 22.5px 0 29.11px;
 `;
 export const searchInputWrapper = css`
-  width: 10.901rem;
-  height: 1.598rem;
+  width: 301px;
+  height: 44px;
   background-color: #1e1f22;
-  margin-left: 0.479rem;
-  border-radius: 2.47rem;
+  margin-left: 13.2px;
+  border-radius: 22px;
   display: flex;
   align-items: center;
 `;
@@ -31,14 +31,14 @@ export const searchInput = css`
   flex: 1;
   ${t16};
   ${grey};
-  padding-left: 0.65rem;
+  padding-left: 23px;
 `;
 export const searchIcon = css`
   width: 0.72rem;
   height: auto;
 `;
 export const addPersonIcon = css`
-  width: 1.09rem;
+  width: 19px;
   height: auto;
 `;
 export const headerText = css`
@@ -47,65 +47,66 @@ export const headerText = css`
   margin-left: auto;
 `;
 export const rightIcon = css`
-  width: 0.408rem;
+  width: 11px;
   height: auto;
-  margin-left: 0.305rem;
+  margin-left: 8.4px;
 `;
 export const title = css`
   ${t20};
   ${white};
-  margin-top: 1.128rem;
+  margin-top: 31px;
   text-align: start;
-  margin-left: 1.057rem;
-  margin-bottom: 1.064rem;
+  margin-left: 29px;
 `;
 export const list = css`
+box-sizing:border-box;
+padding-top:29px;
   flex: 1;
-  flex-basis: 15.172rem;
+  height: 507px;
   overflow-y: auto;
   &::-webkit-scrollbar {
-    background-color: #111113;
-    width: 0.29rem;
+    background-color: transparent;
+    width: 6px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #38383f;
-    border-radius: 0.29rem;
+    border-radius: 3px;
   }
   &::-webkit-scrollbar-thumb:hover {
     background-color: #38383f;
   }
   scrollbar-width: thin;
-  scrollbar-color: #38383f #111113;
+  scrollbar-color: #38383f transparent;
   &::-webkit-scrollbar-track {
-    background-color: #111113;
+    background-color: transparent;
   }
 `;
 export const listItem = css`
   display: flex;
   align-items: center;
-  margin-bottom: 0.62rem;
+  margin-bottom: 17px;
 `;
 export const avatar = css`
-  width: 2.107rem;
-  height: 2.107rem;
-  margin-left: 1.057rem;
+  width: 58px;
+  height: 60px;
+  margin-left: 29px;
 `;
 export const name = css`
   ${t20};
   ${white};
-  margin-left: 0.538rem;
+  margin-left: 14.8px;
 `;
 export const accept = css`
-  width: 2.691rem;
-  height: 1.232rem;
+  width: 74px;
+  height: 33px;
   ${t18};
   ${white};
   margin-left: auto;
-  margin-right: 1.325rem;
+  margin-right: 36px;
 `;
 export const statusText = css`
   ${t18};
   ${grey};
   margin-left: auto;
-  margin-right: 1.325rem;
+  margin-right: 46px;
 `;

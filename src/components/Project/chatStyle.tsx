@@ -38,7 +38,7 @@ export const chatmsg = css`
 export const chatList = css`
   padding-top: 20px;
   flex: 1;
-  box-sizing:border-box;
+  box-sizing: border-box;
 `;
 export const listItem = css`
   display: flex;
@@ -100,7 +100,7 @@ export const contactAddBtn = css`
   position: relative;
   margin-left: auto;
   margin-right: 5px;
-  padding:0;
+  padding: 0;
 `;
 export const contactPlus = css`
   width: 18px;
@@ -110,7 +110,7 @@ export const contactHead = css`
   display: flex;
   align-items: center;
   margin-top: 25.75px;
-  line-height:1;
+  line-height: 1;
   margin-left: 14.4px;
 `;
 export const contactName = css`
