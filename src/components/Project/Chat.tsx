@@ -1,13 +1,14 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Avatar, Box, IconButton, InputBase } from "@mui/material";
 import * as styles from "./chatStyle";
 import circlePlusIcon from "@/assets/images/circlePlus.png";
 import faceIcon from "@/assets/images/face.png";
 import Image from "next/image";
 import actions from "@/store/modules/global/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AddFriend from "./AddFriend";
 import { useClickOutside } from "@/hooks/useClickoutside";
+import { RootState } from "@/store/index";
 const { setAddfrienddialogopen } = actions;
 export interface IChat {}
 const Chat: React.FC<IChat> = (props) => {

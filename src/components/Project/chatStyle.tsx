@@ -7,6 +7,7 @@ export const container = css`
   display: flex;
   flex-direction: row;
   flex-wrap: no-wrap;
+  min-height: 0;
   flex: 1;
 `;
 export const left = css`

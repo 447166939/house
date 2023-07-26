@@ -1,21 +1,24 @@
 import { css } from "@emotion/react";
-import {t20, } from "@/style/baseStyle";
+import { t20 } from "@/style/baseStyle";
 
 export const container = css`
   background-color: #1e1f22;
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  position:relative;
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 0;
 `;
-export const resizer=css`
-position:absolute;
+export const resizer = css`
+  position: absolute;
   cursor: col-resize;
   left: -5px;
   height: 100%;
   width: 10px;
   z-index: 20000;
-`
+`;
 export const pannelTabs = css`
   display: flex;
   width: 100%;

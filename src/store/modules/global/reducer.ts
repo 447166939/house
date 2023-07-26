@@ -15,7 +15,9 @@ export interface GlobalStateType {
   currentTab: number;
   userInfo: any;
   siderWidth: string;
-  pannelWidth:string;
+  pannelWidth: string;
+  subTaskHeight: string;
+  fileManageHeight:string;
   addFriendDialogOpen: boolean;
   newFriends: any[];
   settingDialogOpen: boolean;
@@ -34,7 +36,9 @@ export const defaultState: GlobalStateType = {
   ],
   addFriendDialogOpen: false,
   siderWidth: "358px",
-  pannelWidth:'419px',
+  pannelWidth: "419px",
+  subTaskHeight: "251px",
+  fileManageHeight:'391px',
   count: 1,
   currentNav: 0,
   navs: [
@@ -92,7 +96,10 @@ const {
   setSiderwidth,
   setAddfrienddialogopen,
   setSettingdialogopen,
-    setPannelwidth,
+  setPannelwidth,
+  setSubtaskheight,
+    setFilemanageheight,
+
 } = actions;
 export const globalReducer = handleActions(
   {
@@ -155,6 +162,18 @@ export const globalReducer = handleActions(
       return {
         ...state,
         pannelWidth: action.payload
+      };
+    },
+    [setSubtaskheight as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        subTaskHeight: action.payload
+      };
+    },
+    [setFilemanageheight as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        fileManageHeight: action.payload
       };
     }
   },

@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { h16, t16, t18, t20, white } from "@/style/baseStyle";
 export const container = css`
-width:100%;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;

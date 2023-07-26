@@ -5,6 +5,21 @@ export const container = css`
   background-color: #111113;
   width: 100%;
   padding-bottom: 40px;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  flex-grow: 0;
+`;
+export const resizer = css`
+  position: absolute;
+  cursor: row-resize;
+  bottom: 5px;
+  width: 100%;
+  height: 10px;
+  z-index: 20000;
 `;
 export const taskHead = css`
   display: flex;

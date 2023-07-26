@@ -6,6 +6,9 @@ export const headerLogo = css`
 `;
 export const appBar = css`
   background-color: #38383f;
+  flex-shrink: 0;
+  height: 80px;
+  justify-content: center;
 `;
 export const navBox = css`
   margin-left: 5.05rem;

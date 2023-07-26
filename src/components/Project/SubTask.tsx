@@ -1,9 +1,13 @@
-import React from "react";
-import Grid from "@mui/system/Unstable_Grid";
+import React, { useRef } from "react";
 import { Box } from "@mui/material";
 import checkedIcon from "@/assets/images/checked.png";
 import Image from "next/image";
 import * as styles from "./subtaskStyle";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/index";
+import { useResize } from "@/hooks/useResize";
+import actions from "@/store/modules/global/action";
+const { setSubtaskheight } = actions;
 export interface ISubtask {}
 const SubTask: React.FC<ISubtask> = (props) => {
   const data = {
@@ -17,8 +21,17 @@ const SubTask: React.FC<ISubtask> = (props) => {
       "5.(支持自定义子任务)"
     ]
   };
+  const dispatch = useDispatch();
+  const resize: any = (event: MouseEvent) => {
+    const size = `${event.y - 80}px`;
+    dispatch(setSubtaskheight(size));
+  };
+  const resizeRef = useRef<HTMLDivElement | null>(null);
+  useResize(resizeRef, resize);
+  const { subTaskHeight } = useSelector((state: RootState) => state.global);
   return (
-    <Box css={styles.container}>
+    <Box style={{ flexBasis: subTaskHeight }} css={styles.container}>
+      <Box ref={resizeRef} css={styles.resizer}></Box>
       <Box css={styles.taskHead}>
         <Box css={styles.taskTitle}>{data.title}</Box>
         <Box css={styles.text}>{data.text}</Box>

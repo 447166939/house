@@ -79,7 +79,7 @@ const Sider: React.FC<ISider> = (props) => {
     });
   }, []);
   return (
-    <Box style={{ flexBasis: siderWidth }}  css={styles.container}>
+    <Box style={{ flexBasis: siderWidth }} css={styles.container}>
       <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (

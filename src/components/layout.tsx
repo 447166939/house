@@ -7,7 +7,9 @@ const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <Box css={{ flexDirection: "column", display: "flex", height: "100vh" }}>
       <Header />
-      <Box css={{ display: "flex", flexDirection: "column", flex: 1 }}>{children}</Box>
+      <Box css={{ display: "flex", flexDirection: "column", flex: 1, overflow: "hidden" }}>
+        {children}
+      </Box>
     </Box>
   );
 };

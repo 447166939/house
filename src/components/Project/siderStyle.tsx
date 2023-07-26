@@ -8,6 +8,8 @@ export const container = css`
   user-select: none;
   min-width: 0;
   overflow: hidden;
+  max-height: 100%;
+  flex-grow: 0;
 `;
 export const resizer = css`
   position: absolute;

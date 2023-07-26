@@ -4,18 +4,33 @@ import { grey, t12, t16, white } from "@/style/baseStyle";
 export const container = css`
   background-color: #111113;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  position:relative;
+  flex-grow:0;
+  flex-shrink:0;
+  min-height:0;
+  overflow:hidden;
+`;
+export const resizer = css`
+  position: absolute;
+  cursor: row-resize;
+  bottom: 5px;
+  width: 100%;
+  height: 10px;
+  z-index: 20000;
 `;
 export const head = css`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.72rem;
-  padding-left: 1.59rem;
-  padding-bottom: 0.6rem;
-  padding-right: 1.59rem;
+  padding-top: 19px;
+  padding-left: 44px;
+  padding-bottom: 16.7px;
+  padding-right: 44px;
 `;
 export const fileAddIcon = css`
-  width: 0.72rem;
+  width: 20px;
   height: auto;
 `;
 export const headText = css`
@@ -25,15 +40,15 @@ export const headText = css`
 export const fileList = css`
   display: flex;
   flex-wrap: wrap;
-  padding-left: 1.67rem;
+  padding-left: 44px;
 `;
 export const fileItem = css`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 1.99rem;
-  margin-bottom: 1.05rem;
+  margin-right: 31.85px;
+  margin-bottom: 29px;
   padding: 14.8px 11.13px;
   cursor: pointer;
   border-radius: 10px;
@@ -54,7 +69,7 @@ export const menuBtn = css`
   display: none;
 `;
 export const elliseIcon = css`
-  width: 0.79rem;
+  width: 22px;
   height: auto;
 `;
 export const menus = ({ isActive }: any) => css`
@@ -107,13 +122,13 @@ export const moveItem = css`
   border-bottom: 1px solid #3b3b40;
 `;
 export const folderIcon = css`
-  width: 3.74rem;
+  width: 102px;
   height: auto;
 `;
 export const fileTitle = css`
   ${t16};
   ${white};
-  margin-top: 0.32rem;
+  margin-top: 8.9px;
 `;
 export const fileDate = css`
   ${t12};
