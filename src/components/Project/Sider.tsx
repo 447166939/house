@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Avatar, IconButton, Fab, Switch, Box } from "@mui/material";
+import {Avatar, IconButton, Fab, Switch, Box, styled, SwitchProps} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import plusIcon from "@/assets/images/plus.png";
 import menuIcon from "@/assets/images/menu.png";
@@ -11,6 +11,23 @@ import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 const { setChannel, setManagechannel, setSiderwidth } = actions;
 export interface ISider {}
+const CustomSwitch = styled(Switch)(({ theme }) => ({
+  '& .MuiSwitch-switchBase': {
+    '&.Mui-checked': {
+      color: '#00E1FE',
+      '& + .MuiSwitch-track': {
+        backgroundColor: '#00E1FE',
+        opacity:1,
+      },
+    },
+    '& .MuiSwitch-thumb': {
+      color: '#00E1FE',
+    }
+  },
+  '& .MuiSwitch-track': {
+    backgroundColor: '#333',
+  },
+}));
 const Sider: React.FC<ISider> = (props) => {
   const projectsData = [
     { name: "1", id: 1 },
@@ -52,7 +69,7 @@ const Sider: React.FC<ISider> = (props) => {
         <Fab css={styles.plusFab}>
           <Image css={styles.plusIcon} src={plusIcon} alt={""} />
         </Fab>
-        <Switch css={styles.switchStyle} size="medium" />
+        <CustomSwitch css={styles.switchStyle} size="medium" />
         <Box css={styles.switchText}>已完成</Box>
         <IconButton css={styles.menuBtn}>
           <Image css={styles.menuIcon} src={menuIcon} alt={""} />

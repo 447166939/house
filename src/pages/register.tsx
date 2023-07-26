@@ -22,17 +22,17 @@ import {
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const [role, setRole] = useState("");
-  const [lang,setLang]=useState('')
-  const [location,setLocation]=useState('')
+  const [lang, setLang] = useState("");
+  const [location, setLocation] = useState("");
   const handleChange = (event: SelectChangeEvent) => {
     setRole(event.target.value);
   };
-  const handleLangChange=(event: SelectChangeEvent) => {
+  const handleLangChange = (event: SelectChangeEvent) => {
     setLang(event.target.value);
-  }
-  const handleLocationChange=(event: SelectChangeEvent) => {
+  };
+  const handleLocationChange = (event: SelectChangeEvent) => {
     setLocation(event.target.value);
-  }
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>
@@ -126,16 +126,16 @@ const Register: React.FC<IRegisterProps> = (props) => {
             <FormControl css={styles.roleControl}>
               <Box css={styles.roleLabel}>Platform Role</Box>
               <Select
-                  MenuProps={{
-                    PaperProps: {
-                      style: {
-                        backgroundColor: '#111113',
-                        color:'#A2AAB8',
-                        fontSize:'15px',
-                        border:'1px solid #36404E',
-                      }
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "#111113",
+                      color: "#A2AAB8",
+                      fontSize: "15px",
+                      border: "1px solid #36404E"
                     }
-                  }}
+                  }
+                }}
                 IconComponent={(props) => (
                   <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
                 )}
@@ -160,16 +160,16 @@ const Register: React.FC<IRegisterProps> = (props) => {
             <FormControl css={styles.roleControl}>
               <Box css={styles.roleLabel}>Language</Box>
               <Select
-                  MenuProps={{
-                    PaperProps: {
-                      style: {
-                        backgroundColor: '#111113',
-                        color:'#A2AAB8',
-                        fontSize:'15px',
-                        border:'1px solid #36404E',
-                      }
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "#111113",
+                      color: "#A2AAB8",
+                      fontSize: "15px",
+                      border: "1px solid #36404E"
                     }
-                  }}
+                  }
+                }}
                 IconComponent={(props) => (
                   <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
                 )}
@@ -186,16 +186,16 @@ const Register: React.FC<IRegisterProps> = (props) => {
             <FormControl css={styles.roleControl}>
               <Box css={styles.roleLabel}>Location</Box>
               <Select
-                  MenuProps={{
-                    PaperProps: {
-                      style: {
-                        backgroundColor: '#111113',
-                        color:'#A2AAB8',
-                        fontSize:'15px',
-                        border:'1px solid #36404E',
-                      }
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "#111113",
+                      color: "#A2AAB8",
+                      fontSize: "15px",
+                      border: "1px solid #36404E"
                     }
-                  }}
+                  }
+                }}
                 IconComponent={(props) => (
                   <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
                 )}

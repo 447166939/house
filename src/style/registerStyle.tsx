@@ -263,9 +263,9 @@ export const roleInput = css`
   padding-left: 12px;
   margin-left: 10.77px;
   box-sizing: border-box;
-  background-color:#111113;
-  &.MuiMenuList-root{
-  background-color:#111113;
+  background-color: #111113;
+  &.MuiMenuList-root {
+    background-color: #111113;
   }
 `;
 export const downIcon = css`
@@ -289,4 +289,3 @@ export const bioLabel = css`
     ${grey};
   }
 `;
-

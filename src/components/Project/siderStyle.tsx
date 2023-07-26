@@ -51,7 +51,10 @@ export const plusFab = css`
 export const switchStyle = css`
   margin-top: auto;
   &.Mui-checked {
-    color: #00e1fe;
+    color: #00E0FD;
+  }
+  '& .Mui-checked+.MuiSwitch-track':{
+    background-color:'#00E1FE';
   }
 `;
 export const switchText = css`
