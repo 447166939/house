@@ -1,5 +1,16 @@
-import React, {Fragment, useRef, useState} from "react";
-import {AppBar, Toolbar, Badge, SvgIcon, Avatar, Popper, Box, IconButton, InputBase, Button} from "@mui/material";
+import React, { Fragment, useRef, useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Badge,
+  SvgIcon,
+  Avatar,
+  Popper,
+  Box,
+  IconButton,
+  InputBase,
+  Button
+} from "@mui/material";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -46,29 +57,29 @@ const Index: React.FC<IHeader> = () => {
   const router = useRouter();
   const { navs, currentNav } = useSelector((state: RootState) => state.global);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-  const [helpAnchorEl,setHelpAnchorEl]=useState<HTMLElement | null>(null)
+  const [helpAnchorEl, setHelpAnchorEl] = useState<HTMLElement | null>(null);
   const { userInfo } = useSelector((state: RootState) => state.global);
   const avatarRef = useRef(null);
   const popoverRef = useRef(null);
-  const helpDialogRef=useRef(null)
-  const helpBtnRef=useRef(null)
+  const helpDialogRef = useRef(null);
+  const helpBtnRef = useRef(null);
   const closePopover = () => {
     setAnchorEl(null);
   };
-  const closeHelp=()=>{
-    setHelpAnchorEl(null)
-  }
+  const closeHelp = () => {
+    setHelpAnchorEl(null);
+  };
   useClickOutside(avatarRef, closePopover, popoverRef);
-  useClickOutside(helpDialogRef,closeHelp,helpBtnRef)
+  useClickOutside(helpDialogRef, closeHelp, helpBtnRef);
   const handleChangeNav = (index: number) => {
     dispatch(setCurrentnav(index));
   };
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
-  const openHelp=(event: React.MouseEvent<HTMLElement>)=>{
-    setHelpAnchorEl(helpAnchorEl ? null :event.currentTarget);
-  }
+  const openHelp = (event: React.MouseEvent<HTMLElement>) => {
+    setHelpAnchorEl(helpAnchorEl ? null : event.currentTarget);
+  };
   const openSetting = () => {
     dispatch(setSettingdialogopen(true));
   };
@@ -102,7 +113,9 @@ const Index: React.FC<IHeader> = () => {
           <Image css={styles.bookIcon} src={bookIcon} alt={""} />
         </IconButton>
         <Image css={styles.cnIcon} src={cnIcon} alt={""} />
-        <IconButton ref={helpBtnRef} onClick={openHelp} css={styles.helpBtn}><HelperIcon css={styles.helpIcon} /></IconButton>
+        <IconButton ref={helpBtnRef} onClick={openHelp} css={styles.helpBtn}>
+          <HelperIcon css={styles.helpIcon} />
+        </IconButton>
         <Avatar
           ref={avatarRef}
           onClick={handleClick}
@@ -136,12 +149,12 @@ const Index: React.FC<IHeader> = () => {
               <Image css={styles.playIcon} width={11} height={11} src={playIcon} alt={""} />
             </IconButton>
           </Box>
-          <Box css={styles.userMenuItem}>
+         {/* <Box css={styles.userMenuItem}>
             <IconButton>
               <Image width={12} height={12} css={styles.userAddIcon} src={userAdd} alt={""} />
             </IconButton>
             <Box css={styles.addUserText}>添加账户</Box>
-          </Box>
+          </Box>*/}
           <Box css={styles.userMenuItem}>
             <IconButton>
               <Image css={styles.exitIcon} src={exitIcon} alt={""} />
@@ -154,12 +167,12 @@ const Index: React.FC<IHeader> = () => {
         </Box>
       </Popper>
       <Popper
-          id="help-popover"
-          open={Boolean(helpAnchorEl)}
-          anchorEl={helpAnchorEl}
-          placement={"bottom-end"}>
+        id="help-popover"
+        open={Boolean(helpAnchorEl)}
+        anchorEl={helpAnchorEl}
+        placement={"bottom-end"}>
         <Box ref={helpDialogRef} css={styles.helpDialog}>
-<Box css={styles.helpDialogTitle}>帮助请求</Box>
+          <Box css={styles.helpDialogTitle}>帮助请求</Box>
           <Box css={styles.helpText}>留下您的联系方式和需求，工作人员会在24小时内与您取得联系</Box>
           <Box css={styles.emailLabel}>邮箱</Box>
           <InputBase css={styles.emailInput} />
@@ -167,7 +180,9 @@ const Index: React.FC<IHeader> = () => {
           <InputBase css={styles.telInput} />
           <Box css={styles.requireLabel}>需求</Box>
           <InputBase minRows={3} maxRows={3} css={styles.requireInput} multiline />
-          <Button css={styles.submitBtn} variant={'contained'}>提交需求</Button>
+          <Button css={styles.submitBtn} variant={"contained"}>
+            提交需求
+          </Button>
           <Box css={styles.contactText}>联系我们</Box>
           <Box css={styles.accountText}>Discord账户: Tom.Tang</Box>
           <Box css={styles.emailText}>官方邮箱: tangshaobo90@gmail.com</Box>

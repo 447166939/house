@@ -16,7 +16,7 @@ const actions = createActions(
   "SET_CHATHEIGHT",
   "SET_SUBTASKHEIGHT",
   "SET_FILEMANAGEHEIGHT",
-    "SET_HELPDIALOGOPEN",
+  "SET_HELPDIALOGOPEN",
   {
     prefix: "GLOBAL"
   }

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import {grey, h15, t14, t16, t18, t24, white} from "@/style/baseStyle";
+import { grey, h15, t14, t16, t18, t24, white } from "@/style/baseStyle";
 export const headerLogo = css`
   width: 179px;
   height: auto;
@@ -40,9 +40,9 @@ export const cnIcon = css`
   margin-left: 30px;
   cursor: pointer;
 `;
-export const helpBtn=css`
-margin-left:30px;
-`
+export const helpBtn = css`
+  margin-left: 30px;
+`;
 export const helpIcon = css`
   cursor: pointer;
 `;
@@ -51,24 +51,24 @@ export const avatar = css`
   cursor: pointer;
 `;
 export const popoverContainer = css`
-  width: 9.41rem;
-  border-radius: 0.36rem;
+  width: 259px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #313136;
-  border-radius: 0.36rem;
+  border-radius: 10px;
   position: relative;
 `;
 export const userAvatar = css`
-  margin-top: 0.872rem;
+  margin-top: 24px;
 `;
 export const userMenuItem = css`
   display: flex;
   align-items: center;
-  height: 1.8rem;
-  padding-left: 0.82rem;
-  padding-right: 0.86rem;
+  height: 49px;
+  padding-left: 23px;
+  padding-right: 23px;
   align-self: stretch;
   border-top: 1px solid #414141;
   cursor: pointer;
@@ -76,29 +76,29 @@ export const userMenuItem = css`
 export const userinfoName = css`
   ${t16};
   ${white};
-  margin-top: 0.36rem;
+  margin-top: 9px;
 `;
 export const userEmail = css`
   ${t14};
   ${grey};
-  margin-top: 0.16rem;
-  margin-bottom: 1.56rem;
+  margin-top: 4.66px;
+  margin-bottom: 43px;
 `;
 export const settingIcon = css`
-  width: 0.54rem;
+  width: 15px;
   height: auto;
 `;
 export const settingText = css`
   ${t16};
   ${white};
-  margin-left: 0.36rem;
+  margin-left: 10px;
 `;
 export const moonIcon = css`
-  width: 0.51rem;
+  width: 14px;
   height: auto;
 `;
 export const playIcon = css`
-  width: 0.4rem;
+  width: 10.7px;
   height: auto;
 `;
 export const userAddIcon = css`
@@ -106,13 +106,13 @@ export const userAddIcon = css`
   height: auto;
 `;
 export const exitIcon = css`
-  width: 0.5rem;
+  width: 13.8px;
   height: auto;
 `;
 export const moonText = css`
   ${t16};
   ${white};
-  margin-left: 0.36rem;
+  margin-left: 10.05px;
 `;
 export const addUserText = css`
   ${t16};
@@ -122,93 +122,93 @@ export const addUserText = css`
 export const exitText = css`
   ${t16};
   ${white};
-  margin-left: 0.36rem;
+  margin-left: 10.05px;
 `;
 export const playBtn = css`
   margin-left: auto;
 `;
-export const helpDialog=css`
-width:557px;
-border-radius:20px;
-border: 1px solid #393A3F;
-background: #313136;
-display:flex;
-flex-direction:column;
-padding: 0 43px 49px 43px;
-`
-export const helpDialogTitle=css`
-${t24};
-${white};
-margin: 48px auto 12px auto;
-`
-export const helpText=css`
-${t16};
-${grey};
-margin: 0 auto;
-`
-export const emailLabel=css`
-${h15};
-${grey};
-margin-top:50px;
-`
-export const emailInput=css`
-border-radius: 4px;
-border: 1px solid #222226;
-background: #222226;
-width:470px;
-height:48px;
-box-sizing:border-box;
-margin-top:10px;
-${grey};
-`
-export const telLabel=css`
-${h15};
-${grey};
-margin-top:20px;
-`
-export const telInput=css`
-border-radius: 4px;
-border: 1px solid #222226;
-background: #222226;
-width:470px;
-height:48px;
-box-sizing:border-box;
-margin-top:10px;
-${grey};
-`
-export const requireLabel=css`
-${h15};
-${grey};
-margin-top:20px;
-`
-export const requireInput=css`
-border-radius: 4px;
-border: 1px solid #222226;
-background: #222226;
-width:470px;
-box-sizing:border-box;
-margin-top:10px;
-${grey};
-`
-export const submitBtn=css`
-height:38px;
-margin-top:47px;
-${t18};
-`
-export const contactText=css`
-${t16};
-${white};
-margin-top:60px;
-`
-export const accountText=css`
-${t16};
-${grey};
-margin-top:11px;
-white-space:pre-wrap;
-`
-export const emailText=css`
-${t16};
-${grey};
-margin-top:14px;
-white-space:pre-wrap;
-`
+export const helpDialog = css`
+  width: 557px;
+  border-radius: 20px;
+  border: 1px solid #393a3f;
+  background: #313136;
+  display: flex;
+  flex-direction: column;
+  padding: 0 43px 49px 43px;
+`;
+export const helpDialogTitle = css`
+  ${t24};
+  ${white};
+  margin: 48px auto 12px auto;
+`;
+export const helpText = css`
+  ${t16};
+  ${grey};
+  margin: 0 auto;
+`;
+export const emailLabel = css`
+  ${h15};
+  ${grey};
+  margin-top: 50px;
+`;
+export const emailInput = css`
+  border-radius: 4px;
+  border: 1px solid #222226;
+  background: #222226;
+  width: 470px;
+  height: 48px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  ${grey};
+`;
+export const telLabel = css`
+  ${h15};
+  ${grey};
+  margin-top: 20px;
+`;
+export const telInput = css`
+  border-radius: 4px;
+  border: 1px solid #222226;
+  background: #222226;
+  width: 470px;
+  height: 48px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  ${grey};
+`;
+export const requireLabel = css`
+  ${h15};
+  ${grey};
+  margin-top: 20px;
+`;
+export const requireInput = css`
+  border-radius: 4px;
+  border: 1px solid #222226;
+  background: #222226;
+  width: 470px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  ${grey};
+`;
+export const submitBtn = css`
+  height: 38px;
+  margin-top: 47px;
+  ${t18};
+`;
+export const contactText = css`
+  ${t16};
+  ${white};
+  margin-top: 60px;
+`;
+export const accountText = css`
+  ${t16};
+  ${grey};
+  margin-top: 11px;
+  white-space: pre-wrap;
+`;
+export const emailText = css`
+  ${t16};
+  ${grey};
+  margin-top: 14px;
+  white-space: pre-wrap;
+`;
