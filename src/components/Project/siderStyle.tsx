@@ -93,19 +93,19 @@ export const channelTitle = css`
   ${white};
   margin-top: 9.52px;
   margin-bottom: 12.7px;
-  position:relative;
+  position: relative;
 `;
-export const addChannelBtn=css`
-position:absolute;
-right:0;
-top:0;
-bottom:0;
-margin:auto;
-`
-export const addIcon=css`
-width:12px;
-height:auto;
-`
+export const addChannelBtn = css`
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+`;
+export const addIcon = css`
+  width: 12px;
+  height: auto;
+`;
 export const channelIcon = css`
   width: 20px;
   height: 20px;
@@ -129,31 +129,31 @@ export const channelText = (props: any) => css`
   font-size: 18px;
   margin-left: 6.04px;
 `;
-export const topSplitline=css`
- width: 232px;
+export const topSplitline = css`
+  width: 232px;
   height: 1px;
   background-color: #313338;
-`
+`;
 export const bottomSplitline = css`
   width: 232px;
   height: 1px;
   background-color: #313338;
-  margin-top:31.99px;
+  margin-top: 31.99px;
 `;
 export const projectTitle = css`
   ${t20};
   ${white};
   margin-top: 31.99px;
   margin-bottom: 12.7px;
-  position:relative;
+  position: relative;
 `;
-export const addProjectBtn=css`
-position:absolute;
-right:0;
-top:0;
-bottom:0;
-margin:auto;
-`
+export const addProjectBtn = css`
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+`;
 export const manName = (props: any) => css`
   background-color: ${props.isGoing ? "#23A55A" : props.isActive ? "#fff" : "#80848E"};
   color: #222226;

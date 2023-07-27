@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import { grey, t14, t16, white } from "@/style/baseStyle";
 export const headerLogo = css`
-  width: 6.46rem;
+  width: 179px;
   height: auto;
 `;
 export const appBar = css`
@@ -11,13 +11,13 @@ export const appBar = css`
   justify-content: center;
 `;
 export const navBox = css`
-  margin-left: 5.05rem;
+  margin-left: 115px;
   flex: 1;
 `;
 export type linkStyle = { isActive: boolean };
 export const navItem = (props: linkStyle) =>
   css`
-    margin-right: 3.19rem;
+    margin-right: 115px;
     color: ${props.isActive ? "#00E1FE" : "#fff"};
   `;
 export const msgIcon = css`
@@ -28,24 +28,24 @@ export const msgBtn = css`
   margin-left: 1.09rem;
 `;
 export const bookIcon = css`
-  width: 0.97rem;
+  width: 29px;
   height: auto;
 `;
 export const bookBtn = css`
-  margin-left: 1.09rem;
+  margin-left: 35px;
 `;
 export const cnIcon = css`
-  width: 0.95rem;
+  width: 26px;
   height: auto;
-  margin-left: 1.16rem;
+  margin-left: 30px;
   cursor: pointer;
 `;
 export const helpIcon = css`
   cursor: pointer;
-  margin-left: 1.16rem;
+  margin-left: 30px;
 `;
 export const avatar = css`
-  margin-left: 1.16rem;
+  margin-left: 25px;
   cursor: pointer;
 `;
 export const popoverContainer = css`

@@ -10,7 +10,7 @@ import {
   Badge,
   BadgeProps
 } from "@mui/material";
-import addIcon from '@/assets/images/add.png';
+import addIcon from "@/assets/images/add.png";
 import homeIcon from "@/assets/images/home.png";
 import * as styles from "./siderStyle";
 import Image from "next/image";
@@ -101,7 +101,7 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.channelTitle}>
           公共频道
           <IconButton css={styles.addChannelBtn}>
-<Image css={styles.addIcon} src={addIcon} alt={''} />
+            <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>
         <Box>
@@ -122,9 +122,10 @@ const Sider: React.FC<ISider> = (props) => {
           ))}
         </Box>
         <Box css={styles.bottomSplitline}></Box>
-        <Box css={styles.projectTitle}>项目管理频道
+        <Box css={styles.projectTitle}>
+          项目管理频道
           <IconButton css={styles.addProjectBtn}>
-            <Image css={styles.addIcon} src={addIcon} alt={''} />
+            <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>
         <Box>
