@@ -21,8 +21,10 @@ export interface GlobalStateType {
   addFriendDialogOpen: boolean;
   newFriends: any[];
   settingDialogOpen: boolean;
+  helpDialogOpen:boolean;
 }
 export const defaultState: GlobalStateType = {
+  helpDialogOpen:false,
   settingDialogOpen: false,
   newFriends: [
     { id: 1, name: "Mitch Lujan", status: 0, avatar: "/avatar.jpg" },
@@ -98,7 +100,8 @@ const {
   setSettingdialogopen,
   setPannelwidth,
   setSubtaskheight,
-  setFilemanageheight
+  setFilemanageheight,
+    setHelpdialogopen,
 } = actions;
 export const globalReducer = handleActions(
   {
@@ -173,6 +176,12 @@ export const globalReducer = handleActions(
       return {
         ...state,
         fileManageHeight: action.payload
+      };
+    },
+    [setHelpdialogopen as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        helpDialogOpen: action.payload
       };
     }
   },

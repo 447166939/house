@@ -41,6 +41,10 @@ export const h12 = css`
   font-size: 12px;
   font-weight: 600;
 `;
+export const t24 = css`
+  font-size: 24px;
+  font-weight: 400;
+`;
 export const t20 = css`
   font-size: 20px;
   font-weight: 400;

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { grey, t14, t16, white } from "@/style/baseStyle";
+import {grey, h15, t14, t16, t18, t24, white} from "@/style/baseStyle";
 export const headerLogo = css`
   width: 179px;
   height: auto;
@@ -40,9 +40,11 @@ export const cnIcon = css`
   margin-left: 30px;
   cursor: pointer;
 `;
+export const helpBtn=css`
+margin-left:30px;
+`
 export const helpIcon = css`
   cursor: pointer;
-  margin-left: 30px;
 `;
 export const avatar = css`
   margin-left: 25px;
@@ -125,3 +127,88 @@ export const exitText = css`
 export const playBtn = css`
   margin-left: auto;
 `;
+export const helpDialog=css`
+width:557px;
+border-radius:20px;
+border: 1px solid #393A3F;
+background: #313136;
+display:flex;
+flex-direction:column;
+padding: 0 43px 49px 43px;
+`
+export const helpDialogTitle=css`
+${t24};
+${white};
+margin: 48px auto 12px auto;
+`
+export const helpText=css`
+${t16};
+${grey};
+margin: 0 auto;
+`
+export const emailLabel=css`
+${h15};
+${grey};
+margin-top:50px;
+`
+export const emailInput=css`
+border-radius: 4px;
+border: 1px solid #222226;
+background: #222226;
+width:470px;
+height:48px;
+box-sizing:border-box;
+margin-top:10px;
+${grey};
+`
+export const telLabel=css`
+${h15};
+${grey};
+margin-top:20px;
+`
+export const telInput=css`
+border-radius: 4px;
+border: 1px solid #222226;
+background: #222226;
+width:470px;
+height:48px;
+box-sizing:border-box;
+margin-top:10px;
+${grey};
+`
+export const requireLabel=css`
+${h15};
+${grey};
+margin-top:20px;
+`
+export const requireInput=css`
+border-radius: 4px;
+border: 1px solid #222226;
+background: #222226;
+width:470px;
+box-sizing:border-box;
+margin-top:10px;
+${grey};
+`
+export const submitBtn=css`
+height:38px;
+margin-top:47px;
+${t18};
+`
+export const contactText=css`
+${t16};
+${white};
+margin-top:60px;
+`
+export const accountText=css`
+${t16};
+${grey};
+margin-top:11px;
+white-space:pre-wrap;
+`
+export const emailText=css`
+${t16};
+${grey};
+margin-top:14px;
+white-space:pre-wrap;
+`

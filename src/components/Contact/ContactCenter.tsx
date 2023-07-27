@@ -8,7 +8,9 @@ import {
   InputBase,
   MenuItem,
   Select,
-  SelectChangeEvent, PaperProps, styled
+  SelectChangeEvent,
+  PaperProps,
+  styled
 } from "@mui/material";
 import * as styles from "./contactCenterStyle";
 import Image from "next/image";
@@ -41,16 +43,16 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
         </Box>
         <Box css={styles.cateBox}>
           <Select
-              MenuProps={{
-                PaperProps: {
-                  style: {
-                    backgroundColor: "#111113",
-                    color: "#A2AAB8",
-                    fontSize: "15px",
-                    border: "1px solid #36404E",
-                  },
-              },
-              }}
+            MenuProps={{
+              PaperProps: {
+                style: {
+                  backgroundColor: "#111113",
+                  color: "#A2AAB8",
+                  fontSize: "15px",
+                  border: "1px solid #36404E"
+                }
+              }
+            }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
@@ -79,16 +81,16 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
         </Box>
         <Box css={styles.filterBox}>
           <Select
-              MenuProps={{
-                PaperProps: {
-                  style: {
-                    backgroundColor: "#111113",
-                    color: "#A2AAB8",
-                    fontSize: "15px",
-                    border: "1px solid #36404E"
-                  }
+            MenuProps={{
+              PaperProps: {
+                style: {
+                  backgroundColor: "#111113",
+                  color: "#A2AAB8",
+                  fontSize: "15px",
+                  border: "1px solid #36404E"
                 }
-              }}
+              }
+            }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}

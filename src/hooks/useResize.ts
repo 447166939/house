@@ -4,7 +4,7 @@ type EventHandler = (event: MouseEvent | TouchEvent) => void;
 
 export function useResize(ref: React.RefObject<HTMLElement>, handler: EventHandler) {
   useEffect(() => {
-    console.log('eff')
+    console.log("eff");
     const mouseupListener = () => {
       document.removeEventListener("mousemove", handler, false);
     };

@@ -1,5 +1,5 @@
-import React, { Fragment, useRef } from "react";
-import { AppBar, Toolbar, Badge, SvgIcon, Avatar, Popper, Box, IconButton } from "@mui/material";
+import React, {Fragment, useRef, useState} from "react";
+import {AppBar, Toolbar, Badge, SvgIcon, Avatar, Popper, Box, IconButton, InputBase, Button} from "@mui/material";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
@@ -46,19 +46,29 @@ const Index: React.FC<IHeader> = () => {
   const router = useRouter();
   const { navs, currentNav } = useSelector((state: RootState) => state.global);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const [helpAnchorEl,setHelpAnchorEl]=useState<HTMLElement | null>(null)
   const { userInfo } = useSelector((state: RootState) => state.global);
   const avatarRef = useRef(null);
   const popoverRef = useRef(null);
+  const helpDialogRef=useRef(null)
+  const helpBtnRef=useRef(null)
   const closePopover = () => {
     setAnchorEl(null);
   };
+  const closeHelp=()=>{
+    setHelpAnchorEl(null)
+  }
   useClickOutside(avatarRef, closePopover, popoverRef);
+  useClickOutside(helpDialogRef,closeHelp,helpBtnRef)
   const handleChangeNav = (index: number) => {
     dispatch(setCurrentnav(index));
   };
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
+  const openHelp=(event: React.MouseEvent<HTMLElement>)=>{
+    setHelpAnchorEl(helpAnchorEl ? null :event.currentTarget);
+  }
   const openSetting = () => {
     dispatch(setSettingdialogopen(true));
   };
@@ -92,7 +102,7 @@ const Index: React.FC<IHeader> = () => {
           <Image css={styles.bookIcon} src={bookIcon} alt={""} />
         </IconButton>
         <Image css={styles.cnIcon} src={cnIcon} alt={""} />
-        <HelperIcon css={styles.helpIcon} />
+        <IconButton ref={helpBtnRef} onClick={openHelp} css={styles.helpBtn}><HelperIcon css={styles.helpIcon} /></IconButton>
         <Avatar
           ref={avatarRef}
           onClick={handleClick}
@@ -141,6 +151,26 @@ const Index: React.FC<IHeader> = () => {
               <Image css={styles.playIcon} src={playIcon} alt={""} />
             </IconButton>
           </Box>
+        </Box>
+      </Popper>
+      <Popper
+          id="help-popover"
+          open={Boolean(helpAnchorEl)}
+          anchorEl={helpAnchorEl}
+          placement={"bottom-end"}>
+        <Box ref={helpDialogRef} css={styles.helpDialog}>
+<Box css={styles.helpDialogTitle}>帮助请求</Box>
+          <Box css={styles.helpText}>留下您的联系方式和需求，工作人员会在24小时内与您取得联系</Box>
+          <Box css={styles.emailLabel}>邮箱</Box>
+          <InputBase css={styles.emailInput} />
+          <Box css={styles.telLabel}>电话</Box>
+          <InputBase css={styles.telInput} />
+          <Box css={styles.requireLabel}>需求</Box>
+          <InputBase minRows={3} maxRows={3} css={styles.requireInput} multiline />
+          <Button css={styles.submitBtn} variant={'contained'}>提交需求</Button>
+          <Box css={styles.contactText}>联系我们</Box>
+          <Box css={styles.accountText}>Discord账户: Tom.Tang</Box>
+          <Box css={styles.emailText}>官方邮箱: tangshaobo90@gmail.com</Box>
         </Box>
       </Popper>
     </AppBar>
