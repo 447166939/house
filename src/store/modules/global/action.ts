@@ -15,7 +15,7 @@ const actions = createActions(
   "SET_PANNELWIDTH",
   "SET_CHATHEIGHT",
   "SET_SUBTASKHEIGHT",
-    "SET_FILEMANAGEHEIGHT",
+  "SET_FILEMANAGEHEIGHT",
   {
     prefix: "GLOBAL"
   }

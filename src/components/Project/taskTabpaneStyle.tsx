@@ -10,11 +10,11 @@ export const container = css`
 export const taskBox = css`
   background-color: #1a1a1d;
   width: auto;
-  height: 4.18rem;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
-  margin-top: 0.96rem;
-  border-radius: 0.36rem;
+  height: 115px;
+  margin-left: 21px;
+  margin-right: 21px;
+  margin-top: 26px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,8 +30,8 @@ export const taskBottom = css`
 `;
 export const taskNum = css`
   background-color: #23a55a;
-  width: 0.81rem;
-  height: 0.81rem;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   ${h16};
   color: #222226;
@@ -42,12 +42,12 @@ export const taskNum = css`
 export const taskText = css`
   color: #23a55a;
   ${t18};
-  margin-left: 0.18rem;
+  margin-left: 5px;
 `;
 export const taskDetail = css`
-  margin-top: 1.02rem;
-  padding-left: 0.75rem;
-  padding-right: 0.78rem;
+  margin-top: 28px;
+  padding-left: 21px;
+  padding-right: 21px;
 `;
 export const taskHead = css`
   display: flex;
@@ -61,7 +61,7 @@ export const addBtn = css`
   margin-left: auto;
 `;
 export const addIcon = css`
-  width: 0.42rem;
+  width: 12px;
   height: auto;
 `;
 export const taskItem = css`
@@ -81,15 +81,15 @@ export const menuBtn = css`
   position: relative;
 `;
 export const elliseIcon = css`
-  width: 0.79rem;
+  width: 22px;
   height: auto;
 `;
 export const menus = ({ isActive }: any) => css`
   display: ${isActive ? "flex" : "none"};
   position: absolute;
-  width: 3.08rem;
-  height: 5.34rem;
-  border-radius: 0.36rem;
+  width: 85px;
+  height: 147px;
+  border-radius: 10px;
   background-color: #313136;
   top: 100%;
   right: 0;
@@ -102,5 +102,5 @@ export const menus = ({ isActive }: any) => css`
 export const menuItem = css`
   ${t16};
   ${white};
-  line-height: 1.42rem;
+  line-height: 2.45;
 `;

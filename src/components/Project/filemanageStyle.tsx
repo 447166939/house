@@ -6,11 +6,11 @@ export const container = css`
   width: 100%;
   display: flex;
   flex-direction: column;
-  position:relative;
-  flex-grow:0;
-  flex-shrink:0;
-  min-height:0;
-  overflow:hidden;
+  position: relative;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: 0;
+  overflow: hidden;
 `;
 export const resizer = css`
   position: absolute;

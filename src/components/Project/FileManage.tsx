@@ -1,14 +1,14 @@
-import React, { useState,useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Box, ClickAwayListener, IconButton } from "@mui/material";
 import * as styles from "./filemanageStyle";
 import Image from "next/image";
 import fileAdd from "@/assets/images/fileAdd.png";
 import elliseIcon from "@/assets/images/ellisis.png";
-import {useResize} from "@/hooks/useResize";
-import actions from '@/store/modules/global/action'
-import {useDispatch, useSelector} from "react-redux";
-import {RootState} from "@/store/index";
-const {setFilemanageheight}=actions
+import { useResize } from "@/hooks/useResize";
+import actions from "@/store/modules/global/action";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/index";
+const { setFilemanageheight } = actions;
 export interface IFileManage {}
 const FileManage: React.FC<IFileManage> = (props) => {
   const [files, setFiles] = useState([
@@ -21,10 +21,10 @@ const FileManage: React.FC<IFileManage> = (props) => {
     { id: 7, title: "我的文档", date: "07/09  12:00", icon: "/purpleFolder.png" },
     { id: 8, title: "我的文档", date: "07/09  12:00", icon: "/purpleFolder.png" }
   ]);
-  const resizeRef=useRef<HTMLDivElement|null>(null)
+  const resizeRef = useRef<HTMLDivElement | null>(null);
   const [currentMenu, setCurrentMenu] = useState<number | undefined>();
-  const {fileManageHeight}=useSelector((state:RootState)=>state.global)
-  const dispatch=useDispatch()
+  const { fileManageHeight } = useSelector((state: RootState) => state.global);
+  const dispatch = useDispatch();
   const handleClick = (idx: number) => {
     setCurrentMenu(idx);
   };
@@ -39,9 +39,9 @@ const FileManage: React.FC<IFileManage> = (props) => {
     const size = `${event.y - 80}px`;
     dispatch(setFilemanageheight(size));
   };
-  useResize(resizeRef,resize)
+  useResize(resizeRef, resize);
   return (
-    <Box style={{flexBasis:fileManageHeight}} css={styles.container}>
+    <Box style={{ flexBasis: fileManageHeight }} css={styles.container}>
       <Box ref={resizeRef} css={styles.resizer}></Box>
       <Box css={styles.head}>
         <Box css={styles.headText}>

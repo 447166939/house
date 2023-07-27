@@ -10,9 +10,7 @@ import {
   Badge,
   BadgeProps
 } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
-import plusIcon from "@/assets/images/plus.png";
-import menuIcon from "@/assets/images/menu.png";
+import addIcon from '@/assets/images/add.png';
 import homeIcon from "@/assets/images/home.png";
 import * as styles from "./siderStyle";
 import Image from "next/image";
@@ -99,8 +97,13 @@ const Sider: React.FC<ISider> = (props) => {
           <Box css={styles.projectNameText}>自定义名称</Box>
         </Box>
         <Box css={styles.projectContent}>1115 Toward Ter, Cincinati OH 45216</Box>
-        <Box css={styles.splitline}></Box>
-        <Box css={styles.channelTitle}>公共频道</Box>
+        <Box css={styles.topSplitline}></Box>
+        <Box css={styles.channelTitle}>
+          公共频道
+          <IconButton css={styles.addChannelBtn}>
+<Image css={styles.addIcon} src={addIcon} alt={''} />
+          </IconButton>
+        </Box>
         <Box>
           {commonChannels.map((item, index) => (
             <Box
@@ -118,8 +121,12 @@ const Sider: React.FC<ISider> = (props) => {
             </Box>
           ))}
         </Box>
-        <Box css={styles.splitline}></Box>
-        <Box css={styles.projectTitle}>项目管理频道</Box>
+        <Box css={styles.bottomSplitline}></Box>
+        <Box css={styles.projectTitle}>项目管理频道
+          <IconButton css={styles.addProjectBtn}>
+            <Image css={styles.addIcon} src={addIcon} alt={''} />
+          </IconButton>
+        </Box>
         <Box>
           {projects.map((item, index) => (
             <Box
