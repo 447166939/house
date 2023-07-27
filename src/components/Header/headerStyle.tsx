@@ -60,9 +60,23 @@ export const popoverContainer = css`
   border-radius: 10px;
   position: relative;
 `;
+export const avatarContainer=css`
+ margin-top: 24px;
+ position:relative;
+`
 export const userAvatar = css`
-  margin-top: 24px;
+width:53px;
+height:53px;
 `;
+export const editIcon=css`
+cursor:pointer;
+width:22px;
+height:auto;
+position:absolute;
+top:100%;
+left:100%;
+transform:translate(-100%,-100%);
+`
 export const userMenuItem = css`
   display: flex;
   align-items: center;

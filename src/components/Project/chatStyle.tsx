@@ -9,6 +9,7 @@ export const container = css`
   flex-wrap: no-wrap;
   min-height: 0;
   flex: 1;
+  position:relative;
 `;
 export const left = css`
   flex: 1;

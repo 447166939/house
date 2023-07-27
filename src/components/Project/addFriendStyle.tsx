@@ -9,7 +9,7 @@ export const container = css`
   background-color: #313136;
   z-index: 20000;
   right: 67px;
-  top: -145px;
+  bottom:20px;
   z-index: 30000;
   cursor: auto;
 `;

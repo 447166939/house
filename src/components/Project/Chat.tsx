@@ -75,6 +75,7 @@ const Chat: React.FC<IChat> = (props) => {
   useClickOutside(btnRef, closeAddFriendDialog);
   return (
     <Box css={styles.container}>
+      <AddFriend />
       <Box css={styles.left}>
         <Box css={styles.chatTitle}>聊天窗口</Box>
         <Box css={styles.chatList}>
@@ -102,7 +103,6 @@ const Chat: React.FC<IChat> = (props) => {
         <Box css={styles.contactHead}>
           <span css={styles.contactTitle}>项目联系人</span>
           <IconButton ref={btnRef} onClick={openAddFriendDialog} css={styles.contactAddBtn}>
-            <AddFriend />
             <Image css={styles.contactPlus} src={circlePlusIcon} alt={""} />
           </IconButton>
         </Box>

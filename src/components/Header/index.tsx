@@ -131,7 +131,11 @@ const Index: React.FC<IHeader> = () => {
         placement={"bottom-end"}>
         <Box ref={popoverRef} css={styles.popoverContainer}>
           <SettingDialog />
-          <Avatar css={styles.userAvatar} src={userInfo.avatar}></Avatar>
+          <Box css={styles.avatarContainer}>
+            <Avatar css={styles.userAvatar} src={userInfo.avatar}>
+          </Avatar>
+            <Image onClick={openSetting} css={styles.editIcon} src={editIcon} alt={''} />
+          </Box>
           <Box css={styles.userinfoName}>{userInfo.name}</Box>
           <Box css={styles.userEmail}>{userInfo.email}</Box>
           <Box onClick={openSetting} css={styles.userMenuItem}>
@@ -149,7 +153,7 @@ const Index: React.FC<IHeader> = () => {
               <Image css={styles.playIcon} width={11} height={11} src={playIcon} alt={""} />
             </IconButton>
           </Box>
-         {/* <Box css={styles.userMenuItem}>
+          {/* <Box css={styles.userMenuItem}>
             <IconButton>
               <Image width={12} height={12} css={styles.userAddIcon} src={userAdd} alt={""} />
             </IconButton>
