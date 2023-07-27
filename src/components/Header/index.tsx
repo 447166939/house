@@ -2,7 +2,7 @@ import React, { Fragment, useRef } from "react";
 import { AppBar, Toolbar, Badge, SvgIcon, Avatar, Popper, Box, IconButton } from "@mui/material";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 import Link from "@/components/Link";
 import * as styles from "@/components/Header/headerStyle";
 import headerLogo from "@/assets/images/header_logo.png";
@@ -43,7 +43,7 @@ function HelperIcon(props: any) {
 }
 const Index: React.FC<IHeader> = () => {
   const dispatch = useDispatch();
-  const router=useRouter();
+  const router = useRouter();
   const { navs, currentNav } = useSelector((state: RootState) => state.global);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const { userInfo } = useSelector((state: RootState) => state.global);
@@ -62,9 +62,9 @@ const Index: React.FC<IHeader> = () => {
   const openSetting = () => {
     dispatch(setSettingdialogopen(true));
   };
-  const toContact=()=>{
-    router.push('/')
-  }
+  const toContact = () => {
+    router.push("/");
+  };
   return (
     <AppBar css={styles.appBar} position="static">
       <Toolbar>
@@ -81,11 +81,11 @@ const Index: React.FC<IHeader> = () => {
           ))}
         </Box>
         <IconButton onClick={toContact}>
-        <Badge badgeContent={4} color="error">
-          <PersonIcon />
-        </Badge>
+          <Badge badgeContent={4} color="error">
+            <PersonIcon />
+          </Badge>
         </IconButton>
-       {/* <IconButton css={styles.msgBtn}>
+        {/* <IconButton css={styles.msgBtn}>
           <Image css={styles.msgIcon} src={msgIcon} alt={""} />
         </IconButton>*/}
         <IconButton css={styles.bookBtn}>

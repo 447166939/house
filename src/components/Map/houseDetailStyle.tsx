@@ -281,11 +281,11 @@ export const scrollContainer = css`
   overflow-y: auto;
   &::-webkit-scrollbar {
     background-color: #111113;
-    width: 0.29rem;
+    width: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #38383f;
-    border-radius: 0.29rem;
+    border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb:hover {
     background-color: #38383f;

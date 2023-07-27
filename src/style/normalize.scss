@@ -11,6 +11,24 @@ html,body{
   height: 100%;
   overflow: hidden;
 }
+::-webkit-scrollbar {
+  background-color: #111113;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #38383f;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #38383f;
+}
+*{
+  scrollbar-width: thin;
+  scrollbar-color: #38383f #111113;
+}
+::-webkit-scrollbar-track {
+  background-color: #111113;
+}
 @media screen and (min-width: 375px) {
   html {
     /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */

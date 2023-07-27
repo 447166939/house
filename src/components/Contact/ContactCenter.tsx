@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { css } from "@emotion/react";
 import {
   Avatar,
   Grid,
@@ -7,7 +8,7 @@ import {
   InputBase,
   MenuItem,
   Select,
-  SelectChangeEvent
+  SelectChangeEvent, PaperProps, styled
 } from "@mui/material";
 import * as styles from "./contactCenterStyle";
 import Image from "next/image";
@@ -40,6 +41,16 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
         </Box>
         <Box css={styles.cateBox}>
           <Select
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    backgroundColor: "#111113",
+                    color: "#A2AAB8",
+                    fontSize: "15px",
+                    border: "1px solid #36404E",
+                  },
+              },
+              }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
@@ -49,13 +60,35 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
             <MenuItem value="">
               <em>排序分类</em>
             </MenuItem>
-            <MenuItem value={10}>分类1</MenuItem>
-            <MenuItem value={20}>分类2</MenuItem>
-            <MenuItem value={30}>分类3</MenuItem>
+            <MenuItem value={10}>Admin</MenuItem>
+            <MenuItem value={20}>RealEstate</MenuItem>
+            <MenuItem value={30}>Agent</MenuItem>
+            <MenuItem value={40}>Property</MenuItem>
+            <MenuItem value={50}>Manager</MenuItem>
+            <MenuItem value={60}>Contractor</MenuItem>
+            <MenuItem value={70}>Architect</MenuItem>
+            <MenuItem value={80}>Accountant</MenuItem>
+            <MenuItem value={90}>Lawyer</MenuItem>
+            <MenuItem value={100}>Private</MenuItem>
+            <MenuItem value={110}>Investor</MenuItem>
+            <MenuItem value={120}>Loaner & Lender</MenuItem>
+            <MenuItem value={130}>oint</MenuItem>
+            <MenuItem value={140}>Venture</MenuItem>
+            <MenuItem value={150}>Others</MenuItem>
           </Select>
         </Box>
         <Box css={styles.filterBox}>
           <Select
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    backgroundColor: "#111113",
+                    color: "#A2AAB8",
+                    fontSize: "15px",
+                    border: "1px solid #36404E"
+                  }
+                }
+              }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
@@ -65,9 +98,9 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
             <MenuItem value="">
               <em>过滤</em>
             </MenuItem>
-            <MenuItem value={10}>选项1</MenuItem>
-            <MenuItem value={20}>选项2</MenuItem>
-            <MenuItem value={30}>选项3</MenuItem>
+            <MenuItem value={10}>按所在地区过滤</MenuItem>
+            <MenuItem value={20}>按用户角色过滤</MenuItem>
+            <MenuItem value={30}>按好友类别过滤</MenuItem>
           </Select>
         </Box>
       </Box>
