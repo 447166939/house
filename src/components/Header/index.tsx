@@ -132,9 +132,8 @@ const Index: React.FC<IHeader> = () => {
         <Box ref={popoverRef} css={styles.popoverContainer}>
           <SettingDialog />
           <Box css={styles.avatarContainer}>
-            <Avatar css={styles.userAvatar} src={userInfo.avatar}>
-          </Avatar>
-            <Image onClick={openSetting} css={styles.editIcon} src={editIcon} alt={''} />
+            <Avatar css={styles.userAvatar} src={userInfo.avatar}></Avatar>
+            <Image onClick={openSetting} css={styles.editIcon} src={editIcon} alt={""} />
           </Box>
           <Box css={styles.userinfoName}>{userInfo.name}</Box>
           <Box css={styles.userEmail}>{userInfo.email}</Box>

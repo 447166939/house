@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import checkedIcon from "@/assets/images/checked.png";
 import Image from "next/image";
