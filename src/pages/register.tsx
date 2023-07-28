@@ -19,6 +19,7 @@ import {
   SelectChangeEvent,
   TextField
 } from "@mui/material";
+import { useRegister } from "@/hooks/useRegister";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const [role, setRole] = useState("");
@@ -33,6 +34,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
   const handleLocationChange = (event: SelectChangeEvent) => {
     setLocation(event.target.value);
   };
+  const { mutate } = useRegister();
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>

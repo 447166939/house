@@ -47,14 +47,14 @@ export const searchInput = css`
   ${grey};
 `;
 export const contacts = css`
-width:100%;
+  width: 100%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  flex-basis:677px;
+  flex-basis: 677px;
   position: relative;
-  overflow-y:auto;
-  padding-bottom:150px;
+  overflow-y: auto;
+  padding-bottom: 150px;
 `;
 export const contactItem = css`
   display: flex;
@@ -66,27 +66,27 @@ export const contactAvatar = css`
   width: 58px;
   height: 60px;
 `;
-export const contactRight=css`
-margin-left:14.8px;
-`
+export const contactRight = css`
+  margin-left: 14.8px;
+`;
 export const contactName = css`
   ${t20};
   ${white};
 `;
-export const contactTags=css`
-display:flex;
-align-items:center;
-margin-top:5px;
-`
-export const contactTagItem=css`
-font-size:10px;
-font-weight:400;
-${grey};
-padding: 0 6px 0 3px;
-border-radius:4px;
-background-color:#323232;
-margin-right:10.5px;
-`
+export const contactTags = css`
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+`;
+export const contactTagItem = css`
+  font-size: 10px;
+  font-weight: 400;
+  ${grey};
+  padding: 0 6px 0 3px;
+  border-radius: 4px;
+  background-color: #323232;
+  margin-right: 10.5px;
+`;
 export const myInfo = css`
   position: fixed;
   bottom: 0;

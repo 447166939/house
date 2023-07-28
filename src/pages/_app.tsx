@@ -15,8 +15,9 @@ import "@fontsource/roboto/700.css";
 import "/src/style/normalize.scss";
 import { NextPage } from "next";
 import { ThemeProvider } from "@mui/material";
+import { Hydrate, QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const clientSideEmotionCache = createEmotionCache();
-
 export interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
@@ -29,19 +30,25 @@ function MyApp(props: MyAppProps) {
   const getLayout = Component.getLayout || ((page: NextPage) => page);
   const { store } = wrapper.useWrappedStore(rest);
   const { emotionCache = clientSideEmotionCache, pageProps } = props;
+  const [queryClient] = React.useState(() => new QueryClient());
   return (
-    <Provider store={store}>
-      <CacheProvider value={emotionCache}>
-        <Head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </Head>
-        <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          {getLayout(<Component {...pageProps} />)}
-        </ThemeProvider>
-      </CacheProvider>
-    </Provider>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <Provider store={store}>
+          <CacheProvider value={emotionCache}>
+            <Head>
+              <meta name="viewport" content="initial-scale=1, width=device-width" />
+            </Head>
+            <ThemeProvider theme={theme}>
+              {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+              <CssBaseline />
+              {getLayout(<Component {...pageProps} />)}
+            </ThemeProvider>
+          </CacheProvider>
+        </Provider>
+      </Hydrate>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 export default MyApp;
