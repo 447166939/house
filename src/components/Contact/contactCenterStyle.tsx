@@ -48,7 +48,7 @@ export const selectInput = css`
   ${white};
   width: 184px;
   height: 40px;
-  padding-left:20px;
+  padding-left: 20px;
   display: flex;
   align-items: center;
 `;
@@ -92,7 +92,7 @@ export const card = css`
 `;
 export const profileBox = css`
   margin-left: 8.66px;
-  flex:1;
+  flex: 1;
 `;
 export const profileName = css`
   ${t16};
@@ -101,7 +101,7 @@ export const profileName = css`
 export const profileInput = css`
   ${t14};
   ${grey};
-  width:100%;
+  width: 100%;
 `;
 export const bottomBox = css`
   display: flex;
