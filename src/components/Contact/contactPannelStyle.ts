@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { grey, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
-  width: 15.22rem;
+  flex-basis:419px;
   background-color: #222226;
   display: flex;
   flex-direction: column;
@@ -10,58 +10,59 @@ export const container = css`
 export const contactName = css`
   ${t20};
   ${white};
-  margin-top: 2.51rem;
+  margin-top: 69px;
   align-self: center;
 `;
 export const remarkBox = css`
   background-color: #1a1a1d;
-  width: 13.6rem;
-  border-radius: 0.36rem;
+  width: 376px;
+  border-radius: 10px;
   align-self: center;
-  margin-top: 0.35rem;
+  margin-top: 9.6px;
   position: relative;
-  padding-top: 0.36rem;
+  padding-top: 42px;
 `;
 export const remarkAvatar = css`
   position: absolute;
-  left: 0.73rem;
-  top: -1.4rem;
-  width: 2.8rem;
-  height: 2.8rem;
+  left: 20px;
+  top: -48.6px;
+  width: 78px;
+  height: 78px;
 `;
 export const remarkTextarea = css`
   ${t14};
   ${grey};
-  min-height: 3.16rem;
   width: 100%;
-  padding-left: 1.23rem;
+  padding-left: 34px;
 `;
 export const remarkTag = css`
   background-color: #323232;
-  border-radius: 0.14rem;
-  margin-right: 0.5rem;
-  padding: 0 0.29rem;
+  border-radius: 4px;
+  margin-right: 7.7px;
+  height:28px;
+  line-height:28px;
+  padding: 0 8.6px;
   ${t16};
   ${white};
 `;
 export const tagBox = css`
   display: flex;
   flex-wrap: wrap;
-  margin-left: 1.08rem;
-  margin-bottom: 1.23rem;
+  margin-left: 29px;
+  margin-bottom: 34px;
 `;
 export const midBox = css`
   background-color: #1a1a1d;
-  width: 13.6rem;
-  border-radius: 0.36rem;
+  width: 376px;
+  border-radius: 10px;
   align-self: center;
-  margin-top: 0.72rem;
+  margin-top: 20px;
   position: relative;
-  padding-top: 1.09rem;
-  padding-left: 1.35rem;
+  padding-top: 31px;
+  padding-left: 37px;
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.95rem;
+  padding-bottom: 26px;
 `;
 export const potts = css``;
 export const pottsTitle = css`
@@ -73,7 +74,7 @@ export const pottsText = css`
   ${grey};
 `;
 export const date = css`
-  margin-top: 1.06rem;
+  margin-top: 29px;
 `;
 export const dateTitle = css`
   ${t16};
@@ -84,7 +85,7 @@ export const dateText = css`
   ${grey};
 `;
 export const note = css`
-  margin-top: 1.06rem;
+  margin-top: 29px;
 `;
 export const noteTitle = css`
   ${t16};
@@ -96,15 +97,15 @@ export const noteText = css`
 `;
 export const friendsBox = css`
   background-color: #1a1a1d;
-  width: 13.6rem;
-  border-radius: 0.36rem;
+  width: 376px;
+  border-radius: 10px;
   align-self: center;
-  margin-top: 0.72rem;
+  margin-top: 20px;
   position: relative;
-  padding-top: 0.5rem;
-  padding-left: 1.35rem;
+  padding-top: 16.5px;
+  padding-left: 37px;
   display: flex;
-  padding-bottom: 0.5rem;
+  padding-bottom: 16.5px;
   align-items: center;
 `;
 export const friendsText = css`

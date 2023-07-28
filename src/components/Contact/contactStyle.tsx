@@ -3,6 +3,6 @@ import { css } from "@emotion/react";
 export const container = css`
   display: flex;
   flex-direction: column;
-  flex: 1;
-  user-select:none;
+  height:100%;
+  user-select: none;
 `;
