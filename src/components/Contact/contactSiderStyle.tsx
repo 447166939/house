@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { grey, h20, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
-  width: 13.04rem;
+  width: 359px;
   background-color: #222226;
   display: flex;
   flex-direction: column;
@@ -10,13 +10,13 @@ export const container = css`
 export const contactHead = css`
   display: flex;
   align-items: center;
-  padding-left: 1.05rem;
-  padding-right: 0.84rem;
+  padding-left: 29px;
+  padding-right: 24px;
   justify-content: space-between;
-  margin-top: 0.77rem;
+  margin-top: 21px;
 `;
 export const contactAdd = css`
-  width: 0.76rem;
+  width: 21px;
   height: auto;
 `;
 export const contactHeadText = css`
@@ -24,33 +24,37 @@ export const contactHeadText = css`
   ${white};
 `;
 export const searchInputWrapper = css`
-  height: 1.45rem;
-  border-radius: 1.09rem;
+  height: 40px;
+  border-radius: 68px;
   background-color: #111113;
-  padding: 0 0 0 0.65rem;
+  padding: 0 0 0 18px;
   display: flex;
   align-items: center;
-  margin-top: 0.78rem;
-  margin-left: 0.87rem;
-  margin-right: 0.59rem;
-  margin-bottom: 0.78rem;
+  margin-top: 20px;
+  margin-left: 24px;
+  margin-right: 24px;
+  margin-bottom: 29px;
 `;
 export const searchIcon = css`
-  width: 0.72rem;
+  width: 20px;
   height: auto;
 `;
 export const searchInput = css`
   flex: 1;
   height: 100%;
-  padding: 0.36rem 0;
+  padding: 10px 0;
   ${t16};
   ${grey};
 `;
 export const contacts = css`
+width:100%;
   flex: 1;
   display: flex;
   flex-direction: column;
+  flex-basis:677px;
   position: relative;
+  overflow-y:auto;
+  padding-bottom:150px;
 `;
 export const contactItem = css`
   display: flex;
@@ -58,29 +62,45 @@ export const contactItem = css`
   margin-bottom: 0.62rem;
 `;
 export const contactAvatar = css`
-  margin-left: 1.71rem;
-  width: 2.1rem;
-  height: 2.1rem;
+  margin-left: 47px;
+  width: 58px;
+  height: 60px;
 `;
+export const contactRight=css`
+margin-left:14.8px;
+`
 export const contactName = css`
   ${t20};
-  ${grey};
-  margin-left: 0.53rem;
+  ${white};
 `;
+export const contactTags=css`
+display:flex;
+align-items:center;
+margin-top:5px;
+`
+export const contactTagItem=css`
+font-size:10px;
+font-weight:400;
+${grey};
+padding: 0 6px 0 3px;
+border-radius:4px;
+background-color:#323232;
+margin-right:10.5px;
+`
 export const myInfo = css`
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   align-items: center;
   z-index: 10000;
   background-color: #1a1a1d;
-  width: 100%;
+  width: 359px;
   height: 3.34rem;
 `;
 export const myAvatar = css`
-  width: 1.92rem;
-  height: 1.92rem;
-  margin-left: 1.02rem;
+  width: 53px;
+  height: 53px;
+  margin-left: 28px;
 `;
 export const myContactName = css`
   ${h20};
@@ -91,13 +111,13 @@ export const myStatus = css`
   ${grey};
 `;
 export const myText = css`
-  margin-left: 0.45rem;
+  margin-left: 12px;
 `;
 export const mySetting = css`
-  width: 0.65rem;
+  width: 18px;
   height: auto;
 `;
 export const mySettingBtn = css`
   margin-left: auto;
-  margin-right: 0.59rem;
+  margin-right: 16px;
 `;

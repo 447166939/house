@@ -1,5 +1,5 @@
 import React from "react";
-import {Avatar, Box, IconButton, InputBase, styled, Switch} from "@mui/material";
+import { Avatar, Box, IconButton, InputBase, styled, Switch } from "@mui/material";
 import * as styles from "./chatwindowStyle";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
@@ -8,21 +8,21 @@ import circlePlusIcon from "@/assets/images/circlePlus.png";
 import faceIcon from "@/assets/images/face.png";
 export interface IChatWindow {}
 const CustomSwitch = styled(Switch)(({ theme }) => ({
-    "& .MuiSwitch-switchBase": {
-        "&.Mui-checked": {
-            color: "#000",
-            "& + .MuiSwitch-track": {
-                backgroundColor: "#000",
-                opacity: 1
-            }
-        },
-        "& .MuiSwitch-thumb": {
-            color: "#313136"
-        }
+  "& .MuiSwitch-switchBase": {
+    "&.Mui-checked": {
+      color: "#000",
+      "& + .MuiSwitch-track": {
+        backgroundColor: "#000",
+        opacity: 1
+      }
     },
-    "& .MuiSwitch-track": {
-        backgroundColor: "#000"
+    "& .MuiSwitch-thumb": {
+      color: "#313136"
     }
+  },
+  "& .MuiSwitch-track": {
+    backgroundColor: "#000"
+  }
 }));
 const ChatWindow: React.FC<IChatWindow> = (props) => {
   const { chatList } = useSelector((state: RootState) => state.contact);
@@ -31,7 +31,7 @@ const ChatWindow: React.FC<IChatWindow> = (props) => {
       <Box css={styles.chatHeader}>
         <Box css={styles.chatHeaderText}>聊天窗口</Box>
         <Box css={styles.switchText}>翻译</Box>
-        <CustomSwitch size={'medium'} />
+        <CustomSwitch size={"medium"} />
       </Box>
       <Box css={styles.chatList}>
         {chatList.map((item, index) => (

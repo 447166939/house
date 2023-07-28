@@ -18,47 +18,68 @@ export const defaultState: ContactStateType = {
     {
       id: 1,
       name: "Mitch Lujan",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 2,
       name: "Sean Potts",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 3,
       name: "Ankit",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 4,
       name: "Ursula444",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 5,
       name: "martelantoine",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 6,
       name: "Elzat",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 7,
       name: "Mitch Lujan",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 8,
       name: "Sean Potts",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     },
     {
       id: 9,
       name: "Ankit",
-      avatar: "/avatar.jpg"
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
+    },
+    {
+      id: 10,
+      name: "Ankit",
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
+    },
+    {
+      id: 11,
+      name: "Ankit",
+      avatar: "/avatar.jpg",
+      tags:['Accountant','Seattle,WA','English']
     }
   ],
   currentTab: 0,
