@@ -119,6 +119,8 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
                       css={styles.profileInput}
                       multiline
                       placeholder={"这是一句个人简介"}
+                      minRows={3}
+                      maxRows={3}
                     />
                   </Box>
                   {item.isFriend ? (

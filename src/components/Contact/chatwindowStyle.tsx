@@ -2,20 +2,20 @@ import { css } from "@emotion/react";
 import { grey, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
-flex:1;
-  height:100%;
+  flex: 1;
+  height: 100%;
   background-color: #1e1f22;
   display: flex;
   flex-direction: column;
-  padding-bottom:14px;
-  box-sizing:border-box;
-  overflow:hidden;
+  padding-bottom: 14px;
+  box-sizing: border-box;
+  overflow: hidden;
 `;
 export const chatHeader = css`
   display: flex;
   align-items: center;
   margin-top: 27px;
-  height:27px;
+  height: 27px;
 `;
 export const chatHeaderText = css`
   ${t20};
@@ -32,7 +32,7 @@ export const switchstyle = css`
 `;
 export const chatList = css`
   flex: 1;
-  overflow-y:auto;
+  overflow-y: auto;
 `;
 export const chatItem = css`
   display: flex;

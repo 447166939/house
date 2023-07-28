@@ -6,9 +6,9 @@ export const container = css`
   background-color: #222226;
   display: flex;
   flex-direction: column;
-  height:100%;
-  overflow:hidden;
-  flex-shrink:0;
+  height: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
 `;
 export const contactHead = css`
   display: flex;
@@ -17,7 +17,7 @@ export const contactHead = css`
   padding-right: 24px;
   justify-content: space-between;
   margin-top: 21px;
-  height:27px;
+  height: 27px;
 `;
 export const contactAdd = css`
   width: 21px;
@@ -56,10 +56,10 @@ export const contacts = css`
   display: flex;
   flex-direction: column;
   flex-basis: 577px;
-  flex-grow:1;
+  flex-grow: 1;
   position: relative;
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
   padding-bottom: 150px;
 `;
 export const contactItem = css`
@@ -83,7 +83,7 @@ export const contactTags = css`
   display: flex;
   align-items: center;
   margin-top: 5px;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 `;
 export const contactTagItem = css`
   font-size: 10px;
@@ -93,7 +93,7 @@ export const contactTagItem = css`
   border-radius: 4px;
   background-color: #323232;
   margin-right: 10.5px;
-  margin-bottom:5px;
+  margin-bottom: 5px;
 `;
 export const myInfo = css`
   display: flex;
@@ -101,7 +101,7 @@ export const myInfo = css`
   background-color: #1a1a1d;
   width: 100%;
   height: 92px;
-  box-sizing:border-box;
+  box-sizing: border-box;
 `;
 export const myAvatar = css`
   width: 53px;

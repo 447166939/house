@@ -13,7 +13,12 @@ const ContactPannel: React.FC<IContactPannel> = (props) => {
       <Box css={styles.contactName}>{contactInfo.name}</Box>
       <Box css={styles.remarkBox}>
         <Avatar css={styles.remarkAvatar} src={contactInfo.avatar} />
-        <InputBase minRows={5} css={styles.remarkTextarea} multiline placeholder={"这是一句个人名言"} />
+        <InputBase
+          minRows={5}
+          css={styles.remarkTextarea}
+          multiline
+          placeholder={"这是一句个人名言"}
+        />
         <Box css={styles.tagBox}>
           {contactInfo.tags.map((item: any, index: number) => (
             <Box css={styles.remarkTag} key={index}>
@@ -36,7 +41,7 @@ const ContactPannel: React.FC<IContactPannel> = (props) => {
           <Box css={styles.noteText}>{contactInfo.note.text}</Box>
         </Box>
       </Box>
-     {/* <Box css={styles.serverBox}>
+      {/* <Box css={styles.serverBox}>
         <Box css={styles.serverText}>{contactInfo.server}</Box>
         <IconButton css={styles.rightIconBtn}>
           <Image css={styles.rightIcon} src={rightIcon} alt={""} />

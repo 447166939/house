@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import { grey, t14, t16, t20, white } from "@/style/baseStyle";
 
 export const container = css`
-  flex-basis:419px;
+  flex-basis: 419px;
   background-color: #222226;
   display: flex;
   flex-direction: column;
@@ -39,8 +39,8 @@ export const remarkTag = css`
   background-color: #323232;
   border-radius: 4px;
   margin-right: 7.7px;
-  height:28px;
-  line-height:28px;
+  height: 28px;
+  line-height: 28px;
   padding: 0 8.6px;
   ${t16};
   ${white};

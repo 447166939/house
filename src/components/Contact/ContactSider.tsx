@@ -56,16 +56,16 @@ const ContactSider: React.FC<IContactSider> = (props) => {
           </Box>
         ))}
       </Box>
-        <Box css={styles.myInfo} key={"me"}>
-            <Avatar css={styles.myAvatar} src={userInfo.avatar} />
-            <Box css={styles.myText}>
-                <Box css={styles.myContactName}>{userInfo.name}</Box>
-                <Box css={styles.myStatus}>{userInfo.status}</Box>
-            </Box>
-            <IconButton css={styles.mySettingBtn}>
-                <Image css={styles.mySetting} src={mySetting} alt={""} />
-            </IconButton>
+      <Box css={styles.myInfo} key={"me"}>
+        <Avatar css={styles.myAvatar} src={userInfo.avatar} />
+        <Box css={styles.myText}>
+          <Box css={styles.myContactName}>{userInfo.name}</Box>
+          <Box css={styles.myStatus}>{userInfo.status}</Box>
         </Box>
+        <IconButton css={styles.mySettingBtn}>
+          <Image css={styles.mySetting} src={mySetting} alt={""} />
+        </IconButton>
+      </Box>
     </Box>
   );
 };
