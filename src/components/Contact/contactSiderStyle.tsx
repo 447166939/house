@@ -59,7 +59,7 @@ export const contacts = css`
 export const contactItem = css`
   display: flex;
   align-items: center;
-  margin-bottom: 0.62rem;
+  margin-bottom: 17.2px;
 `;
 export const contactAvatar = css`
   margin-left: 47px;
@@ -95,7 +95,7 @@ export const myInfo = css`
   z-index: 10000;
   background-color: #1a1a1d;
   width: 359px;
-  height: 3.34rem;
+  height: 92px;
 `;
 export const myAvatar = css`
   width: 53px;

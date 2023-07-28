@@ -4,4 +4,5 @@ export const container = css`
   display: flex;
   flex-direction: column;
   flex: 1;
+  user-select:none;
 `;

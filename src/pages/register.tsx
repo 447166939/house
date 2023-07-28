@@ -35,6 +35,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
     setLocation(event.target.value);
   };
   const { mutate } = useRegister();
+  const handleSubmit=()=>{
+    mutate({email:'18750880958@163.com',username:'xingzai'})
+  }
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>
@@ -213,7 +216,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </Select>
             </FormControl>
             <FormControl css={styles.buttonControl}>
-              <Button variant="contained" color="primary" css={styles.registerButton}>
+              <Button onClick={handleSubmit} variant="contained" color="primary" css={styles.registerButton}>
                 Sign Up
               </Button>
             </FormControl>

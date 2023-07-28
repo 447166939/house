@@ -47,7 +47,7 @@ function MyApp(props: MyAppProps) {
           </CacheProvider>
         </Provider>
       </Hydrate>
-      <ReactQueryDevtools />
+    {/*  <ReactQueryDevtools />*/}
     </QueryClientProvider>
   );
 }
