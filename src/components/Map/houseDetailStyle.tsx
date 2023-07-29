@@ -315,7 +315,7 @@ export const viewerBox = css`
   display: flex;
   align-items: center;
   margin-left: 29.85px;
-  margin-top:14.4px;
+  margin-top: 14.4px;
 `;
 export const viewerItem = css`
   white-space: nowrap;
@@ -323,12 +323,12 @@ export const viewerItem = css`
 export const dayText = css`
   ${t18};
   ${grey};
-  margin-right:115px;
+  margin-right: 115px;
 `;
 export const viewText = css`
   ${t18};
   ${grey};
-  margin-right:133px;
+  margin-right: 133px;
 `;
 export const saveText = css`
   ${t18};
@@ -366,7 +366,7 @@ export const caculateTab = css`
   margin-left: 20.84px;
   border-bottom: 1px solid #313338;
   padding-bottom: 13.69px;
-  margin-right:18.85px;
+  margin-right: 18.85px;
 `;
 export const cateTabItem = ({ isActive }: any) => css`
   cursor: pointer;
@@ -413,7 +413,7 @@ export const inputText = css`
   ${grey};
   width: 100%;
   height: 40px;
-  margin-top:6.6px;
+  margin-top: 6.6px;
   border: 1px solid #393a3f;
   background-color: #1a1a1a;
   border-radius: 4px;
@@ -440,13 +440,13 @@ export const bottomInputBox = css`
   margin-right: 18.85px;
   margin-top: 41px;
 `;
-export const scrollBox=css`
-flex:1;
-overflow-y:auto;
-display:flex;
-flex-direction:column;
-padding-bottom:278px;
-`
+export const scrollBox = css`
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 278px;
+`;
 export const saveBtn = css`
   white-space: nowrap;
   margin: auto auto 82.8px auto;

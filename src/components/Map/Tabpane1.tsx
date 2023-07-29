@@ -22,7 +22,7 @@ import unlikeIcon from "@/assets/images/unlike.png";
 import HouseDetail from "@/components/Map/HouseDetail";
 export interface ITabpane1 {}
 const Tabpane1: React.FC<ITabpane1> = (props) => {
-  const [cate, setCate] = useState('10');
+  const [cate, setCate] = useState("10");
   const [open, setOpen] = useState(false);
   const openDetail = () => {
     setOpen(true);
@@ -48,28 +48,28 @@ const Tabpane1: React.FC<ITabpane1> = (props) => {
         <Box css={styles.result}>{tabpane1Data.result}</Box>
         <Box css={styles.cateBox}>
           <Select
-              MenuProps={{
-                PaperProps: {
-                  style: {
-                    backgroundColor: "#313136",
-                    color: "#fff",
-                    fontSize: "16px",
-                  }
+            MenuProps={{
+              PaperProps: {
+                style: {
+                  backgroundColor: "#313136",
+                  color: "#fff",
+                  fontSize: "16px"
                 }
-              }}
+              }
+            }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
             value={cate}
             onChange={handleCateChange}
             input={<InputBase css={styles.selectInput} name="cate" id="cate" />}>
-            <MenuItem value={10}>最新</MenuItem>
-            <MenuItem value={20}>适合您的家</MenuItem>
-            <MenuItem value={30}>价格从高到低</MenuItem>
-            <MenuItem value={40}>价格从低到高</MenuItem>
-            <MenuItem value={50}>最新卧室浴室</MenuItem>
-            <MenuItem value={60}>平方英尺</MenuItem>
-            <MenuItem value={70}>批量大小</MenuItem>
+            <MenuItem css={styles.selectItem} value={10}>最新</MenuItem>
+            <MenuItem css={styles.selectItem} value={20}>适合您的家</MenuItem>
+            <MenuItem css={styles.selectItem} value={30}>价格从高到低</MenuItem>
+            <MenuItem css={styles.selectItem} value={40}>价格从低到高</MenuItem>
+            <MenuItem css={styles.selectItem} value={50}>最新卧室浴室</MenuItem>
+            <MenuItem css={styles.selectItem} value={60}>平方英尺</MenuItem>
+            <MenuItem css={styles.selectItem} value={70}>批量大小</MenuItem>
           </Select>
         </Box>
       </Box>
