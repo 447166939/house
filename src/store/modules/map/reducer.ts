@@ -11,7 +11,7 @@ export const defaultState: ContactStateType = {
   tabs: [
     { id: 1, text: "备选项目" },
     { id: 2, text: "档案库" },
-    {id:3,text:"我的收藏"}
+    { id: 3, text: "我的收藏" }
   ],
   currentTab: 0,
   tabpane1Data: {

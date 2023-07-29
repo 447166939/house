@@ -106,7 +106,7 @@ export const navBox = css`
     margin: 0 auto;
     background-color: #313338;
     margin-top: 6.8px;
-    margin-bottom:8.29px;
+    margin-bottom: 8.29px;
     inset: 0;
     top: 100%;
   }

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // 创建 axios 实例
-const baseUrl = "http://42.192.157.113/:8080";
+const baseUrl = "http://42.192.157.113:5432/api";
 const service = axios.create({
   baseURL: baseUrl,
   timeout: 60000 // 请求超时时间
