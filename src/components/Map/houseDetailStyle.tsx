@@ -2,27 +2,26 @@ import { css } from "@emotion/react";
 import { grey, h20, h30, t12, t14, t16, t18, t20, white } from "@/style/baseStyle";
 
 export const container = css`
-  width: 59.55rem;
-  height: 36.55rem;
+  width: 1639px;
+  height: auto;
   background-color: #111113;
   position: fixed;
-  height: auto;
   inset: 0;
-  margin: 1.9rem auto;
-  border-radius: 0.72rem;
+  margin: 37px auto;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
 `;
 export const title = css`
   ${t20};
   ${white};
-  margin-top: 0.87rem;
-  margin-left: 1.19rem;
+  margin-top: 24px;
+  margin-left: 32px;
 `;
 export const closeBtn = css`
   position: absolute;
-  top: 0.87rem;
-  right: 1.32rem;
+  top: 24px;
+  right: 36px;
   padding: 0;
 `;
 export const closeIcon = css`
@@ -35,21 +34,21 @@ export const content = css`
   overflow-y: hidden;
 `;
 export const picBox = css`
-  width: 17.44rem;
+  width: 480px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  row-gap: 0.31rem;
-  column-gap: 0.25rem;
+  row-gap: 8.7px;
+  column-gap: 7px;
   overflow-y: scroll;
-  margin-top: 0.75rem;
+  margin-top: 20px;
   flex-shrink: 0;
   &::-webkit-scrollbar {
     background-color: #111113;
-    width: 0.29rem;
+    width: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: #38383f;
-    border-radius: 0.29rem;
+    border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb:hover {
     background-color: #38383f;
@@ -76,58 +75,59 @@ export const picItem = css`
   }
 `;
 export const midBox = css`
-  width: 20.79rem;
+  width: 572px;
   display: flex;
   flex-direction: column;
 `;
 export const caculatorBox = css`
-  width: 20.34rem;
-  margin-right: 0.447rem;
+  width: 560px;
+  margin-right: 12px;
   margin-left: auto;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   background-color: #1e1f22;
-  border-radius: 0.726rem;
-  margin-top: 0.79rem;
-  margin-bottom: 0.501rem;
+  border-radius: 20px;
+  margin-top: 15px;
+  margin-bottom: 13px;
 `;
 export const navBox = css`
   display: flex;
   align-items: center;
-  margin-left: 1.08rem;
-  margin-top: 1.08rem;
+  margin-left: 29px;
+  margin-top: 20px;
   position: relative;
-  margin-right: 0.88rem;
+  margin-right: 22px;
   &:after {
     content: "";
     position: absolute;
-    height: 0.036rem;
+    height: 1px;
     display: block;
     margin: 0 auto;
     background-color: #313338;
-    margin-top: 0.13rem;
+    margin-top: 6.8px;
+    margin-bottom:8.29px;
     inset: 0;
     top: 100%;
   }
 `;
 export const logo = css`
-  width: 5.74rem;
+  width: 159px;
   height: auto;
 `;
 export const heartIcon = css`
-  width: 0.64rem;
+  width: 18px;
   height: auto;
 `;
 export const heartBtn = css`
   margin-left: auto;
 `;
 export const shareIcon = css`
-  width: 0.61rem;
+  width: 17px;
   height: auto;
 `;
 export const eyeIcon = css`
-  width: 0.61rem;
+  width: 17px;
   height: auto;
 `;
 export const hamburgerIcon = css`
@@ -137,18 +137,18 @@ export const hamburgerIcon = css`
 export const moneyText = css`
   ${h30};
   ${white};
-  margin-left: 1.07rem;
-  margin-top: 0.3rem;
+  margin-left: 29.72px;
+  margin-top: 8.29px;
 `;
 export const addressText = css`
   ${t18};
   ${grey};
-  margin-left: 1.07rem;
+  margin-left: 29.72px;
 `;
 export const saleBox = css`
   display: flex;
   align-items: center;
-  margin-top: 0.52rem;
+  margin-top: 14.41px;
 `;
 export const saleLabel = css`
   display: flex;
@@ -161,10 +161,10 @@ export const saleLabel = css`
     position: absolute;
     content: "";
     background-color: #00e0fd;
-    width: 0.272rem;
-    height: 0.272rem;
+    width: 7.5px;
+    height: 7.5px;
     border-radius: 50%;
-    left: -0.372rem;
+    left: -7.5px;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -178,58 +178,58 @@ export const saleMoney = css`
   ${white};
 `;
 export const saleText = css`
-  margin-left: 1.15rem;
+  margin-left: 31.7px;
   display: flex;
   align-items: center;
 `;
 export const paymentBox = css`
   display: flex;
   align-items: center;
-  margin-top: 0.52rem;
+  margin-top: 14.41px;
 `;
 export const paymentLabel = css`
   ${t18};
   ${white};
-  margin-left: 1.079rem;
+  margin-left: 29.72px;
 `;
 export const paymentText = css`
   ${t18};
   color: #00e0fd;
-  margin-left: 1.019rem;
+  margin-left: 28.07px;
 `;
 export const buttonBox = css`
   display: flex;
   align-items: center;
-  margin-top: 0.95rem;
+  margin-top: 26px;
 `;
 export const createBtn = css`
-  width: 5.23rem;
-  height: 1.38rem;
+  width: 145px;
+  height: 38px;
   ${t20};
-  margin-left: 1.084rem;
+  margin-left: 29.85px;
 `;
 export const backupBtn = css`
-  width: 4.36rem;
-  height: 1.38rem;
+  width: 120px;
+  height: 38px;
   ${t20};
   color: #000;
-  margin-left: 1.14rem;
+  margin-left: 31.55px;
 `;
 export const documentBtn = css`
-  width: 4.36rem;
-  height: 1.38rem;
+  width: 120px;
+  height: 38px;
   ${t20};
-  margin-left: 1.14rem;
+  margin-left: 31.55px;
 `;
 export const overviewTab = css`
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
   white-space: nowrap;
-  margin-top: 0.816rem;
-  height: 1.72rem;
-  margin-left: 1.079rem;
-  margin-right: 0.88rem;
+  margin-top: 22.48px;
+  height: 47.35px;
+  margin-left: 29.72px;
+  margin-right: 15.24px;
   border-top: 1px solid #313338;
   border-bottom: 1px solid #313338;
   overflow-x: scroll;
@@ -242,19 +242,19 @@ export const overviewTab = css`
 export const overviewTabItem = ({ isActive }: any) => css`
   ${t14};
   color: ${isActive ? "#fff" : "#80848E"};
-  margin-right: 0.735rem;
+  margin-right: 20px;
   white-space: nowrap;
   width: max-content;
   position: relative;
   &:after {
-    bottom: -0.5rem;
+    bottom: -14.63px;
     content: "";
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     background-color: #00e0fd;
-    height: 0.145rem;
-    width: 2.95rem;
+    height: 4px;
+    width: 61px;
     display: ${isActive ? "block" : "none"};
   }
 `;
@@ -262,18 +262,18 @@ export const overviewText = css`
   white-space: pre-wrap;
   ${t16};
   ${grey};
-  margin-left: 1.079rem;
-  padding-left: 1.07rem;
-  margin-top: 0.68rem;
-  padding-bottom: 0.46rem;
+  margin-left: 29px;
+  padding-left: 30.2px;
+  margin-top: 18.9px;
+  padding-bottom: 12.77px;
   border-bottom: 1px solid #313338;
-  margin-right: 0.59rem;
+  margin-right: 24.3px;
 `;
 export const overviewTitle = css`
   ${h20};
   ${white};
-  margin-left: 1.079rem;
-  margin-top: 0.429rem;
+  margin-left: 29.72px;
+  margin-top: 11.83px;
 `;
 export const scrollContainer = css`
   padding-bottom: 100px;
@@ -300,9 +300,9 @@ export const overviewContent = css`
   white-space: pre-wrap;
   ${t14};
   ${grey};
-  margin-left: 1.079rem;
-  margin-top: 0.398rem;
-  margin-right: 1.76rem;
+  margin-left: 29.91px;
+  margin-top: 10.98px;
+  margin-right: 48.55;
 `;
 export const showMore = css`
   color: #00e0fd;

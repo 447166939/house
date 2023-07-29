@@ -39,6 +39,16 @@ const Content: React.FC<IContent> = (props) => {
         </Box>
         <Box css={styles.priceBox}>
           <Select
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    backgroundColor: "#111113",
+                    color: "#A2AAB8",
+                    fontSize: "15px",
+                    border: "1px solid #36404E"
+                  }
+                }
+              }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
@@ -55,6 +65,16 @@ const Content: React.FC<IContent> = (props) => {
         </Box>
         <Box css={styles.numBox}>
           <Select
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    backgroundColor: "#111113",
+                    color: "#A2AAB8",
+                    fontSize: "15px",
+                    border: "1px solid #36404E"
+                  }
+                }
+              }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
