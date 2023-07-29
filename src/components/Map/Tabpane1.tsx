@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {
   Box,
   Button,
-  ButtonBase,
-  Grid,
   IconButton,
   InputBase,
   MenuItem,
@@ -14,7 +12,7 @@ import * as styles from "./tabpane1Style";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import Image from "next/image";
-import downIcon from "@/assets/images/down.png";
+import downIcon from "@/assets/images/greendown.png";
 import locationIcon from "@/assets/images/location.png";
 import bedroomIcon from "@/assets/images/bedroomIcon.png";
 import bathroomIcon from "@/assets/images/bathroomIcon.png";
@@ -24,7 +22,7 @@ import unlikeIcon from "@/assets/images/unlike.png";
 import HouseDetail from "@/components/Map/HouseDetail";
 export interface ITabpane1 {}
 const Tabpane1: React.FC<ITabpane1> = (props) => {
-  const [cate, setCate] = useState("");
+  const [cate, setCate] = useState('10');
   const [open, setOpen] = useState(false);
   const openDetail = () => {
     setOpen(true);
@@ -50,18 +48,28 @@ const Tabpane1: React.FC<ITabpane1> = (props) => {
         <Box css={styles.result}>{tabpane1Data.result}</Box>
         <Box css={styles.cateBox}>
           <Select
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    backgroundColor: "#313136",
+                    color: "#fff",
+                    fontSize: "16px",
+                  }
+                }
+              }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
             value={cate}
             onChange={handleCateChange}
             input={<InputBase css={styles.selectInput} name="cate" id="cate" />}>
-            <MenuItem value="">
-              <em>分类</em>
-            </MenuItem>
-            <MenuItem value={10}>分类1</MenuItem>
-            <MenuItem value={20}>分类2</MenuItem>
-            <MenuItem value={30}>分类3</MenuItem>
+            <MenuItem value={10}>最新</MenuItem>
+            <MenuItem value={20}>适合您的家</MenuItem>
+            <MenuItem value={30}>价格从高到低</MenuItem>
+            <MenuItem value={40}>价格从低到高</MenuItem>
+            <MenuItem value={50}>最新卧室浴室</MenuItem>
+            <MenuItem value={60}>平方英尺</MenuItem>
+            <MenuItem value={70}>批量大小</MenuItem>
           </Select>
         </Box>
       </Box>

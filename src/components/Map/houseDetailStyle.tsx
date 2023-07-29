@@ -302,31 +302,33 @@ export const overviewContent = css`
   ${grey};
   margin-left: 29.91px;
   margin-top: 10.98px;
-  margin-right: 48.55;
+  margin-right: 48.55px;
 `;
 export const showMore = css`
   color: #00e0fd;
-  margin-left: 1.079rem;
+  margin-left: 29.85px;
   ${t18};
-  margin-top: 0.39rem;
+  margin-top: 14.4px;
   color: #00e0fd;
 `;
 export const viewerBox = css`
   display: flex;
   align-items: center;
-  margin-left: 1.079rem;
+  margin-left: 29.85px;
+  margin-top:14.4px;
 `;
 export const viewerItem = css`
-  margin-right: 4.19rem;
   white-space: nowrap;
 `;
 export const dayText = css`
   ${t18};
   ${grey};
+  margin-right:115px;
 `;
 export const viewText = css`
   ${t18};
   ${grey};
+  margin-right:133px;
 `;
 export const saveText = css`
   ${t18};
@@ -348,29 +350,29 @@ export const descriptionText = css`
   ${t14};
   ${grey};
   white-space: pre-wrap;
-  margin-left: 1.079rem;
-  margin-top: 0.877rem;
+  margin-left: 29.85px;
+  margin-top: 24.15px;
 `;
 export const caculatorTitle = css`
   ${h20};
   ${white};
-  margin-top: 1.014rem;
-  margin-left: 0.757rem;
+  margin-top: 27.9px;
+  margin-left: 20.84px;
 `;
 export const caculateTab = css`
   display: flex;
   align-items: center;
-  margin-top: 0.728rem;
-  margin-left: 0.757rem;
-  margin-right: 0.394rem;
+  margin-top: 20.05px;
+  margin-left: 20.84px;
   border-bottom: 1px solid #313338;
-  padding-bottom: 0.497rem;
+  padding-bottom: 13.69px;
+  margin-right:18.85px;
 `;
 export const cateTabItem = ({ isActive }: any) => css`
   cursor: pointer;
   ${t18};
   color: ${isActive ? "#fff" : "#80848E"};
-  margin-right: 2.833rem;
+  margin-right: 77.9px;
   white-space: nowrap;
   width: max-content;
   position: relative;
@@ -381,20 +383,20 @@ export const cateTabItem = ({ isActive }: any) => css`
     left: 50%;
     transform: translateX(-50%);
     background-color: #00e0fd;
-    height: 0.145rem;
-    width: 2.95rem;
+    height: 4px;
+    width: 81.4px;
     display: ${isActive ? "block" : "none"};
   }
 `;
 export const inputBox = css`
   display: grid;
-  column-gap: 1.292rem;
-  row-gap: 0.8rem;
+  column-gap: 22px;
+  row-gap: 24px;
   grid-template-columns: repeat(3, 1fr);
-  margin-left: 0.757rem;
-  margin-right: 0.684rem;
-  margin-top: 0.965rem;
-  padding-bottom: 1.4rem;
+  margin-left: 20.84px;
+  margin-right: 18.85px;
+  margin-top: 26.5px;
+  padding-bottom: 60px;
   border-bottom: 1px solid #313338;
   box-sizing: border-box;
 `;
@@ -410,11 +412,12 @@ export const inputText = css`
   ${t16};
   ${grey};
   width: 100%;
-  height: 1.2rem;
+  height: 40px;
+  margin-top:6.6px;
   border: 1px solid #393a3f;
   background-color: #1a1a1a;
-  border-radius: 0.145rem;
-  padding: 0 0.378rem;
+  border-radius: 4px;
+  padding: 0 10px;
   box-sizing: border-box;
 `;
 export const inputPre = css`
@@ -431,18 +434,24 @@ export const inutpos = css`
 `;
 export const bottomInputBox = css`
   display: grid;
-  column-gap: 1.292rem;
-  row-gap: 0.879rem;
+  column-gap: 21.96px;
   grid-template-columns: repeat(3, 1fr);
-  margin-left: 0.757rem;
-  margin-right: 0.684rem;
-  margin-top: 1.4rem;
+  margin-left: 20.84px;
+  margin-right: 18.85px;
+  margin-top: 41px;
 `;
+export const scrollBox=css`
+flex:1;
+overflow-y:auto;
+display:flex;
+flex-direction:column;
+padding-bottom:278px;
+`
 export const saveBtn = css`
   white-space: nowrap;
-  margin: auto auto auto auto;
+  margin: auto auto 82.8px auto;
   ${t20};
   ${white};
-  width: 5.23rem;
-  height: 1.38rem;
+  width: 145px;
+  height: 40px;
 `;

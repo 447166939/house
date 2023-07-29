@@ -144,6 +144,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                 </Box>
               ))}
             </Box>
+            <Box css={styles.scrollBox}>
             <Box css={styles.inputBox}>
               <Box css={styles.inputGridItem}>
                 <Box css={styles.inputLabel}>购入价格</Box>
@@ -325,6 +326,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                 <Box css={styles.inputLabel}>投资回报比</Box>
                 <InputBase css={styles.inputText} />
               </Box>
+            </Box>
             </Box>
             <Button css={styles.saveBtn} variant={"contained"}>
               保存计算结果
