@@ -31,11 +31,11 @@ export const selectInput = css`
   color: #00e0fd;
   ${t18};
 `;
-export const selectItem=css`
-font-size:16px;
-font-weight:400;
-color:#fff;
-`
+export const selectItem = css`
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+`;
 export const result = css`
   ${t16};
   ${grey};

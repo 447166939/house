@@ -63,13 +63,27 @@ const Tabpane1: React.FC<ITabpane1> = (props) => {
             value={cate}
             onChange={handleCateChange}
             input={<InputBase css={styles.selectInput} name="cate" id="cate" />}>
-            <MenuItem css={styles.selectItem} value={10}>最新</MenuItem>
-            <MenuItem css={styles.selectItem} value={20}>适合您的家</MenuItem>
-            <MenuItem css={styles.selectItem} value={30}>价格从高到低</MenuItem>
-            <MenuItem css={styles.selectItem} value={40}>价格从低到高</MenuItem>
-            <MenuItem css={styles.selectItem} value={50}>最新卧室浴室</MenuItem>
-            <MenuItem css={styles.selectItem} value={60}>平方英尺</MenuItem>
-            <MenuItem css={styles.selectItem} value={70}>批量大小</MenuItem>
+            <MenuItem css={styles.selectItem} value={10}>
+              最新
+            </MenuItem>
+            <MenuItem css={styles.selectItem} value={20}>
+              适合您的家
+            </MenuItem>
+            <MenuItem css={styles.selectItem} value={30}>
+              价格从高到低
+            </MenuItem>
+            <MenuItem css={styles.selectItem} value={40}>
+              价格从低到高
+            </MenuItem>
+            <MenuItem css={styles.selectItem} value={50}>
+              最新卧室浴室
+            </MenuItem>
+            <MenuItem css={styles.selectItem} value={60}>
+              平方英尺
+            </MenuItem>
+            <MenuItem css={styles.selectItem} value={70}>
+              批量大小
+            </MenuItem>
           </Select>
         </Box>
       </Box>

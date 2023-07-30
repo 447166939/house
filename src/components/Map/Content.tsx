@@ -42,10 +42,11 @@ const Content: React.FC<IContent> = (props) => {
             MenuProps={{
               PaperProps: {
                 style: {
-                  backgroundColor: "#111113",
-                  color: "#A2AAB8",
-                  fontSize: "15px",
-                  border: "1px solid #36404E"
+                  borderRadius: '10px',
+              border: '1px solid #393A3F',
+              backgroundColor: '#313136',
+                  marginTop:'42px',
+                width:'367px',
                 }
               }
             }}
@@ -54,7 +55,7 @@ const Content: React.FC<IContent> = (props) => {
             )}
             value={price}
             onChange={handlePriceChange}
-            input={<InputBase css={styles.selectInput} name="price" id="price" />}>
+            input={<InputBase css={styles.priceSelectInput} name="price" id="price" />}>
             <MenuItem value="">
               <em>价格区间</em>
             </MenuItem>
@@ -68,10 +69,10 @@ const Content: React.FC<IContent> = (props) => {
             MenuProps={{
               PaperProps: {
                 style: {
-                  backgroundColor: "#111113",
-                  color: "#A2AAB8",
-                  fontSize: "15px",
-                  border: "1px solid #36404E"
+                  fontSize: "16px",
+                  borderRadius: '10px',
+              border: '1px solid #393A3F',
+              backgroundColor: '#313136'
                 }
               }
             }}
@@ -81,28 +82,32 @@ const Content: React.FC<IContent> = (props) => {
             value={roomNum}
             onChange={handleRoomNumChange}
             input={<InputBase css={styles.selectInput} name="roomnum" id="roomnum" />}>
-            <MenuItem value="">
-              <em>房间数量</em>
-            </MenuItem>
-            <MenuItem value={10}>100</MenuItem>
-            <MenuItem value={20}>200</MenuItem>
-            <MenuItem value={30}>300</MenuItem>
+            <MenuItem css={styles.selectItem} value={10}>100</MenuItem>
+            <MenuItem css={styles.selectItem} value={20}>200</MenuItem>
+            <MenuItem css={styles.selectItem} value={30}>300</MenuItem>
           </Select>
         </Box>
         <Box css={styles.typeBox}>
           <Select
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    fontSize: "16px",
+                    borderRadius: '10px',
+                    border: '1px solid #393A3F',
+                    backgroundColor: '#313136'
+                  }
+                }
+              }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
             value={roomType}
             onChange={handleRoomTypeChange}
             input={<InputBase css={styles.selectInput} name="roomtype" id="roomtype" />}>
-            <MenuItem value="">
-              <em>房屋类型</em>
-            </MenuItem>
-            <MenuItem value={10}>100</MenuItem>
-            <MenuItem value={20}>200</MenuItem>
-            <MenuItem value={30}>300</MenuItem>
+            <MenuItem css={styles.selectItem} value={10}>100</MenuItem>
+            <MenuItem css={styles.selectItem} value={20}>200</MenuItem>
+            <MenuItem css={styles.selectItem} value={30}>300</MenuItem>
           </Select>
         </Box>
         <Button css={styles.saveBtn} size={"small"} variant={"contained"}>
