@@ -18,7 +18,6 @@ import {
 import { Formik, Form, Field } from "formik";
 import { useRegister } from "@/hooks/useRegister";
 export interface IRegisterProps {}
-const initialValue = {};
 const Register: React.FC<IRegisterProps> = (props) => {
   const [role, setRole] = useState("");
   const [lang, setLang] = useState("");
@@ -35,10 +34,10 @@ const Register: React.FC<IRegisterProps> = (props) => {
   const { mutate } = useRegister();
   const handleSubmit = async () => {
     await mutate({
-      email: "18750880958@163.com",
+      email: "447166939@qq.com",
       firstName: "xingzai",
       lastName: "xingzai",
-      password: "abd",
+      password: "123456",
       username: "xingzai"
     });
   };
