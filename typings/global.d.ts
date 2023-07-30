@@ -2,6 +2,7 @@ declare global {
   declare module "*.svg";
   declare module "*.png";
 }
+declare module "qs";
 declare module "@mui/material/styles" {
   export { createTheme } from "@mui/styles";
   interface Theme {

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import {grey, t16, t17, t20, white} from "@/style/baseStyle";
+import { grey, t16, t17, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
@@ -53,28 +53,28 @@ export const downIcon = css`
   width: 0.48rem;
   height: auto;
 `;
-export const priceSelectInput=css`
- width: 184px;
+export const priceSelectInput = css`
+  width: 184px;
   height: 40px;
-  border: 1px solid #393A3F;
-   border-radius: 4px;
+  border: 1px solid #393a3f;
+  border-radius: 4px;
   padding-left: 10px;
   ${t17};
   ${white};
-`
+`;
 export const selectInput = css`
   width: 184px;
   height: 40px;
   padding-left: 10px;
   border-radius: 4px;
-border: 1px solid #393A3F;
+  border: 1px solid #393a3f;
   ${t17};
   ${white};
 `;
-export const selectItem=css`
-${t16};
-${white};
-`
+export const selectItem = css`
+  ${t16};
+  ${white};
+`;
 export const saveBtn = css`
   width: 4.54rem;
   height: 1.38rem;
