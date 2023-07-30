@@ -81,7 +81,18 @@ const Sider: React.FC<ISider> = (props) => {
       <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (
-          <StyledBadge color={"error"} badgeContent={item.count} key={item.id}>
+          <StyledBadge css={styles.projectBadge} color={"error"} badgeContent={item.count} key={item.id}>
+            <Box data-projectInfo css={styles.projectInfo}>
+              <Box css={styles.projectInfoHead}>
+                <Image css={styles.projectInfoIcon} src={homeIcon} alt={""} />
+                <Box css={styles.projectInfoName}>自定义名称</Box>
+              </Box>
+              <Box css={styles.projectInfoContent}>1115 Toward Ter, Cincinati OH 45216</Box>
+              <Box css={styles.projectInfoTaskItem}>
+                <Box css={styles.projectInfoTaskNum}>2</Box>
+                <Box css={styles.projectInfoTaskText}>Offer被采纳</Box>
+              </Box>
+            </Box>
             <Avatar src={item.avatar} css={styles.avatar}>
               {item.name}
             </Avatar>
