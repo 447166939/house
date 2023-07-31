@@ -18,6 +18,7 @@ import Image from "next/image";
 import downIcon from "@/assets/images/down.png";
 import MyMap from "@/components/Map/MyMap";
 import { useClickOutside } from "@/hooks/useClickoutside";
+import {bathroomNumItem} from "./contentStyle";
 
 export interface IContent {}
 const types = [
@@ -29,55 +30,78 @@ const types = [
   "Apartments",
   "Manufactured"
 ];
+const bedRoomNum=["任何","1+","2+","3+","4+","5+"]
+const bathRoomNum=["任何","1+","2+","3+","4+","5+"]
 const Content: React.FC<IContent> = (props) => {
+  const priceDialogRef = useRef(null);
+  const numDialogRef=useRef(null);
   const [price, setPrice] = useState("");
   const [roomNum, setRoomnum] = useState<string>("");
-  const [roomType, setRoomtype] = useState<string[]>(['房屋类型']);
+  const [roomType, setRoomtype] = useState<string[]>(["房屋类型"]);
+  const [bedroomAdd,setBedroomadd]=useState('')
+  const [bathroomAdd,setBathroomadd]=useState('')
   const [priceDialogOpen, setPriceDialogOpen] = useState(false);
-  const priceDialogRef = useRef(null);
+  const [numDialogOpen,setNumDialogOpen]=useState(false)
+  const closeNumDialog=()=>{
+    setNumDialogOpen(false)
+  }
   const closePriceDialog = () => {
     setPriceDialogOpen(false);
   };
   useClickOutside(priceDialogRef, closePriceDialog);
+  useClickOutside(numDialogRef,closeNumDialog)
   const openPriceDialog = () => {
     setPriceDialogOpen(true);
   };
-  const togglePriceDialog = () => {
+  const togglePriceDialog = (event:React.MouseEvent) => {
+    event.stopPropagation();
     setPriceDialogOpen((pre) => !pre);
   };
+  const openNumDialog=()=>{
+    setNumDialogOpen(true)
+  }
+  const toggleNumDialog=(event:React.MouseEvent)=>{
+    console.log('toggle')
+    event.stopPropagation()
+    setNumDialogOpen(pre=>!pre)
+  }
   const handlePriceChange = (event: SelectChangeEvent) => {
     setPrice(event.target.value);
   };
   const handleRoomNumChange = (event: SelectChangeEvent) => {
     setRoomnum(event.target.value);
   };
+  const addBedroom=(item:string)=>{
+    setBedroomadd(item)
+  }
+  const addBathroom=(item:string)=>{
+    setBathroomadd(item)
+  }
   const deselectAll = (event: React.MouseEvent) => {
     console.log("deselectall");
     event.stopPropagation();
-    setRoomtype(['房屋类型']);
+    setRoomtype(["房屋类型"]);
   };
   const handleRoomTypeChange = (event: SelectChangeEvent<typeof roomType>) => {
     let {
       target: { value }
     }: any = event;
-    console.log('value',value)
-    if(value.length==0){
-      setRoomtype(['房屋类型'])
-    }
-     else if(value.includes('房屋类型')){
-      console.log('in',value)
-      value.splice(0,1)
+    console.log("value", value);
+    if (value.length == 0) {
+      setRoomtype(["房屋类型"]);
+    } else if (value.includes("房屋类型")) {
+      console.log("in", value);
+      value.splice(0, 1);
       setRoomtype(
-          // On autofill we get a stringified value.
-          typeof value === "string" ? value.split(",") : value
+        // On autofill we get a stringified value.
+        typeof value === "string" ? value.split(",") : value
       );
-    }else {
-      setRoomtype(typeof value === "string" ? value.split(",") : value)
-
+    } else {
+      setRoomtype(typeof value === "string" ? value.split(",") : value);
     }
   };
   const renderValue = (selected: string[]) => {
-    console.log('selected',selected)
+    console.log("selected", selected);
     return selected.join(",");
   };
   return (
@@ -89,35 +113,16 @@ const Content: React.FC<IContent> = (props) => {
             <Image css={styles.searchIcon} src={searchIcon} alt={""} />
           </IconButton>
         </Box>
-        {/*<Box css={styles.priceBox}>
-          <Select
-            MenuProps={{
-              PaperProps: {
-                style: {
-                  borderRadius: "10px",
-                  border: "1px solid #393A3F",
-                  backgroundColor: "#313136",
-                  marginTop: "42px",
-                  width: "367px"
-                }
-              }
-            }}
-            IconComponent={(props) => (
-              <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
-            )}
-            value={price}
-            onChange={handlePriceChange}
-            input={<InputBase css={styles.priceSelectInput} name="price" id="price" />}>
-            <MenuItem value="">
-              <em>价格区间</em>
-            </MenuItem>
-            <MenuItem value={10}>100</MenuItem>
-            <MenuItem value={20}>200</MenuItem>
-            <MenuItem value={30}>300</MenuItem>
-          </Select>
-        </Box>*/}
-        <Box css={styles.priceBox}>
-          <Box ref={priceDialogRef} css={styles.priceDialog({ isOpen: priceDialogOpen })}></Box>
+        <Box ref={priceDialogRef} css={styles.priceBox}>
+          <Box css={styles.priceDialog({ isOpen: priceDialogOpen })}>
+            <Box css={styles.priceDialogTitle}>价格区间</Box>
+            <Box css={styles.priceDialogInputBox}>
+              <InputBase css={styles.priceDialogMinInput} placeholder={'最低金额'} />
+              <Box css={styles.priceDialogSplitline}></Box>
+              <InputBase css={styles.priceDialogMaxInput} placeholder={'最高金额'} />
+            </Box>
+            <Button css={styles.priceDialogOkBtn} variant='contained'>确定</Button>
+          </Box>
           <InputBase
             onClick={togglePriceDialog}
             placeholder="价格区间"
@@ -132,10 +137,33 @@ const Content: React.FC<IContent> = (props) => {
             />
           </IconButton>
         </Box>
-        <Box css={styles.numBox}>
-          <InputBase placeholder={'房间数量'} readOnly css={styles.numSelectInput} />
-          <IconButton>
-            <Image css={styles.numSelectIcon} src={downIcon} alt={""} />
+        <Box ref={numDialogRef} css={styles.numBox}>
+          <Box  css={styles.numDialog({isOpen:numDialogOpen})}>
+            <Box css={styles.numTitle1}>卧室数量</Box>
+            <Box css={styles.bedroomNumbox}>
+              {
+                bedRoomNum.map((item,index)=>(
+                    <Box onClick={addBedroom.bind(null,item)} css={styles.bedroomNumItem({isActive:bedroomAdd==item})} key={index}>{item}</Box>
+                ))
+              }
+            </Box>
+            <Box css={styles.checkboxWrapper}>
+              <Checkbox sx={{ color: "#80848E", "& .Mui-checked": { color: "#fff" } }} size='small' css={styles.myCheckbox} />
+              <Box css={styles.mycheckboxLabel}>完全匹配</Box>
+            </Box>
+            <Box css={styles.numTitle2}>浴室数量</Box>
+            <Box css={styles.bathroomNumbox}>
+              {
+                bathRoomNum.map((item,index)=>(
+                    <Box css={bathroomNumItem({isActive:bathroomAdd==item})} onClick={addBathroom.bind(null,item)} key={index}>{item}</Box>
+                ))
+              }
+            </Box>
+            <Button variant='contained' css={styles.applyBtn}>应用</Button>
+          </Box>
+          <InputBase onClick={toggleNumDialog} placeholder={"房间数量"} readOnly css={styles.numSelectInput} />
+          <IconButton onClick={toggleNumDialog}>
+            <Image css={styles.numSelectIcon({isOpen:numDialogOpen})} src={downIcon} alt={""} />
           </IconButton>
         </Box>
         <Box css={styles.typeBox}>

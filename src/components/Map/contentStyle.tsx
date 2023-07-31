@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { grey, t16, t17, t20, white } from "@/style/baseStyle";
+import {grey, t14, t16, t17, t20, white} from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
@@ -60,17 +60,17 @@ export const priceSelectInput = css`
   ${t16};
   ${white};
   & ::-webkit-input-placeholder {
-  color:#fff!important;
-  opacity:1!important;
-}
-& ::-moz-placeholder {
-  color:#fff!important;
-  opacity:1!important;
-}
-& ::placeholder {
-  color:#fff!important;
-  opacity:1!important;
-}
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  & ::-moz-placeholder {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  & ::placeholder {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
   & .MuiInputBase-input {
     cursor: pointer;
   }
@@ -80,6 +80,53 @@ export const priceSelectIcon = ({ isOpen }: { isOpen: boolean }) => css`
   height: auto;
   transform: ${isOpen ? "rotateX(180deg)" : "rotateX(0deg)"};
 `;
+export const priceDialogTitle=css`
+${t17};
+${white};
+margin: 21.9px 0 0 13.7px;
+`
+export const priceDialogInputBox=css`
+display:flex;
+align-items:center;
+margin-left:14.58px;
+margin-right:19.14px;
+justify-content:center;
+margin-top:21.94px;
+`
+export const priceDialogMinInput=css`
+width:154px;
+height:40px;
+border-radius: 4px;
+border: 1px solid #393A3F;
+background: #1A1A1A;
+${t16};
+${grey};
+padding-left:10.8px;
+`
+export const priceDialogSplitline=css`
+width:7.6px;
+height:1px;
+background-color:#80848E;
+margin:0 8.57px;
+`
+export const priceDialogMaxInput=css`
+border-radius: 4px;
+border: 1px solid #393A3F;
+background: #1A1A1A;
+width:154px;
+height:40px;
+${t16};
+${grey};
+padding-left:10.8px;
+`
+export const priceDialogOkBtn=css`
+${t16};
+${white};
+padding:6px 30px;
+border-radius:4px;
+margin: 24px auto auto auto;
+display:block;
+`
 export const numBox = css`
   width: 184px;
   height: 40px;
@@ -89,7 +136,91 @@ export const numBox = css`
   border: 1px solid #393a3f;
   border-radius: 4px;
   align-items: center;
+  position:relative;
 `;
+export const numDialog = ({ isOpen }: any) => css`
+padding-right:18.18px;
+  position: absolute;
+  border-radius: 10px;
+border: 1px solid #393A3F;
+background: #313136;
+ z-index: 10000;
+  top: calc(100% + 42px);
+  left: calc(50% - 175px);
+  display: ${isOpen ? "block" : "none"};
+`;
+export const numTitle1=css`
+${t17};
+${white};
+margin: 20px 0 0 18px;
+`
+export const numTitle2=css`
+${t17};
+${white};
+margin-left:18.18px;
+`
+export const bedroomNumbox=css`
+display:flex;
+align-items:center;
+margin-top:8.64px;
+margin-left:18.18px;
+`
+export const bathroomNumbox=css`
+display:flex;
+align-items:center;
+margin-top:8.64px;
+margin-left:18.18px;
+`
+export const checkboxWrapper=css`
+display:flex;
+align-items:center;
+margin-top:5px;
+`
+export const myCheckbox=css`
+margin-left:5px;
+`
+export const mycheckboxLabel=css`
+${t14};
+${grey};
+`
+export const bedroomNumItem=({isActive}:any)=>css`
+background-color:${isActive ? '#00E1FE':'#636363'};
+color:${isActive ? '#1A1A1A':'#fff'};
+font-size:${isActive ? '16px':'14px'};
+width:49px;
+height:40px;
+margin-right:1px;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+`
+export const bathroomNumItem=({isActive}:any)=>css`
+background-color:${isActive ? '#00E1FE':'#636363'};
+color:${isActive ? '#1A1A1A':'#fff'};
+font-size:${isActive ? '16px':'14px'};
+width:49px;
+height:40px;
+margin-right:1px;
+display:flex;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+`
+export const applyBtn=css`
+width:125px;
+height:40px;
+border-radius: 4px;
+border: 1px solid #393A3F;
+background: #4B66DA;
+${t20};
+${white};
+display:block;
+margin: 30.8px auto 30.5px auto;
+display:flex;
+justify-content:center;
+align-items:center;
+`
 export const numSelectInput = css`
   flex: 1;
   height: 100%;
@@ -97,24 +228,25 @@ export const numSelectInput = css`
   ${t16};
   ${white};
   & ::-webkit-input-placeholder {
-  color:#fff!important;
-  opacity:1!important;
-}
-& ::-moz-placeholder {
-  color:#fff!important;
-  opacity:1!important;
-}
-& ::placeholder {
-  color:#fff!important;
-  opacity:1!important;
-}
-& .MuiInputBase-input {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  & ::-moz-placeholder {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  & ::placeholder {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  & .MuiInputBase-input {
     cursor: pointer;
   }
 `;
-export const numSelectIcon = css`
+export const numSelectIcon =({isOpen}:any)=> css`
   width: 11px;
   height: auto;
+  transform: ${isOpen ? "rotateX(180deg)" : "rotateX(0deg)"};
 `;
 export const typeBox = css`
   width: 184px;
