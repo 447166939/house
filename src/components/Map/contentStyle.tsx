@@ -13,11 +13,11 @@ export const header = css`
   align-items: center;
 `;
 export const searchInputWrapper = css`
-  width: 13.51rem;
-  height: 1.45rem;
+  width: 415px;
+  height: 44px;
   background-color: #1e1f22;
-  margin-left: 0.67rem;
-  border-radius: 2.47rem;
+  margin-left: 23px;
+  border-radius: 22px;
   display: flex;
   align-items: center;
 `;
@@ -25,43 +25,114 @@ export const searchInput = css`
   flex: 1;
   ${t16};
   ${grey};
-  padding-left: 0.65rem;
+  padding-left: 22.5px;
 `;
 export const searchIcon = css`
-  width: 0.72rem;
+  width: 22px;
   height: auto;
 `;
 export const priceBox = css`
-  width: 5.45rem;
-  height: 1.38rem;
-  margin-left: 1.23rem;
-  display: flex;
-`;
-export const numBox = css`
-  width: 5.45rem;
-  height: 1.38rem;
-  margin-left: 1.05rem;
-  display: flex;
-`;
-export const typeBox = css`
-  width: 5.45rem;
-  height: 1.38rem;
-  margin-left: 1.25rem;
-  display: flex;
-`;
-export const downIcon = css`
-  width: 0.48rem;
-  height: auto;
-`;
-export const priceSelectInput = css`
   width: 184px;
   height: 40px;
-  border: 1px solid #393a3f;
-  border-radius: 4px;
-  padding-left: 10px;
-  ${t17};
-  ${white};
+  box-sizing:border-box;
+  border: 1px solid #393A3F;
+  border-radius:4px;
+  margin-left: 21px;
+  display: flex;
+  position:relative;
 `;
+export const priceDialog=({isOpen}:any)=>css`
+position:absolute;
+width:367px;
+height:203px;
+border-radius: 10px;
+border: 1px solid #393A3F;
+background: #313136;
+z-index:10000;
+top:calc(100% + 42px);
+left:calc(50% - 183px);
+display:${isOpen ? 'block' : 'none'};
+`
+export const priceSelectInput = css`
+  flex:1;
+  height: 100%;
+  padding-left: 10px;
+  ${t16};
+  ${white};
+  & .MuiInputBase-input{
+  cursor:pointer;
+  }
+`;
+export const priceSelectIcon=({isOpen}:{isOpen:boolean })=>css`
+width:11px;
+height:auto;
+transform:${isOpen ? 'rotateX(180deg)':'rotateX(0deg)'};
+`
+export const numBox = css`
+  width: 184px;
+  height: 40px;
+  margin-left: 25.75px;
+  display: flex;
+  box-sizing:border-box;
+  border: 1px solid #393A3F;
+  border-radius:4px;
+  align-items:center;
+`;
+export const numSelectInput=css`
+flex:1;
+  height: 100%;
+  padding-left: 10px;
+  ${t16};
+  ${white};
+`
+export const numSelectIcon=css`
+width:11px;
+height:auto;
+`
+export const typeBox = css`
+  width: 184px;
+  height: 40px;
+  margin-left: 17.3px;
+  display: flex;
+`;
+export const typeItemText=css`
+${t16};
+${white};
+`
+export const downIcon = css`
+  width: 11px;
+  height: auto;
+`;
+export const typeSelectInput = css`
+  width: 184px;
+  height: 40px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border: 1px solid #393a3f;
+  ${t16};
+  ${white};
+  flex-grow:0;
+`;
+export const deselectIcon=css`
+width:22px;
+height:auto;
+`
+export const deselectText=css`
+${t16};
+${white};
+margin-left:7.6px;
+`
+export const deselectType=css`
+display:flex;
+align-items:center;
+padding: 18px 0 20px 0;
+border-bottom:1px solid #636363;
+cursor:pointer;
+user-select:none;
+pointer-events:auto;
+margin:0 12px;
+width:100%;
+`
 export const selectInput = css`
   width: 184px;
   height: 40px;

@@ -1,33 +1,69 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import {
   Box,
-  Button,
+  Button, Checkbox,
   IconButton,
-  InputBase,
+  InputBase, ListItemText, ListSubheader,
   MenuItem,
   Select,
   SelectChangeEvent
 } from "@mui/material";
 import searchIcon from "@/assets/images/mapSearch.png";
+import deselectIcon from '@/assets/images/deselect.png'
 import * as styles from "./contentStyle";
 import Image from "next/image";
 import downIcon from "@/assets/images/down.png";
 import MyMap from "@/components/Map/MyMap";
-import Script from "next/script";
+import {useClickOutside} from "@/hooks/useClickoutside";
+
 export interface IContent {}
+const types=[
+'Houses',
+'Townhomes',
+'Multi-family',
+'Condos/Co-ops',
+'Lots/Land',
+'Apartments',
+'Manufactured']
 const Content: React.FC<IContent> = (props) => {
   const [price, setPrice] = useState("");
-  const [roomNum, setRoomnum] = useState("");
-  const [roomType, setRoomtype] = useState("");
+  const [roomNum, setRoomnum] = useState<string>("");
+  const [roomType, setRoomtype] = useState<string[]>([]);
+  const [priceDialogOpen,setPriceDialogOpen]=useState(false)
+  const priceDialogRef=useRef(null)
+  const closePriceDialog=()=>{
+    setPriceDialogOpen(false)
+  }
+  useClickOutside(priceDialogRef,closePriceDialog)
+  const openPriceDialog=()=>{
+    setPriceDialogOpen(true)
+  }
+  const togglePriceDialog=()=>{
+    setPriceDialogOpen(pre=>!pre)
+  }
   const handlePriceChange = (event: SelectChangeEvent) => {
     setPrice(event.target.value);
   };
   const handleRoomNumChange = (event: SelectChangeEvent) => {
     setRoomnum(event.target.value);
   };
-  const handleRoomTypeChange = (event: SelectChangeEvent) => {
-    setRoomtype(event.target.value);
+  const deselectAll=(event:React.MouseEvent)=>{
+    console.log('deselectall')
+    event.stopPropagation();
+    setRoomtype([])
+  }
+  const handleRoomTypeChange = (event: SelectChangeEvent<typeof roomType>) => {
+    const {
+      target: { value },
+    }:any = event;
+      setRoomtype(
+          // On autofill we get a stringified value.
+          typeof value === 'string' ? value.split(',') : value,
+      );
   };
+  const renderValue=(selected:string[])=>{
+    return selected.join(',')
+  }
   return (
     <Box css={styles.container}>
       <Box css={styles.header}>
@@ -37,7 +73,7 @@ const Content: React.FC<IContent> = (props) => {
             <Image css={styles.searchIcon} src={searchIcon} alt={""} />
           </IconButton>
         </Box>
-        <Box css={styles.priceBox}>
+        {/*<Box css={styles.priceBox}>
           <Select
             MenuProps={{
               PaperProps: {
@@ -63,63 +99,55 @@ const Content: React.FC<IContent> = (props) => {
             <MenuItem value={20}>200</MenuItem>
             <MenuItem value={30}>300</MenuItem>
           </Select>
+        </Box>*/}
+        <Box css={styles.priceBox}>
+          <Box ref={priceDialogRef} css={styles.priceDialog({isOpen:priceDialogOpen})}></Box>
+          <InputBase onClick={togglePriceDialog} placeholder='价格区间' readOnly css={styles.priceSelectInput} />
+          <IconButton onClick={togglePriceDialog}>
+            <Image css={styles.priceSelectIcon({isOpen:priceDialogOpen})} src={downIcon} alt={''} />
+          </IconButton>
         </Box>
         <Box css={styles.numBox}>
-          <Select
-            MenuProps={{
-              PaperProps: {
-                style: {
-                  fontSize: "16px",
-                  borderRadius: "10px",
-                  border: "1px solid #393A3F",
-                  backgroundColor: "#313136"
-                }
-              }
-            }}
-            IconComponent={(props) => (
-              <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
-            )}
-            value={roomNum}
-            onChange={handleRoomNumChange}
-            input={<InputBase css={styles.selectInput} name="roomnum" id="roomnum" />}>
-            <MenuItem css={styles.selectItem} value={10}>
-              100
-            </MenuItem>
-            <MenuItem css={styles.selectItem} value={20}>
-              200
-            </MenuItem>
-            <MenuItem css={styles.selectItem} value={30}>
-              300
-            </MenuItem>
-          </Select>
+<InputBase  readOnly css={styles.numSelectInput} />
+<IconButton>
+<Image css={styles.numSelectIcon} src={downIcon} alt={''} />
+</IconButton>
         </Box>
         <Box css={styles.typeBox}>
           <Select
+              sx={{'& .MuiSelect-icon':{top:'calc(50% - .3em)'}}}
             MenuProps={{
               PaperProps: {
                 style: {
-                  fontSize: "16px",
                   borderRadius: "10px",
                   border: "1px solid #393A3F",
-                  backgroundColor: "#313136"
+                  backgroundColor: "#313136",
+                  marginTop:'16.6px',
                 }
-              }
+              },
             }}
             IconComponent={(props) => (
               <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
             )}
+            multiple
             value={roomType}
             onChange={handleRoomTypeChange}
-            input={<InputBase css={styles.selectInput} name="roomtype" id="roomtype" />}>
-            <MenuItem css={styles.selectItem} value={10}>
-              100
+            renderValue={renderValue}
+            input={<InputBase css={styles.typeSelectInput} name="roomtype" id="roomtype" />}>
+            <MenuItem style={{pointerEvents:'none',width:'100%'}}>
+            <Box onClick={deselectAll} css={styles.deselectType}>
+              <Image css={styles.deselectIcon} src={deselectIcon} alt={''} />
+              <Box  css={styles.deselectText}>Deselect All</Box>
+            </Box>
             </MenuItem>
-            <MenuItem css={styles.selectItem} value={20}>
-              200
-            </MenuItem>
-            <MenuItem css={styles.selectItem} value={30}>
-              300
-            </MenuItem>
+            {
+              types.map((item:string,index:number)=>(
+                  <MenuItem key={index} value={item}>
+                    <Checkbox checked={roomType.indexOf(item) > -1} sx={{color:'#80848E','& .Mui-checked':{color:'#fff'}}}  />
+                    <ListItemText css={styles.typeItemText} primary={item} />
+                  </MenuItem>
+              ))
+            }
           </Select>
         </Box>
         <Button css={styles.saveBtn} size={"small"} variant={"contained"}>

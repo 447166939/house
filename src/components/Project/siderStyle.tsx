@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import {grey, t14, t16, t18, t20, white} from "@/style/baseStyle";
+import { grey, t14, t16, t18, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   display: flex;
@@ -31,66 +31,66 @@ export const toolbar = css`
   justify-content: center;
   min-width: 0;
 `;
-export const projectBadge=css`
-cursor:pointer;
-&:hover [data-projectInfo]{
-display:flex;
-}
-`
-export const projectInfo=css`
-position:absolute;
-background-color:#313136;
-display:none;
-width:227px;
-border-radius:10px;
-left:calc(100% + 20px);
-padding:13.5px 13.5px 22.1px 13.5px;
-flex-direction:column;
-z-index:10000;
-`
-export const projectInfoName=css`
-margin-left:11.1px;
-${t16};
-${white};
-`
-export const projectInfoIcon=css`
-width:28px;
-height:auto;
-`
-export const projectInfoContent=css`
-${t14};
+export const projectBadge = css`
+  cursor: pointer;
+  &:hover [data-projectInfo] {
+    display: flex;
+  }
+`;
+export const projectInfo = css`
+  position: absolute;
+  background-color: #313136;
+  display: none;
+  width: 227px;
+  border-radius: 10px;
+  left: calc(100% + 20px);
+  padding: 13.5px 13.5px 22.1px 13.5px;
+  flex-direction: column;
+  z-index: 10000;
+`;
+export const projectInfoName = css`
+  margin-left: 11.1px;
+  ${t16};
+  ${white};
+`;
+export const projectInfoIcon = css`
+  width: 28px;
+  height: auto;
+`;
+export const projectInfoContent = css`
+  ${t14};
   ${white};
   white-space: pre-wrap;
-  word-break:break-all;
-  margin-top:22px;
-`
-export const projectInfoTaskItem=css`
-display:flex;
-align-items:center;
-margin-top:22px;
-`
-export const projectInfoTaskNum=css`
-width:22px;
-height:22px;
-border-radius:50%;
-background-color:#23A55A;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#222226;
-${t16};
-`
+  word-break: break-all;
+  margin-top: 22px;
+`;
+export const projectInfoTaskItem = css`
+  display: flex;
+  align-items: center;
+  margin-top: 22px;
+`;
+export const projectInfoTaskNum = css`
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #23a55a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222226;
+  ${t16};
+`;
 
-export const projectInfoTaskText=css`
-${t18};
-color:#23A55A;
-margin-left:5px;
-`
+export const projectInfoTaskText = css`
+  ${t18};
+  color: #23a55a;
+  margin-left: 5px;
+`;
 
-export const projectInfoHead=css`
-display:flex;
-align-items:center;
-`
+export const projectInfoHead = css`
+  display: flex;
+  align-items: center;
+`;
 export const avatar = css`
   margin-bottom: 20px;
   background-color: #313338;

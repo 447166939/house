@@ -81,7 +81,11 @@ const Sider: React.FC<ISider> = (props) => {
       <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         {projectsData.map((item, index) => (
-          <StyledBadge css={styles.projectBadge} color={"error"} badgeContent={item.count} key={item.id}>
+          <StyledBadge
+            css={styles.projectBadge}
+            color={"error"}
+            badgeContent={item.count}
+            key={item.id}>
             <Box data-projectInfo css={styles.projectInfo}>
               <Box css={styles.projectInfoHead}>
                 <Image css={styles.projectInfoIcon} src={homeIcon} alt={""} />
