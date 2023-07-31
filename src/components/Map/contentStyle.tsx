@@ -8,7 +8,7 @@ export const container = css`
 `;
 export const header = css`
   background-color: #111113;
-  height: 3.25rem;
+  height: 89.25px;
   display: flex;
   align-items: center;
 `;
@@ -34,71 +34,98 @@ export const searchIcon = css`
 export const priceBox = css`
   width: 184px;
   height: 40px;
-  box-sizing:border-box;
-  border: 1px solid #393A3F;
-  border-radius:4px;
+  box-sizing: border-box;
+  border: 1px solid #393a3f;
+  border-radius: 4px;
   margin-left: 21px;
   display: flex;
-  position:relative;
+  position: relative;
 `;
-export const priceDialog=({isOpen}:any)=>css`
-position:absolute;
-width:367px;
-height:203px;
-border-radius: 10px;
-border: 1px solid #393A3F;
-background: #313136;
-z-index:10000;
-top:calc(100% + 42px);
-left:calc(50% - 183px);
-display:${isOpen ? 'block' : 'none'};
-`
+export const priceDialog = ({ isOpen }: any) => css`
+  position: absolute;
+  width: 367px;
+  height: 203px;
+  border-radius: 10px;
+  border: 1px solid #393a3f;
+  background: #313136;
+  z-index: 10000;
+  top: calc(100% + 42px);
+  left: calc(50% - 183px);
+  display: ${isOpen ? "block" : "none"};
+`;
 export const priceSelectInput = css`
-  flex:1;
+  flex: 1;
   height: 100%;
   padding-left: 10px;
   ${t16};
   ${white};
-  & .MuiInputBase-input{
-  cursor:pointer;
+  & ::-webkit-input-placeholder {
+  color:#fff!important;
+  opacity:1!important;
+}
+& ::-moz-placeholder {
+  color:#fff!important;
+  opacity:1!important;
+}
+& ::placeholder {
+  color:#fff!important;
+  opacity:1!important;
+}
+  & .MuiInputBase-input {
+    cursor: pointer;
   }
 `;
-export const priceSelectIcon=({isOpen}:{isOpen:boolean })=>css`
-width:11px;
-height:auto;
-transform:${isOpen ? 'rotateX(180deg)':'rotateX(0deg)'};
-`
+export const priceSelectIcon = ({ isOpen }: { isOpen: boolean }) => css`
+  width: 11px;
+  height: auto;
+  transform: ${isOpen ? "rotateX(180deg)" : "rotateX(0deg)"};
+`;
 export const numBox = css`
   width: 184px;
   height: 40px;
   margin-left: 25.75px;
   display: flex;
-  box-sizing:border-box;
-  border: 1px solid #393A3F;
-  border-radius:4px;
-  align-items:center;
+  box-sizing: border-box;
+  border: 1px solid #393a3f;
+  border-radius: 4px;
+  align-items: center;
 `;
-export const numSelectInput=css`
-flex:1;
+export const numSelectInput = css`
+  flex: 1;
   height: 100%;
   padding-left: 10px;
   ${t16};
   ${white};
-`
-export const numSelectIcon=css`
-width:11px;
-height:auto;
-`
+  & ::-webkit-input-placeholder {
+  color:#fff!important;
+  opacity:1!important;
+}
+& ::-moz-placeholder {
+  color:#fff!important;
+  opacity:1!important;
+}
+& ::placeholder {
+  color:#fff!important;
+  opacity:1!important;
+}
+& .MuiInputBase-input {
+    cursor: pointer;
+  }
+`;
+export const numSelectIcon = css`
+  width: 11px;
+  height: auto;
+`;
 export const typeBox = css`
   width: 184px;
   height: 40px;
   margin-left: 17.3px;
   display: flex;
 `;
-export const typeItemText=css`
-${t16};
-${white};
-`
+export const typeItemText = css`
+  ${t16};
+  ${white};
+`;
 export const downIcon = css`
   width: 11px;
   height: auto;
@@ -111,28 +138,28 @@ export const typeSelectInput = css`
   border: 1px solid #393a3f;
   ${t16};
   ${white};
-  flex-grow:0;
+  flex-grow: 0;
 `;
-export const deselectIcon=css`
-width:22px;
-height:auto;
-`
-export const deselectText=css`
-${t16};
-${white};
-margin-left:7.6px;
-`
-export const deselectType=css`
-display:flex;
-align-items:center;
-padding: 18px 0 20px 0;
-border-bottom:1px solid #636363;
-cursor:pointer;
-user-select:none;
-pointer-events:auto;
-margin:0 12px;
-width:100%;
-`
+export const deselectIcon = css`
+  width: 22px;
+  height: auto;
+`;
+export const deselectText = css`
+  ${t16};
+  ${white};
+  margin-left: 7.6px;
+`;
+export const deselectType = css`
+  display: flex;
+  align-items: center;
+  padding: 18px 0 20px 0;
+  border-bottom: 1px solid #636363;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  margin: 0 12px;
+  width: 100%;
+`;
 export const selectInput = css`
   width: 184px;
   height: 40px;
