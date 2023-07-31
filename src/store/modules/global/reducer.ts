@@ -2,6 +2,7 @@ import { handleActions } from "redux-actions";
 import actions from "./action";
 export const namespace = "global";
 export interface GlobalStateType {
+  role:string;
   count: number;
   currentNav: number;
   navs: any[];
@@ -24,6 +25,7 @@ export interface GlobalStateType {
   helpDialogOpen: boolean;
 }
 export const defaultState: GlobalStateType = {
+  role:'user',
   helpDialogOpen: false,
   settingDialogOpen: false,
   newFriends: [

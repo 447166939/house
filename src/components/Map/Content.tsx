@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import {
   Box,
-  Button,
+  Button, ButtonProps,
   Checkbox,
   IconButton,
   InputBase,
@@ -9,7 +9,7 @@ import {
   ListSubheader,
   MenuItem,
   Select,
-  SelectChangeEvent
+  SelectChangeEvent, styled
 } from "@mui/material";
 import searchIcon from "@/assets/images/mapSearch.png";
 import deselectIcon from "@/assets/images/deselect.png";
@@ -18,7 +18,9 @@ import Image from "next/image";
 import downIcon from "@/assets/images/down.png";
 import MyMap from "@/components/Map/MyMap";
 import { useClickOutside } from "@/hooks/useClickoutside";
-import {bathroomNumItem} from "./contentStyle";
+import { bathroomNumItem } from "./contentStyle";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store/index";
 
 export interface IContent {}
 const types = [
@@ -30,53 +32,61 @@ const types = [
   "Apartments",
   "Manufactured"
 ];
-const bedRoomNum=["任何","1+","2+","3+","4+","5+"]
-const bathRoomNum=["任何","1+","2+","3+","4+","5+"]
+const bedRoomNum = ["任何", "1+", "2+", "3+", "4+", "5+"];
+const bathRoomNum = ["任何", "1+", "2+", "3+", "4+", "5+"];
+const GreenButton = styled(Button)<ButtonProps>(({ theme }) => ({
+  color: "#000",
+  backgroundColor: "#00E1FE",
+  "&:hover": {
+    backgroundColor: "#00B4CB"
+  }
+}));
 const Content: React.FC<IContent> = (props) => {
   const priceDialogRef = useRef(null);
-  const numDialogRef=useRef(null);
+  const numDialogRef = useRef(null);
   const [price, setPrice] = useState("");
   const [roomNum, setRoomnum] = useState<string>("");
   const [roomType, setRoomtype] = useState<string[]>(["房屋类型"]);
-  const [bedroomAdd,setBedroomadd]=useState('')
-  const [bathroomAdd,setBathroomadd]=useState('')
+  const [bedroomAdd, setBedroomadd] = useState("");
+  const [bathroomAdd, setBathroomadd] = useState("");
   const [priceDialogOpen, setPriceDialogOpen] = useState(false);
-  const [numDialogOpen,setNumDialogOpen]=useState(false)
-  const closeNumDialog=()=>{
-    setNumDialogOpen(false)
-  }
+  const [numDialogOpen, setNumDialogOpen] = useState(false);
+  const {role}=useSelector((state:RootState)=>state.global)
+  const closeNumDialog = () => {
+    setNumDialogOpen(false);
+  };
   const closePriceDialog = () => {
     setPriceDialogOpen(false);
   };
   useClickOutside(priceDialogRef, closePriceDialog);
-  useClickOutside(numDialogRef,closeNumDialog)
+  useClickOutside(numDialogRef, closeNumDialog);
   const openPriceDialog = () => {
     setPriceDialogOpen(true);
   };
-  const togglePriceDialog = (event:React.MouseEvent) => {
+  const togglePriceDialog = (event: React.MouseEvent) => {
     event.stopPropagation();
     setPriceDialogOpen((pre) => !pre);
   };
-  const openNumDialog=()=>{
-    setNumDialogOpen(true)
-  }
-  const toggleNumDialog=(event:React.MouseEvent)=>{
-    console.log('toggle')
-    event.stopPropagation()
-    setNumDialogOpen(pre=>!pre)
-  }
+  const openNumDialog = () => {
+    setNumDialogOpen(true);
+  };
+  const toggleNumDialog = (event: React.MouseEvent) => {
+    console.log("toggle");
+    event.stopPropagation();
+    setNumDialogOpen((pre) => !pre);
+  };
   const handlePriceChange = (event: SelectChangeEvent) => {
     setPrice(event.target.value);
   };
   const handleRoomNumChange = (event: SelectChangeEvent) => {
     setRoomnum(event.target.value);
   };
-  const addBedroom=(item:string)=>{
-    setBedroomadd(item)
-  }
-  const addBathroom=(item:string)=>{
-    setBathroomadd(item)
-  }
+  const addBedroom = (item: string) => {
+    setBedroomadd(item);
+  };
+  const addBathroom = (item: string) => {
+    setBathroomadd(item);
+  };
   const deselectAll = (event: React.MouseEvent) => {
     console.log("deselectall");
     event.stopPropagation();
@@ -106,7 +116,7 @@ const Content: React.FC<IContent> = (props) => {
   };
   return (
     <Box css={styles.container}>
-      <Box css={styles.header}>
+      {role=='use' ? (<Box css={styles.header}>
         <Box css={styles.searchInputWrapper}>
           <InputBase placeholder={"搜索一下"} css={styles.searchInput} />
           <IconButton>
@@ -117,11 +127,13 @@ const Content: React.FC<IContent> = (props) => {
           <Box css={styles.priceDialog({ isOpen: priceDialogOpen })}>
             <Box css={styles.priceDialogTitle}>价格区间</Box>
             <Box css={styles.priceDialogInputBox}>
-              <InputBase css={styles.priceDialogMinInput} placeholder={'最低金额'} />
+              <InputBase css={styles.priceDialogMinInput} placeholder={"最低金额"} />
               <Box css={styles.priceDialogSplitline}></Box>
-              <InputBase css={styles.priceDialogMaxInput} placeholder={'最高金额'} />
+              <InputBase css={styles.priceDialogMaxInput} placeholder={"最高金额"} />
             </Box>
-            <Button css={styles.priceDialogOkBtn} variant='contained'>确定</Button>
+            <Button css={styles.priceDialogOkBtn} variant="contained">
+              确定
+            </Button>
           </Box>
           <InputBase
             onClick={togglePriceDialog}
@@ -138,32 +150,49 @@ const Content: React.FC<IContent> = (props) => {
           </IconButton>
         </Box>
         <Box ref={numDialogRef} css={styles.numBox}>
-          <Box  css={styles.numDialog({isOpen:numDialogOpen})}>
+          <Box css={styles.numDialog({ isOpen: numDialogOpen })}>
             <Box css={styles.numTitle1}>卧室数量</Box>
             <Box css={styles.bedroomNumbox}>
-              {
-                bedRoomNum.map((item,index)=>(
-                    <Box onClick={addBedroom.bind(null,item)} css={styles.bedroomNumItem({isActive:bedroomAdd==item})} key={index}>{item}</Box>
-                ))
-              }
+              {bedRoomNum.map((item, index) => (
+                <Box
+                  onClick={addBedroom.bind(null, item)}
+                  css={styles.bedroomNumItem({ isActive: bedroomAdd == item })}
+                  key={index}>
+                  {item}
+                </Box>
+              ))}
             </Box>
             <Box css={styles.checkboxWrapper}>
-              <Checkbox sx={{ color: "#80848E", "& .Mui-checked": { color: "#fff" } }} size='small' css={styles.myCheckbox} />
+              <Checkbox
+                sx={{ color: "#80848E", "& .Mui-checked": { color: "#fff" } }}
+                size="small"
+                css={styles.myCheckbox}
+              />
               <Box css={styles.mycheckboxLabel}>完全匹配</Box>
             </Box>
             <Box css={styles.numTitle2}>浴室数量</Box>
             <Box css={styles.bathroomNumbox}>
-              {
-                bathRoomNum.map((item,index)=>(
-                    <Box css={bathroomNumItem({isActive:bathroomAdd==item})} onClick={addBathroom.bind(null,item)} key={index}>{item}</Box>
-                ))
-              }
+              {bathRoomNum.map((item, index) => (
+                <Box
+                  css={bathroomNumItem({ isActive: bathroomAdd == item })}
+                  onClick={addBathroom.bind(null, item)}
+                  key={index}>
+                  {item}
+                </Box>
+              ))}
             </Box>
-            <Button variant='contained' css={styles.applyBtn}>应用</Button>
+            <Button variant="contained" css={styles.applyBtn}>
+              应用
+            </Button>
           </Box>
-          <InputBase onClick={toggleNumDialog} placeholder={"房间数量"} readOnly css={styles.numSelectInput} />
+          <InputBase
+            onClick={toggleNumDialog}
+            placeholder={"房间数量"}
+            readOnly
+            css={styles.numSelectInput}
+          />
           <IconButton onClick={toggleNumDialog}>
-            <Image css={styles.numSelectIcon({isOpen:numDialogOpen})} src={downIcon} alt={""} />
+            <Image css={styles.numSelectIcon({ isOpen: numDialogOpen })} src={downIcon} alt={""} />
           </IconButton>
         </Box>
         <Box css={styles.typeBox}>
@@ -207,7 +236,14 @@ const Content: React.FC<IContent> = (props) => {
         <Button css={styles.saveBtn} size={"small"} variant={"contained"}>
           保存搜索
         </Button>
-      </Box>
+      </Box>):(<Box css={styles.expertHeader}>
+<Box css={styles.expertHeaderTitle}>房产信息录入</Box>
+        <Box css={styles.expertInputWrapper}>
+          <InputBase css={styles.expertInput} placeholder="输入录入网址" />
+          <Button css={styles.expertInputBtn} variant="contained">录入</Button>
+        </Box>
+        <GreenButton css={styles.expertManaualBtn} variant="contained">手动</GreenButton>
+      </Box>)}
       <Box css={styles.mapContainer}>
         <MyMap
           containerElement={<div style={{ height: "100%" }} />}
