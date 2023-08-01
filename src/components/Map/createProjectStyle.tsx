@@ -122,8 +122,8 @@ export const midBox = css`
   flex-direction: column;
   margin-left: 27.66px;
   padding-right: 21.85px;
-  overflow-y:auto;
-   &::-webkit-scrollbar {
+  overflow-y: auto;
+  &::-webkit-scrollbar {
     background-color: #111113;
     width: 8px;
   }
@@ -168,10 +168,10 @@ export const addressItem = css`
   ${t15};
   color: #a1aab8;
 `;
-export const menuItem=css`
-${t15};
-color:#A2AAB8;
-`
+export const menuItem = css`
+  ${t15};
+  color: #a2aab8;
+`;
 export const downIcon = css`
   width: 7px;
   height: auto;
@@ -197,14 +197,14 @@ export const inputItem = css`
   ${t15};
   color: #a1aab8;
 `;
-export const createProjectBtn=css`
-width:124px;
-height:38px;
-border-radius: 4px;
-${t16};
-${white};
-margin: 35.3px auto 43.3px;
-`
+export const createProjectBtn = css`
+  width: 124px;
+  height: 38px;
+  border-radius: 4px;
+  ${t16};
+  ${white};
+  margin: 35.3px auto 43.3px;
+`;
 export const caculatorBox = css`
   width: 560px;
   margin-right: 12px;
