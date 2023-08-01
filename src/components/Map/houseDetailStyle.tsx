@@ -25,7 +25,7 @@ export const closeBtn = css`
   padding: 0;
 `;
 export const closeIcon = css`
-  width: 0.69rem;
+  width: 19px;
   height: auto;
 `;
 export const content = css`

@@ -5,6 +5,7 @@ export const container = css`
   flex: 1;
   display: flex;
   flex-direction: column;
+  position: relative;
 `;
 export const header = css`
   background-color: #111113;
@@ -316,49 +317,49 @@ export const mapContainer = css`
   width: 100%;
   flex: 1;
 `;
-export const expertHeader=css`
-display:flex;
-align-items:center;
-height:90.06px;
-background-color:#111113;
-`
-export const expertHeaderTitle=css`
-${t20};
-${white};
-margin-left:40.55px;
-`
-export const expertInputWrapper=css`
-margin-left:22px;
-width:424px;
-height:44px;
-border-radius: 4px;
-background-color: #1E1F22;
-display:flex;
-align-items:center;
-padding-right:7.84px;
-`
-export const expertInput=css`
-flex:1;
-${t16};
-${grey};
-padding-left:20.74px;
-`
-export const expertInputBtn=css`
-display:flex;
-justify-content:center;
-align-item:center;
-width:92px;
-height: 38px;
-border-radius:4px;
-${t16};
-${white};
-`
-export const expertManaualBtn=css`
-margin-left:35px;
-width:92px;
-height:36px;
-border-radius: 4px;
-background-color: #00E1FE;
-${t16};
-color:#000;
-`
+export const expertHeader = css`
+  display: flex;
+  align-items: center;
+  height: 90.06px;
+  background-color: #111113;
+`;
+export const expertHeaderTitle = css`
+  ${t20};
+  ${white};
+  margin-left: 40.55px;
+`;
+export const expertInputWrapper = css`
+  margin-left: 22px;
+  width: 424px;
+  height: 44px;
+  border-radius: 4px;
+  background-color: #1e1f22;
+  display: flex;
+  align-items: center;
+  padding-right: 7.84px;
+`;
+export const expertInput = css`
+  flex: 1;
+  ${t16};
+  ${grey};
+  padding-left: 20.74px;
+`;
+export const expertInputBtn = css`
+  display: flex;
+  justify-content: center;
+  align-item: center;
+  width: 92px;
+  height: 38px;
+  border-radius: 4px;
+  ${t16};
+  ${white};
+`;
+export const expertManaualBtn = css`
+  margin-left: 35px;
+  width: 92px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #00e1fe;
+  ${t16};
+  color: #000;
+`;

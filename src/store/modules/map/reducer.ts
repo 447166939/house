@@ -6,8 +6,10 @@ export interface ContactStateType {
   currentTab: number;
   tabpane1Data: any;
   detail: any;
+  createProjectDialogOpen: boolean;
 }
 export const defaultState: ContactStateType = {
+  createProjectDialogOpen: false,
   tabs: [
     { id: 1, text: "备选项目" },
     { id: 2, text: "档案库" },
@@ -141,13 +143,19 @@ export const defaultState: ContactStateType = {
       "Listing updated: 11 hours ago"
   }
 };
-const { setTab } = actions;
+const { setTab, setCreateprojectdialogopen } = actions;
 export const mapReducer = handleActions(
   {
     [setTab as unknown as string]: (state, action: any) => {
       return {
         ...state,
         currentTab: action.payload
+      };
+    },
+    [setCreateprojectdialogopen as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        createProjectDialogOpen: action.payload
       };
     }
   },
