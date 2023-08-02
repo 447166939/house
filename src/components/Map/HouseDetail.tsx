@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, ButtonProps, IconButton, InputAdornment, InputBase } from "@mui/material";
 import * as styles from "./houseDetailStyle";
 import closeIcon from "@/assets/images/close.png";
 import logo from "@/assets/images/detailLogo.png";
 import heartIcon from "@/assets/images/heart.png";
 import shareIcon from "@/assets/images/share.png";
-import hamburgerIcon from "@/assets/images/hanburger.png";
 import eyeIcon from "@/assets/images/eye.png";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import { styled } from "@mui/material";
 import { RootState } from "@/store/index";
+import { useCreateProject } from "@/hooks/useCreateProject";
+import { useRouter } from "next/router";
+
 export interface IHouseDetail {
   open: boolean;
   onClose: () => void;
@@ -34,6 +36,16 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
   const { onClose, open } = props;
   const [idx, setIdx] = useState(0);
   const [caculateTabIdx, setCaculateIdx] = useState(0);
+  const router = useRouter();
+  const { mutate, isSuccess, data } = useCreateProject();
+  const createProject = async () => {
+    mutate({ house_id: 13, project_name: "自定义名称1" });
+  };
+  useEffect(() => {
+    if (isSuccess) {
+      router.replace("/project");
+    }
+  }, [isSuccess]);
 
   const handleClose = () => {
     onClose();
@@ -90,7 +102,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
               <Box css={styles.paymentText}>Personalize this payment</Box>
             </Box>
             <Box css={styles.buttonBox}>
-              <Button css={styles.createBtn} variant={"contained"}>
+              <Button onClick={createProject} css={styles.createBtn} variant={"contained"}>
                 创建REI项目
               </Button>
               <GreenButton css={styles.backupBtn} variant={"contained"}>

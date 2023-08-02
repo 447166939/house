@@ -21,7 +21,6 @@ export const resizer = css`
 `;
 export const toolbar = css`
   display: flex;
-  flex-direction: column;
   flex-basis: 82.785px;
   height: 100%;
   background-color: #1e1f22;
@@ -31,22 +30,27 @@ export const toolbar = css`
   justify-content: center;
   min-width: 0;
 `;
+export const projectContainer = css`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+`;
 export const projectBadge = css`
   cursor: pointer;
-  &:hover [data-projectInfo] {
-    display: flex;
-  }
 `;
-export const projectInfo = css`
-  position: absolute;
+export const projectInfo = ({ top, left, visible }: any) => css`
+  position: fixed;
   background-color: #313136;
-  display: none;
   width: 227px;
   border-radius: 10px;
-  left: calc(100% + 20px);
+  top: ${top};
+  left: ${left};
+  display: ${visible ? "flex" : "none"};
   padding: 13.5px 13.5px 22.1px 13.5px;
   flex-direction: column;
-  z-index: 10000;
+  z-index: 20000;
 `;
 export const projectInfoName = css`
   margin-left: 11.1px;

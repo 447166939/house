@@ -178,7 +178,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   *
                 </InputAdornment>
               }
-              css={styles.inputItem}
+              css={styles.requireInputItem}
               name="housenum"
               id="housenum"
             />
@@ -195,7 +195,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   *
                 </InputAdornment>
               }
-              css={styles.inputItem}
+              css={styles.requireInputItem}
               name="housenum"
               id="housenum"
             />
@@ -206,7 +206,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   *
                 </InputAdornment>
               }
-              css={styles.inputItem}
+              css={styles.requireInputItem}
               name="housenum"
               id="housenum"
             />

@@ -196,6 +196,14 @@ export const inputItem = css`
   border: 1px solid #36404e;
   ${t15};
   color: #a1aab8;
+  padding-left: 19.43px;
+`;
+export const requireInputItem = css`
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #36404e;
+  ${t15};
+  color: #a1aab8;
 `;
 export const createProjectBtn = css`
   width: 124px;

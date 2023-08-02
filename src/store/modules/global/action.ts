@@ -17,6 +17,8 @@ const actions = createActions(
   "SET_SUBTASKHEIGHT",
   "SET_FILEMANAGEHEIGHT",
   "SET_HELPDIALOGOPEN",
+  "SET_PROJECTINFOPOS",
+  "SET_PROJECTINFOVISIBLE",
   {
     prefix: "GLOBAL"
   }

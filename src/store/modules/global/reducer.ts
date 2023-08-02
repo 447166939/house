@@ -23,8 +23,12 @@ export interface GlobalStateType {
   newFriends: any[];
   settingDialogOpen: boolean;
   helpDialogOpen: boolean;
+  projectInfoPos: any;
+  projectInfoVisible: boolean;
 }
 export const defaultState: GlobalStateType = {
+  projectInfoVisible: false,
+  projectInfoPos: { left: "-1000px", top: "-1000px" },
   role: "user",
   helpDialogOpen: false,
   settingDialogOpen: false,
@@ -103,7 +107,9 @@ const {
   setPannelwidth,
   setSubtaskheight,
   setFilemanageheight,
-  setHelpdialogopen
+  setHelpdialogopen,
+  setProjectinfopos,
+  setProjectinfovisible
 } = actions;
 export const globalReducer = handleActions(
   {
@@ -184,6 +190,18 @@ export const globalReducer = handleActions(
       return {
         ...state,
         helpDialogOpen: action.payload
+      };
+    },
+    [setProjectinfopos as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        projectInfoPos: action.payload
+      };
+    },
+    [setProjectinfovisible as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        projectInfoVisible: action.payload
       };
     }
   },

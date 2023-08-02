@@ -17,7 +17,9 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
-const { setChannel, setManagechannel, setSiderwidth } = actions;
+import { useProjects } from "@/hooks/useProjects";
+const { setChannel, setManagechannel, setSiderwidth, setProjectinfopos, setProjectinfovisible } =
+  actions;
 export interface ISider {}
 const CustomSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase": {
@@ -44,14 +46,23 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
   }
 }));
 const Sider: React.FC<ISider> = (props) => {
+  const { data } = useProjects();
+  console.log("data", data);
   const projectsData = [
     { name: "1", id: 1, avatar: "/avatar.jpg", count: 1 },
     { name: "2", id: 2, avatar: "/avatar.jpg", count: 2 },
     { name: "T", id: 3, avatar: "/avatar.jpg", count: 3 },
     { name: "G", id: 4, avatar: "/avatar.jpg", count: 4 }
   ];
-  const { commonChannels, currentChannel, projects, currentManageChannel, siderWidth } =
-    useSelector((state: RootState) => state.global);
+  const {
+    commonChannels,
+    currentChannel,
+    projects,
+    currentManageChannel,
+    siderWidth,
+    projectInfoPos,
+    projectInfoVisible
+  } = useSelector((state: RootState) => state.global);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
   const handleChangeChannel = (idx: number) => {
@@ -63,6 +74,15 @@ const Sider: React.FC<ISider> = (props) => {
   const resize = (event: MouseEvent) => {
     const size = `${event.x}px`;
     dispatch(setSiderwidth(size));
+  };
+  const hoverProject = (item: any, event: React.MouseEvent) => {
+    const target = event.target as HTMLSpanElement;
+    const rect = target.getBoundingClientRect();
+    dispatch(setProjectinfopos({ left: rect.x + rect.width + 20 + "px", top: rect.y + "px" }));
+    dispatch(setProjectinfovisible(true));
+  };
+  const blurProject = () => {
+    dispatch(setProjectinfovisible(false));
   };
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
@@ -78,30 +98,39 @@ const Sider: React.FC<ISider> = (props) => {
   }, []);
   return (
     <Box style={{ flexBasis: siderWidth }} css={styles.container}>
+      <Box
+        css={styles.projectInfo({
+          left: projectInfoPos.left,
+          top: projectInfoPos.top,
+          visible: projectInfoVisible
+        })}>
+        <Box css={styles.projectInfoHead}>
+          <Image css={styles.projectInfoIcon} src={homeIcon} alt={""} />
+          <Box css={styles.projectInfoName}>自定义名称</Box>
+        </Box>
+        <Box css={styles.projectInfoContent}>1115 Toward Ter, Cincinati OH 45216</Box>
+        <Box css={styles.projectInfoTaskItem}>
+          <Box css={styles.projectInfoTaskNum}>2</Box>
+          <Box css={styles.projectInfoTaskText}>Offer被采纳</Box>
+        </Box>
+      </Box>
       <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
-        {projectsData.map((item, index) => (
-          <StyledBadge
-            css={styles.projectBadge}
-            color={"error"}
-            badgeContent={item.count}
-            key={item.id}>
-            <Box data-projectInfo css={styles.projectInfo}>
-              <Box css={styles.projectInfoHead}>
-                <Image css={styles.projectInfoIcon} src={homeIcon} alt={""} />
-                <Box css={styles.projectInfoName}>自定义名称</Box>
-              </Box>
-              <Box css={styles.projectInfoContent}>1115 Toward Ter, Cincinati OH 45216</Box>
-              <Box css={styles.projectInfoTaskItem}>
-                <Box css={styles.projectInfoTaskNum}>2</Box>
-                <Box css={styles.projectInfoTaskText}>Offer被采纳</Box>
-              </Box>
-            </Box>
-            <Avatar src={item.avatar} css={styles.avatar}>
-              {item.name}
-            </Avatar>
-          </StyledBadge>
-        ))}
+        <Box css={styles.projectContainer}>
+          {data?.list.map((item: any, index: number) => (
+            <StyledBadge
+              onMouseLeave={blurProject}
+              onMouseEnter={hoverProject.bind(null, item)}
+              css={styles.projectBadge}
+              color={"error"}
+              badgeContent={item.count || 0}
+              key={item.project_id}>
+              <Avatar src={item.avatar} css={styles.avatar}>
+                {item.project_name}
+              </Avatar>
+            </StyledBadge>
+          ))}
+        </Box>
         <CustomSwitch css={styles.switchStyle} size="medium" />
         <Box css={styles.switchText}>已完成</Box>
       </Box>
