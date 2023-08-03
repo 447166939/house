@@ -432,9 +432,16 @@ export const inutpos = css`
     ${grey};
   }
 `;
+export const percentPos=css`
+ & .MuiTypography-root {
+    ${t16};
+    ${grey};
+  }
+`
 export const bottomInputBox = css`
   display: grid;
   column-gap: 21.96px;
+  row-gap:24px;
   grid-template-columns: repeat(3, 1fr);
   margin-left: 20.84px;
   margin-right: 18.85px;
