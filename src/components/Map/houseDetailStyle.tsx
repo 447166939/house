@@ -70,7 +70,7 @@ export const pic = css`
   object-fit: cover;
 `;
 export const picItem = css`
-  &:first-child {
+  &:first-of-type {
     grid-column: 1/3;
   }
 `;

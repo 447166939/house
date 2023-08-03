@@ -73,14 +73,14 @@ export const projectInfoTaskItem = css`
   align-items: center;
   margin-top: 22px;
 `;
-export const projectInfoDelBtn=css`
-width:68px;
-height:30px;
-border-radius:4px;
-${t14};
-${white};
-margin: 14.96px auto 0;
-`
+export const projectInfoDelBtn = css`
+  width: 68px;
+  height: 30px;
+  border-radius: 4px;
+  ${t14};
+  ${white};
+  margin: 14.96px auto 0;
+`;
 export const projectInfoTaskNum = css`
   width: 22px;
   height: 22px;

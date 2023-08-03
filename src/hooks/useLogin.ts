@@ -1,11 +1,14 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { axios } from "@/utils/Httputil";
-import qs from "qs";
-
+import Router from "next/router";
+import {AxiosResponse} from "axios";
 const login = async (params: any) => {
   console.log("params", params);
-  const response = await axios.post("/user/login", params).then((res) => {
+  const response = await axios.post("/user/login", params).then((res:any) => {
     localStorage.setItem("x_access_token", res.data.accessToken);
+    if(res.code==0){
+      Router.push('/')
+    }
     return res;
   });
   return response.data;

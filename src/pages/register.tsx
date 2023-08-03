@@ -32,8 +32,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
     setLocation(event.target.value);
   };
   const { mutate } = useRegister();
-  const handleSubmit = async (values:any) => {
-    console.log('values',values)
+  const handleSubmit = async (values: any) => {
+    console.log("values", values);
     await mutate(values);
   };
   return (
@@ -52,15 +52,15 @@ const Register: React.FC<IRegisterProps> = (props) => {
           <Formik
             initialValues={{
               email: "",
-              emailCode:'2222',
-              mobile:'',
-              mobileCode:'8888',
-              password:'',
-              confirmPassword:'',
-              roleId:'1',
-              language:'en',
-              stateId:"2",
-              cityId:"222",
+              emailCode: "2222",
+              mobile: "",
+              mobileCode: "8888",
+              password: "",
+              confirmPassword: "",
+              roleId: "1",
+              language: "en",
+              stateId: "2",
+              cityId: "222"
             }}
             onSubmit={handleSubmit}>
             <Form css={styles.loginForm}>
@@ -86,7 +86,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.captControl}>
                 <Box css={styles.captLabel}>Captcha</Box>
                 <Field
-                    autoComplete="off"
+                  autoComplete="off"
                   as={InputBase}
                   name={"emailCode"}
                   placeholder={"Enter your Captcha..."}
@@ -97,7 +97,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.telControl}>
                 <Box css={styles.telLabel}>Telephone</Box>
                 <Field
-                    autoComplete="off"
+                  autoComplete="off"
                   name={"mobile"}
                   as={InputBase}
                   placeholder={"Enter your telephone..."}
@@ -115,7 +115,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.captControl}>
                 <Box css={styles.captLabel}>Captcha</Box>
                 <Field
-                    autoComplete="off"
+                  autoComplete="off"
                   name={"mobileCode"}
                   as={InputBase}
                   placeholder={"Enter your Captcha..."}
@@ -126,7 +126,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.passControl}>
                 <Box css={styles.passLabel}>Password</Box>
                 <Field
-                    autoComplete="new-password"
+                  autoComplete="new-password"
                   as={InputBase}
                   name={"password"}
                   type={"password"}
@@ -144,7 +144,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.passControl}>
                 <Box css={styles.passLabel}>Password</Box>
                 <Field
-                    autoComplete="new-password"
+                  autoComplete="new-password"
                   as={InputBase}
                   name={"confirmPassword"}
                   type={"password"}
@@ -217,12 +217,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={'ch'}>汉语</MenuItem>
-                  <MenuItem value={'en'}>英语</MenuItem>
-                  <MenuItem value={'fr'}>法语</MenuItem>
-                  <MenuItem value={'rus'}>俄语</MenuItem>
-                  <MenuItem value={'arabic'}>阿拉伯语</MenuItem>
-                  <MenuItem value={'spanish'}>西班牙语</MenuItem>
+                  <MenuItem value={"ch"}>汉语</MenuItem>
+                  <MenuItem value={"en"}>英语</MenuItem>
+                  <MenuItem value={"fr"}>法语</MenuItem>
+                  <MenuItem value={"rus"}>俄语</MenuItem>
+                  <MenuItem value={"arabic"}>阿拉伯语</MenuItem>
+                  <MenuItem value={"spanish"}>西班牙语</MenuItem>
                 </Field>
               </FormControl>
               <FormControl css={styles.roleControl}>

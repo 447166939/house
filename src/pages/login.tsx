@@ -33,14 +33,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
   };
   const formik = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: ""
     },
     onSubmit: async (values) => {
-      await mutate({
-        username: "xingzai",
-        password: "123456"
-      });
+      console.log('values',values)
+      await mutate(values);
     }
   });
   return (
@@ -67,8 +65,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 required
                 autoComplete="off"
                 onChange={formik.handleChange}
-                value={formik.values.email}
-                name="email"
+                value={formik.values.username}
+                name="username"
                 placeholder={"Enter your email..."}
                 id="username-input"
                 css={styles.userInput}

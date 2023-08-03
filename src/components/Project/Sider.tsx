@@ -8,7 +8,8 @@ import {
   styled,
   SwitchProps,
   Badge,
-  BadgeProps, Button
+  BadgeProps,
+  Button
 } from "@mui/material";
 import addIcon from "@/assets/images/add.png";
 import homeIcon from "@/assets/images/home.png";

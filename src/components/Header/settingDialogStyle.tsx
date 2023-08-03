@@ -94,7 +94,7 @@ export const addressItem = css`
   ${t16};
   ${white};
   margin-left: 37px;
-  &:first-child {
+  &:first-of-type {
     margin-left: 0;
   }
 `;
