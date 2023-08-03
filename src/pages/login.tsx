@@ -37,7 +37,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
       password: ""
     },
     onSubmit: async (values) => {
-      console.log('values',values)
+      console.log("values", values);
       await mutate(values);
     }
   });

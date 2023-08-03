@@ -20,9 +20,9 @@ const err = (error: any) => {
 // request interceptor
 service.interceptors.request.use((config) => {
   const token = localStorage.getItem("x_access_token");
-  console.log('token',token)
-  if(!token&&!whiteList.includes(config.url!)){
-    Router.push('/login')
+  console.log("token", token);
+  if (!token && !whiteList.includes(config.url!)) {
+    Router.push("/login");
   }
   if (token && !whiteList.includes(config.url!)) {
     config.headers["accessToken"] = token; // 让每个请求携带自定义 token 请根据实际情况自行修改
