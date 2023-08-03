@@ -1,17 +1,17 @@
 import { css } from "@emotion/react";
-import {grey, t12, t14, t16, t18, t20, white} from "@/style/baseStyle";
+import { grey, t12, t14, t16, t18, t20, white } from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
   width: 100%;
   flex-basis: 800px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 `;
-export const caculateWrapper=css`
- flex: 1;
+export const caculateWrapper = css`
+  flex: 1;
   width: 100%;
-  flex-basis:720px;
+  flex-basis: 720px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -31,16 +31,16 @@ export const caculateWrapper=css`
   &::-webkit-scrollbar-track {
     background-color: #111113;
   }
-`
-export const caculateTab=css`
-display: flex;
+`;
+export const caculateTab = css`
+  display: flex;
   align-items: center;
   margin-top: 20.05px;
   margin-left: 20.84px;
   border-bottom: 1px solid #313338;
   padding-bottom: 13.69px;
   margin-right: 18.85px;
-`
+`;
 export const cateTabItem = ({ isActive }: any) => css`
   cursor: pointer;
   ${t18};

@@ -2,10 +2,10 @@ import { handleActions } from "redux-actions";
 import actions from "./action";
 export const namespace = "global";
 export interface GlobalStateType {
-  hoverProject:any;
-  projectConfig:any;
-  currentProject:any;
-  sortedProjects:any[];
+  hoverProject: any;
+  projectConfig: any;
+  currentProject: any;
+  sortedProjects: any[];
   role: string;
   count: number;
   currentNav: number;
@@ -31,10 +31,10 @@ export interface GlobalStateType {
   projectInfoVisible: boolean;
 }
 export const defaultState: GlobalStateType = {
-  hoverProject:{project_name:''},
-  projectConfig:{},
-  currentProject:{},
-  sortedProjects:[],
+  hoverProject: { project_name: "" },
+  projectConfig: {process:{}},
+  currentProject: {},
+  sortedProjects: [],
   projectInfoVisible: false,
   projectInfoPos: { left: "-1000px", top: "-1000px" },
   role: "user",
@@ -118,9 +118,10 @@ const {
   setHelpdialogopen,
   setProjectinfopos,
   setProjectinfovisible,
-    sortProjects,
-    setCurrentproject,setProjectconfig,
-    setHoverproject
+  sortProjects,
+  setCurrentproject,
+  setProjectconfig,
+  setHoverproject
 } = actions;
 export const globalReducer = handleActions(
   {

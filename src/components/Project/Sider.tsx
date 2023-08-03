@@ -18,8 +18,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
-const { setChannel, setManagechannel, setSiderwidth, setProjectinfopos, setProjectinfovisible,setCurrentproject,setHoverproject } =
-  actions;
+const {
+  setChannel,
+  setManagechannel,
+  setSiderwidth,
+  setProjectinfopos,
+  setProjectinfovisible,
+  setCurrentproject,
+  setHoverproject
+} = actions;
 export interface ISider {}
 const CustomSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase": {
@@ -62,8 +69,8 @@ const Sider: React.FC<ISider> = (props) => {
     siderWidth,
     projectInfoPos,
     projectInfoVisible,
-      currentProject,
-      hoverProject
+    currentProject,
+    hoverProject,projectConfig
   } = useSelector((state: RootState) => state.global);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
@@ -80,16 +87,16 @@ const Sider: React.FC<ISider> = (props) => {
   const hoverProjectHandler = (item: any, event: React.MouseEvent) => {
     const target = event.target as HTMLSpanElement;
     const rect = target.getBoundingClientRect();
-    dispatch(setHoverproject(item))
+    dispatch(setHoverproject(item));
     dispatch(setProjectinfopos({ left: rect.x + rect.width + 20 + "px", top: rect.y + "px" }));
     dispatch(setProjectinfovisible(true));
   };
   const blurProject = () => {
     dispatch(setProjectinfovisible(false));
   };
-  const handleClickProject=(item:any)=>{
-    dispatch(setCurrentproject(item))
-  }
+  const handleClickProject = (item: any) => {
+    dispatch(setCurrentproject(item));
+  };
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
       document.addEventListener("mousemove", resize, false);
@@ -119,8 +126,8 @@ const Sider: React.FC<ISider> = (props) => {
         </Box>
         <Box css={styles.projectInfoContent}>1115 Toward Ter, Cincinati OH 45216</Box>
         <Box css={styles.projectInfoTaskItem}>
-          <Box css={styles.projectInfoTaskNum}>2</Box>
-          <Box css={styles.projectInfoTaskText}>Offer被采纳</Box>
+          <Box css={styles.projectInfoTaskNum}>{hoverProject.process_id}</Box>
+          <Box css={styles.projectInfoTaskText}>{projectConfig?.process[hoverProject.process_id]}</Box>
         </Box>
       </Box>
       {/**
@@ -131,7 +138,7 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.projectContainer}>
           {data?.list.map((item: any, index: number) => (
             <StyledBadge
-                onClick={handleClickProject.bind(null,item)}
+              onClick={handleClickProject.bind(null, item)}
               onMouseLeave={blurProject}
               onMouseEnter={hoverProjectHandler.bind(null, item)}
               css={styles.projectBadge}
