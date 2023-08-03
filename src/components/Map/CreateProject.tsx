@@ -1,4 +1,4 @@
-import React, {Fragment, useMemo, useState} from "react";
+import React, { Fragment, useMemo, useState } from "react";
 import {
   Box,
   Button,
@@ -47,51 +47,25 @@ const CreateProject: React.FC<ICreateProject> = () => {
   const handleCaculateTabChange = (idx: number) => {
     setCaculateIdx(idx);
   };
-  const caculate1=useMemo(()=>{
-    return <Fragment key={1}>
-      <Box css={styles.scrollBox}>
-        <Box css={styles.inputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>购入价格</Box>
-            <InputBase
+  const caculate1 = useMemo(() => {
+    return (
+      <Fragment key={1}>
+        <Box css={styles.scrollBox}>
+          <Box css={styles.inputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>购入价格</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>固定利率贷款</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-                endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
-                    ❖
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>固定利率融资成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>买入成交成本</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>固定利率贷款</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
@@ -103,11 +77,22 @@ const CreateProject: React.FC<ICreateProject> = () => {
                     ❖
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>高利贷款</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>固定利率融资成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>买入成交成本</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
@@ -119,33 +104,11 @@ const CreateProject: React.FC<ICreateProject> = () => {
                     ❖
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>硬钱融资成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>改造投入</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>私人贷款</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>高利贷款</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
@@ -157,49 +120,33 @@ const CreateProject: React.FC<ICreateProject> = () => {
                     ❖
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>私人贷款融资成本</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>硬钱融资成本</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>预期改造后售价</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>改造投入</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>卖出成交成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-                endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
-                    ❖
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>房产持有成本</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>私人贷款</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
@@ -211,73 +158,129 @@ const CreateProject: React.FC<ICreateProject> = () => {
                     ❖
                   </InputAdornment>
                 }
-            />
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>私人贷款融资成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>预期改造后售价</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>卖出成交成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+                endAdornment={
+                  <InputAdornment css={styles.inutpos} position="end">
+                    ❖
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>房产持有成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+                endAdornment={
+                  <InputAdornment css={styles.inutpos} position="end">
+                    ❖
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>项目周期</Box>
+              <InputBase css={styles.inputText} />
+            </Box>
           </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>项目周期</Box>
-            <InputBase css={styles.inputText} />
+          <Box css={styles.bottomInputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>资金投入</Box>
+              <InputBase css={styles.inputText} />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>利润</Box>
+              <InputBase css={styles.inputText} />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>投资回报比</Box>
+              <InputBase css={styles.inputText} />
+            </Box>
           </Box>
         </Box>
-        <Box css={styles.bottomInputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>资金投入</Box>
-            <InputBase css={styles.inputText} />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>利润</Box>
-            <InputBase css={styles.inputText} />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>投资回报比</Box>
-            <InputBase css={styles.inputText} />
-          </Box>
-        </Box>
-      </Box>
-      <Button css={styles.saveBtn} variant={"contained"}>
-        保存计算结果
-      </Button>
-    </Fragment>
-  },[])
-  const caculate2=useMemo(()=>{
-    return (<Fragment key={2}>
-      <Box css={styles.scrollBox}>
-        <Box css={styles.inputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>目前房租</Box>
-            <InputBase
+        <Button css={styles.saveBtn} variant={"contained"}>
+          保存计算结果
+        </Button>
+      </Fragment>
+    );
+  }, []);
+  const caculate2 = useMemo(() => {
+    return (
+      <Fragment key={2}>
+        <Box css={styles.scrollBox}>
+          <Box css={styles.inputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>目前房租</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>市场预期房租</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>市场预期房租</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>租金房价比值</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>租金房价比值</Box>
+              <InputBase
                 css={styles.inputText}
                 endAdornment={
                   <InputAdornment css={styles.percentPos} position="end">
                     %
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>转售固定利率贷款</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>转售固定利率贷款</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
@@ -289,49 +292,33 @@ const CreateProject: React.FC<ICreateProject> = () => {
                     ❖
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>转售固定利率融资成本</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>转售固定利率融资成本</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月偿还本息</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月偿还本息</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>成交成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-                endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
-                    ❖
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月房产持有成本</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>成交成本</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
@@ -343,288 +330,322 @@ const CreateProject: React.FC<ICreateProject> = () => {
                     ❖
                   </InputAdornment>
                 }
-            />
-          </Box>
-        </Box>
-        <Box css={styles.bottomInputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月正向资金流</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>资金投入</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>现金投资回报比</Box>
-            <InputBase css={styles.inputText}
-                       endAdornment={
-                         <InputAdornment css={styles.percentPos} position="end">
-                           %
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>资本化率</Box>
-            <InputBase css={styles.inputText}
-                       endAdornment={
-                         <InputAdornment css={styles.percentPos} position="end">
-                           %
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-        </Box>
-      </Box>
-      <Button css={styles.saveBtn} variant={"contained"}>
-        保存计算结果
-      </Button>
-    </Fragment>)
-  },[])
-  const caculate3=useMemo(()=>{
-    return (<Fragment key={3}>
-      <Box css={styles.scrollBox}>
-        <Box css={styles.inputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>目前房租</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月房产持有成本</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
+                endAdornment={
+                  <InputAdornment css={styles.inutpos} position="end">
+                    ❖
+                  </InputAdornment>
+                }
+              />
+            </Box>
           </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>市场预期房租</Box>
-            <InputBase
+          <Box css={styles.bottomInputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月正向资金流</Box>
+              <InputBase
                 css={styles.inputText}
                 startAdornment={
                   <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>租金房价比值</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>资金投入</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>现金投资回报比</Box>
+              <InputBase
                 css={styles.inputText}
                 endAdornment={
                   <InputAdornment css={styles.percentPos} position="end">
                     %
                   </InputAdornment>
                 }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>房产持有成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-                endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
-                    ❖
-                  </InputAdornment>
-                }
-            />
-          </Box>
-        </Box>
-        <Box css={styles.bottomInputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月正向资金流</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>资金投入</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>现金投资回报比</Box>
-            <InputBase css={styles.inputText}
-                       endAdornment={
-                         <InputAdornment css={styles.percentPos} position="end">
-                           %
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>资本化率</Box>
-            <InputBase css={styles.inputText}
-                       endAdornment={
-                         <InputAdornment css={styles.percentPos} position="end">
-                           %
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-        </Box>
-      </Box>
-      <Button css={styles.saveBtn} variant={"contained"}>
-        保存计算结果
-      </Button>
-    </Fragment>)
-  },[])
-  const caculate4=useMemo(()=>{
-    return (<Fragment key={4}>
-      <Box css={styles.scrollBox}>
-        <Box css={styles.inputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月市场预期房租</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月房产持有成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-                endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
-                    ❖
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>再融资固定利率贷款</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-                endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
-                    ❖
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>再融资固定利率融资成本</Box>
-            <InputBase
-                css={styles.inputText}
-                startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
-                    $
-                  </InputAdornment>
-                }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>房屋空置率和维护成本</Box>
-            <InputBase
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>资本化率</Box>
+              <InputBase
                 css={styles.inputText}
                 endAdornment={
                   <InputAdornment css={styles.percentPos} position="end">
                     %
                   </InputAdornment>
                 }
-            />
+              />
+            </Box>
           </Box>
         </Box>
-        <Box css={styles.bottomInputBox}>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月偿还本息</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
+        <Button css={styles.saveBtn} variant={"contained"}>
+          保存计算结果
+        </Button>
+      </Fragment>
+    );
+  }, []);
+  const caculate3 = useMemo(() => {
+    return (
+      <Fragment key={3}>
+        <Box css={styles.scrollBox}>
+          <Box css={styles.inputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>目前房租</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>市场预期房租</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>租金房价比值</Box>
+              <InputBase
+                css={styles.inputText}
+                endAdornment={
+                  <InputAdornment css={styles.percentPos} position="end">
+                    %
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>房产持有成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+                endAdornment={
+                  <InputAdornment css={styles.inutpos} position="end">
+                    ❖
+                  </InputAdornment>
+                }
+              />
+            </Box>
           </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>每月正向现金流</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>再融资后资金投入</Box>
-            <InputBase css={styles.inputText}
-                       startAdornment={
-                         <InputAdornment css={styles.inputPre} position="start">
-                           $
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>再融资后投资回报比</Box>
-            <InputBase css={styles.inputText}
-                       endAdornment={
-                         <InputAdornment css={styles.percentPos} position="end">
-                           %
-                         </InputAdornment>
-                       }
-            />
-          </Box>
-          <Box css={styles.inputGridItem}>
-            <Box css={styles.inputLabel}>资本化率</Box>
-            <InputBase css={styles.inputText}
-                       endAdornment={
-                         <InputAdornment css={styles.percentPos} position="end">
-                           %
-                         </InputAdornment>
-                       }
-            />
+          <Box css={styles.bottomInputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月正向资金流</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>资金投入</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>现金投资回报比</Box>
+              <InputBase
+                css={styles.inputText}
+                endAdornment={
+                  <InputAdornment css={styles.percentPos} position="end">
+                    %
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>资本化率</Box>
+              <InputBase
+                css={styles.inputText}
+                endAdornment={
+                  <InputAdornment css={styles.percentPos} position="end">
+                    %
+                  </InputAdornment>
+                }
+              />
+            </Box>
           </Box>
         </Box>
-      </Box>
-      <Button css={styles.saveBtn} variant={"contained"}>
-        保存计算结果
-      </Button>
-    </Fragment>)
-  },[])
-  const caculator=[caculate1,caculate2,caculate3,caculate4][caculateTabIdx]
+        <Button css={styles.saveBtn} variant={"contained"}>
+          保存计算结果
+        </Button>
+      </Fragment>
+    );
+  }, []);
+  const caculate4 = useMemo(() => {
+    return (
+      <Fragment key={4}>
+        <Box css={styles.scrollBox}>
+          <Box css={styles.inputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月市场预期房租</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月房产持有成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+                endAdornment={
+                  <InputAdornment css={styles.inutpos} position="end">
+                    ❖
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>再融资固定利率贷款</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+                endAdornment={
+                  <InputAdornment css={styles.inutpos} position="end">
+                    ❖
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>再融资固定利率融资成本</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>房屋空置率和维护成本</Box>
+              <InputBase
+                css={styles.inputText}
+                endAdornment={
+                  <InputAdornment css={styles.percentPos} position="end">
+                    %
+                  </InputAdornment>
+                }
+              />
+            </Box>
+          </Box>
+          <Box css={styles.bottomInputBox}>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月偿还本息</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>每月正向现金流</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>再融资后资金投入</Box>
+              <InputBase
+                css={styles.inputText}
+                startAdornment={
+                  <InputAdornment css={styles.inputPre} position="start">
+                    $
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>再融资后投资回报比</Box>
+              <InputBase
+                css={styles.inputText}
+                endAdornment={
+                  <InputAdornment css={styles.percentPos} position="end">
+                    %
+                  </InputAdornment>
+                }
+              />
+            </Box>
+            <Box css={styles.inputGridItem}>
+              <Box css={styles.inputLabel}>资本化率</Box>
+              <InputBase
+                css={styles.inputText}
+                endAdornment={
+                  <InputAdornment css={styles.percentPos} position="end">
+                    %
+                  </InputAdornment>
+                }
+              />
+            </Box>
+          </Box>
+        </Box>
+        <Button css={styles.saveBtn} variant={"contained"}>
+          保存计算结果
+        </Button>
+      </Fragment>
+    );
+  }, []);
+  const caculator = [caculate1, caculate2, caculate3, caculate4][caculateTabIdx];
   return (
     <Box css={styles.container({ isOpen: createProjectDialogOpen })}>
       <Box css={styles.title}>房产详情</Box>
@@ -847,7 +868,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
               </Box>
             ))}
           </Box>
-            {caculator}
+          {caculator}
           {/*<Box css={styles.scrollBox}>
             <Box css={styles.inputBox}>
               <Box css={styles.inputGridItem}>
