@@ -32,7 +32,7 @@ export interface GlobalStateType {
 }
 export const defaultState: GlobalStateType = {
   hoverProject: { project_name: "" },
-  projectConfig: {process:{}},
+  projectConfig: { process: {} },
   currentProject: {},
   sortedProjects: [],
   projectInfoVisible: false,

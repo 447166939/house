@@ -32,14 +32,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
     setLocation(event.target.value);
   };
   const { mutate } = useRegister();
-  const handleSubmit = async () => {
-    await mutate({
-      email: "447166939@qq.com",
-      firstName: "xingzai",
-      lastName: "xingzai",
-      password: "123456",
-      username: "xingzai"
-    });
+  const handleSubmit = async (values:any) => {
+    console.log('values',values)
+    await mutate(values);
   };
   return (
     <Box css={styles.container}>
@@ -56,9 +51,16 @@ const Register: React.FC<IRegisterProps> = (props) => {
             }>{`Welcome back! login with your data that you entered \n during registration.`}</Box>
           <Formik
             initialValues={{
-              firstName: "",
-              lastName: "",
-              email: ""
+              email: "",
+              emailCode:'2222',
+              mobile:'',
+              mobileCode:'8888',
+              password:'',
+              confirmPassword:'',
+              roleId:'1',
+              language:'en',
+              stateId:"2",
+              cityId:"222",
             }}
             onSubmit={handleSubmit}>
             <Form css={styles.loginForm}>
@@ -66,6 +68,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 <Box css={styles.userLabel}>Email</Box>
                 <Field
                   as={InputBase}
+                  autoComplete="off"
                   name={"email"}
                   required
                   placeholder={"Enter your email..."}
@@ -83,8 +86,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.captControl}>
                 <Box css={styles.captLabel}>Captcha</Box>
                 <Field
+                    autoComplete="off"
                   as={InputBase}
-                  name={"captcha"}
+                  name={"emailCode"}
                   placeholder={"Enter your Captcha..."}
                   id="captcha-input"
                   css={styles.captInput}
@@ -93,7 +97,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.telControl}>
                 <Box css={styles.telLabel}>Telephone</Box>
                 <Field
-                  name={"telphone"}
+                    autoComplete="off"
+                  name={"mobile"}
                   as={InputBase}
                   placeholder={"Enter your telephone..."}
                   id="tel-input"
@@ -110,7 +115,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.captControl}>
                 <Box css={styles.captLabel}>Captcha</Box>
                 <Field
-                  name={"phoneCaptcha"}
+                    autoComplete="off"
+                  name={"mobileCode"}
                   as={InputBase}
                   placeholder={"Enter your Captcha..."}
                   id="username-input"
@@ -120,6 +126,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.passControl}>
                 <Box css={styles.passLabel}>Password</Box>
                 <Field
+                    autoComplete="new-password"
                   as={InputBase}
                   name={"password"}
                   type={"password"}
@@ -137,6 +144,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <FormControl css={styles.passControl}>
                 <Box css={styles.passLabel}>Password</Box>
                 <Field
+                    autoComplete="new-password"
                   as={InputBase}
                   name={"confirmPassword"}
                   type={"password"}
@@ -170,7 +178,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   )}
                   value={role}
                   onChange={handleChange}
-                  input={<InputBase css={styles.roleInput} name="role" id="role-select" />}>
+                  input={<InputBase css={styles.roleInput} name="roleId" id="role-select" />}>
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
@@ -209,8 +217,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
-                  <MenuItem value={10}>英语</MenuItem>
-                  <MenuItem value={20}>中文</MenuItem>
+                  <MenuItem value={'ch'}>汉语</MenuItem>
+                  <MenuItem value={'en'}>英语</MenuItem>
+                  <MenuItem value={'fr'}>法语</MenuItem>
+                  <MenuItem value={'rus'}>俄语</MenuItem>
+                  <MenuItem value={'arabic'}>阿拉伯语</MenuItem>
+                  <MenuItem value={'spanish'}>西班牙语</MenuItem>
                 </Field>
               </FormControl>
               <FormControl css={styles.roleControl}>

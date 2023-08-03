@@ -8,7 +8,7 @@ import {
   styled,
   SwitchProps,
   Badge,
-  BadgeProps
+  BadgeProps, Button
 } from "@mui/material";
 import addIcon from "@/assets/images/add.png";
 import homeIcon from "@/assets/images/home.png";
@@ -70,7 +70,8 @@ const Sider: React.FC<ISider> = (props) => {
     projectInfoPos,
     projectInfoVisible,
     currentProject,
-    hoverProject,projectConfig
+    hoverProject,
+    projectConfig
   } = useSelector((state: RootState) => state.global);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
@@ -127,7 +128,9 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.projectInfoContent}>1115 Toward Ter, Cincinati OH 45216</Box>
         <Box css={styles.projectInfoTaskItem}>
           <Box css={styles.projectInfoTaskNum}>{hoverProject.process_id}</Box>
-          <Box css={styles.projectInfoTaskText}>{projectConfig?.process[hoverProject.process_id]}</Box>
+          <Box css={styles.projectInfoTaskText}>
+            {projectConfig?.process[hoverProject.process_id]}
+          </Box>
         </Box>
       </Box>
       {/**
