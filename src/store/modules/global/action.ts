@@ -19,6 +19,10 @@ const actions = createActions(
   "SET_HELPDIALOGOPEN",
   "SET_PROJECTINFOPOS",
   "SET_PROJECTINFOVISIBLE",
+    "SORT_PROJECTS",
+    "SET_CURRENTPROJECT",
+    "SET_PROJECTCONFIG",
+    "SET_HOVERPROJECT",
   {
     prefix: "GLOBAL"
   }

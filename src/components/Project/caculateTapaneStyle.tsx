@@ -1,10 +1,17 @@
 import { css } from "@emotion/react";
-import { grey, t12, t14, t16, t20, white } from "@/style/baseStyle";
+import {grey, t12, t14, t16, t18, t20, white} from "@/style/baseStyle";
 
 export const container = css`
   flex: 1;
   width: 100%;
   flex-basis: 800px;
+  display: flex;
+  flex-direction: column; 
+`;
+export const caculateWrapper=css`
+ flex: 1;
+  width: 100%;
+  flex-basis:720px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -23,6 +30,35 @@ export const container = css`
   scrollbar-color: #38383f #111113;
   &::-webkit-scrollbar-track {
     background-color: #111113;
+  }
+`
+export const caculateTab=css`
+display: flex;
+  align-items: center;
+  margin-top: 20.05px;
+  margin-left: 20.84px;
+  border-bottom: 1px solid #313338;
+  padding-bottom: 13.69px;
+  margin-right: 18.85px;
+`
+export const cateTabItem = ({ isActive }: any) => css`
+  cursor: pointer;
+  ${t18};
+  color: ${isActive ? "#fff" : "#80848E"};
+  margin-right: 35px;
+  white-space: nowrap;
+  width: max-content;
+  position: relative;
+  &:after {
+    bottom: -0.5rem;
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00e0fd;
+    height: 4px;
+    width: 81.4px;
+    display: ${isActive ? "block" : "none"};
   }
 `;
 export const caculateBox = css`

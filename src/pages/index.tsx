@@ -8,7 +8,6 @@ import ContactCenter from "@/components/Contact/ContactCenter";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import * as styles from "@/components/Contact/contactStyle";
-
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const Index: IPage = (props) => {
   const { currentTab } = useSelector((state: RootState) => state.contact);

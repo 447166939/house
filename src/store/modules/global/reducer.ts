@@ -2,6 +2,10 @@ import { handleActions } from "redux-actions";
 import actions from "./action";
 export const namespace = "global";
 export interface GlobalStateType {
+  hoverProject:any;
+  projectConfig:any;
+  currentProject:any;
+  sortedProjects:any[];
   role: string;
   count: number;
   currentNav: number;
@@ -27,6 +31,10 @@ export interface GlobalStateType {
   projectInfoVisible: boolean;
 }
 export const defaultState: GlobalStateType = {
+  hoverProject:{project_name:''},
+  projectConfig:{},
+  currentProject:{},
+  sortedProjects:[],
   projectInfoVisible: false,
   projectInfoPos: { left: "-1000px", top: "-1000px" },
   role: "user",
@@ -109,7 +117,10 @@ const {
   setFilemanageheight,
   setHelpdialogopen,
   setProjectinfopos,
-  setProjectinfovisible
+  setProjectinfovisible,
+    sortProjects,
+    setCurrentproject,setProjectconfig,
+    setHoverproject
 } = actions;
 export const globalReducer = handleActions(
   {
@@ -202,6 +213,30 @@ export const globalReducer = handleActions(
       return {
         ...state,
         projectInfoVisible: action.payload
+      };
+    },
+    [sortProjects as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        sortedProjects: action.payload
+      };
+    },
+    [setCurrentproject as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        currentProject: action.payload
+      };
+    },
+    [setProjectconfig as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        projectConfig: action.payload
+      };
+    },
+    [setHoverproject as unknown as string]: (state, action: any) => {
+      return {
+        ...state,
+        hoverProject: action.payload
       };
     }
   },

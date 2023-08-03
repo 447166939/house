@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
-const { setChannel, setManagechannel, setSiderwidth, setProjectinfopos, setProjectinfovisible } =
+const { setChannel, setManagechannel, setSiderwidth, setProjectinfopos, setProjectinfovisible,setCurrentproject,setHoverproject } =
   actions;
 export interface ISider {}
 const CustomSwitch = styled(Switch)(({ theme }) => ({
@@ -61,7 +61,9 @@ const Sider: React.FC<ISider> = (props) => {
     currentManageChannel,
     siderWidth,
     projectInfoPos,
-    projectInfoVisible
+    projectInfoVisible,
+      currentProject,
+      hoverProject
   } = useSelector((state: RootState) => state.global);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
@@ -75,15 +77,19 @@ const Sider: React.FC<ISider> = (props) => {
     const size = `${event.x}px`;
     dispatch(setSiderwidth(size));
   };
-  const hoverProject = (item: any, event: React.MouseEvent) => {
+  const hoverProjectHandler = (item: any, event: React.MouseEvent) => {
     const target = event.target as HTMLSpanElement;
     const rect = target.getBoundingClientRect();
+    dispatch(setHoverproject(item))
     dispatch(setProjectinfopos({ left: rect.x + rect.width + 20 + "px", top: rect.y + "px" }));
     dispatch(setProjectinfovisible(true));
   };
   const blurProject = () => {
     dispatch(setProjectinfovisible(false));
   };
+  const handleClickProject=(item:any)=>{
+    dispatch(setCurrentproject(item))
+  }
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
       document.addEventListener("mousemove", resize, false);
@@ -98,6 +104,9 @@ const Sider: React.FC<ISider> = (props) => {
   }, []);
   return (
     <Box style={{ flexBasis: siderWidth }} css={styles.container}>
+      {/**
+      项目提示对话框start
+       ***/}
       <Box
         css={styles.projectInfo({
           left: projectInfoPos.left,
@@ -106,7 +115,7 @@ const Sider: React.FC<ISider> = (props) => {
         })}>
         <Box css={styles.projectInfoHead}>
           <Image css={styles.projectInfoIcon} src={homeIcon} alt={""} />
-          <Box css={styles.projectInfoName}>自定义名称</Box>
+          <Box css={styles.projectInfoName}>{hoverProject.project_name}</Box>
         </Box>
         <Box css={styles.projectInfoContent}>1115 Toward Ter, Cincinati OH 45216</Box>
         <Box css={styles.projectInfoTaskItem}>
@@ -114,13 +123,17 @@ const Sider: React.FC<ISider> = (props) => {
           <Box css={styles.projectInfoTaskText}>Offer被采纳</Box>
         </Box>
       </Box>
+      {/**
+       项目提示对话框end
+       ***/}
       <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         <Box css={styles.projectContainer}>
           {data?.list.map((item: any, index: number) => (
             <StyledBadge
+                onClick={handleClickProject.bind(null,item)}
               onMouseLeave={blurProject}
-              onMouseEnter={hoverProject.bind(null, item)}
+              onMouseEnter={hoverProjectHandler.bind(null, item)}
               css={styles.projectBadge}
               color={"error"}
               badgeContent={item.count || 0}
@@ -138,7 +151,7 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.projectText}>项目</Box>
         <Box css={styles.projectName}>
           <Image css={styles.homeIcon} src={homeIcon} alt={""} />
-          <Box css={styles.projectNameText}>自定义名称</Box>
+          <Box css={styles.projectNameText}>{currentProject.project_name}</Box>
         </Box>
         <Box css={styles.projectContent}>1115 Toward Ter, Cincinati OH 45216</Box>
         <Box css={styles.topSplitline}></Box>

@@ -4,7 +4,7 @@ import qs from "qs";
 
 const login = async (params: any) => {
   console.log("params", params);
-  const response = await axios.post("/user/login", qs.stringify(params)).then((res) => {
+  const response = await axios.post("/user/login", params).then((res) => {
     localStorage.setItem("x_access_token", res.data.accessToken);
     return res;
   });

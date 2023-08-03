@@ -5,9 +5,11 @@ import Sider from "@/components/Project/Sider";
 import Pannel from "@/components/Project/Pannel";
 import { NextPage } from "next";
 import { Box } from "@mui/material";
+import {useProjectConfig} from "@/hooks/useProjectConfig";
 
 export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
 const project: IPage = (props) => {
+    useProjectConfig()
   return (
     <Box
       css={{ display: "flex", flexWrap: "nowrap", flex: 1, userSelect: "none", maxHeight: "100%" }}>
