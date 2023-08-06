@@ -12,8 +12,10 @@ const queryProjectConfig = async (dispatch: any) => {
 
 const useProjectConfig = () => {
   const dispatch = useDispatch();
-  const { data, isLoading, isError, error } = useQuery(["projectConfig"], () =>
-    queryProjectConfig(dispatch)
+  const { data, isLoading, isError, error } = useQuery(
+    ["projectConfig"],
+    () => queryProjectConfig(dispatch),
+    { enabled: false }
   );
   return { data, isLoading, isError, error };
 };

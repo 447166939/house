@@ -8,7 +8,38 @@ export const container = css`
   display: flex;
   flex-direction: column;
 `;
+export const usaryModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const fixedModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const ownModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const lendModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const buyModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const sellModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
 export const caculateWrapper = css`
+  position: relative;
   flex: 1;
   width: 100%;
   flex-basis: 720px;
@@ -97,8 +128,15 @@ export const inputPre = css`
   }
 `;
 export const inutpos = css`
+  cursor: pointer;
   & .MuiTypography-root {
     ${t12};
+    ${grey};
+  }
+`;
+export const percentPos = css`
+  & .MuiTypography-root {
+    ${t16};
     ${grey};
   }
 `;

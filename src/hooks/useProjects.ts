@@ -15,7 +15,11 @@ const queryProjects = async (dispatch: any) => {
 
 const useProjects = () => {
   const dispatch = useDispatch();
-  const { data, isLoading, isError, error } = useQuery(["projects"], () => queryProjects(dispatch));
+  const { data, isLoading, isError, error } = useQuery(
+    ["projects"],
+    () => queryProjects(dispatch),
+    { enabled: false }
+  );
   return { data, isLoading, isError, error };
 };
 

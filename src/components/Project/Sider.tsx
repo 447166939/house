@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
+import { useQueryClient } from "@tanstack/react-query";
 const {
   setChannel,
   setManagechannel,
@@ -55,13 +56,11 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 const Sider: React.FC<ISider> = (props) => {
   const { data } = useProjects();
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    queryClient.fetchQuery(["projects"]);
+  }, []);
   console.log("data", data);
-  const projectsData = [
-    { name: "1", id: 1, avatar: "/avatar.jpg", count: 1 },
-    { name: "2", id: 2, avatar: "/avatar.jpg", count: 2 },
-    { name: "T", id: 3, avatar: "/avatar.jpg", count: 3 },
-    { name: "G", id: 4, avatar: "/avatar.jpg", count: 4 }
-  ];
   const {
     commonChannels,
     currentChannel,

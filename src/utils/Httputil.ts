@@ -13,6 +13,9 @@ const err = (error: any) => {
   if (error.response) {
     const errorResponse = error.response;
     const data = errorResponse.data;
+    if (data.code == 403) {
+      Router.replace("/login");
+    }
   }
   return Promise.reject(error);
 };
@@ -32,9 +35,6 @@ service.interceptors.request.use((config) => {
 
 // response interceptor
 service.interceptors.response.use((response) => {
-  if (response.data.code == 403) {
-    Router.push("/login");
-  }
   return response.data;
 }, err);
 
