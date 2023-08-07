@@ -49,6 +49,31 @@ export const exclamationIcon = css`
   height: auto;
   margin-left: 3.59px;
 `;
+export const hoverText = ({ text }: any) => css`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  &:hover::after {
+    position: absolute;
+    content: "${text}";
+    border-radius: 10px 10px 10px 0px;
+    background: #1e1f22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 400;
+    color: #80848e;
+    z-index: 25000;
+    bottom: 100%;
+    left: 100%;
+    width: 170px;
+    padding: 11px 10px;
+    box-sizing: border-box;
+  }
+`;
 export const inputStyle = css`
   height: 40px;
   width: 100%;
