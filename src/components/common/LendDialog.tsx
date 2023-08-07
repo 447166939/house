@@ -92,7 +92,10 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>提前还款限制周期</Box>
-              <Box css={styles.hoverText({ text: '私人贷款提前还款限制，(比如6个月内不能提前还款，如果提前还款罚款$3000)。默认没有罚款。用户根据实际情况调整限制周期和罚款额度。' })}>
+              <Box
+                css={styles.hoverText({
+                  text: "私人贷款提前还款限制，(比如6个月内不能提前还款，如果提前还款罚款$3000)。默认没有罚款。用户根据实际情况调整限制周期和罚款额度。"
+                })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
@@ -101,7 +104,10 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>提前还款罚款额度</Box>
-              <Box css={styles.hoverText({ text: '私人贷款提前还款限制，(比如6个月内不能提前还款，如果提前还款罚款$3000)。默认没有罚款。用户根据实际情况调整限制周期和罚款额度。' })}>
+              <Box
+                css={styles.hoverText({
+                  text: "私人贷款提前还款限制，(比如6个月内不能提前还款，如果提前还款罚款$3000)。默认没有罚款。用户根据实际情况调整限制周期和罚款额度。"
+                })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
