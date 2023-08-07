@@ -9,7 +9,8 @@ import {
   SwitchProps,
   Badge,
   BadgeProps,
-  Button, InputBase
+  Button,
+  InputBase
 } from "@mui/material";
 import addIcon from "@/assets/images/add.png";
 import homeIcon from "@/assets/images/home.png";
@@ -19,7 +20,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
-import {useEditProject} from "@/hooks/useEditProject";
+import { useEditProject } from "@/hooks/useEditProject";
 import { useQueryClient } from "@tanstack/react-query";
 const {
   setChannel,
@@ -57,7 +58,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 const Sider: React.FC<ISider> = (props) => {
   const { data } = useProjects();
-  const editProject=useEditProject()
+  const editProject = useEditProject();
   const queryClient = useQueryClient();
   useEffect(() => {
     queryClient.fetchQuery(["projects"]);
@@ -74,7 +75,7 @@ const Sider: React.FC<ISider> = (props) => {
     hoverProject,
     projectConfig
   } = useSelector((state: RootState) => state.global);
-  const [readonly,setReadonly]=useState(true)
+  const [readonly, setReadonly] = useState(true);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
   const handleChangeChannel = (idx: number) => {
@@ -100,22 +101,28 @@ const Sider: React.FC<ISider> = (props) => {
   const handleClickProject = (item: any) => {
     dispatch(setCurrentproject(item));
   };
-  const handleProjectNameChange=(event:React.ChangeEvent<HTMLInputElement>)=>{
-dispatch(setCurrentproject({...currentProject,project_name:event.target.value}))
-  }
-  const handleClickProjectName=()=>{
-    setReadonly(false)
-  }
-  const projectNameBlur=()=>{
-    setReadonly(true)
-    editProject.mutate({project_id:currentProject.project_id,project_name:currentProject.project_name})
-  }
-  const confirmEdit=(event:React.KeyboardEvent<HTMLInputElement>)=>{
-    if(event.code=='Enter'){
-      setReadonly(true)
-      editProject.mutate({project_id:currentProject.project_id,project_name:currentProject.project_name})
+  const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setCurrentproject({ ...currentProject, project_name: event.target.value }));
+  };
+  const handleClickProjectName = () => {
+    setReadonly(false);
+  };
+  const projectNameBlur = () => {
+    setReadonly(true);
+    editProject.mutate({
+      project_id: currentProject.project_id,
+      project_name: currentProject.project_name
+    });
+  };
+  const confirmEdit = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.code == "Enter") {
+      setReadonly(true);
+      editProject.mutate({
+        project_id: currentProject.project_id,
+        project_name: currentProject.project_name
+      });
     }
-  }
+  };
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
       document.addEventListener("mousemove", resize, false);
@@ -179,7 +186,15 @@ dispatch(setCurrentproject({...currentProject,project_name:event.target.value}))
         <Box css={styles.projectText}>项目</Box>
         <Box css={styles.projectName}>
           <Image css={styles.homeIcon} src={homeIcon} alt={""} />
-          <InputBase onKeyPress={confirmEdit} onBlur={projectNameBlur} onClick={handleClickProjectName} readOnly={readonly} onChange={handleProjectNameChange} value={currentProject.project_name} css={styles.projectNameText}/>
+          <InputBase
+            onKeyPress={confirmEdit}
+            onBlur={projectNameBlur}
+            onClick={handleClickProjectName}
+            readOnly={readonly}
+            onChange={handleProjectNameChange}
+            value={currentProject?.project_name}
+            css={styles.projectNameText}
+          />
         </Box>
         <Box css={styles.projectContent}>1115 Toward Ter, Cincinati OH 45216</Box>
         <Box css={styles.topSplitline}></Box>

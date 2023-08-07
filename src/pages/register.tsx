@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import * as styles from "@/style/registerStyle";
@@ -13,25 +13,30 @@ import {
   IconButton,
   Select,
   MenuItem,
-  SelectChangeEvent
 } from "@mui/material";
-import { Formik, Form, Field } from "formik";
+import {useFormik } from "formik";
 import { useRegister } from "@/hooks/useRegister";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
-  const [role, setRole] = useState("");
-  const [lang, setLang] = useState("");
-  const [location, setLocation] = useState("");
-  const handleChange = (event: SelectChangeEvent) => {
-    setRole(event.target.value);
-  };
-  const handleLangChange = (event: SelectChangeEvent) => {
-    setLang(event.target.value);
-  };
-  const handleLocationChange = (event: SelectChangeEvent) => {
-    setLocation(event.target.value);
-  };
   const { mutate } = useRegister();
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      emailCode: "2222",
+      mobile: "",
+      mobileCode: "8888",
+      password: "",
+      confirmPassword: "",
+      roleId: "1",
+      language: "en",
+      stateId: "2",
+      cityId: "222"
+    },
+    onSubmit: async (values) => {
+      console.log("values", values);
+      await mutate(values);
+    }
+  })
   const handleSubmit = async (values: any) => {
     console.log("values", values);
     await mutate(values);
@@ -49,25 +54,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
             css={
               styles.formSubTitle
             }>{`Welcome back! login with your data that you entered \n during registration.`}</Box>
-          <Formik
-            initialValues={{
-              email: "",
-              emailCode: "2222",
-              mobile: "",
-              mobileCode: "8888",
-              password: "",
-              confirmPassword: "",
-              roleId: "1",
-              language: "en",
-              stateId: "2",
-              cityId: "222"
-            }}
-            onSubmit={handleSubmit}>
-            <Form css={styles.loginForm}>
+            <form onSubmit={formik.handleSubmit} css={styles.loginForm}>
               <FormControl css={styles.userControl}>
                 <Box css={styles.userLabel}>Email</Box>
-                <Field
-                  as={InputBase}
+                <InputBase
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
                   autoComplete="off"
                   name={"email"}
                   required
@@ -85,9 +77,10 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </FormControl>
               <FormControl css={styles.captControl}>
                 <Box css={styles.captLabel}>Captcha</Box>
-                <Field
+                <InputBase
+                    onChange={formik.handleChange}
+                    value={formik.values.emailCode}
                   autoComplete="off"
-                  as={InputBase}
                   name={"emailCode"}
                   placeholder={"Enter your Captcha..."}
                   id="captcha-input"
@@ -96,10 +89,11 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </FormControl>
               <FormControl css={styles.telControl}>
                 <Box css={styles.telLabel}>Telephone</Box>
-                <Field
+                <InputBase
+                    value={formik.values.mobile}
+                    onChange={formik.handleChange}
                   autoComplete="off"
                   name={"mobile"}
-                  as={InputBase}
                   placeholder={"Enter your telephone..."}
                   id="tel-input"
                   css={styles.telInput}
@@ -114,10 +108,11 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </FormControl>
               <FormControl css={styles.captControl}>
                 <Box css={styles.captLabel}>Captcha</Box>
-                <Field
+                <InputBase
+                    value={formik.values.mobileCode}
+                    onChange={formik.handleChange}
                   autoComplete="off"
                   name={"mobileCode"}
-                  as={InputBase}
                   placeholder={"Enter your Captcha..."}
                   id="username-input"
                   css={styles.captInput}
@@ -125,9 +120,10 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </FormControl>
               <FormControl css={styles.passControl}>
                 <Box css={styles.passLabel}>Password</Box>
-                <Field
+                <InputBase
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
                   autoComplete="new-password"
-                  as={InputBase}
                   name={"password"}
                   type={"password"}
                   id="password-input"
@@ -143,9 +139,10 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </FormControl>
               <FormControl css={styles.passControl}>
                 <Box css={styles.passLabel}>Password</Box>
-                <Field
+                <InputBase
+                    value={formik.values.confirmPassword}
+                    onChange={formik.handleChange}
                   autoComplete="new-password"
-                  as={InputBase}
                   name={"confirmPassword"}
                   type={"password"}
                   id="password-input"
@@ -161,8 +158,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
               </FormControl>
               <FormControl css={styles.roleControl}>
                 <Box css={styles.roleLabel}>Platform Role</Box>
-                <Field
-                  as={Select}
+                <Select
+                    value={formik.values.roleId}
                   MenuProps={{
                     PaperProps: {
                       style: {
@@ -176,8 +173,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   IconComponent={(props: any) => (
                     <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
                   )}
-                  value={role}
-                  onChange={handleChange}
+                  onChange={formik.handleChange}
                   input={<InputBase css={styles.roleInput} name="roleId" id="role-select" />}>
                   <MenuItem value="">
                     <em>None</em>
@@ -192,12 +188,11 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   <MenuItem value={80}> Loaner & Lender</MenuItem>
                   <MenuItem value={90}>oint Venture</MenuItem>
                   <MenuItem value={100}>Other Service Provider</MenuItem>
-                </Field>
+                </Select>
               </FormControl>
               <FormControl css={styles.roleControl}>
                 <Box css={styles.roleLabel}>Language</Box>
-                <Field
-                  as={Select}
+                <Select
                   MenuProps={{
                     PaperProps: {
                       style: {
@@ -211,8 +206,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   IconComponent={(props: any) => (
                     <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
                   )}
-                  value={lang}
-                  onChange={handleLangChange}
+                  value={formik.values.language}
+                  onChange={formik.handleChange}
                   input={<InputBase css={styles.roleInput} name="language" id="language-select" />}>
                   <MenuItem value="">
                     <em>None</em>
@@ -223,12 +218,11 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   <MenuItem value={"rus"}>俄语</MenuItem>
                   <MenuItem value={"arabic"}>阿拉伯语</MenuItem>
                   <MenuItem value={"spanish"}>西班牙语</MenuItem>
-                </Field>
+                </Select>
               </FormControl>
               <FormControl css={styles.roleControl}>
                 <Box css={styles.roleLabel}>Location</Box>
-                <Field
-                  as={Select}
+                <Select
                   MenuProps={{
                     PaperProps: {
                       style: {
@@ -242,16 +236,16 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   IconComponent={(props: any) => (
                     <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
                   )}
-                  value={location}
-                  onChange={handleLocationChange}
-                  input={<InputBase css={styles.roleInput} name="location" id="location-select" />}>
+                  value={formik.values.stateId}
+                  onChange={formik.handleChange}
+                  input={<InputBase css={styles.roleInput} name="stateId" id="location-select" />}>
                   <MenuItem value="">
                     <em>None</em>
                   </MenuItem>
                   <MenuItem value={10}>Ten</MenuItem>
                   <MenuItem value={20}>Twenty</MenuItem>
                   <MenuItem value={30}>Thirty</MenuItem>
-                </Field>
+                </Select>
               </FormControl>
               <FormControl css={styles.buttonControl}>
                 <Button
@@ -262,8 +256,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   Sign Up
                 </Button>
               </FormControl>
-            </Form>
-          </Formik>
+            </form>
         </Box>
       </Box>
     </Box>

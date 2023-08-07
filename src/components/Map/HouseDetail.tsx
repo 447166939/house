@@ -40,7 +40,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
   const router = useRouter();
   const { mutate, isSuccess, data } = useCreateProject();
   const createProject = async () => {
-    mutate({ house_id: 13, project_name: "自定义名称1" });
+    mutate({ house_id: 10, project_name: "自定义名称1" });
   };
   useEffect(() => {
     if (isSuccess) {
