@@ -79,6 +79,7 @@ export const userControl = css`
   align-items: center;
   flex-direction: row;
   justify-content: flex-end;
+  position:relative;
 `;
 export const userLabel = css`
   ${h15};
@@ -88,8 +89,10 @@ export const userLabel = css`
   }
 `;
 
-export const userInput = css`
-  border: 1px solid #36404e;
+export const userInput =({error,touched}:any)=> css`
+position:relative;
+  border: ${!!error&&touched ? '1px solid red': '1px solid #36404e'};
+  border-radius:4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -97,6 +100,14 @@ export const userInput = css`
   height: 48px;
   padding-left: 19px;
   box-sizing: border-box;
+  &:after{
+  display:${!!error&&touched ? 'block' :'none'};
+  position:absolute;
+  content:'${error}';
+  color:red;
+  top:-1.5em;
+  margin-left:-19px;
+  }
   & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
@@ -124,8 +135,10 @@ export const captLabel = css`
   }
 `;
 
-export const captInput = css`
-  border: 1px solid #36404e;
+export const captInput =({error,touched}:any)=> css`
+  position:relative;
+  border: ${!!error&&touched ? '1px solid red': '1px solid #36404e'};
+  border-radius:4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -133,6 +146,14 @@ export const captInput = css`
   height: 48px;
   padding-left: 19px;
   box-sizing: border-box;
+  &:after{
+  display:${!!error&&touched ? 'block' :'none'};
+  position:absolute;
+  content:'${error}';
+  color:red;
+  top:-1.5em;
+  margin-left:-19px;
+  }
   & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
