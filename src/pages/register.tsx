@@ -14,7 +14,7 @@ import {
   Select,
   MenuItem
 } from "@mui/material";
-import { useFormik,ErrorMessage } from "formik";
+import { useFormik, ErrorMessage } from "formik";
 import { useRegister } from "@/hooks/useRegister";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
@@ -36,11 +36,14 @@ const Register: React.FC<IRegisterProps> = (props) => {
       console.log("errors", formik);
       await mutate(values);
     },
-    validate:values=>{
-      let errors:any = {};
-     if(!values.emailCode){
-       errors.emailCode="必填: 请完成邮箱验证码验证"
-     }
+    validate: (values) => {
+      let errors: any = {};
+      if (!values.emailCode) {
+        errors.emailCode = "必填: 请完成邮箱验证码验证";
+      }
+      if(!values.mobileCode){
+        errors.mobileCode="必填: 请完成电话验证码验证";
+      }
       return errors;
     }
   });
@@ -68,7 +71,10 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 placeholder={"Enter your email..."}
                 id="username-input"
                 onBlur={formik.handleBlur}
-                css={styles.userInput({error:formik.errors.email,touched:formik.touched.email})}
+                css={styles.userInput({
+                  error: formik.errors.email,
+                  touched: formik.touched.email
+                })}
                 endAdornment={
                   <InputAdornment position="end">
                     <Button css={styles.sendCaptBtn} variant={"contained"}>
@@ -77,18 +83,21 @@ const Register: React.FC<IRegisterProps> = (props) => {
                   </InputAdornment>
                 }
               />
-              </FormControl>
+            </FormControl>
             <FormControl css={styles.captControl}>
               <Box css={styles.captLabel}>Captcha</Box>
               <InputBase
-                  onBlur={formik.handleBlur}
+                onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
                 value={formik.values.emailCode}
                 autoComplete="off"
                 name={"emailCode"}
                 placeholder={"Enter your Captcha..."}
                 id="captcha-input"
-                css={styles.captInput({error:formik.errors.emailCode,touched:formik.touched.emailCode})}
+                css={styles.captInput({
+                  error: formik.errors.emailCode,
+                  touched: formik.touched.emailCode
+                })}
               />
             </FormControl>
             <FormControl css={styles.telControl}>
@@ -115,11 +124,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
               <InputBase
                 value={formik.values.mobileCode}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
                 autoComplete="off"
                 name={"mobileCode"}
                 placeholder={"Enter your Captcha..."}
                 id="username-input"
-                css={styles.captInput}
+                css={styles.captInput({error:formik.errors.mobileCode,touched:formik.touched.mobileCode})}
               />
             </FormControl>
             <FormControl css={styles.passControl}>

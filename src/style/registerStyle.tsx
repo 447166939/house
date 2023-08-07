@@ -79,7 +79,7 @@ export const userControl = css`
   align-items: center;
   flex-direction: row;
   justify-content: flex-end;
-  position:relative;
+  position: relative;
 `;
 export const userLabel = css`
   ${h15};
@@ -89,10 +89,10 @@ export const userLabel = css`
   }
 `;
 
-export const userInput =({error,touched}:any)=> css`
-position:relative;
-  border: ${!!error&&touched ? '1px solid red': '1px solid #36404e'};
-  border-radius:4px;
+export const userInput = ({ error, touched }: any) => css`
+  position: relative;
+  border: ${!!error && touched ? "1px solid red" : "1px solid #36404e"};
+  border-radius: 4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -100,13 +100,13 @@ position:relative;
   height: 48px;
   padding-left: 19px;
   box-sizing: border-box;
-  &:after{
-  display:${!!error&&touched ? 'block' :'none'};
-  position:absolute;
-  content:'${error}';
-  color:red;
-  top:-1.5em;
-  margin-left:-19px;
+  &:after {
+    display: ${!!error && touched ? "block" : "none"};
+    position: absolute;
+    content: "${error}";
+    color: red;
+    top: -1.5em;
+    margin-left: -19px;
   }
   & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
@@ -135,10 +135,10 @@ export const captLabel = css`
   }
 `;
 
-export const captInput =({error,touched}:any)=> css`
-  position:relative;
-  border: ${!!error&&touched ? '1px solid red': '1px solid #36404e'};
-  border-radius:4px;
+export const captInput = ({ error, touched }: any) => css`
+  position: relative;
+  border: ${!!error && touched ? "1px solid red" : "1px solid #36404e"};
+  border-radius: 4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -146,13 +146,13 @@ export const captInput =({error,touched}:any)=> css`
   height: 48px;
   padding-left: 19px;
   box-sizing: border-box;
-  &:after{
-  display:${!!error&&touched ? 'block' :'none'};
-  position:absolute;
-  content:'${error}';
-  color:red;
-  top:-1.5em;
-  margin-left:-19px;
+  &:after {
+    display: ${!!error && touched ? "block" : "none"};
+    position: absolute;
+    content: "${error}";
+    color: red;
+    top: -1.5em;
+    margin-left: -19px;
   }
   & input:-webkit-autofill,
   & input:-webkit-autofill:focus {
@@ -176,6 +176,7 @@ export const telLabel = css`
 
 export const telInput = css`
   border: 1px solid #36404e;
+  border-radius:4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -204,6 +205,7 @@ export const passControl = css`
 `;
 export const passInput = css`
   border: 1px solid #36404e;
+  border-radius:4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -277,6 +279,7 @@ export const roleControl = css`
 `;
 export const roleInput = css`
   border: 1px solid #36404e;
+  border-radius:4px;
   ${h15};
   ${grey};
   width: 470px;
