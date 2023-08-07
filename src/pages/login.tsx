@@ -62,7 +62,6 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 Email address
               </InputLabel>
               <InputBase
-                required
                 autoComplete="off"
                 onChange={formik.handleChange}
                 value={formik.values.username}

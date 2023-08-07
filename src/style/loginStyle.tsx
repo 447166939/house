@@ -92,7 +92,7 @@ export const userLabel = css`
 
 export const userInput = css`
   border: 1px solid #36404e;
-  border-radius:4px;
+  border-radius: 4px;
   ${h15};
   ${grey};
   height: 48px;
@@ -115,7 +115,7 @@ export const passControl = css`
 `;
 export const passInput = css`
   border: 1px solid #36404e;
-  border-radius:4px;
+  border-radius: 4px;
   ${h15};
   ${grey};
   height: 48px;
@@ -182,7 +182,7 @@ export const roleControl = css`
 `;
 export const roleInput = css`
   border: 1px solid #36404e;
-  border-radius:4px;
+  border-radius: 4px;
   ${h15};
   ${grey};
   height: 1.75rem;

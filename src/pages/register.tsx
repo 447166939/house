@@ -41,8 +41,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
       if (!values.emailCode) {
         errors.emailCode = "必填: 请完成邮箱验证码验证";
       }
-      if(!values.mobileCode){
-        errors.mobileCode="必填: 请完成电话验证码验证";
+      if (!values.mobileCode) {
+        errors.mobileCode = "必填: 请完成电话验证码验证";
       }
       return errors;
     }
@@ -129,7 +129,10 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 name={"mobileCode"}
                 placeholder={"Enter your Captcha..."}
                 id="username-input"
-                css={styles.captInput({error:formik.errors.mobileCode,touched:formik.touched.mobileCode})}
+                css={styles.captInput({
+                  error: formik.errors.mobileCode,
+                  touched: formik.touched.mobileCode
+                })}
               />
             </FormControl>
             <FormControl css={styles.passControl}>

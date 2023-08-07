@@ -176,7 +176,7 @@ export const telLabel = css`
 
 export const telInput = css`
   border: 1px solid #36404e;
-  border-radius:4px;
+  border-radius: 4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -205,7 +205,7 @@ export const passControl = css`
 `;
 export const passInput = css`
   border: 1px solid #36404e;
-  border-radius:4px;
+  border-radius: 4px;
   ${h15};
   ${grey};
   margin-left: 10.77px;
@@ -279,7 +279,7 @@ export const roleControl = css`
 `;
 export const roleInput = css`
   border: 1px solid #36404e;
-  border-radius:4px;
+  border-radius: 4px;
   ${h15};
   ${grey};
   width: 470px;

@@ -22,6 +22,12 @@ import { css } from "@emotion/react";
 import bigAddIcon from "@/assets/images/bigAdd.png";
 import arrowDownIcon from "@/assets/images/arrowDown.png";
 import downIcon from "@/assets/images/down.png";
+import UsuryDialog from "@/components/common/UsaryDialog";
+import FixedDialog from "@/components/common/FixedDialog";
+import OwnDialog from "@/components/common/OwnDialog";
+import LendDialog from "@/components/common/LendDialog";
+import BuyDialog from "@/components/common/buyDialog";
+import SellDialog from "@/components/common/SellDialog";
 const { setCreateprojectdialogopen } = actions;
 export interface ICreateProject {}
 const CreateProject: React.FC<ICreateProject> = () => {
@@ -30,6 +36,48 @@ const CreateProject: React.FC<ICreateProject> = () => {
   const [address, setAddress] = useState("");
   const [houseType, setHouseType] = useState("");
   const [caculateTabIdx, setCaculateIdx] = useState(0);
+  const [usaryModalVisible, setUsaryModalVisible] = useState(false);
+  const [fixedModalVisible, setFixedModalVisible] = useState(false);
+  const [ownModalVisible, setOwnModalVisible] = useState(false);
+  const [lendModalVisible, setLendModalVisible] = useState(false);
+  const [buyModalVisible, setBuyModalVisible] = useState(false);
+  const [sellModalVisible, setSellModalVisible] = useState(false);
+  const openUsary = () => {
+    setUsaryModalVisible(true);
+  };
+  const openFixed = () => {
+    setFixedModalVisible(true);
+  };
+  const openOwn = () => {
+    setOwnModalVisible(true);
+  };
+  const openLend = () => {
+    setLendModalVisible(true);
+  };
+  const openBuy = () => {
+    setBuyModalVisible(true);
+  };
+  const openSell = () => {
+    setSellModalVisible(true);
+  };
+  const closeUsary = () => {
+    setUsaryModalVisible(false);
+  };
+  const closeFixed = () => {
+    setFixedModalVisible(false);
+  };
+  const closeOwn = () => {
+    setOwnModalVisible(false);
+  };
+  const closeLend = () => {
+    setLendModalVisible(false);
+  };
+  const closeBuy = () => {
+    setBuyModalVisible(false);
+  };
+  const closeSell = () => {
+    setSellModalVisible(false);
+  };
   const { createProjectDialogOpen } = useSelector((state: RootState) => state.map);
   const handleClose = () => {
     dispatch(setCreateprojectdialogopen(false));
@@ -73,7 +121,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -100,7 +148,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openBuy} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -116,7 +164,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openUsary} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -154,7 +202,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openLend} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -192,7 +240,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openSell} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -208,7 +256,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -288,7 +336,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -342,7 +390,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -450,7 +498,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -536,7 +584,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -552,7 +600,7 @@ const CreateProject: React.FC<ICreateProject> = () => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -868,194 +916,21 @@ const CreateProject: React.FC<ICreateProject> = () => {
               </Box>
             ))}
           </Box>
+          <UsuryDialog
+              onClose={closeUsary}
+              rootStyle={styles.usaryModal}
+              visible={usaryModalVisible}
+          />
+          <FixedDialog
+              onClose={closeFixed}
+              rootStyle={styles.fixedModal}
+              visible={fixedModalVisible}
+          />
+          <OwnDialog rootStyle={styles.ownModal} visible={ownModalVisible} onClose={closeOwn} />
+          <LendDialog rootStyle={styles.lendModal} visible={lendModalVisible} onClose={closeLend} />
+          <BuyDialog rootStyle={styles.buyModal} visible={buyModalVisible} onClose={closeBuy} />
+          <SellDialog visible={sellModalVisible} onClose={closeSell} rootStyle={styles.sellModal} />
           {caculator}
-          {/*<Box css={styles.scrollBox}>
-            <Box css={styles.inputBox}>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>购入价格</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>固定利率贷款</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment css={styles.inutpos} position="end">
-                      ❖
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>固定利率融资成本</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>买入成交成本</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment css={styles.inutpos} position="end">
-                      ❖
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>硬钱贷款</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment css={styles.inutpos} position="end">
-                      ❖
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>硬钱融资成本</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>改造投入</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>私人贷款</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment css={styles.inutpos} position="end">
-                      ❖
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>私人贷款融资成本</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>预期改造后售价</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>卖出成交成本</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment css={styles.inutpos} position="end">
-                      ❖
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>房产持有成本</Box>
-                <InputBase
-                  css={styles.inputText}
-                  startAdornment={
-                    <InputAdornment css={styles.inputPre} position="start">
-                      $
-                    </InputAdornment>
-                  }
-                  endAdornment={
-                    <InputAdornment css={styles.inutpos} position="end">
-                      ❖
-                    </InputAdornment>
-                  }
-                />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>项目周期</Box>
-                <InputBase css={styles.inputText} />
-              </Box>
-            </Box>
-            <Box css={styles.bottomInputBox}>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>资金投入</Box>
-                <InputBase css={styles.inputText} />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>利润</Box>
-                <InputBase css={styles.inputText} />
-              </Box>
-              <Box css={styles.inputGridItem}>
-                <Box css={styles.inputLabel}>投资回报比</Box>
-                <InputBase css={styles.inputText} />
-              </Box>
-            </Box>
-          </Box>
-          <Button css={styles.saveBtn} variant={"contained"}>
-            保存计算结果
-          </Button>*/}
         </Box>
       </Box>
     </Box>
