@@ -46,7 +46,7 @@ export const caculateWrapper = css`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  overflow-x:hidden;
+  overflow-x: hidden;
   &::-webkit-scrollbar {
     background-color: #111113;
     width: 8px;

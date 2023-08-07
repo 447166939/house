@@ -293,7 +293,7 @@ const CaculateTabpane: React.FC<ICaculateTabpane> = () => {
                 </InputAdornment>
               }
               endAdornment={
-                <InputAdornment css={styles.inutpos} position="end">
+                <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                   ❖
                 </InputAdornment>
               }
@@ -347,7 +347,7 @@ const CaculateTabpane: React.FC<ICaculateTabpane> = () => {
                 </InputAdornment>
               }
               endAdornment={
-                <InputAdornment css={styles.inutpos} position="end">
+                <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                   ❖
                 </InputAdornment>
               }
@@ -454,7 +454,7 @@ const CaculateTabpane: React.FC<ICaculateTabpane> = () => {
                 </InputAdornment>
               }
               endAdornment={
-                <InputAdornment css={styles.inutpos} position="end">
+                <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                   ❖
                 </InputAdornment>
               }
@@ -538,7 +538,7 @@ const CaculateTabpane: React.FC<ICaculateTabpane> = () => {
                 </InputAdornment>
               }
               endAdornment={
-                <InputAdornment css={styles.inutpos} position="end">
+                <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                   ❖
                 </InputAdornment>
               }
@@ -554,7 +554,7 @@ const CaculateTabpane: React.FC<ICaculateTabpane> = () => {
                 </InputAdornment>
               }
               endAdornment={
-                <InputAdornment css={styles.inutpos} position="end">
+                <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                   ❖
                 </InputAdornment>
               }

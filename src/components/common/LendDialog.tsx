@@ -31,7 +31,7 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>私人贷款周期</Box>
-              <Box css={styles.hoverText({text:'私人贷款周期，默认1年。'})}>
+              <Box css={styles.hoverText({ text: "私人贷款周期，默认1年。" })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
@@ -40,7 +40,7 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>点数抽成 - 高利贷抽成</Box>
-              <Box css={styles.hoverText({text:'私人高利贷点数抽成，默认1%。行业标准1%~3%'})}>
+              <Box css={styles.hoverText({ text: "私人高利贷点数抽成，默认1%。行业标准1%~3%" })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
@@ -49,7 +49,7 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>贷款利率</Box>
-              <Box css={styles.hoverText({text:'私人高利贷利率，默认:12%。行业标准:10%~15%'})}>
+              <Box css={styles.hoverText({ text: "私人高利贷利率，默认:12%。行业标准:10%~15%" })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
@@ -58,7 +58,10 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>一次性费用</Box>
-              <Box css={styles.hoverText({text:'私人贷款一次性费用，默认$0。用户根据实际情况进行调整。'})}>
+              <Box
+                css={styles.hoverText({
+                  text: "私人贷款一次性费用，默认$0。用户根据实际情况进行调整。"
+                })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
@@ -67,7 +70,10 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>自定义费用</Box>
-              <Box css={styles.hoverText({text:'私人贷款自定义费用，默认$0。用户根据实际情况进行调整。'})}>
+              <Box
+                css={styles.hoverText({
+                  text: "私人贷款自定义费用，默认$0。用户根据实际情况进行调整。"
+                })}>
                 <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
               </Box>
             </Box>
@@ -80,17 +86,24 @@ const LendDialog: React.FC<ILendDialog> = (props) => {
               }
             />
           </Box>
+        </Box>
+        <Box css={styles.formTitle}>Private Money的限制</Box>
+        <Box css={styles.gridContainer}>
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>提前还款限制周期</Box>
-              <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
+              <Box css={styles.hoverText({ text: '私人贷款提前还款限制，(比如6个月内不能提前还款，如果提前还款罚款$3000)。默认没有罚款。用户根据实际情况调整限制周期和罚款额度。' })}>
+                <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
+              </Box>
             </Box>
             <InputBase css={styles.inputStyle} />
           </Box>
           <Box css={styles.gridItem}>
             <Box css={styles.inputTitle}>
               <Box css={styles.inputLabel}>提前还款罚款额度</Box>
-              <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
+              <Box css={styles.hoverText({ text: '私人贷款提前还款限制，(比如6个月内不能提前还款，如果提前还款罚款$3000)。默认没有罚款。用户根据实际情况调整限制周期和罚款额度。' })}>
+                <Image css={styles.exclamationIcon} src={exclamationIcon} alt={""} />
+              </Box>
             </Box>
             <InputBase css={styles.inputStyle} />
           </Box>
