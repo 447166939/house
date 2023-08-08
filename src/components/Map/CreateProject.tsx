@@ -917,14 +917,14 @@ const CreateProject: React.FC<ICreateProject> = () => {
             ))}
           </Box>
           <UsuryDialog
-              onClose={closeUsary}
-              rootStyle={styles.usaryModal}
-              visible={usaryModalVisible}
+            onClose={closeUsary}
+            rootStyle={styles.usaryModal}
+            visible={usaryModalVisible}
           />
           <FixedDialog
-              onClose={closeFixed}
-              rootStyle={styles.fixedModal}
-              visible={fixedModalVisible}
+            onClose={closeFixed}
+            rootStyle={styles.fixedModal}
+            visible={fixedModalVisible}
           />
           <OwnDialog rootStyle={styles.ownModal} visible={ownModalVisible} onClose={closeOwn} />
           <LendDialog rootStyle={styles.lendModal} visible={lendModalVisible} onClose={closeLend} />

@@ -13,6 +13,12 @@ import { RootState } from "@/store/index";
 import { useCreateProject } from "@/hooks/useCreateProject";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
+import UsuryDialog from "@/components/common/UsaryDialog";
+import FixedDialog from "@/components/common/FixedDialog";
+import OwnDialog from "@/components/common/OwnDialog";
+import LendDialog from "@/components/common/LendDialog";
+import BuyDialog from "@/components/common/buyDialog";
+import SellDialog from "@/components/common/SellDialog";
 
 export interface IHouseDetail {
   open: boolean;
@@ -36,6 +42,48 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
   const { detail } = useSelector((state: RootState) => state.map);
   const { onClose, open } = props;
   const [idx, setIdx] = useState(0);
+  const [usaryModalVisible, setUsaryModalVisible] = useState(false);
+  const [fixedModalVisible, setFixedModalVisible] = useState(false);
+  const [ownModalVisible, setOwnModalVisible] = useState(false);
+  const [lendModalVisible, setLendModalVisible] = useState(false);
+  const [buyModalVisible, setBuyModalVisible] = useState(false);
+  const [sellModalVisible, setSellModalVisible] = useState(false);
+  const openUsary = () => {
+    setUsaryModalVisible(true);
+  };
+  const openFixed = () => {
+    setFixedModalVisible(true);
+  };
+  const openOwn = () => {
+    setOwnModalVisible(true);
+  };
+  const openLend = () => {
+    setLendModalVisible(true);
+  };
+  const openBuy = () => {
+    setBuyModalVisible(true);
+  };
+  const openSell = () => {
+    setSellModalVisible(true);
+  };
+  const closeUsary = () => {
+    setUsaryModalVisible(false);
+  };
+  const closeFixed = () => {
+    setFixedModalVisible(false);
+  };
+  const closeOwn = () => {
+    setOwnModalVisible(false);
+  };
+  const closeLend = () => {
+    setLendModalVisible(false);
+  };
+  const closeBuy = () => {
+    setBuyModalVisible(false);
+  };
+  const closeSell = () => {
+    setSellModalVisible(false);
+  };
   const [caculateTabIdx, setCaculateIdx] = useState(0);
   const router = useRouter();
   const { mutate, isSuccess, data } = useCreateProject();
@@ -87,7 +135,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -114,7 +162,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openBuy} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -130,7 +178,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openUsary} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -168,7 +216,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openLend} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -201,7 +249,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
               <InputBase
                 css={styles.inputText}
                 startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
+                  <InputAdornment onClick={openSell} css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
@@ -222,7 +270,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -302,7 +350,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -351,7 +399,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
               <InputBase
                 css={styles.inputText}
                 startAdornment={
-                  <InputAdornment css={styles.inputPre} position="start">
+                  <InputAdornment onClick={openOwn} css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
@@ -464,7 +512,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -550,7 +598,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openOwn} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -566,7 +614,7 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openFixed} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -756,6 +804,20 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
                 </Box>
               ))}
             </Box>
+            <UsuryDialog
+                onClose={closeUsary}
+                rootStyle={styles.usaryModal}
+                visible={usaryModalVisible}
+            />
+            <FixedDialog
+                onClose={closeFixed}
+                rootStyle={styles.fixedModal}
+                visible={fixedModalVisible}
+            />
+            <OwnDialog rootStyle={styles.ownModal} visible={ownModalVisible} onClose={closeOwn} />
+            <LendDialog rootStyle={styles.lendModal} visible={lendModalVisible} onClose={closeLend} />
+            <BuyDialog rootStyle={styles.buyModal} visible={buyModalVisible} onClose={closeBuy} />
+            <SellDialog visible={sellModalVisible} onClose={closeSell} rootStyle={styles.sellModal} />
             {caculator}
           </Box>
         </Box>

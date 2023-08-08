@@ -432,6 +432,36 @@ export const inutpos = css`
     ${grey};
   }
 `;
+export const usaryModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const fixedModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const ownModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const lendModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const buyModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
+export const sellModal = css`
+  left: 0;
+  right: 0;
+  margin: auto;
+`;
 export const percentPos = css`
   & .MuiTypography-root {
     ${t16};
