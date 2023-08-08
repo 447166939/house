@@ -58,11 +58,11 @@ export const pannelTabItemText = ({ isActive }: any) => css`
 export const tabItemBorder = ({ isActive }: any) => css`
   display: ${isActive ? "block" : "none"};
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 0;
   right: 0;
   margin: auto;
   background-color: #00e0fd;
   height: 5px;
-  width: 138px;
+  width: auto;
 `;

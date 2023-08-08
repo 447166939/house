@@ -1,23 +1,5 @@
 import { css } from "@emotion/react";
-import {
-  h15,
-  h16,
-  h17,
-  h18,
-  h19,
-  h20,
-  h30,
-  h40,
-  white,
-  grey,
-  t14,
-  t15,
-  t16,
-  t17,
-  t18,
-  t19,
-  t20
-} from "./baseStyle";
+import { h15, h30, h40, white, grey, t14, t15, t16 } from "./baseStyle";
 export const container = css`
   background-color: #111113;
   width: 100vw;

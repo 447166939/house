@@ -67,7 +67,8 @@ export const filterBox = css`
 `;
 export const contactsBox = css`
   margin-top: 36px;
-  flex: 36.9rem;
+  flex: 1;
+  flex-basis: 823px;
   overflow-y: auto;
   padding-bottom: 350px;
 `;

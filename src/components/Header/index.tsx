@@ -102,8 +102,8 @@ const Index: React.FC<IHeader> = () => {
           ))}
         </Box>
         <IconButton onClick={toContact}>
-          <Badge badgeContent={4} color="error">
-            <PersonIcon />
+          <Badge css={styles.personBadge} badgeContent={4} color="error">
+            <PersonIcon css={styles.personIcon} />
           </Badge>
         </IconButton>
         {/* <IconButton css={styles.msgBtn}>

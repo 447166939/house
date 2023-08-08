@@ -43,5 +43,5 @@ export const tabSplit = ({ isActive }: any) => css`
   margin: auto;
   background-color: #00e0fd;
   height: 4px;
-  width: 166px;
+  width: auto;
 `;

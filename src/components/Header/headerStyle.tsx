@@ -1,25 +1,36 @@
 import { css } from "@emotion/react";
 import { grey, h15, t14, t16, t18, t24, white } from "@/style/baseStyle";
 export const headerLogo = css`
-  width: 179px;
+  width: 130px;
   height: auto;
 `;
 export const appBar = css`
   background-color: #38383f;
   flex-shrink: 0;
-  height: 80px;
+  height: 60px;
   justify-content: center;
+  ${t16};
 `;
 export const navBox = css`
-  margin-left: 115px;
+  margin-left: 163px;
   flex: 1;
 `;
 export type linkStyle = { isActive: boolean };
 export const navItem = (props: linkStyle) =>
   css`
-    margin-right: 115px;
+    margin-right: 119px;
     color: ${props.isActive ? "#00E1FE" : "#fff"};
   `;
+export const personIcon = css`
+  font-size: 20px;
+`;
+export const personBadge = css`
+  & .MuiBadge-badge {
+    font-size: 12px;
+    min-width: 12px;
+    height: 11px;
+  }
+`;
 export const msgIcon = css`
   width: 0.97rem;
   height: auto;
@@ -28,26 +39,27 @@ export const msgBtn = css`
   margin-left: 1.09rem;
 `;
 export const bookIcon = css`
-  width: 29px;
+  width: 25px;
   height: auto;
 `;
 export const bookBtn = css`
-  margin-left: 35px;
+  margin-left: 30.68px;
 `;
 export const cnIcon = css`
-  width: 26px;
+  width: 22px;
   height: auto;
-  margin-left: 30px;
+  margin-left: 26px;
   cursor: pointer;
 `;
 export const helpBtn = css`
-  margin-left: 30px;
+  margin-left: 25.8px;
 `;
 export const helpIcon = css`
   cursor: pointer;
+  font-size: 22px;
 `;
 export const avatar = css`
-  margin-left: 25px;
+  margin-left: 42px;
   cursor: pointer;
 `;
 export const popoverContainer = css`

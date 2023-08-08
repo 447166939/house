@@ -249,12 +249,12 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
               <InputBase
                 css={styles.inputText}
                 startAdornment={
-                  <InputAdornment onClick={openSell} css={styles.inputPre} position="start">
+                  <InputAdornment css={styles.inputPre} position="start">
                     $
                   </InputAdornment>
                 }
                 endAdornment={
-                  <InputAdornment css={styles.inutpos} position="end">
+                  <InputAdornment onClick={openSell} css={styles.inutpos} position="end">
                     ❖
                   </InputAdornment>
                 }
@@ -805,19 +805,27 @@ const HouseDetail: React.FC<IHouseDetail> = (props) => {
               ))}
             </Box>
             <UsuryDialog
-                onClose={closeUsary}
-                rootStyle={styles.usaryModal}
-                visible={usaryModalVisible}
+              onClose={closeUsary}
+              rootStyle={styles.usaryModal}
+              visible={usaryModalVisible}
             />
             <FixedDialog
-                onClose={closeFixed}
-                rootStyle={styles.fixedModal}
-                visible={fixedModalVisible}
+              onClose={closeFixed}
+              rootStyle={styles.fixedModal}
+              visible={fixedModalVisible}
             />
             <OwnDialog rootStyle={styles.ownModal} visible={ownModalVisible} onClose={closeOwn} />
-            <LendDialog rootStyle={styles.lendModal} visible={lendModalVisible} onClose={closeLend} />
+            <LendDialog
+              rootStyle={styles.lendModal}
+              visible={lendModalVisible}
+              onClose={closeLend}
+            />
             <BuyDialog rootStyle={styles.buyModal} visible={buyModalVisible} onClose={closeBuy} />
-            <SellDialog visible={sellModalVisible} onClose={closeSell} rootStyle={styles.sellModal} />
+            <SellDialog
+              visible={sellModalVisible}
+              onClose={closeSell}
+              rootStyle={styles.sellModal}
+            />
             {caculator}
           </Box>
         </Box>

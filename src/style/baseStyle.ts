@@ -10,19 +10,19 @@ export const h30 = css`
   font-weight: 600;
 `;
 export const h20 = css`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
 `;
 export const h19 = css`
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 600;
 `;
 export const h18 = css`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 `;
 export const h17 = css`
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
 `;
 export const h16 = css`
@@ -42,23 +42,23 @@ export const h12 = css`
   font-weight: 600;
 `;
 export const t24 = css`
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 400;
 `;
 export const t20 = css`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 `;
 export const t19 = css`
-  font-size: 19px;
+  font-size: 16px;
   font-weight: 400;
 `;
 export const t18 = css`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
 `;
 export const t17 = css`
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
 `;
 export const t16 = css`
@@ -66,9 +66,10 @@ export const t16 = css`
   font-weight: 400;
 `;
 export const t15 = css`
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
 `;
+
 export const t14 = css`
   font-size: 14px;
   font-weight: 400;

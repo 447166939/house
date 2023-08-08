@@ -3,12 +3,13 @@ import { t20 } from "@/style/baseStyle";
 
 export const container = css`
   background-color: #111113;
-  height: 69px;
+  flex-grow: 0;
   display: flex;
   align-items: center;
   width: 100%;
   cursor: pointer;
-  padding-left: 48px;
+  padding: 44px 0 19px 30px;
+  box-sizing: border-box;
 `;
 export const tabItem = ({ isActive }: any) => css`
   position: relative;
@@ -19,10 +20,11 @@ export const tabItem = ({ isActive }: any) => css`
     position: absolute;
     content: "";
     background-color: #00e0fd;
-    width: 100px;
+    width: auto;
     height: 4px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    bottom: -18px;
     display: ${isActive ? "block" : "none"};
   }
 `;
