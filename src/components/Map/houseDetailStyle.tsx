@@ -246,15 +246,16 @@ export const overviewTabItem = ({ isActive }: any) => css`
   white-space: nowrap;
   width: max-content;
   position: relative;
+  cursor:pointer;
   &:after {
     bottom: -14.63px;
     content: "";
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right:0;
     background-color: #00e0fd;
     height: 4px;
-    width: 61px;
+    width: auto;
     display: ${isActive ? "block" : "none"};
   }
 `;
