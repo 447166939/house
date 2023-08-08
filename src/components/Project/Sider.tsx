@@ -21,6 +21,8 @@ import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
+import {useChannels} from "@/hooks/useChannels";
+import {createChannel, useCreatechannel} from "@/hooks/useCreatechannel";
 import { useQueryClient } from "@tanstack/react-query";
 const {
   setChannel,
@@ -62,6 +64,7 @@ const Sider: React.FC<ISider> = (props) => {
   const queryClient = useQueryClient();
   useEffect(() => {
     queryClient.fetchQuery(["projects"]);
+    queryClient.fetchQuery(["channels"]);
   }, []);
   const {
     commonChannels,
@@ -75,6 +78,14 @@ const Sider: React.FC<ISider> = (props) => {
     hoverProject,
     projectConfig
   } = useSelector((state: RootState) => state.global);
+  const channels=useChannels({projectId:currentProject.project_id});
+  const createChannel=useCreatechannel({projectId:currentProject.project_id})
+  const addChannel=async ()=>{
+    createChannel.mutate({project_id:currentProject.project_id,channel_name:'自定义聊天频道'})
+  }
+  useEffect(() => {
+    queryClient.fetchQuery(["channels",currentProject.project_id]);
+  }, [currentProject.project_id]);
   const [readonly, setReadonly] = useState(true);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
@@ -200,7 +211,7 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.topSplitline}></Box>
         <Box css={styles.channelTitle}>
           公共频道
-          <IconButton css={styles.addChannelBtn}>
+          <IconButton onClick={addChannel} css={styles.addChannelBtn}>
             <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>
