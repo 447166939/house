@@ -249,14 +249,14 @@ export const cateTabItem = ({ isActive }: any) => css`
   width: max-content;
   position: relative;
   &:after {
-    bottom: -0.5rem;
+    bottom: -12px;
     content: "";
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right:0;
     background-color: #00e0fd;
     height: 4px;
-    width: 81.4px;
+    width: auto;
     display: ${isActive ? "block" : "none"};
   }
 `;

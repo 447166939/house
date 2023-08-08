@@ -382,8 +382,8 @@ export const cateTabItem = ({ isActive }: any) => css`
     content: "";
     position: absolute;
     left: 0;
-    right:0;
-    width:auto;
+    right: 0;
+    width: auto;
     background-color: #00e0fd;
     height: 4px;
     display: ${isActive ? "block" : "none"};
