@@ -36,6 +36,8 @@ export const projectContainer = css`
   flex-direction: column;
   overflow-y: auto;
   overflow-x: hidden;
+  width:100%;
+  align-items:center;
 `;
 export const projectBadge = css`
   cursor: pointer;
