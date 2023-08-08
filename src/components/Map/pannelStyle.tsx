@@ -27,12 +27,12 @@ export const tabItem = ({ isActive }: any) => css`
   &:after {
     content: "";
     position: absolute;
-    bottom: 0;
+    bottom: 2px;
     background-color: #00e0fd;
-    width: 2.83rem;
-    height: 0.14rem;
-    left: 50%;
-    transform: translateX(-50%);
+    width: auto;
+    height: 4px;
+    left: 0;
+    right:0;
     display: ${isActive ? "block" : "none"};
   }
 `;
