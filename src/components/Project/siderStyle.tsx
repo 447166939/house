@@ -165,7 +165,7 @@ export const projectContent = css`
   margin-bottom: 28px;
 `;
 export const channelBox = css`
-flex:1;
+  flex: 1;
   flex-basis: 132px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -255,7 +255,13 @@ export const manName = (props: any) => css`
 `;
 export const manItem = (props: any) => css`
   background-color: ${props.isActive ? "#3A3A3F" : "transparent"};
-  color: ${props.isGoing ? "#23A55A" : props.isActive ? "#fff" :props.isComplete ? '#fff': "#80848E"};
+  color: ${props.isGoing
+    ? "#23A55A"
+    : props.isActive
+    ? "#fff"
+    : props.isComplete
+    ? "#fff"
+    : "#80848E"};
   display: flex;
   align-items: center;
   border-radius: 6px;

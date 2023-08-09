@@ -153,11 +153,11 @@ const Sider: React.FC<ISider> = (props) => {
     let name = Object.assign({}, process_name, config_process_name);
     return name[processId];
   };
-  const isComplete=(idx:number)=>{
-    const processId=currentProject?.process_id
-    const process_list=currentProject?.process_config?.process_list
-    const index=process_list?.findIndex((item:any)=>item==processId)
-    return idx<index
+  const isComplete = (idx: number) => {
+    const processId = currentProject?.process_id;
+    const process_list = currentProject?.process_config?.process_list;
+    const index = process_list?.findIndex((item: any) => item == processId);
+    return idx < index;
   };
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
