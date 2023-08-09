@@ -78,7 +78,7 @@ const Sider: React.FC<ISider> = (props) => {
     projectConfig
   } = useSelector((state: RootState) => state.global);
   const channels = useChannels({ projectId: currentProject.project_id });
-  console.log('channellist',channels.data)
+  console.log("channellist", channels.data);
   const createChannel = useCreatechannel({ projectId: currentProject.project_id });
   const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
   const createProcessApi = useCreateProcess({ projectId: currentProject.project_id });
@@ -235,7 +235,7 @@ const Sider: React.FC<ISider> = (props) => {
           </IconButton>
         </Box>
         <Box css={styles.channelBox}>
-          {channels?.data?.list?.map((item:any, index:number) => (
+          {channels?.data?.list?.map((item: any, index: number) => (
             <Box
               onClick={handleChangeChannel.bind(null, index)}
               css={styles.channelItem({ isActive: index == currentChannel })}
