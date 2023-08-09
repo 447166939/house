@@ -65,7 +65,6 @@ const Sider: React.FC<ISider> = (props) => {
   const queryClient = useQueryClient();
   useEffect(() => {
     queryClient.fetchQuery(["projects"]);
-    queryClient.fetchQuery(["channels"]);
   }, []);
   const {
     commonChannels,
@@ -79,6 +78,7 @@ const Sider: React.FC<ISider> = (props) => {
     projectConfig
   } = useSelector((state: RootState) => state.global);
   const channels = useChannels({ projectId: currentProject.project_id });
+  console.log('channellist',channels.data)
   const createChannel = useCreatechannel({ projectId: currentProject.project_id });
   const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
   const createProcessApi = useCreateProcess({ projectId: currentProject.project_id });
@@ -235,18 +235,18 @@ const Sider: React.FC<ISider> = (props) => {
           </IconButton>
         </Box>
         <Box css={styles.channelBox}>
-          {commonChannels.map((item, index) => (
+          {channels?.data?.list?.map((item:any, index:number) => (
             <Box
               onClick={handleChangeChannel.bind(null, index)}
               css={styles.channelItem({ isActive: index == currentChannel })}
-              key={item.id}>
+              key={item.channel_id}>
               {item.icon ? (
                 <Image width={20} height={20} css={styles.channelIcon} src={item.icon} alt={""} />
               ) : (
                 "#"
               )}
               <Box css={styles.channelText({ isActive: index == currentChannel })}>
-                {item.title}
+                {item.channel_name}
               </Box>
             </Box>
           ))}

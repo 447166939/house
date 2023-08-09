@@ -17,10 +17,8 @@ const useCreateProcess = ({ projectId }: any) => {
           project.process_config.process_list.push(data.process_id);
           project.process_config.process_name[data.process_id] = data.process_name;
         }
-        console.log("project", project);
         return preData;
       });
-      queryClient.invalidateQueries(["projects"]);
     }
   });
   return { mutate, isLoading, isError, error };
