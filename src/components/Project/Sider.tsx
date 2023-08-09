@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect,useMemo } from "react";
+import React, { useState, useRef, useEffect, useMemo } from "react";
 import {
   Avatar,
   IconButton,
@@ -18,7 +18,7 @@ import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
-import {queryChannels, useChannels} from "@/hooks/useChannels";
+import { queryChannels, useChannels } from "@/hooks/useChannels";
 import { useProjectinfo } from "@/hooks/useProjectinfo";
 import { useCreatechannel } from "@/hooks/useCreatechannel";
 import { useCreateProcess } from "@/hooks/useCreateProcess";
@@ -70,7 +70,7 @@ const Sider: React.FC<ISider> = (props) => {
   const {
     commonChannels,
     currentChannel,
-    currentManageChannel,//当前选中的大阶段的索引
+    currentManageChannel, //当前选中的大阶段的索引
     siderWidth,
     projectInfoPos,
     projectInfoVisible,
@@ -90,7 +90,9 @@ const Sider: React.FC<ISider> = (props) => {
   };
   useEffect(() => {
     if (!currentProject.project_id) return;
-    queryClient.fetchQuery(["channels", currentProject.project_id],() =>queryChannels({ projectId:currentProject.project_id }));
+    queryClient.fetchQuery(["channels", currentProject.project_id], () =>
+      queryChannels({ projectId: currentProject.project_id })
+    );
   }, [currentProject.project_id]);
   useEffect(() => {
     if (!currentProject.project_id) return;
@@ -121,7 +123,7 @@ const Sider: React.FC<ISider> = (props) => {
   };
   const handleClickProject = (item: any) => {
     dispatch(setCurrentproject(item));
-    dispatch(setManagechannel(0))
+    dispatch(setManagechannel(0));
   };
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setCurrentproject({ ...currentProject, project_name: event.target.value }));
