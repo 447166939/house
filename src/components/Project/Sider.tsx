@@ -22,8 +22,9 @@ import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
 import { useChannels } from "@/hooks/useChannels";
-import {useProjectinfo} from "@/hooks/useProjectinfo";
-import { createChannel, useCreatechannel } from "@/hooks/useCreatechannel";
+import { useProjectinfo } from "@/hooks/useProjectinfo";
+import { useCreatechannel } from "@/hooks/useCreatechannel";
+import {useCreateProcess} from "@/hooks/useCreateProcess";
 import { useQueryClient } from "@tanstack/react-query";
 const {
   setChannel,
@@ -81,10 +82,14 @@ const Sider: React.FC<ISider> = (props) => {
   } = useSelector((state: RootState) => state.global);
   const channels = useChannels({ projectId: currentProject.project_id });
   const createChannel = useCreatechannel({ projectId: currentProject.project_id });
-  const projectInfo=useProjectinfo({projectId:currentProject.project_id})
+  const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
+  const createProcessApi=useCreateProcess({projectId:currentProject.project_id})
   const addChannel = async () => {
     createChannel.mutate({ project_id: currentProject.project_id, channel_name: "自定义聊天频道" });
   };
+  const addProcess=async ()=>{
+    createProcessApi.mutate({projectId:currentProject.project_id,processName:'自定义大阶段'})
+  }
   useEffect(() => {
     if (!currentProject.project_id) return;
     queryClient.fetchQuery(["channels", currentProject.project_id]);
@@ -242,7 +247,7 @@ const Sider: React.FC<ISider> = (props) => {
         <Box css={styles.bottomSplitline}></Box>
         <Box css={styles.projectTitle}>
           项目管理频道
-          <IconButton css={styles.addProjectBtn}>
+          <IconButton onClick={addProcess} css={styles.addProjectBtn}>
             <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>
