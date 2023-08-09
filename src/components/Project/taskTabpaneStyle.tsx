@@ -76,9 +76,9 @@ export const taskListItemText = ({ isChecked, isGoing }: any) => css`
 export const taskCheckbox = (props: any) => css`
   margin-left: auto;
   color: ${props.isGoing ? "#23A55A" : "#80848e"};
-  & .MuiSvgIcon-root{
-  width:21px;
-  height:21px;
+  & .MuiSvgIcon-root {
+    width: 21px;
+    height: 21px;
   }
 `;
 export const menuBtn = css`

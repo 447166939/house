@@ -19,7 +19,7 @@ import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
 import { queryChannels, useChannels } from "@/hooks/useChannels";
-import { useProjectinfo } from "@/hooks/useProjectinfo";
+import {queryProjectinfo, useProjectinfo} from "@/hooks/useProjectinfo";
 import { useCreatechannel } from "@/hooks/useCreatechannel";
 import { useCreateProcess } from "@/hooks/useCreateProcess";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
@@ -78,9 +78,7 @@ const Sider: React.FC<ISider> = (props) => {
     projectConfig
   } = useSelector((state: RootState) => state.global);
   const channels = useChannels({ projectId: currentProject.project_id });
-  console.log("channellist", channels.data);
   const createChannel = useCreatechannel({ projectId: currentProject.project_id });
-  const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
   const createProcessApi = useCreateProcess({ projectId: currentProject.project_id });
   const addChannel = async () => {
     createChannel.mutate({ project_id: currentProject.project_id, channel_name: "自定义聊天频道" });
@@ -92,6 +90,9 @@ const Sider: React.FC<ISider> = (props) => {
     if (!currentProject.project_id) return;
     queryClient.fetchQuery(["channels", currentProject.project_id], () =>
       queryChannels({ projectId: currentProject.project_id })
+    );
+    queryClient.fetchQuery(["projectInfo", currentProject.project_id], () =>
+        queryProjectinfo({ project_id: currentProject.project_id })
     );
   }, [currentProject.project_id]);
   useEffect(() => {
