@@ -10,14 +10,14 @@ const useCreateProcess = ({ projectId }: any) => {
   const queryClient = useQueryClient();
   const { mutate, isLoading, isError, error } = useMutation({
     mutationFn: createProcess,
-    onSuccess: (data,variables) => {
+    onSuccess: (data, variables) => {
       queryClient.setQueryData(["projects"], (preData: any) => {
         const project = preData.list.find((pro: any) => pro.project_id === projectId);
         if (project) {
-          project.process_config.process_list.push(data.process_id)
+          project.process_config.process_list.push(data.process_id);
           project.process_config.process_name[data.process_id] = data.process_name;
         }
-        console.log('project',project)
+        console.log("project", project);
         return preData;
       });
       queryClient.invalidateQueries(["projects"]);

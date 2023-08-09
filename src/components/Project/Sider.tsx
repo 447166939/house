@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect,useMemo } from "react";
 import {
   Avatar,
   IconButton,
@@ -18,7 +18,7 @@ import { RootState } from "@/store/index";
 import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
-import { useChannels } from "@/hooks/useChannels";
+import {queryChannels, useChannels} from "@/hooks/useChannels";
 import { useProjectinfo } from "@/hooks/useProjectinfo";
 import { useCreatechannel } from "@/hooks/useCreatechannel";
 import { useCreateProcess } from "@/hooks/useCreateProcess";
@@ -60,7 +60,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 const Sider: React.FC<ISider> = (props) => {
   const { data } = useProjects();
-  const config=useProjectConfig()
+  const config = useProjectConfig();
   const editProject = useEditProject();
   const queryClient = useQueryClient();
   useEffect(() => {
@@ -70,8 +70,7 @@ const Sider: React.FC<ISider> = (props) => {
   const {
     commonChannels,
     currentChannel,
-    projects,
-    currentManageChannel,
+    currentManageChannel,//当前选中的大阶段的索引
     siderWidth,
     projectInfoPos,
     projectInfoVisible,
@@ -91,7 +90,7 @@ const Sider: React.FC<ISider> = (props) => {
   };
   useEffect(() => {
     if (!currentProject.project_id) return;
-    queryClient.fetchQuery(["channels", currentProject.project_id]);
+    queryClient.fetchQuery(["channels", currentProject.project_id],() =>queryChannels({ projectId:currentProject.project_id }));
   }, [currentProject.project_id]);
   useEffect(() => {
     if (!currentProject.project_id) return;
@@ -122,6 +121,7 @@ const Sider: React.FC<ISider> = (props) => {
   };
   const handleClickProject = (item: any) => {
     dispatch(setCurrentproject(item));
+    dispatch(setManagechannel(0))
   };
   const handleProjectNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setCurrentproject({ ...currentProject, project_name: event.target.value }));
@@ -145,12 +145,12 @@ const Sider: React.FC<ISider> = (props) => {
       });
     }
   };
-  const getProcessName=(project:any,processId:any)=>{
-    const process_name=project?.process_config?.process_name;
-    const config_process_name=config?.data?.process
-    let name=Object.assign({},process_name,config_process_name)
-return name[processId]
-  }
+  const getProcessName = (project: any, processId: any) => {
+    const process_name = project?.process_config?.process_name;
+    const config_process_name = config?.data?.process;
+    let name = Object.assign({}, process_name, config_process_name);
+    return name[processId];
+  };
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
       document.addEventListener("mousemove", resize, false);
@@ -257,12 +257,12 @@ return name[processId]
           </IconButton>
         </Box>
         <Box css={styles.processBox}>
-          {currentProject.process_config?.process_list?.map((item:any, index:number) => (
+          {currentProject.process_config?.process_list?.map((item: any, index: number) => (
             <Box
               onClick={handleChangeManageChannel.bind(null, index)}
               css={styles.manItem({
                 isActive: currentManageChannel == index,
-                isGoing: currentProject.process_id==item
+                isGoing: currentProject.process_id == item
               })}
               key={index}>
               <Box
@@ -273,7 +273,7 @@ return name[processId]
                 })}>
                 {index}
               </Box>
-              <Box css={styles.manTitle}>{getProcessName(currentProject,item)}</Box>
+              <Box css={styles.manTitle}>{getProcessName(currentProject, item)}</Box>
             </Box>
           ))}
         </Box>

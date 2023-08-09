@@ -1,11 +1,16 @@
-import React, { Fragment, useState } from "react";
+import React, {Fragment, useMemo, useState} from "react";
 import { Box, Checkbox, ClickAwayListener, IconButton } from "@mui/material";
 import * as styles from "@/components/Project/taskTabpaneStyle";
 import Image from "next/image";
 import addIcon from "@/assets/images/add.png";
 import elliseIcon from "@/assets/images/ellisis.png";
+import {useSelector} from "react-redux";
+import {RootState} from "@/store/index";
+import {useProjectConfig} from "@/hooks/useProjectConfig";
 export interface ITaskTabpane {}
 const TaskTabpane: React.FC<ITaskTabpane> = () => {
+  const {currentManageChannel,currentProject}=useSelector((state:RootState)=>state.global)
+  const config = useProjectConfig();
   const data = {
     title: "此环节需要完成：",
     list: [
@@ -37,6 +42,23 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
   const handleClick = (idx: number) => {
     setCurrentMenu(idx);
   };
+  const stages=useMemo(()=>{
+    let process_stage=currentProject?.process_config?.process_stage
+    let processData=currentProject?.process_config?.process_list
+    let process_id=processData?.[currentManageChannel]
+    const stageNames=config.data?.stage_names;
+    const stageIds=process_stage?.[process_id];
+    console.log('process_id',process_id)
+    console.log('stageIds',stageIds)
+    console.log('processStage',process_stage)
+    console.log('stateNames',stageNames)
+    let ret= stageIds?.map((stageId:number,index:number)=>({
+      stage_id:stageId,
+      stage_name:stageNames?.[stageId]
+    }));
+    console.log('ret',ret)
+    return ret;
+  },[currentProject.project_id,currentManageChannel])
   return (
     <Box css={styles.container}>
       <Box css={styles.taskBox}>
@@ -54,14 +76,14 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
           </IconButton>
         </Box>
         <Fragment>
-          {data.list.map((item, index) => (
+          {stages?.map((item:any, index:number) => (
             <Box css={styles.taskItem} key={index}>
               <span
                 css={styles.taskListItemText({
                   isChecked: checked[index],
                   isGoing: item.status == 1
                 })}>
-                {item.text}
+                {item.stage_name}
               </span>
               <Checkbox
                 checked={checked[index] || false}
