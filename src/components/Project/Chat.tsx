@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import { Avatar, Box, IconButton, InputBase } from "@mui/material";
 import * as styles from "./chatStyle";
 import circlePlusIcon from "@/assets/images/circlePlus.png";
@@ -13,6 +13,7 @@ const { setAddfrienddialogopen } = actions;
 export interface IChat {}
 const Chat: React.FC<IChat> = (props) => {
   const dispatch = useDispatch();
+  const [idx,setIdx]=useState(0)
   const data = [
     {
       id: 1,
@@ -65,6 +66,9 @@ const Chat: React.FC<IChat> = (props) => {
       avatar: "/avatar.jpg"
     }
   ];
+  const handcleClickContactItem=(item:any)=>{
+    setIdx(item.id)
+  }
   const btnRef = useRef(null);
   const openAddFriendDialog = () => {
     dispatch(setAddfrienddialogopen(true));
@@ -108,7 +112,7 @@ const Chat: React.FC<IChat> = (props) => {
         </Box>
         <Box css={styles.contactList}>
           {contacts.map((item, index) => (
-            <Box css={styles.contactItem} key={item.id}>
+            <Box onClick={handcleClickContactItem.bind(null,item)} css={styles.contactItem({isActive:idx==item.id})} key={item.id}>
               <Avatar src={item.avatar} />
               <Box css={styles.contactName}>{item.name}</Box>
             </Box>

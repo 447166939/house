@@ -70,11 +70,17 @@ export const contactTitle = css`
   ${t20};
   ${white};
 `;
-export const contactItem = css`
+export const contactItem =({isActive}:any)=> css`
   display: flex;
-  margin-top: 20px;
   align-items: center;
   padding-left: 14.4px;
+  border-radius:6px;
+  padding: 10px 0 10px 14.4px;
+  cursor:pointer;
+  background-color:${isActive ? '#3A3A3F':'transparent'};
+  &:hover{
+  background-color: #3A3A3F;
+  }
 `;
 export const sendBox = css`
   background-color: #222226;
