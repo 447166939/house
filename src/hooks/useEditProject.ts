@@ -10,15 +10,15 @@ const useEditProject = () => {
   const queryClient = useQueryClient();
   const { mutate, isLoading, isError, error } = useMutation({
     mutationFn: editProject,
-    onSuccess: (data:any,variables) => {
-      queryClient.setQueryData(['projects'],(preData:any)=>{
-        console.log('predata',preData)
-        const project = preData.list.find((pro:any) => pro.project_id === variables.project_id);
-        if(project){
-          project.project_name=variables.project_name;
+    onSuccess: (data: any, variables) => {
+      queryClient.setQueryData(["projects"], (preData: any) => {
+        console.log("predata", preData);
+        const project = preData.list.find((pro: any) => pro.project_id === variables.project_id);
+        if (project) {
+          project.project_name = variables.project_name;
         }
         return preData;
-      })
+      });
       queryClient.invalidateQueries(["projects"]);
     }
   });

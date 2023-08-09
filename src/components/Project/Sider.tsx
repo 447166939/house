@@ -22,6 +22,7 @@ import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
 import { useChannels } from "@/hooks/useChannels";
+import {useProjectinfo} from "@/hooks/useProjectinfo";
 import { createChannel, useCreatechannel } from "@/hooks/useCreatechannel";
 import { useQueryClient } from "@tanstack/react-query";
 const {
@@ -80,12 +81,17 @@ const Sider: React.FC<ISider> = (props) => {
   } = useSelector((state: RootState) => state.global);
   const channels = useChannels({ projectId: currentProject.project_id });
   const createChannel = useCreatechannel({ projectId: currentProject.project_id });
+  const projectInfo=useProjectinfo({projectId:currentProject.project_id})
   const addChannel = async () => {
     createChannel.mutate({ project_id: currentProject.project_id, channel_name: "自定义聊天频道" });
   };
   useEffect(() => {
-    if(!currentProject.project_id)return;
+    if (!currentProject.project_id) return;
     queryClient.fetchQuery(["channels", currentProject.project_id]);
+  }, [currentProject.project_id]);
+  useEffect(() => {
+    if (!currentProject.project_id) return;
+    queryClient.fetchQuery(["projectInfo", currentProject.project_id]);
   }, [currentProject.project_id]);
   const [readonly, setReadonly] = useState(true);
   const dispatch = useDispatch();
