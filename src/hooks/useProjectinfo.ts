@@ -9,7 +9,7 @@ const queryProjectinfo = async (params: any) => {
 const useProjectinfo = ({ projectId }: any) => {
   const { data, isLoading, isError, error } = useQuery(
     ["projectInfo", projectId],
-    () => queryProjectinfo({ project_id:projectId }),
+    () => queryProjectinfo({ project_id: projectId }),
     { enabled: false }
   );
   return { data, isLoading, isError, error };

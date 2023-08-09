@@ -2,14 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   Avatar,
   IconButton,
-  Fab,
   Switch,
   Box,
   styled,
-  SwitchProps,
   Badge,
   BadgeProps,
-  Button,
   InputBase
 } from "@mui/material";
 import addIcon from "@/assets/images/add.png";
@@ -24,7 +21,8 @@ import { useEditProject } from "@/hooks/useEditProject";
 import { useChannels } from "@/hooks/useChannels";
 import { useProjectinfo } from "@/hooks/useProjectinfo";
 import { useCreatechannel } from "@/hooks/useCreatechannel";
-import {useCreateProcess} from "@/hooks/useCreateProcess";
+import { useCreateProcess } from "@/hooks/useCreateProcess";
+import { useProjectConfig } from "@/hooks/useProjectConfig";
 import { useQueryClient } from "@tanstack/react-query";
 const {
   setChannel,
@@ -62,6 +60,7 @@ const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
 }));
 const Sider: React.FC<ISider> = (props) => {
   const { data } = useProjects();
+  const config=useProjectConfig()
   const editProject = useEditProject();
   const queryClient = useQueryClient();
   useEffect(() => {
@@ -83,13 +82,13 @@ const Sider: React.FC<ISider> = (props) => {
   const channels = useChannels({ projectId: currentProject.project_id });
   const createChannel = useCreatechannel({ projectId: currentProject.project_id });
   const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
-  const createProcessApi=useCreateProcess({projectId:currentProject.project_id})
+  const createProcessApi = useCreateProcess({ projectId: currentProject.project_id });
   const addChannel = async () => {
     createChannel.mutate({ project_id: currentProject.project_id, channel_name: "自定义聊天频道" });
   };
-  const addProcess=async ()=>{
-    createProcessApi.mutate({projectId:currentProject.project_id,processName:'自定义大阶段'})
-  }
+  const addProcess = async () => {
+    createProcessApi.mutate({ projectId: currentProject.project_id, processName: "自定义大阶段" });
+  };
   useEffect(() => {
     if (!currentProject.project_id) return;
     queryClient.fetchQuery(["channels", currentProject.project_id]);
@@ -146,6 +145,12 @@ const Sider: React.FC<ISider> = (props) => {
       });
     }
   };
+  const getProcessName=(project:any,processId:any)=>{
+    const process_name=project?.process_config?.process_name;
+    const config_process_name=config?.data?.process
+    let name=Object.assign({},process_name,config_process_name)
+return name[processId]
+  }
   useEffect(() => {
     siderRef.current!.addEventListener("mousedown", (event) => {
       document.addEventListener("mousemove", resize, false);
@@ -227,7 +232,7 @@ const Sider: React.FC<ISider> = (props) => {
             <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>
-        <Box>
+        <Box css={styles.channelBox}>
           {commonChannels.map((item, index) => (
             <Box
               onClick={handleChangeChannel.bind(null, index)}
@@ -251,24 +256,24 @@ const Sider: React.FC<ISider> = (props) => {
             <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>
-        <Box>
-          {projects.map((item, index) => (
+        <Box css={styles.processBox}>
+          {currentProject.process_config?.process_list?.map((item:any, index:number) => (
             <Box
               onClick={handleChangeManageChannel.bind(null, index)}
               css={styles.manItem({
                 isActive: currentManageChannel == index,
-                isGoing: item.status == 1
+                isGoing: currentProject.process_id==item
               })}
-              key={item.id}>
+              key={index}>
               <Box
                 data-hover
                 css={styles.manName({
                   isActive: currentManageChannel == index,
                   isGoing: item.status == 1
                 })}>
-                {item.name}
+                {index}
               </Box>
-              <Box css={styles.manTitle}>{item.title}</Box>
+              <Box css={styles.manTitle}>{getProcessName(currentProject,item)}</Box>
             </Box>
           ))}
         </Box>

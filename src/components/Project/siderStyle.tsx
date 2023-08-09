@@ -133,6 +133,8 @@ export const channelWrapper = css`
   padding-right: 21.1px;
   flex-basis: 276px;
   min-width: 0;
+  display:flex;
+  flex-direction:column;
 `;
 export const projectText = css`
   ${t20};
@@ -162,6 +164,11 @@ export const projectContent = css`
   margin-top: 34px;
   margin-bottom: 28px;
 `;
+export const channelBox=css`
+flex-basic:132px;
+overflow-x:hidden;
+overflow-y:auto;
+`
 export const channelTitle = css`
   ${t20};
   ${white};
@@ -228,6 +235,12 @@ export const addProjectBtn = css`
   bottom: 0;
   margin: auto;
 `;
+export const processBox=css`
+margin-bottom:2px;
+flex-basis:278px;
+overflow-x:hidden;
+overflow-y:auto;
+`
 export const manName = (props: any) => css`
   background-color: ${props.isGoing ? "#23A55A" : props.isActive ? "#fff" : "#80848E"};
   color: #222226;
@@ -260,4 +273,8 @@ export const manItem = (props: any) => css`
 export const manTitle = (props: any) => css`
   ${t18};
   margin-left: 5px;
+  flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 `;
