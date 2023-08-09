@@ -19,7 +19,7 @@ import actions from "@/store/modules/global/action";
 import { useProjects } from "@/hooks/useProjects";
 import { useEditProject } from "@/hooks/useEditProject";
 import { queryChannels, useChannels } from "@/hooks/useChannels";
-import {queryProjectinfo, useProjectinfo} from "@/hooks/useProjectinfo";
+import { queryProjectinfo, useProjectinfo } from "@/hooks/useProjectinfo";
 import { useCreatechannel } from "@/hooks/useCreatechannel";
 import { useCreateProcess } from "@/hooks/useCreateProcess";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
@@ -92,7 +92,7 @@ const Sider: React.FC<ISider> = (props) => {
       queryChannels({ projectId: currentProject.project_id })
     );
     queryClient.fetchQuery(["projectInfo", currentProject.project_id], () =>
-        queryProjectinfo({ project_id: currentProject.project_id })
+      queryProjectinfo({ project_id: currentProject.project_id })
     );
   }, [currentProject.project_id]);
   useEffect(() => {

@@ -7,15 +7,15 @@ import elliseIcon from "@/assets/images/ellisis.png";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
-import {useSelectStage} from "@/hooks/useSelectStage";
-import {useProjectinfo} from "@/hooks/useProjectinfo";
+import { useSelectStage } from "@/hooks/useSelectStage";
+import { useProjectinfo } from "@/hooks/useProjectinfo";
 
 export interface ITaskTabpane {}
 const TaskTabpane: React.FC<ITaskTabpane> = () => {
   const { currentManageChannel, currentProject } = useSelector((state: RootState) => state.global);
   const config = useProjectConfig();
   const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
-  const stageApi=useSelectStage({projectId:currentProject.project_id})
+  const stageApi = useSelectStage({ projectId: currentProject.project_id });
   const data = {
     title: "此环节需要完成：",
     list: [
@@ -26,12 +26,24 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
       { id: 5, text: "5.(支持自定义子任务)", status: 0 }
     ]
   };
-  const handleCheckedChange = async (e: React.ChangeEvent<HTMLInputElement>, idx: number,stage_id:string) => {
+  const handleCheckedChange = async (
+    e: React.ChangeEvent<HTMLInputElement>,
+    idx: number,
+    stage_id: string
+  ) => {
     console.log(e.target.checked);
-    if(e.target.checked){
-      await stageApi.mutate({project_id:currentProject.project_id,stage_id:stage_id,select:2})
-    }else {
-      await stageApi.mutate({project_id:currentProject.project_id,stage_id:stage_id,select:1})
+    if (e.target.checked) {
+      await stageApi.mutate({
+        project_id: currentProject.project_id,
+        stage_id: stage_id,
+        select: 2
+      });
+    } else {
+      await stageApi.mutate({
+        project_id: currentProject.project_id,
+        stage_id: stage_id,
+        select: 1
+      });
     }
     setChecked((pre: any) => {
       pre[idx] = e.target.checked;
@@ -69,9 +81,9 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
     console.log("ret", ret);
     return ret;
   }, [currentProject.project_id, currentManageChannel]);
-  const isChecked=(stageId:number)=>{
-   return projectInfo?.data?.stageSelect?.[stageId]==2;//2选中1未选中
-  }
+  const isChecked = (stageId: number) => {
+    return projectInfo?.data?.stageSelect?.[stageId] == 2; //2选中1未选中
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.taskBox}>
@@ -100,7 +112,7 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
               </span>
               <Checkbox
                 checked={isChecked(item.stage_id) || false}
-                onChange={(e) => handleCheckedChange(e, index,item.stage_id)}
+                onChange={(e) => handleCheckedChange(e, index, item.stage_id)}
                 color={(item.status == 1 ? "green" : "checkbox") as "primary"}
                 size={"small"}
                 css={styles.taskCheckbox({ isGoing: item.status == 1 })}
