@@ -14,7 +14,7 @@ const useCreateStage = ({ projectId }: any) => {
       queryClient.setQueryData(["projects"], (preData: any) => {
         const project = preData.list.find((pro: any) => pro.project_id === projectId);
         if (project) {
-          project.process_config.process_stage?.[variables.process_id].push(data.stage_id)
+          project.process_config.process_stage?.[variables.process_id].push(data.stage_id);
           project.process_config.stage_name[data.stage_id] = variables.stage_name;
         }
         console.log("data===", data);
