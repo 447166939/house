@@ -62,21 +62,51 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
             <MenuItem css={styles.selectMenuItem} value="">
               <em>排序分类</em>
             </MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={10}>Admin</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={20}>RealEstate</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={30}>Agent</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={40}>Property</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={50}>Manager</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={60}>Contractor</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={70}>Architect</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={80}>Accountant</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={90}>Lawyer</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={100}>Private</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={110}>Investor</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={120}>Loaner & Lender</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={130}>oint</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={140}>Venture</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={150}>Others</MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={10}>
+              Admin
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={20}>
+              RealEstate
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={30}>
+              Agent
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={40}>
+              Property
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={50}>
+              Manager
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={60}>
+              Contractor
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={70}>
+              Architect
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={80}>
+              Accountant
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={90}>
+              Lawyer
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={100}>
+              Private
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={110}>
+              Investor
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={120}>
+              Loaner & Lender
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={130}>
+              oint
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={140}>
+              Venture
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={150}>
+              Others
+            </MenuItem>
           </Select>
         </Box>
         <Box css={styles.filterBox}>
@@ -100,9 +130,15 @@ const ContactCenter: React.FC<IContactCenter> = (props) => {
             <MenuItem css={styles.selectMenuItem} value="">
               <em>过滤</em>
             </MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={10}>按所在地区过滤</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={20}>按用户角色过滤</MenuItem>
-            <MenuItem css={styles.selectMenuItem} value={30}>按好友类别过滤</MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={10}>
+              按所在地区过滤
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={20}>
+              按用户角色过滤
+            </MenuItem>
+            <MenuItem css={styles.selectMenuItem} value={30}>
+              按好友类别过滤
+            </MenuItem>
           </Select>
         </Box>
       </Box>

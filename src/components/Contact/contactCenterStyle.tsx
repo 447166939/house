@@ -127,6 +127,6 @@ export const tagText = css`
   padding-right: 6.3px;
   border-radius: 4px;
 `;
-export const selectMenuItem=css`
-font-size:14px;
-`
+export const selectMenuItem = css`
+  font-size: 14px;
+`;
