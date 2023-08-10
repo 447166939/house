@@ -35,10 +35,10 @@ service.interceptors.request.use((config) => {
 
 // response interceptor
 service.interceptors.response.use((response) => {
-  if(response.data.code==0){
+  if (response.data.code == 0) {
     return response.data;
-  }else {
-    throw new Error(response.data.message)
+  } else {
+    throw new Error(response.data.message);
   }
 }, err);
 

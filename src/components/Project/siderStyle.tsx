@@ -135,7 +135,7 @@ export const channelWrapper = css`
   min-width: 0;
   display: flex;
   flex-direction: column;
-  flex-grow:1;
+  flex-grow: 1;
 `;
 export const projectText = css`
   ${t20};

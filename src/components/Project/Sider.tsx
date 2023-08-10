@@ -81,7 +81,10 @@ const Sider: React.FC<ISider> = (props) => {
   const createChannel = useCreatechannel({ projectId: currentProject?.project_id });
   const createProcessApi = useCreateProcess({ projectId: currentProject?.project_id });
   const addChannel = async () => {
-    createChannel.mutate({ project_id: currentProject?.project_id, channel_name: "自定义聊天频道" });
+    createChannel.mutate({
+      project_id: currentProject?.project_id,
+      channel_name: "自定义聊天频道"
+    });
   };
   const addProcess = async () => {
     createProcessApi.mutate({ projectId: currentProject?.project_id, processName: "自定义大阶段" });
