@@ -82,6 +82,7 @@ const Index: React.FC<IHeader> = () => {
   };
   const openSetting = () => {
     dispatch(setSettingdialogopen(true));
+    setAnchorEl(null);
   };
   const toContact = () => {
     router.push("/");
@@ -130,7 +131,6 @@ const Index: React.FC<IHeader> = () => {
         anchorEl={anchorEl}
         placement={"bottom-end"}>
         <Box ref={popoverRef} css={styles.popoverContainer}>
-          <SettingDialog />
           <Box css={styles.avatarContainer}>
             <Avatar css={styles.userAvatar} src={userInfo.avatar}></Avatar>
             <Image onClick={openSetting} css={styles.editIcon} src={editIcon} alt={""} />
@@ -191,6 +191,7 @@ const Index: React.FC<IHeader> = () => {
           <Box css={styles.emailText}>官方邮箱: tangshaobo90@gmail.com</Box>
         </Box>
       </Popper>
+      <SettingDialog />
     </AppBar>
   );
 };

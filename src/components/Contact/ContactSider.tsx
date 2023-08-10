@@ -4,9 +4,11 @@ import * as styles from "./contactSiderStyle";
 import contactAdd from "@/assets/images/addPerson.png";
 import searchIcon from "@/assets/images/search.png";
 import Image from "next/image";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { RootState } from "@/store/index";
 import mySetting from "@/assets/images/mysetting.png";
+import actions from '@/store/modules/global/action'
+const {setSettingdialogopen}=actions
 export interface IContactSider {}
 function AddIcon(props: any) {
   return (
@@ -25,6 +27,10 @@ function AddIcon(props: any) {
 const ContactSider: React.FC<IContactSider> = (props) => {
   const { contacts } = useSelector((state: RootState) => state.contact);
   const { userInfo } = useSelector((state: RootState) => state.global);
+  const dispatch=useDispatch()
+    const openSetting = () => {
+        dispatch(setSettingdialogopen(true));
+    };
   return (
     <Box css={styles.container}>
       <Box css={styles.contactHead}>
@@ -62,7 +68,7 @@ const ContactSider: React.FC<IContactSider> = (props) => {
           <Box css={styles.myContactName}>{userInfo.name}</Box>
           <Box css={styles.myStatus}>{userInfo.status}</Box>
         </Box>
-        <IconButton css={styles.mySettingBtn}>
+        <IconButton onClick={openSetting} css={styles.mySettingBtn}>
           <Image css={styles.mySetting} src={mySetting} alt={""} />
         </IconButton>
       </Box>

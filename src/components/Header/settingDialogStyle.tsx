@@ -6,9 +6,10 @@ export const container = css`
   width: 589px;
   height: 746px;
   background-color: #313136;
-  left: -605px;
-  top: 0;
+  right:314px;
+  top: 100px;
   border-radius: 20px;
+  z-index:10000;
 `;
 export const header = css`
   display: flex;
