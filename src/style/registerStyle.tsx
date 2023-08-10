@@ -274,6 +274,24 @@ export const roleInput = css`
     background-color: #111113;
   }
 `;
+export const roleMenuItem=css`
+font-size:14px;
+& .MuiButtonBase-root{
+font-size:14px;
+}
+`
+export const langMenuItem=css`
+font-size:14px;
+& .MuiButtonBase-root{
+font-size:14px;
+}
+`
+export const locationMenuItem=css`
+font-size:14px;
+& .MuiButtonBase-root{
+font-size:14px;
+}
+`
 export const downIcon = css`
   width: 13px;
   height: auto;

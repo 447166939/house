@@ -10,7 +10,7 @@ import { useProjectConfig } from "@/hooks/useProjectConfig";
 import { useSelectStage } from "@/hooks/useSelectStage";
 import { useProjectinfo } from "@/hooks/useProjectinfo";
 import { useCreateStage } from "@/hooks/useCreateStage";
-import {useDeleteStage} from "@/hooks/useDeleteStage";
+import { useDeleteStage } from "@/hooks/useDeleteStage";
 
 export interface ITaskTabpane {}
 const TaskTabpane: React.FC<ITaskTabpane> = () => {
@@ -19,7 +19,7 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
   const projectInfo = useProjectinfo({ projectId: currentProject?.project_id });
   const stageApi = useSelectStage({ projectId: currentProject?.project_id });
   const createStageApi = useCreateStage({ projectId: currentProject?.project_id });
-  const deleteStageApi=useDeleteStage({projectId:currentProject?.project_id})
+  const deleteStageApi = useDeleteStage({ projectId: currentProject?.project_id });
   const data = {
     title: "此环节需要完成：",
     list: [
@@ -101,9 +101,9 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
     let process_id = processData?.[currentManageChannel];
     await createStageApi.mutate({ project_id: currentProject.project_id, process_id, stage_name });
   };
-  const deleteStage=async (stageId:number)=>{
-    await deleteStageApi.mutate({project_id:currentProject?.project_id,stage_id:stageId})
-  }
+  const deleteStage = async (stageId: number) => {
+    await deleteStageApi.mutate({ project_id: currentProject?.project_id, stage_id: stageId });
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.taskBox}>
@@ -143,7 +143,9 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
                   <Image css={styles.elliseIcon} src={elliseIcon} alt={""} />
                   <Box css={styles.menus({ isActive: currentMenu == index })}>
                     <Box css={styles.menuItem}>编辑</Box>
-                    <Box onClick={deleteStage.bind(null,item.stage_id)} css={styles.menuItem}>删除</Box>
+                    <Box onClick={deleteStage.bind(null, item.stage_id)} css={styles.menuItem}>
+                      删除
+                    </Box>
                     <Box css={styles.menuItem}>锁定</Box>
                   </Box>
                 </IconButton>

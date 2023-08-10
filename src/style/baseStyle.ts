@@ -30,7 +30,7 @@ export const h16 = css`
   font-weight: 600;
 `;
 export const h15 = css`
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
 `;
 export const h14 = css`
