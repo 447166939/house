@@ -185,7 +185,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                       fontSize: "15px",
                       border: "1px solid #36404E"
                     }
-                  },
+                  }
                 }}
                 IconComponent={(props: any) => (
                   <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
@@ -195,16 +195,37 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 <MenuItem css={styles.roleMenuItem} value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={10}>Property Manager</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={20}>RealEstate Agent</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={30}>Architect</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={40}>Construction Contractor</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={50}>Tax Advisor / Tax Accountant</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={60}>LegalAdvisor / Lawyer)</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={70}>Private Investor</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={80}> Loaner & Lender</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={90}>oint Venture</MenuItem>
-                <MenuItem css={styles.roleMenuItem} value={100}>Other Service Provider</MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={10}>
+                  Property Manager
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={20}>
+                  RealEstate Agent
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={30}>
+                  Architect
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={40}>
+                  Construction Contractor
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={50}>
+                  Tax Advisor / Tax Accountant
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={60}>
+                  LegalAdvisor / Lawyer)
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={70}>
+                  Private Investor
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={80}>
+                  {" "}
+                  Loaner & Lender
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={90}>
+                  oint Venture
+                </MenuItem>
+                <MenuItem css={styles.roleMenuItem} value={100}>
+                  Other Service Provider
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl css={styles.roleControl}>
@@ -229,12 +250,24 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 <MenuItem css={styles.langMenuItem} value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem css={styles.langMenuItem} value={"ch"}>汉语</MenuItem>
-                <MenuItem css={styles.langMenuItem} value={"en"}>英语</MenuItem>
-                <MenuItem css={styles.langMenuItem} value={"fr"}>法语</MenuItem>
-                <MenuItem css={styles.langMenuItem} value={"rus"}>俄语</MenuItem>
-                <MenuItem css={styles.langMenuItem} value={"arabic"}>阿拉伯语</MenuItem>
-                <MenuItem css={styles.langMenuItem} value={"spanish"}>西班牙语</MenuItem>
+                <MenuItem css={styles.langMenuItem} value={"ch"}>
+                  汉语
+                </MenuItem>
+                <MenuItem css={styles.langMenuItem} value={"en"}>
+                  英语
+                </MenuItem>
+                <MenuItem css={styles.langMenuItem} value={"fr"}>
+                  法语
+                </MenuItem>
+                <MenuItem css={styles.langMenuItem} value={"rus"}>
+                  俄语
+                </MenuItem>
+                <MenuItem css={styles.langMenuItem} value={"arabic"}>
+                  阿拉伯语
+                </MenuItem>
+                <MenuItem css={styles.langMenuItem} value={"spanish"}>
+                  西班牙语
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl css={styles.roleControl}>
@@ -259,9 +292,15 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 <MenuItem css={styles.locationMenuItem} value="">
                   <em>None</em>
                 </MenuItem>
-                <MenuItem css={styles.locationMenuItem} value={10}>Ten</MenuItem>
-                <MenuItem css={styles.locationMenuItem} value={20}>Twenty</MenuItem>
-                <MenuItem css={styles.locationMenuItem} value={30}>Thirty</MenuItem>
+                <MenuItem css={styles.locationMenuItem} value={10}>
+                  Ten
+                </MenuItem>
+                <MenuItem css={styles.locationMenuItem} value={20}>
+                  Twenty
+                </MenuItem>
+                <MenuItem css={styles.locationMenuItem} value={30}>
+                  Thirty
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl css={styles.buttonControl}>

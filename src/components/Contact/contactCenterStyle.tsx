@@ -44,7 +44,7 @@ export const downIcon = css`
 `;
 export const selectInput = css`
   border: 1px solid #393a3f;
-  ${t18};
+  ${t14};
   ${white};
   width: 184px;
   height: 40px;
@@ -127,3 +127,6 @@ export const tagText = css`
   padding-right: 6.3px;
   border-radius: 4px;
 `;
+export const selectMenuItem=css`
+font-size:14px;
+`
