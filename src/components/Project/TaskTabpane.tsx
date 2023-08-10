@@ -9,13 +9,15 @@ import { RootState } from "@/store/index";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
 import { useSelectStage } from "@/hooks/useSelectStage";
 import { useProjectinfo } from "@/hooks/useProjectinfo";
+import {useCreateStage} from "@/hooks/useCreateStage";
 
 export interface ITaskTabpane {}
 const TaskTabpane: React.FC<ITaskTabpane> = () => {
   const { currentManageChannel, currentProject } = useSelector((state: RootState) => state.global);
   const config = useProjectConfig();
-  const projectInfo = useProjectinfo({ projectId: currentProject.project_id });
-  const stageApi = useSelectStage({ projectId: currentProject.project_id });
+  const projectInfo = useProjectinfo({ projectId: currentProject?.project_id });
+  const stageApi = useSelectStage({ projectId: currentProject?.project_id });
+  const createStageApi=useCreateStage({projectId:currentProject?.project_id})
   const data = {
     title: "此环节需要完成：",
     list: [
@@ -68,7 +70,7 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
     let process_stage = currentProject?.process_config?.process_stage;
     let processData = currentProject?.process_config?.process_list;
     let process_id = processData?.[currentManageChannel];
-    const stageNames = config.data?.stage_names;
+    const stageNames = Object.assign({},config.data?.stage_names,currentProject?.process_config?.stage_name);
     const stageIds = process_stage?.[process_id];
     console.log("process_id", process_id);
     console.log("stageIds", stageIds);
@@ -80,10 +82,15 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
     }));
     console.log("ret", ret);
     return ret;
-  }, [currentProject.project_id, currentManageChannel]);
+  }, [currentProject?.project_id, currentManageChannel]);
   const isChecked = (stageId: number) => {
     return projectInfo?.data?.stageSelect?.[stageId] == 2; //2选中1未选中
   };
+  const addStage=async (stage_name:string)=>{
+    let processData = currentProject?.process_config?.process_list;
+    let process_id = processData?.[currentManageChannel];
+    await createStageApi.mutate({project_id:currentProject.project_id,process_id,stage_name})
+  }
   return (
     <Box css={styles.container}>
       <Box css={styles.taskBox}>
@@ -96,7 +103,7 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
       <Box css={styles.taskDetail}>
         <Box css={styles.taskHead}>
           <Box css={styles.taskHeadTitle}>{data.title}</Box>
-          <IconButton css={styles.addBtn}>
+          <IconButton onClick={addStage.bind(null,'自定义小阶段')} css={styles.addBtn}>
             <Image css={styles.addIcon} src={addIcon} alt={""} />
           </IconButton>
         </Box>

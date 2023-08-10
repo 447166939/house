@@ -10,7 +10,7 @@ export const appBar = css`
   height: 60px;
   justify-content: center;
   ${t16};
-  position:relative;
+  position: relative;
 `;
 export const navBox = css`
   margin-left: 163px;

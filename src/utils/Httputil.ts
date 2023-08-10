@@ -35,7 +35,11 @@ service.interceptors.request.use((config) => {
 
 // response interceptor
 service.interceptors.response.use((response) => {
-  return response.data;
+  if(response.data.code==0){
+    return response.data;
+  }else {
+    throw new Error(response.data.message)
+  }
 }, err);
 
 // const http = {

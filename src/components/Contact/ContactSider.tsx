@@ -4,11 +4,11 @@ import * as styles from "./contactSiderStyle";
 import contactAdd from "@/assets/images/addPerson.png";
 import searchIcon from "@/assets/images/search.png";
 import Image from "next/image";
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/store/index";
 import mySetting from "@/assets/images/mysetting.png";
-import actions from '@/store/modules/global/action'
-const {setSettingdialogopen}=actions
+import actions from "@/store/modules/global/action";
+const { setSettingdialogopen } = actions;
 export interface IContactSider {}
 function AddIcon(props: any) {
   return (
@@ -27,10 +27,10 @@ function AddIcon(props: any) {
 const ContactSider: React.FC<IContactSider> = (props) => {
   const { contacts } = useSelector((state: RootState) => state.contact);
   const { userInfo } = useSelector((state: RootState) => state.global);
-  const dispatch=useDispatch()
-    const openSetting = () => {
-        dispatch(setSettingdialogopen(true));
-    };
+  const dispatch = useDispatch();
+  const openSetting = () => {
+    dispatch(setSettingdialogopen(true));
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.contactHead}>

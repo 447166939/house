@@ -77,28 +77,28 @@ const Sider: React.FC<ISider> = (props) => {
     hoverProject,
     projectConfig
   } = useSelector((state: RootState) => state.global);
-  const channels = useChannels({ projectId: currentProject.project_id });
-  const createChannel = useCreatechannel({ projectId: currentProject.project_id });
-  const createProcessApi = useCreateProcess({ projectId: currentProject.project_id });
+  const channels = useChannels({ projectId: currentProject?.project_id });
+  const createChannel = useCreatechannel({ projectId: currentProject?.project_id });
+  const createProcessApi = useCreateProcess({ projectId: currentProject?.project_id });
   const addChannel = async () => {
-    createChannel.mutate({ project_id: currentProject.project_id, channel_name: "自定义聊天频道" });
+    createChannel.mutate({ project_id: currentProject?.project_id, channel_name: "自定义聊天频道" });
   };
   const addProcess = async () => {
-    createProcessApi.mutate({ projectId: currentProject.project_id, processName: "自定义大阶段" });
+    createProcessApi.mutate({ projectId: currentProject?.project_id, processName: "自定义大阶段" });
   };
   useEffect(() => {
-    if (!currentProject.project_id) return;
-    queryClient.fetchQuery(["channels", currentProject.project_id], () =>
-      queryChannels({ projectId: currentProject.project_id })
+    if (!currentProject?.project_id) return;
+    queryClient.fetchQuery(["channels", currentProject?.project_id], () =>
+      queryChannels({ projectId: currentProject?.project_id })
     );
-    queryClient.fetchQuery(["projectInfo", currentProject.project_id], () =>
-      queryProjectinfo({ project_id: currentProject.project_id })
+    queryClient.fetchQuery(["projectInfo", currentProject?.project_id], () =>
+      queryProjectinfo({ project_id: currentProject?.project_id })
     );
-  }, [currentProject.project_id]);
+  }, [currentProject?.project_id]);
   useEffect(() => {
-    if (!currentProject.project_id) return;
-    queryClient.fetchQuery(["projectInfo", currentProject.project_id]);
-  }, [currentProject.project_id]);
+    if (!currentProject?.project_id) return;
+    queryClient.fetchQuery(["projectInfo", currentProject?.project_id]);
+  }, [currentProject?.project_id]);
   const [readonly, setReadonly] = useState(true);
   const dispatch = useDispatch();
   const siderRef = useRef<HTMLDivElement | null>(null);
@@ -201,7 +201,7 @@ const Sider: React.FC<ISider> = (props) => {
       <Box ref={siderRef} css={styles.resizer}></Box>
       <Box css={styles.toolbar}>
         <Box css={styles.projectContainer}>
-          {data?.list.map((item: any, index: number) => (
+          {data?.list?.map((item: any, index: number) => (
             <StyledBadge
               onClick={handleClickProject.bind(null, item)}
               onMouseLeave={blurProject}
@@ -266,7 +266,7 @@ const Sider: React.FC<ISider> = (props) => {
           </IconButton>
         </Box>
         <Box css={styles.processBox}>
-          {currentProject.process_config?.process_list?.map((item: any, index: number) => (
+          {currentProject?.process_config?.process_list?.map((item: any, index: number) => (
             <Box
               onClick={handleChangeManageChannel.bind(null, index)}
               css={styles.manItem({
