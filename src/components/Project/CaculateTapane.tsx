@@ -659,23 +659,13 @@ const CaculateTabpane: React.FC<ICaculateTabpane> = () => {
           </Box>
         ))}
       </Box>
-      <UsuryDialog
-          onClose={closeUsary}
-          rootStyle={styles.usaryModal}
-          visible={usaryModalVisible}
-      />
-      <FixedDialog
-          onClose={closeFixed}
-          rootStyle={styles.fixedModal}
-          visible={fixedModalVisible}
-      />
+      <UsuryDialog onClose={closeUsary} rootStyle={styles.usaryModal} visible={usaryModalVisible} />
+      <FixedDialog onClose={closeFixed} rootStyle={styles.fixedModal} visible={fixedModalVisible} />
       <OwnDialog rootStyle={styles.ownModal} visible={ownModalVisible} onClose={closeOwn} />
       <LendDialog rootStyle={styles.lendModal} visible={lendModalVisible} onClose={closeLend} />
       <BuyDialog rootStyle={styles.buyModal} visible={buyModalVisible} onClose={closeBuy} />
       <SellDialog visible={sellModalVisible} onClose={closeSell} rootStyle={styles.sellModal} />
-      <Box css={styles.caculateWrapper}>
-        {caculator}
-      </Box>
+      <Box css={styles.caculateWrapper}>{caculator}</Box>
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { h15, h30, h40, white, grey, t14, t15, t16 } from "./baseStyle";
+import {h15, h30, h40, white, grey, t14, t15, t16, h14} from "./baseStyle";
 export const container = css`
   background-color: #111113;
   width: 100vw;
@@ -17,9 +17,8 @@ export const leftBox = css`
 export const right = css`
   width: 50%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  overflow-y:auto;
+  padding:79px 0 100px 0;
 `;
 export const rightBox = css`
   width: 100%;
@@ -258,6 +257,28 @@ export const roleControl = css`
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
+`;
+export const locationControl=css`
+ margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+`
+export const countriesInput = css`
+  border: 1px solid #36404e;
+  border-radius: 4px;
+  ${h14};
+  ${grey};
+  width:470px;
+  height: 48px;
+  padding-left: 12px;
+  margin-left: 10.77px;
+  box-sizing: border-box;
+  background-color: #111113;
+  &.MuiMenuList-root {
+    background-color: #111113;
+  }
 `;
 export const roleInput = css`
   border: 1px solid #36404e;
