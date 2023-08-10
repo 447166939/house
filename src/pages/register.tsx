@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Image from "next/image";
 import * as styles from "@/style/registerStyle";
@@ -16,10 +16,11 @@ import {
 } from "@mui/material";
 import { useFormik, ErrorMessage } from "formik";
 import { useRegister } from "@/hooks/useRegister";
-import {useQueryCity,queryCity} from "@/hooks/useQueryCity";
-import {useQueryCountries,queryCountries} from "@/hooks/useQueryCountry";
-import {useQueryState,queryState} from "@/hooks/useQueryState";
-import {useQueryClient} from "@tanstack/react-query";
+import { useQueryCity, queryCity } from "@/hooks/useQueryCity";
+import { useQueryCountries, queryCountries } from "@/hooks/useQueryCountry";
+import { useQueryState, queryState } from "@/hooks/useQueryState";
+import {useQueryRoles,queryRoles} from "@/hooks/useRoles";
+import { useQueryClient } from "@tanstack/react-query";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const { mutate } = useRegister();
@@ -34,7 +35,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
       confirmPassword: "",
       roleId: "1",
       language: "en",
-      countryId:"",
+      countryId: "",
       stateId: "",
       cityId: ""
     },
@@ -53,21 +54,29 @@ const Register: React.FC<IRegisterProps> = (props) => {
       return errors;
     }
   });
-  const queryCityApi=useQueryCity(formik.values.stateId)
-  const queryCountriesApi=useQueryCountries();
-  const queryStateApi=useQueryState(formik.values.countryId)
-  useEffect(()=>{
+  const queryCityApi = useQueryCity(formik.values.stateId);
+  const queryCountriesApi = useQueryCountries();
+  const queryStateApi = useQueryState(formik.values.countryId);
+  const queryRolesApi=useQueryRoles();
+  useEffect(() => {
     queryClient.fetchQuery(["countries"], queryCountries);
-  },[])
-  useEffect(()=>{
-    if(!formik.values.countryId) return;
-    queryClient.fetchQuery(["state",formik.values.countryId], ()=>queryState(formik.values.countryId));
-  },[formik.values.countryId])
-  useEffect(()=>{
-    if(!formik.values.stateId) return;
-    queryClient.fetchQuery(["cities",formik.values.stateId], ()=>queryCity(formik.values.stateId));
-  },[formik.values.stateId])
-  console.log('querycountries',queryCityApi.data)
+  }, []);
+  useEffect(() => {
+    if (!formik.values.countryId) return;
+    queryClient.fetchQuery(["state", formik.values.countryId], () =>
+      queryState(formik.values.countryId)
+    );
+  }, [formik.values.countryId]);
+  useEffect(() => {
+    if (!formik.values.stateId) return;
+    queryClient.fetchQuery(["cities", formik.values.stateId], () =>
+      queryCity(formik.values.stateId)
+    );
+  }, [formik.values.stateId]);
+  useEffect(() => {
+    queryClient.fetchQuery(["roles"],queryRoles)
+  }, []);
+  console.log("querycountries", queryCityApi.data);
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>
@@ -213,7 +222,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 )}
                 onChange={formik.handleChange}
                 input={<InputBase css={styles.roleInput} name="roleId" id="role-select" />}>
-                <MenuItem css={styles.roleMenuItem} value="">
+                {
+                  queryRolesApi?.data?.map((item:any,index:number)=>(
+                      <MenuItem value={item.id} css={styles.roleMenuItem} key={item.id}>{item.name}</MenuItem>
+                  ))
+                }
+               {/* <MenuItem css={styles.roleMenuItem} value="">
                   <em>None</em>
                 </MenuItem>
                 <MenuItem css={styles.roleMenuItem} value={10}>
@@ -246,7 +260,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 </MenuItem>
                 <MenuItem css={styles.roleMenuItem} value={100}>
                   Other Service Provider
-                </MenuItem>
+                </MenuItem>*/}
               </Select>
             </FormControl>
             <FormControl css={styles.roleControl}>
@@ -294,82 +308,84 @@ const Register: React.FC<IRegisterProps> = (props) => {
             <FormControl css={styles.locationControl}>
               <Box css={styles.roleLabel}>Country</Box>
               <Select
-                  MenuProps={{
-                    PaperProps: {
-                      style: {
-                        backgroundColor: "#111113",
-                        color: "#A2AAB8",
-                        fontSize: "15px",
-                        border: "1px solid #36404E"
-                      }
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "#111113",
+                      color: "#A2AAB8",
+                      fontSize: "15px",
+                      border: "1px solid #36404E"
                     }
-                  }}
-                  IconComponent={(props: any) => (
-                      <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
-                  )}
-                  value={formik.values.countryId}
-                  onChange={formik.handleChange}
-                  input={<InputBase css={styles.countriesInput} name="countryId" id="location-select" />}>
-                {
-                  queryCountriesApi?.data?.map((item:any,index:number)=>(
-                      <MenuItem value={item.id} css={styles.locationMenuItem} key={item.id}>{item.fullName}</MenuItem>
-                  ))
-                }
+                  }
+                }}
+                IconComponent={(props: any) => (
+                  <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
+                )}
+                value={formik.values.countryId}
+                onChange={formik.handleChange}
+                input={
+                  <InputBase css={styles.countriesInput} name="countryId" id="location-select" />
+                }>
+                {queryCountriesApi?.data?.map((item: any, index: number) => (
+                  <MenuItem value={item.id} css={styles.locationMenuItem} key={item.id}>
+                    {item.fullName}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
             <FormControl css={styles.locationControl}>
               <Box css={styles.roleLabel}>State</Box>
               <Select
-                  MenuProps={{
-                    PaperProps: {
-                      style: {
-                        backgroundColor: "#111113",
-                        color: "#A2AAB8",
-                        fontSize: "15px",
-                        border: "1px solid #36404E"
-                      }
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "#111113",
+                      color: "#A2AAB8",
+                      fontSize: "15px",
+                      border: "1px solid #36404E"
                     }
-                  }}
-                  IconComponent={(props: any) => (
-                      <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
-                  )}
-                  value={formik.values.stateId}
-                  onChange={formik.handleChange}
-                  input={<InputBase css={styles.countriesInput} name="stateId" />}>
-                {
-                  queryStateApi?.data?.map((item:any,index:number)=>(
-                      <MenuItem value={item.id} css={styles.locationMenuItem} key={item.id}>{item.codeFull}</MenuItem>
-                  ))
-                }
+                  }
+                }}
+                IconComponent={(props: any) => (
+                  <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
+                )}
+                value={formik.values.stateId}
+                onChange={formik.handleChange}
+                input={<InputBase css={styles.countriesInput} name="stateId" />}>
+                {queryStateApi?.data?.map((item: any, index: number) => (
+                  <MenuItem value={item.id} css={styles.locationMenuItem} key={item.id}>
+                    {item.codeFull}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
             <FormControl css={styles.locationControl}>
               <Box css={styles.roleLabel}>City</Box>
               <Select
-                  MenuProps={{
-                    PaperProps: {
-                      style: {
-                        backgroundColor: "#111113",
-                        color: "#A2AAB8",
-                        fontSize: "15px",
-                        border: "1px solid #36404E"
-                      }
+                MenuProps={{
+                  PaperProps: {
+                    style: {
+                      backgroundColor: "#111113",
+                      color: "#A2AAB8",
+                      fontSize: "15px",
+                      border: "1px solid #36404E"
                     }
-                  }}
-                  IconComponent={(props: any) => (
-                      <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
-                  )}
-                  value={formik.values.cityId}
-                  onChange={formik.handleChange}
-                  input={<InputBase css={styles.countriesInput} name="cityId" />}>
-                {
-                  queryCityApi?.data?.map((item:any,index:number)=>(
-                      <MenuItem value={item.id} css={styles.locationMenuItem} key={item.id}>{item.name}</MenuItem>
-                  ))
-                }
+                  }
+                }}
+                IconComponent={(props: any) => (
+                  <Image {...props} css={styles.downIcon} src={downIcon} alt={""} />
+                )}
+                value={formik.values.cityId}
+                onChange={formik.handleChange}
+                input={<InputBase css={styles.countriesInput} name="cityId" />}>
+                {queryCityApi?.data?.map((item: any, index: number) => (
+                  <MenuItem value={item.id} css={styles.locationMenuItem} key={item.id}>
+                    {item.name}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
-           {/* <FormControl css={styles.roleControl}>
+            {/* <FormControl css={styles.roleControl}>
               <Box css={styles.roleLabel}>Location</Box>
               <Select
                 MenuProps={{
