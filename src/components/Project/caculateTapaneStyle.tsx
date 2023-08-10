@@ -12,31 +12,37 @@ export const usaryModal = css`
   left: 0;
   right: 0;
   margin: auto;
+  position:fixed;
 `;
 export const fixedModal = css`
   left: 0;
   right: 0;
   margin: auto;
+  position:fixed;
 `;
 export const ownModal = css`
   left: 0;
   right: 0;
   margin: auto;
+  position:fixed;
 `;
 export const lendModal = css`
   left: 0;
   right: 0;
   margin: auto;
+  position:fixed;
 `;
 export const buyModal = css`
   left: 0;
   right: 0;
   margin: auto;
+  position:fixed;
 `;
 export const sellModal = css`
   left: 0;
   right: 0;
   margin: auto;
+  position:fixed;
 `;
 export const caculateWrapper = css`
   position: relative;
