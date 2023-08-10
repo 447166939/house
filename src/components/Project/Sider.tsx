@@ -44,11 +44,11 @@ const CustomSwitch = styled(Switch)(({ theme }) => ({
       }
     },
     "& .MuiSwitch-thumb": {
-      color: "#00E1FE"
+      color: "#313136"
     }
   },
   "& .MuiSwitch-track": {
-    backgroundColor: "#333"
+    backgroundColor: "#000"
   }
 }));
 const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({

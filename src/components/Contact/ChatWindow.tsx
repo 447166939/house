@@ -10,9 +10,9 @@ export interface IChatWindow {}
 const CustomSwitch = styled(Switch)(({ theme }) => ({
   "& .MuiSwitch-switchBase": {
     "&.Mui-checked": {
-      color: "#000",
+      color: "#00E1FE",
       "& + .MuiSwitch-track": {
-        backgroundColor: "#000",
+        backgroundColor: "#00E1FE",
         opacity: 1
       }
     },
