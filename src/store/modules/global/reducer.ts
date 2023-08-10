@@ -78,7 +78,7 @@ export const defaultState: GlobalStateType = {
     { name: "6", id: 6, title: "售后事宜", status: 0 },
     { name: "7", id: 7, title: "被动收入管理", status: 0 }
   ],
-  currentManageChannel: -1,
+  currentManageChannel: 0,
   currentPannel: 0,
   pannels: [
     { text: "阶段子任务", id: 1 },

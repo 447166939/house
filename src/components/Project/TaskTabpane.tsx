@@ -86,7 +86,7 @@ const TaskTabpane: React.FC<ITaskTabpane> = () => {
     }));
     console.log("ret", ret);
     return ret;
-  }, [currentProject?.project_id, currentManageChannel]);
+  }, [currentProject?.project_id, currentManageChannel,Object.keys(currentProject?.process_config?.stage_name||{}).length]);
   const isChecked = (stageId: number) => {
     return projectInfo?.data?.stageSelect?.[stageId] == 2; //2选中1未选中
   };
