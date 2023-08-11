@@ -3,7 +3,14 @@ import Router from "next/router";
 
 // 创建 axios 实例
 const baseUrl = "/api";
-const whiteList = ["/user/login", "/user/register","/role/list","/common/area/countries","/common/sms/sendCode","/common/email/sendCode"];
+const whiteList = [
+  "/user/login",
+  "/user/register",
+  "/role/list",
+  "/common/area/countries",
+  "/common/sms/sendCode",
+  "/common/email/sendCode"
+];
 const service = axios.create({
   baseURL: baseUrl,
   timeout: 60000 // 请求超时时间
@@ -28,9 +35,8 @@ service.interceptors.request.use((config) => {
     Router.push("/login");
   }
   if (token && !whiteList.includes(config.url!)) {
-    if(config.url?.indexOf('/common/area/states')!=-1)
-      return config;
-    if(config.url?.indexOf('/common/area/cities')!=-1)return config;
+    if (config.url?.indexOf("/common/area/states") != -1) return config;
+    if (config.url?.indexOf("/common/area/cities") != -1) return config;
     config.headers["accessToken"] = token; // 让每个请求携带自定义 token 请根据实际情况自行修改
   }
   return config;

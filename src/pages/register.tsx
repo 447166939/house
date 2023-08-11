@@ -20,10 +20,10 @@ import { useQueryCity, queryCity } from "@/hooks/useQueryCity";
 import { useQueryCountries, queryCountries } from "@/hooks/useQueryCountry";
 import { useQueryState, queryState } from "@/hooks/useQueryState";
 import { useQueryRoles, queryRoles } from "@/hooks/useRoles";
-import {useSendsms,sendSms} from "@/hooks/useSendSms";
-import {useSendEmail,sendEmail} from "@/hooks/useSendEmail";
+import { useSendsms, sendSms } from "@/hooks/useSendSms";
+import { useSendEmail, sendEmail } from "@/hooks/useSendEmail";
 import { useQueryClient } from "@tanstack/react-query";
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const { mutate } = useRegister();
@@ -61,8 +61,8 @@ const Register: React.FC<IRegisterProps> = (props) => {
   const queryCountriesApi = useQueryCountries();
   const queryStateApi = useQueryState(formik.values.countryId);
   const queryRolesApi = useQueryRoles();
-  const sendSmsApi=useSendsms();
-  const sendEmailApi=useSendEmail();
+  const sendSmsApi = useSendsms();
+  const sendEmailApi = useSendEmail();
   useEffect(() => {
     queryClient.fetchQuery(["countries"], queryCountries);
   }, []);
@@ -81,13 +81,13 @@ const Register: React.FC<IRegisterProps> = (props) => {
   useEffect(() => {
     queryClient.fetchQuery(["roles"], queryRoles);
   }, []);
-  const handleSendsms=async()=>{
-const uuid=uuidv4()
-    await sendSmsApi.mutate({uuid:"",phone:formik.values.mobile})
-  }
-  const handleSendEmail=async ()=>{
-    await sendEmailApi.mutate({uuid:"",email:formik.values.email})
-  }
+  const handleSendsms = async () => {
+    const uuid = uuidv4();
+    await sendSmsApi.mutate({ uuid: "", phone: formik.values.mobile });
+  };
+  const handleSendEmail = async () => {
+    await sendEmailApi.mutate({ uuid: "", email: formik.values.email });
+  };
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>
@@ -118,7 +118,10 @@ const uuid=uuidv4()
                 })}
                 endAdornment={
                   <InputAdornment position="end">
-                    <Button onClick={handleSendEmail} css={styles.sendCaptBtn} variant={"contained"}>
+                    <Button
+                      onClick={handleSendEmail}
+                      css={styles.sendCaptBtn}
+                      variant={"contained"}>
                       发送邮箱验证
                     </Button>
                   </InputAdornment>
