@@ -26,6 +26,7 @@ import {
 import { useLogin } from "@/hooks/useLogin";
 import { useQueryLogintype, queryLogintype } from "@/hooks/useQueryLoginType";
 import { useQueryClient } from "@tanstack/react-query";
+import {queryPk} from "@/hooks/useQueryPk";
 
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
@@ -42,8 +43,14 @@ const Register: React.FC<IRegisterProps> = (props) => {
       password: ""
     },
     onSubmit: async (values) => {
-      console.log("values", values);
-      await mutate(values);
+      const {username,password}=values
+      let key: string = await queryClient.fetchQuery(["pk"],queryPk);
+      const JSEncrypt = (await import("jsencrypt")).default;
+      let encrypt = new JSEncrypt();
+      encrypt.setPublicKey(key);
+      let cipherPass = encrypt.encrypt(password) as string;
+      cipherPass = cipherPass.replace(/\+/g, "%2B");
+      await mutate({username,password:cipherPass});
     }
   });
   useEffect(() => {

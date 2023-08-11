@@ -11,7 +11,7 @@ const whiteList = [
   "/common/sms/sendCode",
   "/common/email/sendCode",
   "/oauth",
-    "/user/login/pk"
+  "/user/login/pk"
 ];
 const service = axios.create({
   baseURL: baseUrl,
