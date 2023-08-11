@@ -19,8 +19,11 @@ import { useRegister } from "@/hooks/useRegister";
 import { useQueryCity, queryCity } from "@/hooks/useQueryCity";
 import { useQueryCountries, queryCountries } from "@/hooks/useQueryCountry";
 import { useQueryState, queryState } from "@/hooks/useQueryState";
-import {useQueryRoles,queryRoles} from "@/hooks/useRoles";
+import { useQueryRoles, queryRoles } from "@/hooks/useRoles";
+import {useSendsms,sendSms} from "@/hooks/useSendSms";
+import {useSendEmail,sendEmail} from "@/hooks/useSendEmail";
 import { useQueryClient } from "@tanstack/react-query";
+import {v4 as uuidv4} from 'uuid';
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const { mutate } = useRegister();
@@ -57,7 +60,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
   const queryCityApi = useQueryCity(formik.values.stateId);
   const queryCountriesApi = useQueryCountries();
   const queryStateApi = useQueryState(formik.values.countryId);
-  const queryRolesApi=useQueryRoles();
+  const queryRolesApi = useQueryRoles();
+  const sendSmsApi=useSendsms();
+  const sendEmailApi=useSendEmail();
   useEffect(() => {
     queryClient.fetchQuery(["countries"], queryCountries);
   }, []);
@@ -74,9 +79,15 @@ const Register: React.FC<IRegisterProps> = (props) => {
     );
   }, [formik.values.stateId]);
   useEffect(() => {
-    queryClient.fetchQuery(["roles"],queryRoles)
+    queryClient.fetchQuery(["roles"], queryRoles);
   }, []);
-  console.log("querycountries", queryCityApi.data);
+  const handleSendsms=async()=>{
+const uuid=uuidv4()
+    await sendSmsApi.mutate({uuid:"",phone:formik.values.mobile})
+  }
+  const handleSendEmail=async ()=>{
+    await sendEmailApi.mutate({uuid:"",email:formik.values.email})
+  }
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>
@@ -107,7 +118,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 })}
                 endAdornment={
                   <InputAdornment position="end">
-                    <Button css={styles.sendCaptBtn} variant={"contained"}>
+                    <Button onClick={handleSendEmail} css={styles.sendCaptBtn} variant={"contained"}>
                       发送邮箱验证
                     </Button>
                   </InputAdornment>
@@ -142,7 +153,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 css={styles.telInput}
                 endAdornment={
                   <InputAdornment position="end">
-                    <Button css={styles.sendCaptBtn} variant={"contained"}>
+                    <Button onClick={handleSendsms} css={styles.sendCaptBtn} variant={"contained"}>
                       发送验证码
                     </Button>
                   </InputAdornment>
@@ -222,12 +233,12 @@ const Register: React.FC<IRegisterProps> = (props) => {
                 )}
                 onChange={formik.handleChange}
                 input={<InputBase css={styles.roleInput} name="roleId" id="role-select" />}>
-                {
-                  queryRolesApi?.data?.map((item:any,index:number)=>(
-                      <MenuItem value={item.id} css={styles.roleMenuItem} key={item.id}>{item.name}</MenuItem>
-                  ))
-                }
-               {/* <MenuItem css={styles.roleMenuItem} value="">
+                {queryRolesApi?.data?.map((item: any, index: number) => (
+                  <MenuItem value={item.id} css={styles.roleMenuItem} key={item.id}>
+                    {item.name}
+                  </MenuItem>
+                ))}
+                {/* <MenuItem css={styles.roleMenuItem} value="">
                   <em>None</em>
                 </MenuItem>
                 <MenuItem css={styles.roleMenuItem} value={10}>

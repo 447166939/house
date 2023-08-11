@@ -3,6 +3,7 @@ declare global {
   declare module "*.png";
 }
 declare module "qs";
+declare module "uuid";
 declare module "@mui/material/styles" {
   export { createTheme } from "@mui/styles";
   interface Theme {
