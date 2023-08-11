@@ -24,15 +24,15 @@ import {
   Fab
 } from "@mui/material";
 import { useLogin } from "@/hooks/useLogin";
-import {useQueryLogintype,queryLogintype} from "@/hooks/useQueryLoginType";
-import {useQueryClient} from "@tanstack/react-query";
+import { useQueryLogintype, queryLogintype } from "@/hooks/useQueryLoginType";
+import { useQueryClient } from "@tanstack/react-query";
 
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const [role, setRole] = useState("");
   const { mutate } = useLogin();
   const queryClient = useQueryClient();
-  const queryLogintypeApi=useQueryLogintype();
+  const queryLogintypeApi = useQueryLogintype();
   const handleChange = (event: SelectChangeEvent) => {
     setRole(event.target.value);
   };
@@ -46,9 +46,9 @@ const Register: React.FC<IRegisterProps> = (props) => {
       await mutate(values);
     }
   });
-  useEffect(()=>{
-    queryClient.fetchQuery(["loginType"],queryLogintype);
-  },[])
+  useEffect(() => {
+    queryClient.fetchQuery(["loginType"], queryLogintype);
+  }, []);
   return (
     <Box css={styles.container}>
       <Box css={styles.leftBox}>
