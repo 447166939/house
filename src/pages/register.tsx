@@ -22,12 +22,14 @@ import { useQueryState, queryState } from "@/hooks/useQueryState";
 import { useQueryRoles, queryRoles } from "@/hooks/useRoles";
 import { useSendsms, sendSms } from "@/hooks/useSendSms";
 import { useSendEmail, sendEmail } from "@/hooks/useSendEmail";
+import {useQueryPk,queryPk} from "@/hooks/useQueryPk";
 import { useQueryClient } from "@tanstack/react-query";
 import { v4 as uuidv4 } from "uuid";
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
   const { mutate } = useRegister();
   const queryClient = useQueryClient();
+  const queryPkApi=useQueryPk();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -43,8 +45,17 @@ const Register: React.FC<IRegisterProps> = (props) => {
       cityId: ""
     },
     onSubmit: async (values) => {
-      console.log("errors", formik);
-      await mutate(values);
+      const {countryId,password,confirmPassword,...submitValues}=values
+      let key:string=await queryClient.fetchQuery(['pk'])
+      const JSEncrypt = (await import('jsencrypt')).default
+      let encrypt=new JSEncrypt()
+      encrypt.setPublicKey(key)
+      let cipherPass=encrypt.encrypt(password) as (string)
+      cipherPass=cipherPass.replace(/\+/g,'%2B')
+      let cipherConfirmPass=encrypt.encrypt(confirmPassword) as (string)
+      cipherConfirmPass=cipherConfirmPass.replace(/\+/g,'%2B')
+      await mutate({password:cipherPass,confirmPassword:cipherConfirmPass,...submitValues});
+      console.log('window',window)
     },
     validate: (values) => {
       let errors: any = {};
@@ -81,9 +92,13 @@ const Register: React.FC<IRegisterProps> = (props) => {
   useEffect(() => {
     queryClient.fetchQuery(["roles"], queryRoles);
   }, []);
+  useEffect(()=>{
+    let str=sendSmsApi?.data?.replace(/\D+/g, "");
+    formik.setFieldValue('mobileCode',str);
+  },[sendSmsApi.data])
   const handleSendsms = async () => {
     const uuid = uuidv4();
-    await sendSmsApi.mutate({ uuid: "", phone: formik.values.mobile });
+    await queryClient.fetchQuery(['sendsms'],()=>sendSms({uuid:"",phone:formik.values.mobile}))
   };
   const handleSendEmail = async () => {
     await sendEmailApi.mutate({ uuid: "", email: formik.values.email });

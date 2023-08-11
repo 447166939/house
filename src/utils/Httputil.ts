@@ -10,7 +10,8 @@ const whiteList = [
   "/common/area/countries",
   "/common/sms/sendCode",
   "/common/email/sendCode",
-  "/oauth"
+  "/oauth",
+    "/user/login/pk"
 ];
 const service = axios.create({
   baseURL: baseUrl,
