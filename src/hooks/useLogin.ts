@@ -1,7 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { axios } from "@/utils/Httputil";
 import Router from "next/router";
-import { AxiosResponse } from "axios";
 const login = async (params: any) => {
   console.log("params", params);
   const response = await axios.post("/user/login", params).then((res: any) => {

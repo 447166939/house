@@ -26,31 +26,27 @@ import {
 import { useLogin } from "@/hooks/useLogin";
 import { useQueryLogintype, queryLogintype } from "@/hooks/useQueryLoginType";
 import { useQueryClient } from "@tanstack/react-query";
-import {queryPk} from "@/hooks/useQueryPk";
+import { queryPk } from "@/hooks/useQueryPk";
 
 export interface IRegisterProps {}
 const Register: React.FC<IRegisterProps> = (props) => {
-  const [role, setRole] = useState("");
   const { mutate } = useLogin();
   const queryClient = useQueryClient();
   const queryLogintypeApi = useQueryLogintype();
-  const handleChange = (event: SelectChangeEvent) => {
-    setRole(event.target.value);
-  };
   const formik = useFormik({
     initialValues: {
       username: "",
       password: ""
     },
     onSubmit: async (values) => {
-      const {username,password}=values
-      let key: string = await queryClient.fetchQuery(["pk"],queryPk);
+      const { username, password } = values;
+      let key: string = await queryClient.fetchQuery(["pk"], queryPk);
       const JSEncrypt = (await import("jsencrypt")).default;
       let encrypt = new JSEncrypt();
       encrypt.setPublicKey(key);
       let cipherPass = encrypt.encrypt(password) as string;
       cipherPass = cipherPass.replace(/\+/g, "%2B");
-      await mutate({username,password:cipherPass});
+      await mutate({ username, password: cipherPass });
     }
   });
   useEffect(() => {

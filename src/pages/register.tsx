@@ -46,7 +46,7 @@ const Register: React.FC<IRegisterProps> = (props) => {
     },
     onSubmit: async (values) => {
       const { countryId, password, confirmPassword, ...submitValues } = values;
-      let key: string = await queryClient.fetchQuery(["pk"],queryPk);
+      let key: string = await queryClient.fetchQuery(["pk"], queryPk);
       const JSEncrypt = (await import("jsencrypt")).default;
       let encrypt = new JSEncrypt();
       encrypt.setPublicKey(key);

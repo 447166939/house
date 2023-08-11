@@ -1,24 +1,29 @@
-import React, { ReactElement, useEffect } from "react";
-import Layout from "@/components/layout";
-import { NextPage } from "next";
+import React from "react";
 import { Box } from "@mui/material";
-import ContactHeader from "@/components/Contact/ContactHeader";
-import Project from "@/components/Contact/Project";
-import ContactCenter from "@/components/Contact/ContactCenter";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/index";
-import * as styles from "@/components/Contact/contactStyle";
-export type IPage = NextPage & { getLayout: (props: ReactElement) => ReactElement };
-const Index: IPage = (props) => {
-  const { currentTab } = useSelector((state: RootState) => state.contact);
+import Header from "@/components/Home/Header";
+import Banner from "@/components/Home/Banner";
+import * as styles from "@/components/Home/homeStyle";
+import Section1 from "@/components/Home/Section1";
+import Section2 from "@/components/Home/Section2";
+import Section3 from "@/components/Home/Section3";
+import Section4 from "@/components/Home/Section4";
+import Section5 from "@/components/Home/Section5";
+import Section6 from "@/components/Home/Section6";
+import Footer from "@/components/Home/Footer";
+export interface IHome {}
+const Home: React.FC<IHome> = () => {
   return (
     <Box css={styles.container}>
-      <ContactHeader />
-      {[<Project />, <ContactCenter />][currentTab]}
+      <Header />
+      <Banner />
+      <Section1 />
+      <Section2 />
+      <Section3 />
+      <Section4 />
+      <Section5 />
+      <Section6 />
+      <Footer />
     </Box>
   );
 };
-export default Index;
-Index.getLayout = function getLayout(page: ReactElement) {
-  return <Layout>{page}</Layout>;
-};
+export default Home;
