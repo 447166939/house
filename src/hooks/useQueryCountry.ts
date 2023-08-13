@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { axios } from "@/utils/Httputil";
 const queryCountries = async () => {
-  const response = await axios.get("/common/area/countries");
+  const response = await axios.get("/common/region/countries");
   return response.data;
 };
 

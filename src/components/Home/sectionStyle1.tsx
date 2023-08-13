@@ -4,9 +4,9 @@ export const container = css`
   position: relative;
   display: flex;
   flex-direction: column;
-  height:825px;
+  height: 825px;
   background: url(/section1.webp) no-repeat center;
-  background-size:cover;
+  background-size: cover;
 `;
 export const title = css`
   position: relative;

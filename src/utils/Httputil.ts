@@ -7,7 +7,7 @@ const whiteList = [
   "/user/login",
   "/user/register",
   "/role/list",
-  "/common/area/countries",
+  "/common/region/countries",
   "/common/sms/sendCode",
   "/common/email/sendCode",
   "/oauth",
